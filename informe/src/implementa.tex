@@ -1,0 +1,25 @@
+\documentclass[../informe.tex]{subfiles}
+\graphicspath{{\subfix{../out/}}}
+\begin{document}
+
+\section{Detalles de implementación}\label{sec:implementacion}
+% Explicaciones sobre la implementación interna de algunas clases que consideren que puedan llegar a resultar interesantes.
+
+\subsection{Aliquam vel eros id magna vestibulum rhoncus}
+Sed lorem diam, imperdiet in suscipit sed, lacinia id est. Duis ac turpis at velit tristique dictum ac in augue. Etiam porttitor purus sed nunc scelerisque aliquam. In hac habitasse platea dictumst. Mauris non mauris id lorem iaculis elementum eget quis mi. Aliquam scelerisque porta arcu sed tempus. Duis eleifend euismod laoreet. Aliquam mattis lectus et massa placerat feugiat. Nam mi nisl, rhoncus vel nibh vitae, ullamcorper blandit nibh. Curabitur purus lorem, sollicitudin ut erat eu, pharetra condimentum ante. Nullam imperdiet et neque et tempus. Sed sollicitudin velit molestie pretium iaculis. Praesent eu tincidunt erat. Nulla non fringilla nisi, vel hendrerit felis. Maecenas eget tempor neque.
+
+\begin{alternate}[breaklines=true,numbers=left,xleftmargin=5mm]
+| rango |
+rango := (2 to: 20) asOrderedCollection.
+Transcript show: rango ; cr.
+rango copy do: [ :unNumero | unNumero isPrime ifFalse: [ rango remove: unNumero ] ].
+Transcript show: rango.
+\end{alternate}
+
+\subsection{Proin sodales leo dapibus sapien fermentum}
+Quisque tempus, tortor et convallis interdum, ipsum leo tempus ipsum, in molestie tortor arcu sit amet tellus. Praesent fermentum hendrerit nulla. In maximus ornare maximus. Nullam consectetur placerat enim sit amet lacinia. Etiam pellentesque tellus consectetur hendrerit iaculis. Sed non laoreet felis.
+
+
+% FIN DEL DOCUMENTO (SECCIÓN DETALLES DE IMPLEMETNACIÓN)
+% NO BORRAR POR ACCIDENTE NI ESCRIBIR COSAS ABAJO
+\end{document}
