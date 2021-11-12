@@ -1,0 +1,77 @@
+@startuml CUT_A01
+hide footbox
+!pragma teoz true
+skinparam maxMessageSize 200
+
+actor JUnit
+
+participant ":XXXXTest" as T
+participant "xxxx_a:XXXX_A" as a
+participant "xxxx_b:XXXX_B" as b
+participant "xxxx_c:XXXX_C" as c
+
+JUnit -> T : test01dadoAlgo LanzaError()
+activate T
+
+T -> a ** : new
+
+T -> a : hacerUnaCosa
+activate a
+a -> b ** : new
+a -> b : unaCosa esUnaCosa()
+activate b
+return xxxx_b
+a -> a : sarasa(xxxx_b)
+' END hacerUnaCosa
+return
+
+T ->  a : otraCosa(xxxx_b,3)
+activate a
+a -> c ** : new
+ref over a
+    CU_A01
+end ref
+' END otraCosa
+return 
+
+T-> T : shouldRaise(aBlock,UnError)
+activate T
+T ->  a : algoQueFalla (DatoMalo)
+activate a
+
+a -> a : hacerUnaCosa(DatoMalo)
+
+loop detect
+activate a
+
+a -> c : es(DatoMalo)
+activate c
+return false
+end
+deactivate a
+deactivate a
+a -[#Red]-> T : <color:Red>UnError</color>
+deactivate T
+
+return
+deactivate T
+
+@enduml
+
+@startuml CUT_B01
+hide footbox
+
+participant ":XXXXTest" as T
+participant "carpincho:XXXX_B" as b
+participant "animalito:IXXXX" as i
+
+T -> b : Cosa(animalito)
+activate b
+b -> i : OtraCosa()
+activate i
+return 28
+b -> b : _agregar(animalito,28)
+' END registrarChoferDeAutoConTarifaInicial
+return
+
+@enduml
