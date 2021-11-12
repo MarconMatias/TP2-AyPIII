@@ -20,6 +20,20 @@ Transcript show: rango.
 Quisque tempus, tortor et convallis interdum, ipsum leo tempus ipsum, in molestie tortor arcu sit amet tellus. Praesent fermentum hendrerit nulla. In maximus ornare maximus. Nullam consectetur placerat enim sit amet lacinia. Etiam pellentesque tellus consectetur hendrerit iaculis. Sed non laoreet felis.
 
 
+\begin{lstlisting}[caption=Código XXXX]
+$$@Test
+public void test01NoSePuedeDividirPorCero() {
+    Numero numero1 = new Numero(1);
+    Numero numero2 = new Numero(0);
+    
+    assertThrows(NoSePuedeDividirPorCeroException.class,
+                ()->{
+                    numero1.dividido(numero2);
+                });
+}
+\end{lstlisting}
+
+
 % FIN DEL DOCUMENTO (SECCIÓN DETALLES DE IMPLEMETNACIÓN)
 % NO BORRAR POR ACCIDENTE NI ESCRIBIR COSAS ABAJO
 \end{document}
