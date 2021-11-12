@@ -21,3 +21,21 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# archivos temporales de texlive
+informe/*.aux
+informe/*.fdb_latexmk
+informe/*.fls
+informe/*.log
+informe/*.synctex.gz
+informe/*.synctex(busy)
+informe/*.toc
+informe/src/*.aux
+informe/src/*.fdb_latexmk
+informe/src/*.fls
+informe/src/*.log
+informe/src/*.synctex.gz
+informe/src/*.synctex(busy)
+informe/src/*.toc
+# Sólo actualizaremos el pdf principal, ignoramos los de las secciones:
+informe/src/*.pdf
