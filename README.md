@@ -6,7 +6,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 
 ## Grupo {Michis y Carpinchos}
 
-* **Integrante 1** - [integrante1](https://github.com/integrante1)
+* **106298** - [MarconMatias](https://github.com/MarconMatias)
 * **103156** - [b-haberkon](https://github.com/b-haberkon)
 * **105966** - [AgusCarpincho](https://github.com/AgusCarpincho)
 * **106713** - [Desencuentro](https://github.com/Desencuentro)
