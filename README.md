@@ -9,8 +9,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **Integrante 1** - [integrante1](https://github.com/integrante1)
 * **103156** - [b-haberkon](https://github.com/b-haberkon)
 * **105966** - [AgusCarpincho](https://github.com/AgusCarpincho)
-* **Integrante 4** - [integrante4](https://github.com/integrante4)
-* **Integrante 5** - [integrante5](https://github.com/integrante5)
+* **106713** - [Desencuentro](https://github.com/Desencuentro)
 
 Corrector: **{Corrector}**
 
