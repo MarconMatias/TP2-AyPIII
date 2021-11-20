@@ -1,0 +1,132 @@
+@startuml rangosPolicia
+class Policia {}
+Policia "1" *-- "1" RangoPolicia
+
+
+abstract class RangoPolicia {}
+
+abstract class RangoItem
+RangoPolicia "1" *-- "1" RangoItem
+abstract class RangoPista
+RangoPolicia "1" *-- "1" RangoPista
+abstract class TiempoDeViaje
+RangoPolicia "1" *-- "1" TiempoDeViaje
+
+
+@enduml
+
+@startuml herenciaRangoPolicia
+class Policia {}
+abstract class RangoPolicia {}
+Policia "1" *-- "1" RangoPolicia
+class RangoNovato extends RangoPolicia {}
+class RangoDetective extends RangoPolicia {}
+class RangoInvestigador extends RangoPolicia {}
+class RangoSargento extends RangoPolicia {}
+
+@enduml
+
+@startuml herenciaRangoItem
+class Policia {}
+abstract class RangoPolicia {}
+Policia "1" *-- "1" RangoPolicia
+RangoPolicia "1" *-- "1" RangoItem
+abstract class RangoItem
+class RangoItemComun extends RangoItem
+class RangoItemValioso extends RangoItem
+class RangoItemMuyValioso extends RangoItem
+@enduml
+
+@startuml herenciaEdificio
+
+abstract class Edificio {
+    - accionAdicional :IAccion
+    ~ {abstract} pistaAlAzar(siguiente:Ciudad)
+    ~ {abstract} nombreTesigoAlAzar()
+    + Edificio(accionPrimeraVez:IAccion)
+    + setTestimonio(testimonio:Testimonio)
+    + getTestimonio() : Testimonio
+    + visitar()
+}
+
+class Bolsa extends Edificio {
+    + pistaAlAzar()
+    }
+class Banco extends Edificio {
+    + pistaAlAzar()
+    }
+class Biblioteca extends Edificio {
+    + pistaAlAzar()
+    }
+class Puerto extends Edificio {
+    + pistaAlAzar()
+    }
+class Aeropuerto extends Edificio {
+    + pistaAlAzar()
+    }
+Bolsa o-r- Banco
+Aeropuerto o-r- Puerto
+Biblioteca .[hidden]r. Aeropuerto
+Biblioteca .[hidden]l. Banco
+
+@enduml
+
+@startuml Testimonio
+title Creación de testimonio
+
+class Ciudad {
+    + Ciudad(nombre,data:string[])
+    + getNombre():String
+    + getDetalle():String
+    ~ edificiosAlAzar(cantidad:Number)
+    ~ pistaAlAzar():String
+}
+
+class CiudadVisitada {
+    - estadoVisitas : IEstadoVisitas
+    + CiudadVisitada(esta:Ciudad,ladron:Ladron,siguiente:Ciudad)
+    + getNombre():String
+    + getDetalle():String
+    + getEdificios():List<Edificio>
+    + visitarEdificio(edificio:Edificio)
+}
+
+
+abstract class Edificio {
+    - accionAdicional :IAccion
+    ~ {abstract} pistaAlAzar(siguiente:Ciudad)
+    ~ {abstract} nombreTesigoAlAzar()
+    + Edificio(accionPrimeraVez:IAccion)
+    + setTestimonio(testimonio:Testimonio)
+    + getTestimonio() : Testimonio
+    + visitar()
+}
+
+class Testimonio {
+    - nombreTestigo : String
+    - pista : String
+    + Testimonio(edificio:Edificio, ladron:Ladron, siguiente:Ciudad)
+    + getNombreTestigo() : String
+    + getPista(): String
+}
+
+class Ladron {
+    ~ pistaAlAzar()
+}
+CiudadVisitada ..u.> Ciudad
+CiudadVisitada "0..1" o--- "1" Ciudad
+CiudadVisitada "1" *-r--- "3" Edificio
+Edificio "1" *-u- "0..1" Testimonio
+Testimonio ..> Edificio
+Testimonio ..> Ciudad
+Testimonio .r.> Ladron
+CiudadVisitada ...> Testimonio
+
+note left of Testimonio
+    this.nombreTestigo=edificio.nombreTestigoAlAzar()
+    this.pista = edificio.pistaAlAzar(edificio)
+    this.pista += ladron.pistaAlAzar()
+
+end note
+@enduml
+
