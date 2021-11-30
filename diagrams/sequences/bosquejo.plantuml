@@ -1,0 +1,211 @@
+
+@startuml CU_01
+hide footbox
+!pragma teoz true
+skinparam maxMessageSize 200
+
+actor UI
+participant "juego:Juego" as j
+participant "Policia" as A
+participant "agente:Policia" as a
+participant "Item" as I
+participant "ciudades:MapaCiudades" as c
+
+UI -> j ** : iniciar
+activate j
+    j -> A ++: cargarLista()
+    return policias[]
+    j -> I ++: cargarLista()
+    return items[]
+    j -> c ** : new MapaCiudades()
+    return ciudades
+return
+
+@enduml
+
+@startuml CU_03
+hide footbox
+!pragma teoz true
+skinparam maxMessageSize 200
+
+actor UI
+participant "mision:Misión" as m
+participant "agente:Policia" as a
+participant "rangoItem:IRangoItem" as ri
+participant "listaItems:List<Item>" as l
+participant "item:Item" as i
+participant "ciudades:MapaCiudades" as c
+participant "ruta:List<Ciudad>" as r
+participant "calendario:Calendario" as cal
+UI -> m ** : new(agente,ciudades)
+activate m
+    m -> a ++: itemRobable()
+        a -> ri ++: itemAlAzar()
+            ri -> l ++: obtener()
+            return data
+            ri -> i **: new Item(data)
+            return item
+        return item
+
+    m -> i ++: rutaLadron(ciudades)
+        i -> r: ultima = add(this.ciudad)
+            loop this.largo-1 veces
+                i -> c ++: ubuscarSiguienteAExcepto(ultima_ciudad, ruta)
+                return ultima
+                i -> r : add(ruta)
+            end
+        return ruta
+    m -> cal ** : new Calendario()
+    return
+
+@enduml
+
+@startuml crear_policia
+hide footbox
+!pragma teoz true
+skinparam maxMessageSize 200
+
+actor UI
+participant "agente:Policia" as a
+participant "rango:RangoNovato" as r
+participant "rangoItem:RangoItem" as ri
+participant "rangoPista:RangoPista" as rp
+participant "tiempoDeViaje:tiempoDeViaje" as tv
+
+UI -> a ** : new Policia("Diego")
+activate UI
+    a -> r**: new RangoNovato()
+    activate r
+        r -> ri**: new RangoItemComun()
+        activate ri
+        return
+
+        r -> rp**: new RangoPistaFacil()
+        activate rp
+        return
+        
+        r -> tv**: new TiempoNovato()
+        activate tv
+        return
+        
+    return rango
+
+return 
+@enduml
+
+@startuml ds_visitar_ciudad
+hide footbox
+!pragma teoz true
+skinparam maxMessageSize 200
+
+actor UI
+participant "mision:Mision" as m
+participant "visitando:CiudadVisitada" as v
+participant "ciudad:Ciudad" as c
+participant "nueva:CiudadVisitada" as nueva
+participant "destino:Ciudad" as dst
+participant "edificio:Edificio" as e
+
+UI -> m++: visitarCiudad("Oslo")
+    m -> v++: visitarCiudad("Oslo")
+        v -> c++: visitarCiudad("Oslo")
+            c -> c++: getDestino("Oslo")
+            return dst
+            c -> nueva**:CiudadVisitada\n(destino,ladron,siguiente)
+            activate nueva
+                nueva -> dst++: edificiosAlAzar\n(ladron,siguiente,3)
+                    dst->dst: obtenerListaDeTipos()
+                    dst->dst: mezclarListaDeTipos()
+                    loop
+                        dst->e**:crear(ladron,siguiente)
+                    end loop
+                return this.edificios
+            return nueva
+        return nueva
+    return nueva
+    m->m: setVisitando(nueva)
+return
+
+ 'this.vecesVisitado = new EdificiosVisitados1()
+ 'this.edificios = elegirEdificios()
+@enduml
+
+@startuml ds_visitar_edificio
+hide footbox
+!pragma teoz true
+skinparam maxMessageSize 200
+
+actor "Mision" as m
+participant "ciudad:Ciudad" as c
+participant "accion:VisitarEdificio" as a
+participant "estadoInicial:EstadoVisitadoInicial" as v0
+participant "visitados1:Estado1Visitado" as v1
+participant "calendario:Calendario" as cal
+participant "edificio:Edificio" as e
+participant "secundaria:IAccion" as s
+m -> c++ : visitarEdificio(edificio)
+    c -> a**: new VisitarEdificio(edificio,estadoVisitas)
+    c -> a++ : realizarAccion(this.calendario)
+        a -> v0++ : avanzar(calendario)
+            v0 -> cal++: avanzar(1)
+                ref over cal: Ver DS_CAL01 y DS_VAL02
+            return
+        return
+        a -> e++ : visitar(calendario)
+            e ->s++: realizarAccion(this.calendario)
+            return
+        return
+    return
+    c -> v0++ : siguienteEstado()
+        v0 -> v1** : new EdificiosVisitados2()
+        activate v1
+        return visitados1
+    return this.vecesVisitado = visitados1
+return
+@enduml
+
+@startuml ds_crear_ciudad
+hide footbox
+!pragma teoz true
+skinparam maxMessageSize 200
+
+actor "Mision" as m
+participant "visitando:CiudadVisitada" as v
+participant "ruta:List<Ciudad>" as r
+participant "ciudad:Ciudad" as c
+participant "edificio:Edificio" as e
+participant "testimonio:Tesimonio" as t
+participant "ladron:Ladron" as l
+
+m-> m++: obtenerSiguiente(ciudad)
+    m->r++: indexOf(ciudad)
+    return index
+    m->r++: get(index+1)
+    return siguiente
+return siguiente
+
+m -> v**: new CiudadVisitada\n(agente,ciudad,ladron,siguiente)
+    activate v
+        v->c++: edificiosAlAzar(3)
+            loop 3 veces
+                c-->e**:new …()
+                note over e
+                    Llama constructores de clases concretas
+                end note
+                e->t** : new Testimonio(agente,ciudad,ladron,siguiente)
+                activate t
+                    t->e++:nombreTestigoAlAzar()
+                    return nombreTestigo
+                    t->e++:pistaAlAzar(siguiente)
+                    return pistaPais
+                    t->l++:pistaAlAzar()
+                    return pistaLadron
+                return testimonio
+            end loop
+        return this.edificios
+    return visitada
+
+
+@enduml
+
+

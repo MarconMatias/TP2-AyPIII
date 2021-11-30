@@ -1,0 +1,9 @@
+@startuml RangoPolicia_concretas
+class Policia {}
+abstract class RangoPolicia {}
+Policia "1" *-- "1" RangoPolicia
+class RangoNovato extends RangoPolicia {}
+class RangoDetective extends RangoPolicia {}
+class RangoInvestigador extends RangoPolicia {}
+class RangoSargento extends RangoPolicia {}
+@enduml

@@ -1,0 +1,120 @@
+@startuml herenciaEdificio
+
+abstract class Edificio {
+    - accionAdicional :IAccion
+    ~ {abstract} pistaAlAzar(siguiente:Ciudad)
+    ~ {abstract} nombreTesigoAlAzar()
+    + Edificio(accionPrimeraVez:IAccion)
+    + setTestimonio(testimonio:Testimonio)
+    + getTestimonio() : Testimonio
+    + visitar()
+}
+
+class Bolsa extends Edificio {
+    + pistaAlAzar()
+    }
+class Banco extends Edificio {
+    + pistaAlAzar()
+    }
+class Biblioteca extends Edificio {
+    + pistaAlAzar()
+    }
+class Puerto extends Edificio {
+    + pistaAlAzar()
+    }
+class Aeropuerto extends Edificio {
+    + pistaAlAzar()
+    }
+Bolsa o-r- Banco
+Aeropuerto o-r- Puerto
+Biblioteca .[hidden]r. Aeropuerto
+Biblioteca .[hidden]l. Banco
+
+@enduml
+
+@startuml Testimonio
+title Creación de testimonio
+
+class Ciudad {
+    + Ciudad(nombre,data:string[])
+    + getNombre():String
+    + getDetalle():String
+    ~ edificiosAlAzar(cantidad:Number)
+    ~ pistas():List<String>
+}
+
+class CiudadVisitadaConPistas {
+    - estadoVisitas : IEstadoVisitas
+    + CiudadVisitada(esta:Ciudad,agente:Policia,ladron:Ladron,siguiente:Ciudad)
+    + getNombre():String
+    + getDetalle():String
+    + getEdificios():List<Edificio>
+    + visitarEdificio(edificio:Edificio)
+}
+
+
+abstract class EdificioConPista {
+    - accionAdicional :IAccion
+    ~ {abstract} pistaAlAzar(agente:Policia,siguiente:Ciudad)
+    ~ {abstract} nombreTesigoAlAzar()
+    + EdificioConPista(agente:Policia, ladron:Ladron, siguiente:Siguiente,accionPrimeraVez:IAccion)
+    + getTestimonio() : Testimonio
+    + visitar()
+}
+
+class Testimonio {
+    - nombreTestigo : String
+    - pista : String
+    + Testimonio(agente:Policia, edificio:Edificio, ladron:Ladron, siguiente:Ciudad)
+    + getNombreTestigo() : String
+    + getPista(): String
+}
+
+class Ladron {
+    ~ pistaAlAzar(agente:Policia)
+}
+CiudadVisitadaConPistas ..u.> Ciudad
+CiudadVisitadaConPistas "1" o--- "1" Ciudad
+CiudadVisitadaConPistas "1" *-r--- "3" EdificioConPista
+EdificioConPista "1" *-u- "1" Testimonio
+Testimonio ..> EdificioConPista
+Testimonio ..> Ciudad
+Testimonio .r.> Ladron
+CiudadVisitadaConPistas ...> Testimonio
+
+note left of Testimonio
+    this.nombreTestigo=edificio.nombreTestigoAlAzar()
+    this.pista = edificio.pistaAlAzar(edificio)
+    this.pista += ladron.pistaAlAzar()
+
+end note
+@enduml
+
+@startuml pista builder
+
+interface IPista
+{
+    + agregarAListaSiEsNivel(lista:List<IPista>,nivelDeseado:RangoPista)
+}
+
+abstract class RangoPista
+{
+}
+
+class PistaNivelFacil extends RangoPista {
+}
+class PistaNivelMedia extends RangoPista {
+}
+class PistaNivelDificil extends RangoPista {
+}
+
+IPista ..> RangoPista
+
+class PistaPais implements IPista {
+    agregarAListaSiEsNivel(lista:List<IPista>,nivelDeseado:RangoPista)
+}
+class PistaLadron implements IPista {
+    agregarAListaSiEsNivel(lista:List<IPista>,nivelDeseado:RangoPista)
+}
+@enduml
+

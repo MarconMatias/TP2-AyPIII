@@ -1,0 +1,32 @@
+@startuml ds_visitar_edificio
+hide footbox
+!pragma teoz true
+skinparam maxMessageSize 200
+
+actor "Mision" as m
+participant "ciudad:Ciudad" as c
+participant "accion:VisitarEdificio" as a
+participant "estadoInicial:EstadoVisitadoInicial" as v0
+participant "visitados1:Estado1Visitado" as v1
+participant "calendario:Calendario" as cal
+participant "edificio:Edificio" as e
+participant "colaAcciones" as s
+m -> c++ : visitarEdificio(edificio)
+    c -> a++ : realizarAccion()
+        a -> v0++ : avanzar(this.calendario)
+            v0 -> cal++: avanzar(1)
+                ref over cal: Ver DS_CAL01 y DS_VAL02
+            return
+        return
+        a -> e++ : visitar(this.colaAcciones)
+            e ->s++: encolarAccion(this.secundaria)
+            return
+        return
+    return
+    c -> v0++ : siguienteEstado()
+        v0 -> v1** : new EdificiosVisitados2()
+        activate v1
+        return visitados1
+    return this.vecesVisitado = visitados1
+return
+@enduml

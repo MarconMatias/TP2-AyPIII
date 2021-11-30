@@ -1,0 +1,15 @@
+@startuml general
+title
+Clase Juego 
+end title
+hide empty members
+
+class Juego
+{
+    + Juego()
+}
+
+interface IDatosDelJuego
+Juego "1" *-- "1" IDatosDelJuego
+Mision "0..1" o-- IDatosDelJuego
+@enduml
