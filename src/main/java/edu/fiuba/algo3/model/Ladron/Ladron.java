@@ -5,7 +5,22 @@ import edu.fiuba.algo3.model.Policia.Policia;
 
 public class Ladron {
 
-  public Ladron() {
+  private String nombre;
+  private String genero;
+  private String deporte;
+  private String colorDeCabello;
+  private String seña;
+  private String vehiculo;
+
+  public Ladron(String nombre, String genero, String deporte, String colorDeCabello, String seña, String vehiculo){
+
+    this.nombre = nombre;
+    this.genero = genero;
+    this.deporte = deporte;
+    this.colorDeCabello = colorDeCabello;
+    this.seña = seña;
+    this.vehiculo = vehiculo;
+
 
   }
 
