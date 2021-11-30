@@ -1,0 +1,43 @@
+@startuml EdificioConPista_es_creado_y_crea_Testimonio
+hide footbox
+!pragma teoz true
+skinparam maxMessageSize 200
+title Ciudad vistiada con pistas crea edificio con pista\n<size:18>(que crea un Testimonio)</size>
+
+actor "visitada:CiudadVisitadaConPistas" as v
+participant "edificio:EdificioConPista" as e
+participant "testimonio:Testimonio" as t
+participant "ladron:Ladron" as l
+participant "pLadron:PistaLadron" as pl
+participant "agente:Policia" as a
+participant "pPais:PistaPais" as pp
+participant "siguiente:Ciudad" as s
+
+v -> e**: EdificioConPista(esta,agente,\nladron,siguiente)
+    activate e
+    
+    e->t**: Testimonio(agente,edificio,\nladron,siguiente)
+    activate t
+        t->l++: pistaAlAzar(agente)
+            l->a++: filtrarPistas(pistas)
+            ref over a
+                DS_Agente_filtra_pistas
+            end ref
+            return filtradas
+        return pistaLadron
+        t->e++: nombreTestigoAlAzar()
+        return this.nombreTestigo
+        t->s++: pistaAlAzar(agente,edificio)
+            s->a++: filtrarPistas(pistas)
+            ref over a
+                DS_Agente_filtra_pistas
+            end ref
+            return filtradas
+            s->e++: filtrarPistas(pistas)
+            return filtradas
+        return pistaPais
+        t->t: this.pista=pistaLadron+pistaPais
+    return testimonio
+return edificio
+@enduml
+

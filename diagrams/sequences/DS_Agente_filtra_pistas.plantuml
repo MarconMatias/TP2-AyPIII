@@ -1,0 +1,25 @@
+@startuml agente filtrar pista
+hide footbox
+!pragma teoz true
+skinparam maxMessageSize 200
+title Agente filtra pistas (por dificultad)
+actor "Ladron/Ciudad" as c
+participant "agente:Policia" as a
+participant "rango:RangoPolicia" as r
+participant "nivelPista:NivelPista" as n
+participant "pista:IPista" as p
+participant "filtrada:List<IPista>" as f
+c->a++: filtrarPistas(pistas)
+    a->r++: filtrarPistas(pistas)
+        r->n++: filtrarPistas(pistas)
+            n->f**: new()
+            loop por cada pista en pistas
+                n->p ++: agregarAListaSiEsNivel(lista,nivel)
+                    p->p: this.nivel == nivel
+                    p->f: add(pista)
+                return
+            end loop
+        return filtrada
+    return filtrada
+return filtrada
+@enduml

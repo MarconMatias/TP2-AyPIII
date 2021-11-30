@@ -1,0 +1,10 @@
+@startuml RangoItem_concretas
+class Policia {}
+abstract class RangoPolicia {}
+Policia "1" *-- "1" RangoPolicia
+RangoPolicia "1" *-- "1" RangoItem
+abstract class RangoItem
+class RangoItemComun extends RangoItem
+class RangoItemValioso extends RangoItem
+class RangoItemMuyValioso extends RangoItem
+@enduml

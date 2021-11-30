@@ -1,0 +1,14 @@
+@startuml rangosPolicia
+class Policia {}
+Policia "1" *-- "1" RangoPolicia
+
+
+abstract class RangoPolicia {}
+
+abstract class RangoItem
+RangoPolicia "1" *-- "1" RangoItem
+abstract class RangoPista
+RangoPolicia "1" *-- "1" RangoPista
+abstract class TiempoDeViaje
+RangoPolicia "1" *-- "1" TiempoDeViaje
+@enduml

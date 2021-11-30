@@ -1,0 +1,28 @@
+@startuml CiudadVisitadaConPistas_es_creada
+hide footbox
+!pragma teoz true
+skinparam maxMessageSize 200
+title Se crea una CiudadVisitadaConPistas
+
+actor "Mision" as m
+participant "visitada:CiudadVisitadaConPistas" as v
+participant "ciudad:Ciudad" as c
+participant "edificio:EdificioConPistas" as e
+
+m->v**: CiudadVisitada(ciudad,\nagente,ladron,siguiente)
+activate v
+    v->c++: edificiosAlAzarConPistas(3)
+    note over c: Devuelve las clases de los edificios
+    return edificios[]
+    loop por cada edificio en edificios
+        v->e**: EdificioConPista(ciudad,agente,ladron,siguiente)
+        activate e
+        ref over e
+            DS_EdificioConPista_es_
+            creado_y_crea_Testimonio
+        end ref
+        return edificio
+        v->v: agregarEdificio(edificio)
+    end loop
+return visitada
+@enduml
