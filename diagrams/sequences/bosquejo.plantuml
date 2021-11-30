@@ -184,7 +184,7 @@ m-> m++: obtenerSiguiente(ciudad)
     return siguiente
 return siguiente
 
-m -> v**: new CiudadVisitada\n(ciudad,ladron,siguiente)
+m -> v**: new CiudadVisitada\n(agente,ciudad,ladron,siguiente)
     activate v
         v->c++: edificiosAlAzar(3)
             loop 3 veces
@@ -192,19 +192,17 @@ m -> v**: new CiudadVisitada\n(ciudad,ladron,siguiente)
                 note over e
                     Llama constructores de clases concretas
                 end note
+                e->t** : new Testimonio(agente,ciudad,ladron,siguiente)
+                activate t
+                    t->e++:nombreTestigoAlAzar()
+                    return nombreTestigo
+                    t->e++:pistaAlAzar(siguiente)
+                    return pistaPais
+                    t->l++:pistaAlAzar()
+                    return pistaLadron
+                return testimonio
             end loop
         return this.edificios
-        loop for each this.edificios
-            v->t** : new Testimonio()
-            activate t
-                t->e++:nombreTestigoAlAzar()
-                return nombreTestigo
-                t->e++:pistaAlAzar(siguiente)
-                return pistaPais
-                t->l++:pistaAlAzar()
-                return pistaLadron
-            return testimonio
-        end loop
     return visitada
 
 

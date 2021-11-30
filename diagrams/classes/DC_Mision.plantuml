@@ -1,0 +1,18 @@
+@startuml general
+hide empty members
+
+class Mision
+{
+    + Mision(agente:Policia,datos:IDatosDelJuego)
+}
+Mision "1" *-u- "1" ICalendario
+Mision "1" *-u- "1" IColaAcciones
+Mision "1" o-u- "1" IDatosDelJuego
+Mision "1" *-- "1" Ladron
+Mision "1" *-- "1" Policia
+Mision "1" *-- "1" Item
+ICalendario ..> IColaAcciones
+Item "1" *-- "1" RutaLadron
+
+interface ICalendario {}
+@enduml
