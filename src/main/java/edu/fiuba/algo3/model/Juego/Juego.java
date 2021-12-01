@@ -31,7 +31,7 @@ public class Juego {
     // foreach row
     // ArrayList<String> caracteristicas = row.split(,);
     // ladron new (caracteristicas)
-    BufferedReader lector = new BufferedReader(new FileReader("/home/agustin/Escritorio/TP2/TP2-AyPIII/src/main/java/edu/fiuba/algo3/model/Ladron/DatosLadron/dossiers.csv"));
+    BufferedReader lector = new BufferedReader(new FileReader("/DatosLadron/dossiers.csv"));
     try{
       String row;
       while ((row = lector.readLine()) != null) {
