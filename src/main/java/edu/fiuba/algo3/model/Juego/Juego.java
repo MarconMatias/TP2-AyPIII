@@ -16,7 +16,7 @@ public class Juego {
   ArrayList<Ladron> ladrones = new ArrayList<Ladron>();
   ArrayList<PistaCiudad> pistasPaises = new ArrayList<PistaCiudad>();
   ArrayList<Ciudad> ciudades = new ArrayList<Ciudad>();
-  ArrayList<Policia> agentes;
+  ArrayList<Policia> agentes = new ArrayList<Policia>();
 
   public Juego() throws IOException {
 
@@ -57,7 +57,7 @@ public class Juego {
       String row;
       while ((row = lector.readLine()) != null) {
         String[] data = row.split(";");
-        Ciudad nuevaCiduad = new Ciudad(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8], data[9], data[10], data[11], data[12], data[13]);
+        Ciudad nuevaCiduad = new Ciudad(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8], data[9], data[10], data[11], data[12]);
         ciudades.add(nuevaCiduad);
       }
     } catch (IOException e) {
@@ -103,9 +103,9 @@ public class Juego {
 
     boolean resultado = false;
 
-    for (PistaCiudad p : pistasPaises){
+    for (Ciudad c : ciudades){
 
-      if (p.esLaCiudad(ciudad))
+      if (c.esLaCiudad(ciudad))
         resultado = true;
     }
 

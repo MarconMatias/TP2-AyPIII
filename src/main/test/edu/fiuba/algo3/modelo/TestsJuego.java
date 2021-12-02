@@ -37,6 +37,7 @@ public class TestsJuego {
         nuevoJuego.leerCiudades();
         assertTrue(nuevoJuego.existeLaCiudad("Athens"));
         assertTrue(nuevoJuego.existeLaCiudad("Baghdag"));
+        assertTrue(nuevoJuego.existeLaCiudad("Bamako"));
         assertTrue(nuevoJuego.existeLaCiudad("Bangkok"));
         assertTrue(nuevoJuego.existeLaCiudad("Budapest"));
         assertTrue(nuevoJuego.existeLaCiudad("Buenos Aires"));

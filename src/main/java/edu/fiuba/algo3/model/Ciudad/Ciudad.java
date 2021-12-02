@@ -15,9 +15,8 @@ public class Ciudad {
     private final String religion;
     private final String gobernante;
     private final String origen;
-    private final String nivel;
 
-    public Ciudad(String ciudad, String bandera, String moneda, String terreno, String puntosDeInteres, String industria, String animales, String etnias, String lenguaje, String arte, String religion, String gobernante, String origen, String nivel) {
+    public Ciudad(String ciudad, String bandera, String moneda, String terreno, String puntosDeInteres, String industria, String animales, String etnias, String lenguaje, String arte, String religion, String gobernante, String origen) {
 
         this.ciudad = ciudad;
         this.bandera = bandera;
@@ -32,7 +31,6 @@ public class Ciudad {
         this.religion = religion;
         this.gobernante = gobernante;
         this.origen = origen;
-        this.nivel = nivel;
     }
 
     public boolean esLaCiudad(String ciudad) {
