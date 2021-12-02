@@ -44,9 +44,9 @@ public class Juego {
 
   }
 
-  private void leerPistas() throws IOException {
+  public void leerPistas() throws IOException {
 
-    BufferedReader lector = new BufferedReader(new FileReader("\"src/main/java/edu/fiuba/algo3/model/Pista/DatosPista/pistasPaises.csv\""));
+    BufferedReader lector = new BufferedReader(new FileReader("src/main/java/edu/fiuba/algo3/model/Pista/Datos Pista/pistasPaises.csv"));
     try {
       String row;
       while ((row = lector.readLine()) != null) {
@@ -80,4 +80,18 @@ public class Juego {
 
     return resultado;
   }
+
+  public boolean existeLaPistaDeLaCiudad(String ciudad) {
+
+    boolean resultado = false;
+
+    for (PistaPais p : pistasPaises){
+
+      if (p.esLaCiudad(ciudad))
+        resultado = true;
+    }
+
+    return resultado;
+  }
+
 }

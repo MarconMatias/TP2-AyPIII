@@ -32,7 +32,18 @@ public class TestsJuego {
     }
 
     @Test
-    public void test02(){
+    public void test02SeLeeElArchivoDePistasPaisesYSeCarganEfectivamenteTodasLasPistasDeLosPaises() throws IOException {
+
+        Juego nuevoJuego = new Juego();
+        nuevoJuego.leerPistas();
+        assertTrue(nuevoJuego.existeLaPistaDeLaCiudad("Athens"));
+        assertTrue(nuevoJuego.existeLaPistaDeLaCiudad("Baghdag"));
+        assertTrue(nuevoJuego.existeLaPistaDeLaCiudad("Bangkok"));
+        assertTrue(nuevoJuego.existeLaPistaDeLaCiudad("Budapest"));
+        assertTrue(nuevoJuego.existeLaPistaDeLaCiudad("Buenos Aires"));
+        assertTrue(nuevoJuego.existeLaPistaDeLaCiudad("Cairo"));
+
+        return;
 
     }
 }
