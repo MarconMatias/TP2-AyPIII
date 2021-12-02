@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Random;
 
 import edu.fiuba.algo3.model.Ciudad.Ciudad;
 import edu.fiuba.algo3.model.Item.Item;
@@ -156,5 +157,11 @@ public class Juego {
     }
 
     return resultado;
+  }
+
+  public Ciudad darUnaCiudadRandom(){
+
+    Random nuevoRandom = new Random();
+    return ciudades.get(nuevoRandom.nextInt(this.ciudades.size()));
   }
 }

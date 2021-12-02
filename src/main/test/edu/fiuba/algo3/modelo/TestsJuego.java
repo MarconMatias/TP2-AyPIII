@@ -1,8 +1,15 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.model.Edificio.Edificio;
+import edu.fiuba.algo3.model.Item.Item;
+import edu.fiuba.algo3.model.Ladron.Ladron;
+import edu.fiuba.algo3.model.Pista.PistaCiudad;
+import edu.fiuba.algo3.model.Policia.Policia;
+import edu.fiuba.algo3.model.Policia.RangoPolicia.RangoPolicia;
 import org.junit.jupiter.api.Test;
 
 import edu.fiuba.algo3.model.Juego.Juego;
+import org.mockito.internal.matchers.Null;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -65,5 +72,19 @@ public class TestsJuego {
         assertTrue(nuevoJuego.existeElItem("Boar's Tusk"));
         assertTrue(nuevoJuego.existeElItem("Chandelier from the Opera House"));
 
+    }
+
+    //Casos de usos
+
+    @Test
+
+    public void test05ElLadronRobaUnTesoroNacionalDeMontrealSospechosoFemeninoYDetectiveNovatoEncuentraPistaEnUnBanco() throws IOException {
+
+        Policia nuevoPolicia = new Policia((new RangoPolicia("Novato")),"Agus");
+        Ladron unLadron = new Ladron("Ada","Femenino","Jockey sobre Hielo","Rubio","anillo de oro","Moto");
+        PistaCiudad unaPista = new PistaCiudad( "Facil" );
+        Item itemRobado = new Item("Tesoro Nacional de Montreal","Montreal");
+        Edificio banco = new Edificio("Banco de Montreal", true );
+        assertTrue(nuevoPolicia.entraAlEdificio(banco,itemRobado, unLadron) ) ;
     }
 }

@@ -5,7 +5,7 @@ import edu.fiuba.algo3.model.Pista.NivelPista.NivelPista;
 
 import java.util.ArrayList;
 
-public class RangoPolicia {
+public abstract class RangoPolicia {
 
     private final String nombreRango;
 
