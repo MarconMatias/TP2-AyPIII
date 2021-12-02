@@ -9,10 +9,12 @@ import java.io.FileReader;
 import java.io.IOException;
 
 import edu.fiuba.algo3.model.Ladron.Ladron;
+import edu.fiuba.algo3.model.Pista.PistaPais;
 
 public class Juego {
 
   ArrayList<Ladron> ladrones = new ArrayList<Ladron>();
+  ArrayList<PistaPais> pistasPaises = new ArrayList<PistaPais>();
 
   public Juego() throws IOException {
 
@@ -42,8 +44,22 @@ public class Juego {
 
   }
 
-  private void leerPistas() {
-    // implementar
+  private void leerPistas() throws IOException {
+
+    BufferedReader lector = new BufferedReader(new FileReader("\"src/main/java/edu/fiuba/algo3/model/Pista/DatosPista/pistasPaises.csv\""));
+    try {
+      String row;
+      while ((row = lector.readLine()) != null) {
+        String[] data = row.split(";");
+        PistaPais nuevaPista = new PistaPais(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8], data[9], data[10], data[11], data[12]);
+        pistasPaises.add(nuevaPista);
+      }
+    } catch (IOException e) {
+      lector.close();
+    }
+    lector.close();
+    return;
+
   }
 
   private void armarMapa() {
