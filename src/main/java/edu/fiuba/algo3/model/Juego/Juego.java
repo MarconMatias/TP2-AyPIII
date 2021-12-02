@@ -1,10 +1,7 @@
 package edu.fiuba.algo3.model.Juego;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.function.BooleanSupplier;
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -40,7 +37,6 @@ public class Juego {
       lector.close();
     }
     lector.close();
-    return;
 
   }
 
@@ -51,14 +47,13 @@ public class Juego {
       String row;
       while ((row = lector.readLine()) != null) {
         String[] data = row.split(";");
-        PistaPais nuevaPista = new PistaPais(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8], data[9], data[10], data[11], data[12]);
+        PistaPais nuevaPista = new PistaPais(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8], data[9], data[10], data[11], data[12], data[13]);
         pistasPaises.add(nuevaPista);
       }
     } catch (IOException e) {
       lector.close();
     }
     lector.close();
-    return;
 
   }
 

@@ -15,8 +15,7 @@ public class Policia {
 
     public IPista filtrarPistas(ArrayList<IPista> pistas){
 
-        IPista pista = rango.filtrarPistas(pistas);
-        return pista;
+        return rango.filtrarPistas(pistas);
 
     }
 

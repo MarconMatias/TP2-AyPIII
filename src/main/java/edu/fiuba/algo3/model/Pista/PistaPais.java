@@ -19,8 +19,9 @@ public class PistaPais implements IPista {
     private final String religion;
     private final String gobernante;
     private final String origen;
+    private final String nivel;
 
-    public PistaPais(String ciudad, String bandera, String moneda, String terreno, String puntosDeInteres, String industria, String animales, String etnias, String lenguaje, String arte, String religion, String gobernante, String origen) {
+    public PistaPais(String ciudad, String bandera, String moneda, String terreno, String puntosDeInteres, String industria, String animales, String etnias, String lenguaje, String arte, String religion, String gobernante, String origen, String nivel) {
 
         this.ciudad = ciudad;
         this.bandera = bandera;
@@ -35,13 +36,15 @@ public class PistaPais implements IPista {
         this.religion = religion;
         this.gobernante = gobernante;
         this.origen = origen;
+        this.nivel = nivel;
     }
 
     public boolean esLaCiudad(String ciudad) {
         return this.ciudad.equals(ciudad);
     }
 
-    public IPista agregarAListaSiEsNivel(ArrayList<IPista> pistas, NivelPista nivel){
-
+    public void agregarAListaSiEsNivel(ArrayList<IPista> pistas, NivelPista nivel){
+        if(nivel.soyNivel(this.nivel))
+            pistas.add(this);
     }
 }

@@ -6,11 +6,14 @@ import java.util.ArrayList;
 
 public abstract class NivelPista {
 
+    private final String nivel;
+
     public IPista filtrarPistas(ArrayList<IPista> pistas){
 
-        ArrayList<IPista> pistasFiltradas;
+        ArrayList<IPista> pistasFiltradas = new ArrayList<IPista>();
         for (IPista p: pistas){
 
+            p.agregarAListaSiEsNivel(pistasFiltradas,nivel);
         }
     }
 }

@@ -28,7 +28,6 @@ public class TestsJuego {
         assertTrue(nuevoJuego.existeElLadron("Dazzle Annie"));
         assertTrue(nuevoJuego.existeElLadron("Carmen Sandiego"));
 
-        return;
     }
 
     @Test
@@ -42,8 +41,6 @@ public class TestsJuego {
         assertTrue(nuevoJuego.existeLaPistaDeLaCiudad("Budapest"));
         assertTrue(nuevoJuego.existeLaPistaDeLaCiudad("Buenos Aires"));
         assertTrue(nuevoJuego.existeLaPistaDeLaCiudad("Cairo"));
-
-        return;
 
     }
 }

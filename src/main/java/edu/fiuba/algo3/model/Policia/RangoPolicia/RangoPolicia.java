@@ -11,7 +11,6 @@ public abstract class RangoPolicia {
 
     public IPista filtrarPistas(ArrayList<IPista> pistas){
 
-        IPista pista = nivelPista.filtrarPistas(pistas);
-        return pista;
+        return nivelPista.filtrarPistas(pistas);
     };
 }

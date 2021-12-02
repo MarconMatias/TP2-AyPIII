@@ -6,5 +6,5 @@ import java.util.ArrayList;
 
 public interface IPista {
 
-    public IPista agregarAListaSiEsNivel(ArrayList<IPista> pistas, NivelPista nivel);
+    public void agregarAListaSiEsNivel(ArrayList<IPista> pistas, NivelPista nivel);
 }
