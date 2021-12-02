@@ -16,7 +16,6 @@ public class TestsJuego {
 
         /* Arrange */
         Juego nuevoJuego = new Juego();
-        nuevoJuego.leerLadrones();
         assertTrue(nuevoJuego.existeElLadron("Nick Brunch"));
         assertTrue(nuevoJuego.existeElLadron("Len Bulk"));
         assertTrue(nuevoJuego.existeElLadron("Ihor Ihorovitch"));
@@ -34,7 +33,6 @@ public class TestsJuego {
     public void test02SeLeeElArchivoDeCiudadesYSeCarganEfectivamenteTodasLasCiudades() throws IOException {
 
         Juego nuevoJuego = new Juego();
-        nuevoJuego.leerCiudades();
         assertTrue(nuevoJuego.existeLaCiudad("Athens"));
         assertTrue(nuevoJuego.existeLaCiudad("Baghdag"));
         assertTrue(nuevoJuego.existeLaCiudad("Bamako"));
@@ -49,13 +47,23 @@ public class TestsJuego {
     public void test03SeLeeElArchivoDeAgentesYSeCarganEfectivamenteTodosLosAgentes() throws IOException {
 
         Juego nuevoJuego = new Juego();
-        nuevoJuego.cargarAgentes();
         assertTrue(nuevoJuego.existeElAgente("Agus"));
         assertTrue(nuevoJuego.existeElAgente("Matias"));
         assertTrue(nuevoJuego.existeElAgente("Brenda"));
         assertTrue(nuevoJuego.existeElAgente("Eloy"));
         assertTrue(nuevoJuego.existeElAgente("Joaquin"));
         assertTrue(nuevoJuego.existeElAgente("Marcos"));
+
+    }
+
+    @Test
+    public void test04SeLeeElArchivoDeItemsYSeCarganEfectivamenteTodosLosItems() throws IOException {
+
+        Juego nuevoJuego = new Juego();
+        assertTrue(nuevoJuego.existeElItem("1,000 Year Old Egg"));
+        assertTrue(nuevoJuego.existeElItem("Babylonian Tablet"));
+        assertTrue(nuevoJuego.existeElItem("Boar's Tusk"));
+        assertTrue(nuevoJuego.existeElItem("Chandelier from the Opera House"));
 
     }
 }

@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 import edu.fiuba.algo3.model.Ciudad.Ciudad;
+import edu.fiuba.algo3.model.Item.Item;
 import edu.fiuba.algo3.model.Ladron.Ladron;
 import edu.fiuba.algo3.model.Pista.PistaCiudad;
 import edu.fiuba.algo3.model.Policia.Policia;
@@ -17,14 +18,33 @@ public class Juego {
   ArrayList<PistaCiudad> pistasPaises = new ArrayList<PistaCiudad>();
   ArrayList<Ciudad> ciudades = new ArrayList<Ciudad>();
   ArrayList<Policia> agentes = new ArrayList<Policia>();
+  private ArrayList<Item> items = new ArrayList<Item>();
 
   public Juego() throws IOException {
 
     leerLadrones();
+    leerItems();
     leerPistas();
     leerCiudades();
     armarMapa();
-    cargarAgentes(); // datos guardados de partidas
+    leerAgentes(); // datos guardados de partidas
+  }
+
+  public void leerItems() throws IOException {
+
+    BufferedReader lector = new BufferedReader(new FileReader("src/main/java/edu/fiuba/algo3/model/Item/items.csv"));
+    try {
+      String row;
+      while ((row = lector.readLine()) != null) {
+        String[] data = row.split(";");
+        Item nuevoItem = new Item(data[0], data[1]);
+        items.add(nuevoItem);
+      }
+    } catch (IOException e) {
+      lector.close();
+    }
+    lector.close();
+
   }
 
   public void leerPistas() {
@@ -70,7 +90,7 @@ public class Juego {
   private void armarMapa() {
   }
 
-  public void cargarAgentes() throws IOException {
+  public void leerAgentes() throws IOException {
 
     BufferedReader lector = new BufferedReader(new FileReader("src/main/java/edu/fiuba/algo3/model/Policia/agentes.csv"));
     try {
@@ -119,6 +139,19 @@ public class Juego {
     for (Policia p : agentes){
 
       if (p.soyElAgente(nombreAgente))
+        resultado = true;
+    }
+
+    return resultado;
+  }
+
+  public boolean existeElItem(String nombreItem) {
+
+    boolean resultado = false;
+
+    for (Item i : items){
+
+      if (i.estaElItem(nombreItem))
         resultado = true;
     }
 
