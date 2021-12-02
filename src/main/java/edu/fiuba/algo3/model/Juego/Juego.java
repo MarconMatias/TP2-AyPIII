@@ -8,12 +8,15 @@ import java.io.IOException;
 import edu.fiuba.algo3.model.Ciudad.Ciudad;
 import edu.fiuba.algo3.model.Ladron.Ladron;
 import edu.fiuba.algo3.model.Pista.PistaCiudad;
+import edu.fiuba.algo3.model.Policia.Policia;
+import edu.fiuba.algo3.model.Policia.RangoPolicia.RangoPolicia;
 
 public class Juego {
 
   ArrayList<Ladron> ladrones = new ArrayList<Ladron>();
   ArrayList<PistaCiudad> pistasPaises = new ArrayList<PistaCiudad>();
-  private ArrayList<Ciudad> ciudades = new ArrayList<Ciudad>();
+  ArrayList<Ciudad> ciudades = new ArrayList<Ciudad>();
+  ArrayList<Policia> agentes;
 
   public Juego() throws IOException {
 
@@ -24,7 +27,7 @@ public class Juego {
     cargarAgentes(); // datos guardados de partidas
   }
 
-  private void leerPistas() {
+  public void leerPistas() {
 
   }
 
@@ -67,8 +70,21 @@ public class Juego {
   private void armarMapa() {
   }
 
-  private void cargarAgentes() {
-    // implementar
+  public void cargarAgentes() throws IOException {
+
+    BufferedReader lector = new BufferedReader(new FileReader("src/main/java/edu/fiuba/algo3/model/Policia/agentes.csv"));
+    try {
+      String row;
+      while ((row = lector.readLine()) != null) {
+        String[] data = row.split(";");
+        Policia nuevoAgente = new Policia((new RangoPolicia(data[1]) ), data[0]);
+        agentes.add(nuevoAgente);
+      }
+    } catch (IOException e) {
+      lector.close();
+    }
+    lector.close();
+
   }
 
   public boolean existeElLadron(String string) {
@@ -83,7 +99,7 @@ public class Juego {
     return resultado;
   }
 
-  public boolean existeLaPistaDeLaCiudad(String ciudad) {
+  public boolean existeLaCiudad(String ciudad) {
 
     boolean resultado = false;
 
@@ -96,4 +112,16 @@ public class Juego {
     return resultado;
   }
 
+  public boolean existeElAgente(String nombreAgente) {
+
+    boolean resultado = false;
+
+    for (Policia p : agentes){
+
+      if (p.soyElAgente(nombreAgente))
+        resultado = true;
+    }
+
+    return resultado;
+  }
 }

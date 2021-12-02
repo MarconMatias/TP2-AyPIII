@@ -31,16 +31,30 @@ public class TestsJuego {
     }
 
     @Test
-    public void test02SeLeeElArchivoDePistasPaisesYSeCarganEfectivamenteTodasLasPistasDeLosPaises() throws IOException {
+    public void test02SeLeeElArchivoDeCiudadesYSeCarganEfectivamenteTodasLasCiudades() throws IOException {
 
         Juego nuevoJuego = new Juego();
-        nuevoJuego.leerPistas();
-        assertTrue(nuevoJuego.existeLaPistaDeLaCiudad("Athens"));
-        assertTrue(nuevoJuego.existeLaPistaDeLaCiudad("Baghdag"));
-        assertTrue(nuevoJuego.existeLaPistaDeLaCiudad("Bangkok"));
-        assertTrue(nuevoJuego.existeLaPistaDeLaCiudad("Budapest"));
-        assertTrue(nuevoJuego.existeLaPistaDeLaCiudad("Buenos Aires"));
-        assertTrue(nuevoJuego.existeLaPistaDeLaCiudad("Cairo"));
+        nuevoJuego.leerCiudades();
+        assertTrue(nuevoJuego.existeLaCiudad("Athens"));
+        assertTrue(nuevoJuego.existeLaCiudad("Baghdag"));
+        assertTrue(nuevoJuego.existeLaCiudad("Bangkok"));
+        assertTrue(nuevoJuego.existeLaCiudad("Budapest"));
+        assertTrue(nuevoJuego.existeLaCiudad("Buenos Aires"));
+        assertTrue(nuevoJuego.existeLaCiudad("Cairo"));
+
+    }
+
+    @Test
+    public void test03SeLeeElArchivoDeAgentesYSeCarganEfectivamenteTodosLosAgentes() throws IOException {
+
+        Juego nuevoJuego = new Juego();
+        nuevoJuego.cargarAgentes();
+        assertTrue(nuevoJuego.existeElAgente("Agus"));
+        assertTrue(nuevoJuego.existeElAgente("Matias"));
+        assertTrue(nuevoJuego.existeElAgente("Brenda"));
+        assertTrue(nuevoJuego.existeElAgente("Eloy"));
+        assertTrue(nuevoJuego.existeElAgente("Joaquin"));
+        assertTrue(nuevoJuego.existeElAgente("Marcos"));
 
     }
 }

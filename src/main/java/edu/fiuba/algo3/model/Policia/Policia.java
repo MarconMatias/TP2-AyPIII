@@ -7,10 +7,13 @@ import java.util.ArrayList;
 
 public class Policia {
 
+    private final String nombre;
     private RangoPolicia rango;
 
-    public Policia(){
+    public Policia(RangoPolicia rango, String nombre){
 
+        this.rango = rango;
+        this.nombre = nombre;
     }
 
     public IPista filtrarPistas(ArrayList<IPista> pistas){
@@ -19,4 +22,7 @@ public class Policia {
 
     }
 
+    public boolean soyElAgente(String nombreAgente) {
+        return this.nombre.equals(nombreAgente);
+    }
 }
