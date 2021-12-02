@@ -1,10 +1,6 @@
-package edu.fiuba.algo3.model.Pista;
+package edu.fiuba.algo3.model.Ciudad;
 
-import edu.fiuba.algo3.model.Pista.NivelPista.NivelPista;
-
-import java.util.ArrayList;
-
-public class PistaPais implements IPista {
+public class Ciudad {
 
     private final String ciudad;
     private final String bandera;
@@ -21,7 +17,7 @@ public class PistaPais implements IPista {
     private final String origen;
     private final String nivel;
 
-    public PistaPais(String ciudad, String bandera, String moneda, String terreno, String puntosDeInteres, String industria, String animales, String etnias, String lenguaje, String arte, String religion, String gobernante, String origen, String nivel) {
+    public Ciudad(String ciudad, String bandera, String moneda, String terreno, String puntosDeInteres, String industria, String animales, String etnias, String lenguaje, String arte, String religion, String gobernante, String origen, String nivel) {
 
         this.ciudad = ciudad;
         this.bandera = bandera;
@@ -41,10 +37,5 @@ public class PistaPais implements IPista {
 
     public boolean esLaCiudad(String ciudad) {
         return this.ciudad.equals(ciudad);
-    }
-
-    public void agregarAListaSiEsNivel(ArrayList<IPista> pistas, NivelPista nivel){
-        if(nivel.soyNivel(this.nivel))
-            pistas.add(this);
     }
 }
