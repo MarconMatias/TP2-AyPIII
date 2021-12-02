@@ -12,7 +12,7 @@ public class Ladron {
   private String seña;
   private String vehiculo;
 
-  public Ladron(String nombre, String genero, String deporte, String colorDeCabello, String seña, String vehiculo){
+  public Ladron(String nombre, String genero, String deporte, String colorDeCabello, String seña, String vehiculo) {
 
     this.nombre = nombre;
     this.genero = genero;
@@ -21,10 +21,14 @@ public class Ladron {
     this.seña = seña;
     this.vehiculo = vehiculo;
 
-
   }
 
   public IPista pistaAlAzar(Policia policia) {
     return null;
+  }
+
+  public boolean meLlamo(String string) {
+
+    return string.equals(nombre);
   }
 }
