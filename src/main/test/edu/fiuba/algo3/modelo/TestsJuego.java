@@ -1,15 +1,12 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.model.Edificio.Edificio;
-import edu.fiuba.algo3.model.Item.Item;
-import edu.fiuba.algo3.model.Ladron.Ladron;
-import edu.fiuba.algo3.model.Pista.PistaCiudad;
-import edu.fiuba.algo3.model.Policia.Policia;
-import edu.fiuba.algo3.model.Policia.RangoPolicia.RangoPolicia;
+import edu.fiuba.algo3.modelo.Edificio.Edificio;
+import edu.fiuba.algo3.modelo.Ladron.Ladron;
+import edu.fiuba.algo3.modelo.Policia.Policia;
+import edu.fiuba.algo3.modelo.Policia.RangoPolicia.PoliciaNovato;
 import org.junit.jupiter.api.Test;
 
-import edu.fiuba.algo3.model.Juego.Juego;
-import org.mockito.internal.matchers.Null;
+import edu.fiuba.algo3.modelo.Juego.Juego;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -78,13 +75,13 @@ public class TestsJuego {
 
     @Test
 
-    public void test05ElLadronRobaUnTesoroNacionalDeMontrealSospechosoFemeninoYDetectiveNovatoEncuentraPistaEnUnBanco() throws IOException {
+    public void test05CasoDeUso1ElLadronRobaUnTesoroNacionalDeMontrealSospechosoFemeninoYDetectiveNovatoEncuentraPistaEnUnBanco() throws IOException {
 
-        Policia nuevoPolicia = new Policia((new RangoPolicia("Novato")),"Agus");
+        Policia nuevoPolicia = new Policia((new PoliciaNovato()),"Agus");
         Ladron unLadron = new Ladron("Ada","Femenino","Jockey sobre Hielo","Rubio","anillo de oro","Moto");
-        PistaCiudad unaPista = new PistaCiudad( "Facil" );
-        Item itemRobado = new Item("Tesoro Nacional de Montreal","Montreal");
-        Edificio banco = new Edificio("Banco de Montreal", true );
-        assertTrue(nuevoPolicia.entraAlEdificio(banco,itemRobado, unLadron) ) ;
+        Edificio banco = new Edificio("Banco de Montreal", true ); //En vez de usar un campo true podria settearse con Strategy el comportamiento de un Edificio para que muestre una pista o no
+        assertTrue(nuevoPolicia.entraAlEdificio(banco, unLadron) );
     }
+
+
 }
