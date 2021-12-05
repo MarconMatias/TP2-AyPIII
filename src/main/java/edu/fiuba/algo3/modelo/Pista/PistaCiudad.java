@@ -4,16 +4,20 @@ import java.util.ArrayList;
 
 public class PistaCiudad implements IPista {
 
+    private final String tipo;
+    private final String pista;
+    // private final NivelPista nivel;
 
-    private final String nivel;
+    // private NivelPista nivel;
 
-    public PistaCiudad(String nivel){
+    public PistaCiudad(String tipo, String pista, int dificultad) {
 
-        this.nivel = nivel;
+        this.tipo = tipo;
+        this.pista = pista;
+        // this.nivel = definirNivel(dificultad);
     }
 
-    public void agregarAListaSiEsNivel(ArrayList<IPista> pistas, String nivel){
-        if(nivel.equals(this.nivel))
-            pistas.add(this);
+    private void definirNivel(int dificultad) {
+        // return nivel.definirNivel(dificultad);
     }
 }

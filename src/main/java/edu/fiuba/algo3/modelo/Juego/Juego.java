@@ -11,8 +11,9 @@ import edu.fiuba.algo3.modelo.Item.Item;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Pista.PistaCiudad;
 import edu.fiuba.algo3.modelo.Policia.Policia;
-import edu.fiuba.algo3.modelo.Policia.RangoPolicia.ComoNovato;
 import edu.fiuba.algo3.modelo.Policia.RangoPolicia.RangoPolicia;
+
+import edu.fiuba.algo3.modelo.Lector.*;
 
 public class Juego {
 
@@ -20,7 +21,7 @@ public class Juego {
   ArrayList<PistaCiudad> pistasPaises = new ArrayList<PistaCiudad>();
   ArrayList<Ciudad> ciudades = new ArrayList<Ciudad>();
   ArrayList<Policia> agentes = new ArrayList<Policia>();
-  private ArrayList<Item> items = new ArrayList<Item>();
+  ArrayList<Item> items = new ArrayList<Item>();
 
   public Juego() throws IOException {
 
@@ -57,7 +58,8 @@ public class Juego {
     // foreach row
     // ArrayList<String> caracteristicas = row.split(,);
     // ladron new (caracteristicas)
-    BufferedReader lector = new BufferedReader(new FileReader("src/main/java/edu/fiuba/algo3/model/Ladron/DatosLadron/dossiers.csv"));
+    BufferedReader lector = new BufferedReader(
+        new FileReader("src/main/java/edu/fiuba/algo3/model/Ladron/DatosLadron/dossiers.csv"));
     try {
       String row;
       while ((row = lector.readLine()) != null) {
@@ -74,18 +76,8 @@ public class Juego {
 
   public void leerCiudades() throws IOException {
 
-    BufferedReader lector = new BufferedReader(new FileReader("src/main/java/edu/fiuba/algo3/model/Ciudad/ciudades.csv"));
-    try {
-      String row;
-      while ((row = lector.readLine()) != null) {
-        String[] data = row.split(";");
-        Ciudad nuevaCiduad = new Ciudad(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8], data[9], data[10], data[11], data[12]);
-        ciudades.add(nuevaCiduad);
-      }
-    } catch (IOException e) {
-      lector.close();
-    }
-    lector.close();
+    LectorCiudad lector = new LectorCiudad();
+    ciudades = lector.leerCiudades();
 
   }
 
@@ -94,7 +86,8 @@ public class Juego {
 
   public void leerAgentes() throws IOException {
 
-    BufferedReader lector = new BufferedReader(new FileReader("src/main/java/edu/fiuba/algo3/model/Policia/agentes.csv"));
+    BufferedReader lector = new BufferedReader(
+        new FileReader("src/main/java/edu/fiuba/algo3/model/Policia/agentes.csv"));
     try {
       String row;
       while ((row = lector.readLine()) != null) {
@@ -125,7 +118,7 @@ public class Juego {
 
     boolean resultado = false;
 
-    for (Ciudad c : ciudades){
+    for (Ciudad c : ciudades) {
 
       if (c.esLaCiudad(ciudad))
         resultado = true;
@@ -138,7 +131,7 @@ public class Juego {
 
     boolean resultado = false;
 
-    for (Policia p : agentes){
+    for (Policia p : agentes) {
 
       if (p.soyElAgente(nombreAgente))
         resultado = true;
@@ -151,7 +144,7 @@ public class Juego {
 
     boolean resultado = false;
 
-    for (Item i : items){
+    for (Item i : items) {
 
       if (i.estaElItem(nombreItem))
         resultado = true;
@@ -160,7 +153,7 @@ public class Juego {
     return resultado;
   }
 
-  public Ciudad darUnaCiudadRandom(){
+  public Ciudad darUnaCiudadRandom() {
 
     Random nuevoRandom = new Random();
     return ciudades.get(nuevoRandom.nextInt(this.ciudades.size()));
