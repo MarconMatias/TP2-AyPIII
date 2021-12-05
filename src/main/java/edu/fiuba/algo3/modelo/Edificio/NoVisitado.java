@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.Ladron.Ladron;
 public class NoVisitado implements IComportamientoEdificio{
 
 
+
     public NoVisitado(){
 
     }

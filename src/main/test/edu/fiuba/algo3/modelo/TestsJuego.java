@@ -32,7 +32,22 @@ public class TestsJuego {
     @Test
     public void test02DetectiveNovatoComienzaEnMontrealVisitaUnBancoSeDespliegaUnaPistaLuegoVisitaUnaBibliotecaSeDespliegaUnaPista(){
 
+        Policia nuevoPolicia = new Policia( new RangoPolicia(), "Agus");
+        Ladron ladron = new Ladron("Tomas" , "Masculino" ,"Futbol","Castaño Oscuro", "Tatuaje","Auto de marca alemana");
+        Edificio banco = new Edificio("Banco de Montreal");
+        Edificio biblioteca = new Edificio("Biblioteca de Montreal");
+
+        boolean policiaEntro = nuevoPolicia.entraAlEdificio(banco, ladron);
+        assertTrue(policiaEntro);
+        policiaEntro = nuevoPolicia.entraAlEdificio(biblioteca,ladron);
+        assertTrue(policiaEntro);
+
     }
 
+    @Test
+    public void test03DetectiveViajaDeMontrealAMexico(){
 
+        Policia nuevoPolicia = new Policia( new RangoPolicia(), "Agus");
+        Ladron ladron = new Ladron("Tomas" , "Masculino" ,"Futbol","Castaño Oscuro", "Tatuaje","Auto de marca alemana");
+    }
 }
