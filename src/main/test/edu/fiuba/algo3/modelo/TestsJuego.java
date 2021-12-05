@@ -30,7 +30,7 @@ public class TestsJuego {
     }
 
     @Test
-    public void test02(){
+    public void test02DetectiveNovatoComienzaEnMontrealVisitaUnBancoSeDespliegaUnaPistaLuegoVisitaUnaBibliotecaSeDespliegaUnaPista(){
 
     }
 
