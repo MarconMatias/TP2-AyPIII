@@ -4,5 +4,5 @@ import java.util.ArrayList;
 
 public interface IPista {
 
-    public void agregarAListaSiEsNivel(ArrayList<IPista> pistas, String nivel);
+    // public void agregarAListaSiEsNivel(ArrayList<IPista> pistas, String nivel);
 }
