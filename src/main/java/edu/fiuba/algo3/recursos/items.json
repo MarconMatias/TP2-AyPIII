@@ -1,0 +1,116 @@
+{
+  "items": [
+    {
+      "name": "1,000 Year Old Egg",
+      "city": "Peking"
+    },
+    {
+      "name": "Babylonian Tablet",
+      "city": "Baghdad"
+    },
+    {
+      "name": "Boar's Tusk",
+      "city": "Port Moresby"
+    },
+    {
+      "name": "Chandelier from the Opera House",
+      "city": "Sydney"
+    },
+    {
+      "name": "Constantine's Jeweled Cross",
+      "city": "Istanbul"
+    },
+    {
+      "name": "Crown Jewels",
+      "city": "London"
+    },
+    {
+      "name": "Flying Carpet",
+      "city": "Baghdad"
+    },
+    {
+      "name": "Golden Buddha",
+      "city": "Bangkok"
+    },
+    {
+      "name": "Incan Gold Mask",
+      "city": "Lima"
+    },
+    {
+      "name": "Islamic Manuscript",
+      "city": "Bamako"
+    },
+    {
+      "name": "Ivan the Terrible's Crown",
+      "city": "Moscow"
+    },
+    {
+      "name": "King Tut's Mask",
+      "city": "Cairo"
+    },
+    {
+      "name": "Mask of Montezuma",
+      "city": "Mexico City"
+    },
+    {
+      "name": "Mask of Priam",
+      "city": "Athens"
+    },
+    {
+      "name": "Merlion the Golden Lion",
+      "city": "Singapore"
+    },
+    {
+      "name": "Painting from the Kremlin",
+      "city": "Moscow"
+    },
+    {
+      "name": "Pope's Ring",
+      "city": "Rome"
+    },
+    {
+      "name": "Rare Mali Empire Pottery",
+      "city": "Bamako"
+    },
+    {
+      "name": "Rare Tea Plant",
+      "city": "Colombo"
+    },
+    {
+      "name": "Royal Quartz Collection",
+      "city": "Kathmandu"
+    },
+    {
+      "name": "Sernedip Ruby",
+      "city": "Colombo"
+    },
+    {
+      "name": "Silver LLama",
+      "city": "Lima"
+    },
+    {
+      "name": "Solid Gold Bola",
+      "city": "Buenos Aires"
+    },
+    {
+      "name": "Stanley Cup",
+      "city": "Montreal"
+    },
+    {
+      "name": "Stuffed Parrot",
+      "city": "Rio de Janeiro"
+    },
+    {
+      "name": "The Rockettes",
+      "city": "New York"
+    },
+    {
+      "name": "Viking Helmet",
+      "city": "Oslo"
+    },
+    {
+      "name": "Watusi King's Headdress",
+      "city": "Kigali"
+    }
+  ]
+}

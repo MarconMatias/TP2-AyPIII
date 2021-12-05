@@ -8,7 +8,6 @@ public class Ciudad {
 
     private final String nombre;
     private final ArrayList<PistaCiudad> pistas;
-
     private int cantidadDeVisitas = 0;
 
     public Ciudad(String nombre, ArrayList<PistaCiudad> pistas) {
