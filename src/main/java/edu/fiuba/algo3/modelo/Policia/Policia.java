@@ -32,7 +32,7 @@ public class Policia {
 
         boolean pistaEncontrada = false;
 
-        pistaEncontrada = unEdificio.mostrarPistaSiExiste(unLadron);
+        pistaEncontrada = unEdificio.generarEvento(unLadron);
 
         return pistaEncontrada;
     }

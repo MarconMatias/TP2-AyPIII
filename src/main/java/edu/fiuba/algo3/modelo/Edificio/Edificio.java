@@ -5,22 +5,16 @@ import edu.fiuba.algo3.modelo.Ladron.Ladron;
 public class Edificio {
 
     private final String nombreEdificio;
-    private boolean existePista;
+    private IComportamientoEdificio comportamientoEdificio;
 
-    public Edificio(String nombreEdificio, boolean existePista) {
+    public Edificio(String nombreEdificio) {
         this.nombreEdificio = nombreEdificio;
-        this.existePista = existePista;
+        this.comportamientoEdificio = new NoVisitado();
     }
 
-    public boolean mostrarPistaSiExiste(Ladron unLadron) {
+    public boolean generarEvento(Ladron unLadron) {
 
-        if( this.existePista ){
-
-            System.out.println("Dentro del " + this.nombreEdificio + " encontre una pista, un sujeto dijo que el ladron llevaba un " + unLadron.mostrarSeña());
-            return true;
-        }
-        else
-            return false;
-
+        this.comportamientoEdificio = this.comportamientoEdificio.lanzarEvento( unLadron );
+        return true;
     }
 }

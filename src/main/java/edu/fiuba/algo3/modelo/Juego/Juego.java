@@ -11,7 +11,8 @@ import edu.fiuba.algo3.modelo.Item.Item;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Pista.PistaCiudad;
 import edu.fiuba.algo3.modelo.Policia.Policia;
-import edu.fiuba.algo3.modelo.Policia.RangoPolicia.PoliciaNovato;
+import edu.fiuba.algo3.modelo.Policia.RangoPolicia.ComoNovato;
+import edu.fiuba.algo3.modelo.Policia.RangoPolicia.RangoPolicia;
 
 public class Juego {
 
@@ -98,7 +99,7 @@ public class Juego {
       String row;
       while ((row = lector.readLine()) != null) {
         String[] data = row.split(";");
-        Policia nuevoAgente = new Policia(new PoliciaNovato(), data[0]);
+        Policia nuevoAgente = new Policia(new RangoPolicia(), data[0]);
         agentes.add(nuevoAgente);
       }
     } catch (IOException e) {

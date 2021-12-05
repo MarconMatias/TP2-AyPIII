@@ -5,19 +5,22 @@ import edu.fiuba.algo3.modelo.Pista.NivelPista.NivelPista;
 
 import java.util.ArrayList;
 
-public abstract class RangoPolicia {
+public class RangoPolicia {
 
-    private final String nombreRango;
-
+    private IComportamientoRango comportamientoRango;
     private NivelPista nivelPista;
 
-    public RangoPolicia(String nombreRango){
+    public RangoPolicia(){
 
-        this.nombreRango = nombreRango;
+        this.comportamientoRango = (IComportamientoRango) new ComoNovato();
     }
 
     public IPista filtrarPistas(ArrayList<IPista> pistas){
 
         return nivelPista.filtrarPistas(pistas);
     };
+
+    public void ascender(){
+        this.comportamientoRango.ascender();
+    }
 }

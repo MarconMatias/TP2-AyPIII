@@ -34,6 +34,7 @@ public class Ladron {
 
     public String mostrarSeña() {
 
+      System.out.println("Veo a un sujeto con un " + this.seña + " dentro del edificio. ");
       return this.seña;
     }
 }
