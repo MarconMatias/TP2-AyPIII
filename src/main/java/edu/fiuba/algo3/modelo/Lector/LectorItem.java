@@ -6,6 +6,8 @@ import edu.fiuba.algo3.modelo.Item.Item;
 
 public class LectorItem {
 
+  ArrayList<Item> items = new ArrayList<Item>();
+
   public ArrayList<Item> leerItems() {
 
     // leer archivo

@@ -38,8 +38,7 @@ public class LectorCiudad {
     } catch (org.json.simple.parser.ParseException e) {
       e.printStackTrace();
     }
-
-    return null;
+    return ciudades;
   }
 
   private Ciudad interpretarCiudad(JSONObject ciudad) {
