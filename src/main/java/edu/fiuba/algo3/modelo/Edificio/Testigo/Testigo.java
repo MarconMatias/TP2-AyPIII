@@ -34,4 +34,5 @@ public class Testigo {
         this.sospechoso = ladron;
         this.destino = destino;
     }
+
 }
