@@ -47,26 +47,29 @@ public class LectorItem {
     return (JSONObject) elemento;
   }
 
-  private JSONArray leerPropiedadComoArray(HashMap objeto, String propiedad) {
-    Object valor = objeto.getOrDefault(propiedad,null);
-    if(!(valor instanceof JSONArray))
+  /**
+   * Provee un casteo, arrojando un error claro si la propiedad no existe o no es de la clase esperada.
+   * @param clase La clase a la que se castea.
+   * @param objeto El objeto que debe tener la propiedad.
+   * @param propiedad El nombre de la propiedad buscada en el objeto.
+   * @param <T> La clase a la que se castea.
+   * @return La propiedad `propiedad` de `objeto`.
+   */
+  private <T> T leerPropiedadComo(Class<T> clase, HashMap objeto, String propiedad) {
+    if(!objeto.containsKey(propiedad))
     {
-      throw new RuntimeException("No contiene propiedad " + propiedad + " o no es un array.");
+      throw new RuntimeException("No contiene propiedad " + propiedad + ".");
     }
-    return (JSONArray) valor;
-  }
-
-  private String leerPropiedadComoString(HashMap objeto, String propiedad) {
-    Object valor = objeto.getOrDefault(propiedad,null);
-    if(!(valor instanceof String))
+    Object valor = objeto.get(propiedad);
+    if(!clase.isInstance(valor))
     {
-      throw new RuntimeException("No contiene propiedad " + propiedad + " o no es un string.");
+      throw new RuntimeException("La propiedad " + propiedad + " no es "+clase.getName()+".");
     }
-    return (String) valor;
+    return clase.cast(valor);
   }
 
   public List<Item> leerItems(JSONObject entrada) {
-    JSONArray jsonItems = leerPropiedadComoArray(entrada,"items");
+    JSONArray jsonItems = leerPropiedadComo(JSONArray.class,entrada,"items");
     ArrayList<Item> items = new ArrayList<Item>();
     int i=0;
     for(Object elemento:jsonItems)
@@ -82,8 +85,8 @@ public class LectorItem {
 
   public Item interpretarItem(JSONObject jsonItem)
   {
-    String nombre = leerPropiedadComoString(jsonItem,"nombre");
-    String ciudad = leerPropiedadComoString(jsonItem,"ciudad");
+    String nombre = leerPropiedadComo(String.class,jsonItem,"nombre");
+    String ciudad = leerPropiedadComo(String.class,jsonItem,"ciudad");
     return new Item(nombre,ciudad);
   }
 }
