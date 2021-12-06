@@ -34,6 +34,26 @@ public class LectorItemTest {
     }
 
     @Test
+    public void leer2ElementosDaListaCon2Items()
+    {
+        String fuente = "{\"items\":[{\"nombre\":\"Nombre1\",\"ciudad\":\"Ciudad1\"},";
+        fuente+= "{\"nombre\":\"Item2\",\"ciudad\":\"Otro lugar\"}]}";
+        LectorItem lector = new LectorItem();
+
+        JSONObject entrada;
+        try
+        {
+            entrada = (JSONObject) (new JSONParser()).parse(fuente);
+        }
+        catch(ParseException ex) {
+            throw new RuntimeException("Error al parsear test: "+ex.toString());
+        }
+
+        List<Item> items = lector.leerItems(entrada);
+        assertEquals(2,items.size());
+    }
+
+    @Test
     public void leer2ElementosDaListaCon2ItemsConNombreCorrecto()
     {
         String fuente = "{\"items\":[{\"nombre\":\"Nombre1\",\"ciudad\":\"Ciudad1\"},";
