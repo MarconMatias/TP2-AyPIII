@@ -21,12 +21,17 @@ public class InterpretePistaCiudad {
       {
         throw new RuntimeException("El elemento en la posición "+i+" no es un diccionario.");
       }
-      i++;
-      String tipo = "";
+      JSONObject dicc = (JSONObject) elemento;
+      if(!dicc.containsKey("tipo")||!dicc.containsKey("pista"))
+      {
+        throw new RuntimeException("El elemento en la posición "+i+" no tiene el formato correcto.");
+      }
+      String tipo = dicc.get("tipo").toString();
       String pista = "";
       int dificultad = 2;
       NivelPista nivel = InterpreteNivelPista.crearConDificultad(dificultad);
       pistas.add(new PistaCiudad(tipo, pista,nivel));
+      i++;
     }
     //Iterator<JSONObject> iterator = listaPistas.iterator();
     /*
