@@ -29,7 +29,7 @@ public class CiudadVisitada {
         edificios = ciudad.edificiosAlAzar(3);
     }
 
-    public visitadoPorLadron(Ladron ladron, Ciudad destino)
+    public void visitadoPorLadron(Ladron ladron, Ciudad destino)
     {
         for(Edificio edificio : edificios) {
             edificio.visitadoPorLadron(ladron,destino);
