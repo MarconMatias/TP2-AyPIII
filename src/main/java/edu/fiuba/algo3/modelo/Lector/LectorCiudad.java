@@ -41,8 +41,10 @@ public class LectorCiudad {
     return ciudades;
   }
 
-  private Ciudad interpretarCiudad(JSONObject ciudad) {
-    return (new Ciudad((String) ciudad.get("nombre"), interprete.interpretar((JSONArray) ciudad.get("pistas"))));
+  private Ciudad interpretarCiudad(String ciudad) {
+    // return (Ciudad ciudad = new Ciudad(ciudad.nombre,
+    // interprete.interpretar(listaPistas) ));
+    return null;
   }
 
 }

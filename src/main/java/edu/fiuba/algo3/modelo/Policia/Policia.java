@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.modelo.Policia;
 
+import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
+import edu.fiuba.algo3.modelo.Edificio.IEdificio;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Pista.IPista;
 import edu.fiuba.algo3.modelo.Policia.RangoPolicia.RangoPolicia;
@@ -28,12 +30,18 @@ public class Policia {
         return this.nombre.equals(nombreAgente);
     }
 
-    public boolean entraAlEdificio(Edificio unEdificio, Ladron unLadron) {
+    public boolean entraAlEdificio(IEdificio unEdificio, Ladron unLadron) {
 
         boolean pistaEncontrada = false;
 
         pistaEncontrada = unEdificio.generarEvento(unLadron);
 
         return pistaEncontrada;
+    }
+
+    public boolean viajarACiudad(Ciudad unaCiudad) {
+
+
+        return true;
     }
 }
