@@ -1,115 +1,115 @@
 {
   "items": [
     {
-      "name": "1,000 Year Old Egg",
-      "city": "Peking"
+      "name": "Huevo de 1000 años",
+      "city": "Pekin"
     },
     {
       "name": "Babylonian Tablet",
-      "city": "Baghdad"
+      "city": "Bagdad"
     },
     {
-      "name": "Boar's Tusk",
+      "name": "Colmillo de jabalí",
       "city": "Port Moresby"
     },
     {
-      "name": "Chandelier from the Opera House",
+      "name": "Araña de la Ópera",
       "city": "Sydney"
     },
     {
-      "name": "Constantine's Jeweled Cross",
-      "city": "Istanbul"
+      "name": "Cruz enjoyada de Constantino",
+      "city": "Estanbul"
     },
     {
-      "name": "Crown Jewels",
-      "city": "London"
+      "name": "Joyas de la corona",
+      "city": "Londres"
     },
     {
-      "name": "Flying Carpet",
-      "city": "Baghdad"
+      "name": "Alfombra voladora",
+      "city": "Bagdad"
     },
     {
-      "name": "Golden Buddha",
+      "name": "Buda dorado",
       "city": "Bangkok"
     },
     {
-      "name": "Incan Gold Mask",
+      "name": "Máscara de oro Inca",
       "city": "Lima"
     },
     {
-      "name": "Islamic Manuscript",
+      "name": "Manuscrito islámico",
       "city": "Bamako"
     },
     {
-      "name": "Ivan the Terrible's Crown",
-      "city": "Moscow"
+      "name": "Corona de Iván el Terrible",
+      "city": "Moscu"
     },
     {
-      "name": "King Tut's Mask",
-      "city": "Cairo"
+      "name": "Máscara del rey Tut",
+      "city": "El Cairo"
     },
     {
-      "name": "Mask of Montezuma",
-      "city": "Mexico City"
+      "name": "Máscara de Montezuma",
+      "city": "Ciudad de México"
     },
     {
-      "name": "Mask of Priam",
-      "city": "Athens"
+      "name": "Máscara de Príamo",
+      "city": "Atenas"
     },
     {
-      "name": "Merlion the Golden Lion",
-      "city": "Singapore"
+      "name": "Merlion el León Dorado",
+      "city": "Singapur"
     },
     {
-      "name": "Painting from the Kremlin",
-      "city": "Moscow"
+      "name": "Pintura del Kremlin",
+      "city": "Moscu"
     },
     {
-      "name": "Pope's Ring",
-      "city": "Rome"
+      "name": "Anillo del Papa",
+      "city": "Roma"
     },
     {
-      "name": "Rare Mali Empire Pottery",
+      "name": "Cerámica rara del Imperio de Malí",
       "city": "Bamako"
     },
     {
-      "name": "Rare Tea Plant",
+      "name": "Planta de té rara",
       "city": "Colombo"
     },
     {
-      "name": "Royal Quartz Collection",
-      "city": "Kathmandu"
+      "name": "Colección Royal Quartz",
+      "city": "Katmandu"
     },
     {
       "name": "Sernedip Ruby",
       "city": "Colombo"
     },
     {
-      "name": "Silver LLama",
+      "name": "Plata LLama",
       "city": "Lima"
     },
     {
-      "name": "Solid Gold Bola",
+      "name": "Bola de oro macizo",
       "city": "Buenos Aires"
     },
     {
-      "name": "Stanley Cup",
+      "name": "Taza de Stanley",
       "city": "Montreal"
     },
     {
-      "name": "Stuffed Parrot",
+      "name": "Loro relleno",
       "city": "Rio de Janeiro"
     },
     {
-      "name": "The Rockettes",
+      "name": "Los Rockettes",
       "city": "New York"
     },
     {
-      "name": "Viking Helmet",
+      "name": "Casco vikingo",
       "city": "Oslo"
     },
     {
-      "name": "Watusi King's Headdress",
+      "name": "Tocado del rey Watusi",
       "city": "Kigali"
     }
   ]

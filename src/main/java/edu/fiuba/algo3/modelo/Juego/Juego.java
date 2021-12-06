@@ -30,7 +30,6 @@ public class Juego {
 
     leerLadrones();
     leerItems();
-    leerPistas(); // ???
     leerCiudades();
     armarMapa();
     leerAgentes(); // datos guardados de partidas
@@ -43,9 +42,6 @@ public class Juego {
 
   private void leerItems() throws IOException {
     items = lectorItem.leerItems();
-  }
-
-  private void leerPistas() {
   }
 
   private void leerCiudades() throws IOException {

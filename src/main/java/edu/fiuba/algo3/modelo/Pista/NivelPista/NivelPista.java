@@ -13,12 +13,12 @@ public abstract class NivelPista {
         this.nivel = nivel;
     }
 
-    public IPista filtrarPistas(ArrayList<IPista> pistas){
+    public IPista filtrarPistas(ArrayList<IPista> pistas) {
 
         ArrayList<IPista> pistasFiltradas = new ArrayList<IPista>();
-        for (IPista p: pistas){
+        for (IPista p : pistas) {
 
-            p.agregarAListaSiEsNivel(pistasFiltradas,this.nivel);
+            // p.agregarAListaSiEsNivel(pistasFiltradas,this.nivel);
         }
 
         Random numeroRandom = new Random();
