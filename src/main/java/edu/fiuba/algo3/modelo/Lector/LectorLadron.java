@@ -85,7 +85,10 @@ public class LectorLadron {
   private Ladron interpretarLadron(JSONObject jsonLadron) {
     String nombre = leerPropiedadComo(String.class,jsonLadron,"nombre");
     Map<String,String> detalles = new HashMap<String,String>();
-    detalles.put("sexo", leerPropiedadComo(String.class, jsonLadron,"sexo"));
+    for(String tipo : List.of("sexo", "deporte", "cabello", "distincion", "vehiculo"))
+    {
+      detalles.put(tipo, leerPropiedadComo(String.class, jsonLadron,tipo));
+    }
     return new Ladron(nombre,detalles);
   }
 }
