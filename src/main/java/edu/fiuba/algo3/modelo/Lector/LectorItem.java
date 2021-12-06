@@ -39,6 +39,7 @@ public class LectorItem {
   }
 
   public List<Item> leerItems(JSONObject entrada) {
-    return null;
+    ArrayList<Item> items = new ArrayList<Item>();
+    return items;
   }
 }
