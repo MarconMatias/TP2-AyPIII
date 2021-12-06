@@ -1,6 +1,10 @@
 package edu.fiuba.algo3.modelo.Lector;
 
-import java.util.HashMap;
+import org.json.simple.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.function.Function;
 
 public class LectorJson {
     /**
@@ -11,7 +15,7 @@ public class LectorJson {
      * @param <T> La clase a la que se castea.
      * @return La propiedad `propiedad` de `objeto`.
      */
-    public <T> T leerPropiedadComo(Class<T> clase, HashMap objeto, String propiedad) {
+    public <T> T leerPropiedadComo(Class<T> clase, Map objeto, String propiedad) {
         if(!objeto.containsKey(propiedad))
         {
             throw new RuntimeException("No contiene propiedad " + propiedad + ".");
@@ -22,5 +26,28 @@ public class LectorJson {
             throw new RuntimeException("La propiedad " + propiedad + " no es "+clase.getName()+".");
         }
         return clase.cast(valor);
+    }
+
+    private Map comoDiccionario(Object elemento)
+    {
+        if(!(elemento instanceof Map)) {
+            throw new RuntimeException("No es un diccionario.");
+        }
+        return (Map) elemento;
+    }
+
+    public <T> ArrayList<T> interpetarArray(ArrayList array, Function<Map,T> iterpretar)
+    {
+        ArrayList<T> lista = new ArrayList<T>();
+        int i = 0;
+        for(Object elemento:array)
+            try {
+                lista.add(iterpretar.apply(comoDiccionario(elemento)));
+                i++;
+            } catch (RuntimeException ex) {
+                ex.printStackTrace();
+                throw new RuntimeException("Error al leer elemento "+i+": "+ex.getMessage());
+            }
+        return lista;
     }
 }
