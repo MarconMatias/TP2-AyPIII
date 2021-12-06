@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
@@ -19,7 +21,7 @@ public class Juego {
 
   ArrayList<Ladron> ladrones = new ArrayList<Ladron>();
   ArrayList<Item> items = new ArrayList<Item>();
-  ArrayList<Ciudad> ciudades = new ArrayList<Ciudad>();
+  Map<String,Ciudad> ciudades = new HashMap<String,Ciudad>();
   ArrayList<Policia> agentes = new ArrayList<Policia>();
 
   LectorCiudad lectorCiudad = new LectorCiudad();
