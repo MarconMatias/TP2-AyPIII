@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import edu.fiuba.algo3.modelo.Pista.PistaCiudad;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -74,7 +75,9 @@ public class LectorCiudad {
   }
 
   private Ciudad interpretarCiudad(JSONObject ciudad) {
-    return (new Ciudad((String) ciudad.get("nombre"), interprete.interpretar((JSONArray) ciudad.get("pistas"))));
+    String nombre = (String) ciudad.get("nombre");
+    ArrayList<PistaCiudad> pistas = interprete.interpretar((JSONArray) ciudad.get("pistas"));
+    return (new Ciudad(nombre, pistas));
   }
 
 }
