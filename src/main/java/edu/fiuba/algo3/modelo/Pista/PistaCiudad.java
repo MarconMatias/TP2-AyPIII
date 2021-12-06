@@ -12,7 +12,6 @@ public class PistaCiudad implements IPista {
     private final NivelPista nivel;
 
     public PistaCiudad(String tipo, String pista, NivelPista nivel) {
-
         this.tipo = tipo;
         this.pista = pista;
         this.nivel = nivel;
@@ -30,4 +29,10 @@ public class PistaCiudad implements IPista {
     public boolean esDeUnTipoDe(Collection<String> tipos) {
         return tipos.stream().anyMatch(buscado -> this.tipo == buscado);
     }
+
+    @Override
+    public String toString() {
+        return "Un dato sobre " + tipo + ":" + pista;
+    }
+
 }

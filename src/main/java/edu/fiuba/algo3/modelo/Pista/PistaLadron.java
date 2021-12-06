@@ -7,8 +7,12 @@ import java.util.ArrayList;
 public class PistaLadron implements IPista {
 
     private final NivelPista nivel;
+    private final String tipo;
+    private final String valor;
 
-    public PistaLadron(NivelPista nivel){
+    public PistaLadron(String tipo, String valor, NivelPista nivel) {
+        this.tipo = tipo;
+        this.valor = valor;
         this.nivel = nivel;
     }
 
@@ -18,5 +22,11 @@ public class PistaLadron implements IPista {
         {
             pistas.add(this);
         }
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Su " + tipo + " es " + valor + ".";
     }
 }
