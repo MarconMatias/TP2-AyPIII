@@ -10,6 +10,10 @@ import java.util.List;
 
 public class Banco extends EdificioAbstracto {
     private final IFiltroCiudad filtro = new FiltroEconomia();
+
+    public Banco(String nombreBanco) {
+    }
+
     @Override
     public String getNombreTipo() {
         return "Banco";
