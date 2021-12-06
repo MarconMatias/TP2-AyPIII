@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -36,6 +37,11 @@ public class LectorLadron {
     } catch (org.json.simple.parser.ParseException e) {
       e.printStackTrace();
     }
+    return ladrones;
+  }
+
+  public List<Ladron> leerLadrones(JSONObject entrada) {
+    ArrayList<Ladron> ladrones = new ArrayList<Ladron>();
     return ladrones;
   }
 }

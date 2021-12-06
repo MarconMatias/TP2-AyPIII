@@ -1,14 +1,12 @@
 package edu.fiuba.algo3.modelo.Lector;
 
-import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.Reader;
-import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.HashMap;
+import java.util.Map;
 
+import edu.fiuba.algo3.modelo.Pista.PistaCiudad;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -18,33 +16,68 @@ import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 public class LectorCiudad {
 
   InterpretePistaCiudad interprete = new InterpretePistaCiudad();
-  ArrayList<Ciudad> ciudades = new ArrayList<Ciudad>();
 
-  public ArrayList<Ciudad> leerCiudades() {
-
-    JSONParser parser = new JSONParser();
-
-    try (Reader reader = new FileReader("/src/main/java/edu/fiuba/algo3/recursos/ciudades.json")) {
-
-      JSONObject json = (JSONObject) parser.parse(reader);
-      JSONArray ciudadesJson = (JSONArray) json.get("ciudades");
-      Iterator<JSONObject> iterator = ciudadesJson.iterator();
-      while (iterator.hasNext()) {
-        ciudades.add(interpretarCiudad(iterator.next()));
-      }
-
-    } catch (IOException e) {
-      e.printStackTrace();
-    } catch (org.json.simple.parser.ParseException e) {
-      e.printStackTrace();
+  public Map<String,Ciudad> leerCiudades() {
+    return leerCiudades("/src/main/java/edu/fiuba/algo3/recursos/ciudades.json");
+  }
+  public Map<String,Ciudad> leerCiudades(String ruta) {
+    try
+    {
+      return leerCiudades(new FileReader(ruta));
+    } catch(IOException ex){
+      ex.printStackTrace();
+      throw new RuntimeException("Error al leer las ciudades:" + ex.getMessage());
     }
-    return ciudades;
   }
 
-  private Ciudad interpretarCiudad(String ciudad) {
-    // return (Ciudad ciudad = new Ciudad(ciudad.nombre,
-    // interprete.interpretar(listaPistas) ));
-    return null;
+  public Map<String,Ciudad> leerCiudades(java.io.Reader lector)
+  {
+    JSONParser parser = new JSONParser();
+    try {
+      return leerCiudades((JSONObject) parser.parse(lector));
+    } catch(IOException ex){
+      ex.printStackTrace();
+      throw new RuntimeException("Error al leer las ciudades:" + ex.getMessage());
+    } catch(org.json.simple.parser.ParseException ex) {
+      ex.printStackTrace();
+      throw new RuntimeException("Error al parsear las ciudades:" + ex.getMessage());
+    }
+  }
+
+  private JSONArray leerPropiedadComoArray(HashMap objeto,String propiedad)
+  {
+    Object valor = objeto.getOrDefault(propiedad,null);
+    if(!(valor instanceof JSONArray))
+    {
+      throw new RuntimeException("Error en ciudades, no se encontró array " + propiedad);
+    }
+    return (JSONArray) valor;
+  }
+
+  public Map<String,Ciudad> leerCiudades(JSONObject parseado) {
+    JSONArray ciudades = leerPropiedadComoArray(parseado,"ciudades");
+    Map<String,Ciudad> dicc = new HashMap<String,Ciudad>();
+    int i=0;
+    for(Object elemento : ciudades)
+    try
+    {
+      if(!(elemento instanceof JSONObject)) {
+        throw new RuntimeException("No es un diccionario.");
+      }
+      Ciudad ciudad = this.interpretarCiudad((JSONObject) elemento);
+      dicc.put(ciudad.getNombre(),ciudad);
+      i++;
+    } catch(Exception ex) {
+      ex.printStackTrace();
+      throw new RuntimeException("Ciudad "+i+":" + ex.getMessage());
+    }
+    return dicc;
+  }
+
+  private Ciudad interpretarCiudad(JSONObject ciudad) {
+    String nombre = (String) ciudad.get("nombre");
+    ArrayList<PistaCiudad> pistas = interprete.interpretar((JSONArray) ciudad.get("pistas"));
+    return (new Ciudad(nombre, pistas));
   }
 
 }
