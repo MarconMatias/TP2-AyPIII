@@ -61,5 +61,29 @@ public class InterpretePistaCiudadTest {
         assertTrue(primeroEsBandera);
         assertTrue(salida.get(1).esDeUnTipoDe(List.of("Comida")));
         assertTrue(salida.get(2).esDeUnTipoDe(List.of("Paisajes")));
+        assertFalse(salida.get(0).esDeUnTipoDe(List.of("Comida","Paisajes")));
+        assertFalse(salida.get(1).esDeUnTipoDe(List.of("Bandera","Paisajes")));
+        assertFalse(salida.get(2).esDeUnTipoDe(List.of("Bandera","Comida")));
+    }
+
+    @Test
+    public void arrayCon3ElementosDaListaCon3PistasConValorCorrecto()
+    {
+        InterpretePistaCiudad interprete = new InterpretePistaCiudad();
+        String fuente = "[{\"tipo\":\"Bandera\",\"pista\":\"Verde, blanca y roja\",\"dificultad\":0},";
+        fuente += "{\"tipo\":\"Comida\",\"pista\":\"Tacos\",\"dificultad\":0},";
+        fuente += "{\"tipo\":\"Paisajes\",\"pista\":\"Monte Popocatepetl\",\"dificultad\":0}]";
+        JSONArray entrada;
+        try
+        {
+            entrada = (JSONArray) (new JSONParser()).parse(fuente);
+        }
+        catch(ParseException ex) {
+            throw new RuntimeException("Error al parsear test: "+ex.toString());
+        }
+        ArrayList<PistaCiudad> salida = interprete.interpretar(entrada);
+        assertEquals("Verde, blanca y roja", salida.get(0).getValor());
+        assertEquals("Tacos", salida.get(1).getValor());
+        assertEquals("Monte Popocatepetl", salida.get(2).getValor());
     }
 }
