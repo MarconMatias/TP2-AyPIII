@@ -14,8 +14,22 @@ public class InterpretePistaCiudad {
   ArrayList<PistaCiudad> pistas = new ArrayList<PistaCiudad>();
 
   public ArrayList<PistaCiudad> interpretar(JSONArray listaPistas) {
-
-    Iterator<JSONObject> iterator = listaPistas.iterator();
+    int i=0;
+    for(Object elemento:listaPistas)
+    {
+      if(!(elemento instanceof JSONObject))
+      {
+        throw new RuntimeException("El elemento en la posición "+i+" no es un diccionario.");
+      }
+      i++;
+      String tipo = "";
+      String pista = "";
+      int dificultad = 2;
+      NivelPista nivel = InterpreteNivelPista.crearConDificultad(dificultad);
+      pistas.add(new PistaCiudad(tipo, pista,nivel));
+    }
+    //Iterator<JSONObject> iterator = listaPistas.iterator();
+    /*
     while (iterator.hasNext()) {
       String tipo = (String) (iterator.next()).get("tipo");
       String pista = (String) (iterator.next()).get("pista");
@@ -23,6 +37,7 @@ public class InterpretePistaCiudad {
       NivelPista nivel = InterpreteNivelPista.crearConDificultad(dificultad);
       pistas.add(new PistaCiudad(tipo, pista,nivel));
     }
+    */
     return pistas;
   }
 }
