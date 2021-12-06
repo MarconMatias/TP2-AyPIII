@@ -3,9 +3,12 @@ package edu.fiuba.algo3.modelo.Policia;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Pista.IPista;
+import edu.fiuba.algo3.modelo.Pista.PistaCiudad;
 import edu.fiuba.algo3.modelo.Policia.RangoPolicia.RangoPolicia;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class Policia {
 
@@ -18,7 +21,7 @@ public class Policia {
         this.nombre = nombre;
     }
 
-    public IPista filtrarPistas(ArrayList<IPista> pistas){
+    public ArrayList<IPista> filtrarPistas(Collection<PistaCiudad> pistas){
 
         return rango.filtrarPistas(pistas);
 
