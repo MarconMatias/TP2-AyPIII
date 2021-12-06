@@ -85,8 +85,8 @@ public class LectorLadron {
     return ladrones;
   }
 
-  private Ladron interpretarLadron(JSONObject comoDiccionario) {
-    String nombre = "";
+  private Ladron interpretarLadron(JSONObject jsonLadron) {
+    String nombre = leerPropiedadComo(String.class,jsonLadron,"nombre");
     String sexo = "";
     String deporte = "";
     String cabello = "";
