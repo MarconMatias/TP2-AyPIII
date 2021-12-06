@@ -29,4 +29,25 @@ public class LectorLadronTest {
         assertEquals(0, ladrones.size());
     }
 
+    @Test
+    public void leer2ElementosDaListaCon2Ladrones()
+    {
+        String fuente = "{\"ladrones\":["+
+                "{\"nombre\":\"Ladron1\",\"sexo\":\"\",\"deporte\":\"\",\"cabello\":\"\",\"distincion\":\"\",\"vehiculo\":\"\",},"+
+                "{\"nombre\":\"Ladron2\",\"sexo\":\"\",\"deporte\":\"\",\"cabello\":\"\",\"distincion\":\"\",\"vehiculo\":\"\",},"+
+                "]}";
+        LectorLadron lector = new LectorLadron();
+
+        JSONObject entrada;
+        try
+        {
+            entrada = (JSONObject) (new JSONParser()).parse(fuente);
+        }
+        catch(ParseException ex) {
+            throw new RuntimeException("Error al parsear test: "+ex.toString());
+        }
+        List<Ladron> ladrones = lector.leerLadrones(entrada);
+        assertEquals(2, ladrones.size());
+    }
+
 }
