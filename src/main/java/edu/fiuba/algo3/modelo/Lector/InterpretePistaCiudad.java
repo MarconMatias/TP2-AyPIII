@@ -27,7 +27,7 @@ public class InterpretePistaCiudad {
         throw new RuntimeException("El elemento en la posición "+i+" no tiene el formato correcto.");
       }
       String tipo = dicc.get("tipo").toString();
-      String pista = "";
+      String pista = dicc.get("pista").toString();
       int dificultad = 2;
       NivelPista nivel = InterpreteNivelPista.crearConDificultad(dificultad);
       pistas.add(new PistaCiudad(tipo, pista,nivel));
