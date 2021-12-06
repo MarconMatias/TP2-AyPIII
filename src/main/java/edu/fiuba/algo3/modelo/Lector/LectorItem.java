@@ -47,14 +47,22 @@ public class LectorItem {
     return (JSONObject) elemento;
   }
 
-  private JSONArray leerPropiedadComoArray(HashMap objeto, String propiedad)
-  {
+  private JSONArray leerPropiedadComoArray(HashMap objeto, String propiedad) {
     Object valor = objeto.getOrDefault(propiedad,null);
     if(!(valor instanceof JSONArray))
     {
       throw new RuntimeException("No contiene propiedad " + propiedad + " o no es un array.");
     }
     return (JSONArray) valor;
+  }
+
+  private String leerPropiedadComoString(HashMap objeto, String propiedad) {
+    Object valor = objeto.getOrDefault(propiedad,null);
+    if(!(valor instanceof String))
+    {
+      throw new RuntimeException("No contiene propiedad " + propiedad + " o no es un string.");
+    }
+    return (String) valor;
   }
 
   public List<Item> leerItems(JSONObject entrada) {
@@ -74,7 +82,7 @@ public class LectorItem {
 
   public Item interpretarItem(JSONObject jsonItem)
   {
-    String nombre = "";
+    String nombre = leerPropiedadComoString(jsonItem,"nombre");
     String ciudad = "";
     return new Item(nombre,ciudad);
   }
