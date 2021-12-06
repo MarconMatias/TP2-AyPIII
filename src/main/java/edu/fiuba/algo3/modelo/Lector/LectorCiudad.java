@@ -44,18 +44,8 @@ public class LectorCiudad {
     }
   }
 
-  private JSONArray leerPropiedadComoArray(HashMap objeto,String propiedad)
-  {
-    Object valor = objeto.getOrDefault(propiedad,null);
-    if(!(valor instanceof JSONArray))
-    {
-      throw new RuntimeException("Error en ciudades, no se encontró array " + propiedad);
-    }
-    return (JSONArray) valor;
-  }
-
   public Map<String,Ciudad> leerCiudades(JSONObject parseado) {
-    JSONArray ciudades = leerPropiedadComoArray(parseado,"ciudades");
+    ArrayList ciudades = lector.leerPropiedadComo(ArrayList.class,parseado,"ciudades");
     Map<String,Ciudad> dicc = new HashMap<String,Ciudad>();
     int i=0;
     for(Object elemento : ciudades)

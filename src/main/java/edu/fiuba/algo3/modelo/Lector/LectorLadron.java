@@ -12,7 +12,7 @@ import org.json.simple.parser.JSONParser;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 
 public class LectorLadron {
-
+  LectorJson lector = new LectorJson();
   ArrayList<Ladron> ladrones = new ArrayList<Ladron>();
 
   public ArrayList<Ladron> leerLadrones() {
@@ -47,30 +47,9 @@ public class LectorLadron {
     return (JSONObject) elemento;
   }
 
-  /**
-   * Provee un casteo, arrojando un error claro si la propiedad no existe o no es de la clase esperada.
-   * @param clase La clase a la que se castea.
-   * @param objeto El objeto que debe tener la propiedad.
-   * @param propiedad El nombre de la propiedad buscada en el objeto.
-   * @param <T> La clase a la que se castea.
-   * @return La propiedad `propiedad` de `objeto`.
-   */
-  private <T> T leerPropiedadComo(Class<T> clase, HashMap objeto, String propiedad) {
-    if(!objeto.containsKey(propiedad))
-    {
-      throw new RuntimeException("No contiene propiedad " + propiedad + ".");
-    }
-    Object valor = objeto.get(propiedad);
-    if(!clase.isInstance(valor))
-    {
-      throw new RuntimeException("La propiedad " + propiedad + " no es "+clase.getName()+".");
-    }
-    return clase.cast(valor);
-  }
-
   public List<Ladron> leerLadrones(JSONObject entrada) {
     ArrayList<Ladron> ladrones = new ArrayList<Ladron>();
-    JSONArray jsonLadrones = leerPropiedadComo(JSONArray.class, entrada, "ladrones");
+    JSONArray jsonLadrones = lector.leerPropiedadComo(JSONArray.class, entrada, "ladrones");
     int i = 0;
     for(Object elemento:jsonLadrones)
       try {
@@ -84,11 +63,11 @@ public class LectorLadron {
   }
 
   private Ladron interpretarLadron(JSONObject jsonLadron) {
-    String nombre = leerPropiedadComo(String.class,jsonLadron,"nombre");
+    String nombre = lector.leerPropiedadComo(String.class,jsonLadron,"nombre");
     Map<String,String> detalles = new HashMap<String,String>();
     for(String tipo : List.of("sexo", "deporte", "cabello", "distincion", "vehiculo"))
     {
-      detalles.put(tipo, leerPropiedadComo(String.class, jsonLadron,tipo));
+      detalles.put(tipo, lector.leerPropiedadComo(String.class, jsonLadron,tipo));
     }
     return new Ladron(nombre,detalles);
   }
