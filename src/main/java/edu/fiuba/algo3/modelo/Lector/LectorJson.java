@@ -1,7 +1,9 @@
 package edu.fiuba.algo3.modelo.Lector;
 
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -30,7 +32,7 @@ public class LectorJson {
         return clase.cast(valor);
     }
 
-    private Map comoDiccionario(Object elemento)
+    public Map comoDiccionario(Object elemento)
     {
         if(!(elemento instanceof Map)) {
             throw new RuntimeException("No es un diccionario.");
@@ -51,6 +53,20 @@ public class LectorJson {
                 throw new RuntimeException("Error al leer elemento "+i+": "+ex.getMessage());
             }
         return lista;
+    }
+
+    public Map leerJsonMap(java.io.Reader lectorDatos)
+    {
+        JSONParser parser = new JSONParser();
+        try {
+            return comoDiccionario(parser.parse(lectorDatos));
+        } catch(IOException ex){
+            ex.printStackTrace();
+            throw new RuntimeException("Error de lectura:" + ex.getMessage());
+        } catch(org.json.simple.parser.ParseException ex) {
+            ex.printStackTrace();
+            throw new RuntimeException("Error de interpretación:" + ex.getMessage());
+        }
     }
 
     public <T,S> Map<S,T> mapear(List<T> lista, Function<T,S> conversorALlave)
