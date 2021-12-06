@@ -10,11 +10,11 @@ import edu.fiuba.algo3.modelo.Policia.Policia;
 
 public class Edificio {
     private final ITipoEdificio tipo;
-    private IComportamientoEdificio comportamientoEdificio;
+    private IComportamientoEdificio comportamiento;
     private final Testigo testigo;
 
     public Edificio(ITipoEdificio tipo, IComportamientoEdificio comportamiento) {
-        this.comportamientoEdificio = new NoVisitado();//SinComportamiento
+        this.comportamiento = comportamiento;
         this.tipo = tipo;
         this.testigo = tipo.getTestigo();
     }
@@ -30,7 +30,7 @@ public class Edificio {
     }
     public boolean generarEvento(Ladron unLadron) {
 
-        this.comportamientoEdificio = this.comportamientoEdificio.lanzarEvento( unLadron );
+        this.comportamiento = this.comportamiento.lanzarEvento( unLadron );
         return true;
     }
 
@@ -40,8 +40,7 @@ public class Edificio {
 
     public String visitar(Policia policia, Calendario cal)
     {
-        // ejecutar accion secundaria (herir, etc.) con cal
-        comportamiento.visitar(edificio,policia,cal);
+        comportamiento.visitar(this,policia,cal);
         return testigo.getTestimonio(policia);
     }
 }
