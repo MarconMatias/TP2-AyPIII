@@ -3,6 +3,8 @@ package edu.fiuba.algo3.modelo.Lector;
 import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
@@ -49,5 +51,15 @@ public class LectorJson {
                 throw new RuntimeException("Error al leer elemento "+i+": "+ex.getMessage());
             }
         return lista;
+    }
+
+    public <T,S> Map<S,T> mapear(List<T> lista, Function<T,S> conversorALlave)
+    {
+        Map<S,T> map = new HashMap<S,T>();
+        for(T elemento : lista)
+        {
+            map.put(conversorALlave.apply(elemento), elemento);
+        }
+        return map;
     }
 }
