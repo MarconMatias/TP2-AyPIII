@@ -23,6 +23,6 @@ public class InterpretePistaCiudad {
       NivelPista nivel = InterpreteNivelPista.crearConDificultad(dificultad);
       pistas.add(new PistaCiudad(tipo, pista,nivel));
     }
-    return null;
+    return pistas;
   }
 }
