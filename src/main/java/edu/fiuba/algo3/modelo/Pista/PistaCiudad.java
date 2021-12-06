@@ -36,4 +36,7 @@ public class PistaCiudad implements IPista {
         return "Un dato sobre " + tipo + ":" + pista;
     }
 
+    public String getValor() {
+        return this.pista;
+    }
 }
