@@ -44,4 +44,8 @@ public class Ladron implements ISospechoso {
   public String testimonioAlAzar(Policia policia, Ciudad destino, IFiltroCiudad filtroCiudad) {
     return destino.pistaAlAzar(policia,filtroCiudad) + mostrarDistincion();
   }
+
+    public String getNombre() {
+      return this.nombre;
+    }
 }
