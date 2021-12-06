@@ -72,4 +72,26 @@ public class LectorLadronTest {
         assertEquals("Ladron2", ladrones.get(1).getNombre());
     }
 
+    @Test
+    public void leer2ElementosDaListaCon2LadronesConSexoCorrecto()
+    {
+        String fuente = "{\"ladrones\":["+
+                "{\"nombre\":\"Ladron1\",\"sexo\":\"sexo1\",\"deporte\":\"\",\"cabello\":\"\",\"distincion\":\"\",\"vehiculo\":\"\",},"+
+                "{\"nombre\":\"Ladron2\",\"sexo\":\"sexo2\",\"deporte\":\"\",\"cabello\":\"\",\"distincion\":\"\",\"vehiculo\":\"\",},"+
+                "]}";
+        LectorLadron lector = new LectorLadron();
+
+        JSONObject entrada;
+        try
+        {
+            entrada = (JSONObject) (new JSONParser()).parse(fuente);
+        }
+        catch(ParseException ex) {
+            throw new RuntimeException("Error al parsear test: "+ex.toString());
+        }
+        List<Ladron> ladrones = lector.leerLadrones(entrada);
+        assertEquals("sexo1", ladrones.get(0).getDetalle("sexo",""));
+        assertEquals("sexo2", ladrones.get(1).getDetalle("sexo",""));
+    }
+
 }
