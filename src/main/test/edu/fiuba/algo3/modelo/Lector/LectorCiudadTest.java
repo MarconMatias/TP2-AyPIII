@@ -49,5 +49,24 @@ public class LectorCiudadTest {
         assertEquals(2, ciudades.size());
     }
 
+    @Test
+    public void leer2CiudadesDaMapa2CiudadesConNombreCorrecto()
+    {
+        final String fuente = "{\"ciudades\":[{\"nombre\":\"Ciudad1\",\"pistas\":[]},{\"nombre\":\"Ciudad2\",\"pistas\":[]}]}";
+        LectorCiudad lector = new LectorCiudad();
+
+        JSONObject entrada;
+        try
+        {
+            entrada = (JSONObject) (new JSONParser()).parse(fuente);
+        }
+        catch(ParseException ex) {
+            throw new RuntimeException("Error al parsear test: "+ex.toString());
+        }
+        Map<String, Ciudad> ciudades = lector.leerCiudades(entrada);
+        assertTrue(ciudades.containsKey("Ciudad1"));
+        assertTrue(ciudades.containsKey("Ciudad2"));
+    }
+
 
 }
