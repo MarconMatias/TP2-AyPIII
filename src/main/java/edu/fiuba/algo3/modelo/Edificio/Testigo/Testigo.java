@@ -29,7 +29,7 @@ public class Testigo {
         return sospechoso.testimonioAlAzar(policia, destino, filtroCiudad);
     }
 
-    public String setTestimonio(Ladron ladron, Ciudad destino)
+    public void setTestimonio(Ladron ladron, Ciudad destino)
     {
         this.sospechoso = ladron;
         this.destino = destino;
