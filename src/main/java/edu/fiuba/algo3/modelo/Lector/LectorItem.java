@@ -1,6 +1,14 @@
 package edu.fiuba.algo3.modelo.Lector;
 
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Reader;
 import java.util.ArrayList;
+import java.util.Iterator;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 import edu.fiuba.algo3.modelo.Item.Item;
 
@@ -10,25 +18,22 @@ public class LectorItem {
 
   public ArrayList<Item> leerItems() {
 
-    // leer archivo
-    // por cada ciudad llama a interpretarCiudad
-    // agrega la ciudad a la lista
-    // devuelve la lista
+    JSONParser parser = new JSONParser();
 
-    // BufferedReader lector = new BufferedReader(new
-    // FileReader("src/main/java/edu/fiuba/algo3/model/Item/items.csv"));
-    // try {
-    // String row;
-    // while ((row = lector.readLine()) != null) {
-    // String[] data = row.split(";");
-    // Item nuevoItem = new Item(data[0], data[1]);
-    // items.add(nuevoItem);
-    // }
-    // } catch (IOException e) {
-    // lector.close();
-    // }
-    // lector.close();
+    try (Reader reader = new FileReader("/src/main/java/edu/fiuba/algo3/recursos/items.json")) {
 
-    return null;
+      JSONObject json = (JSONObject) parser.parse(reader);
+      JSONArray itemsJson = (JSONArray) json.get("items");
+      Iterator<JSONObject> iterator = itemsJson.iterator();
+      while (iterator.hasNext()) {
+        items.add(new Item((String) (iterator.next()).get("nombre"), (String) (iterator.next()).get("ciudad")));
+      }
+
+    } catch (IOException e) {
+      e.printStackTrace();
+    } catch (org.json.simple.parser.ParseException e) {
+      e.printStackTrace();
+    }
+    return items;
   }
 }

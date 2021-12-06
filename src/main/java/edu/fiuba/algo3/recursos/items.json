@@ -1,116 +1,116 @@
 {
   "items": [
     {
-      "name": "Huevo de 1000 años",
-      "city": "Pekin"
+      "nombre": "Huevo de 1000 años",
+      "ciudad": "Pekin"
     },
     {
-      "name": "Babylonian Tablet",
-      "city": "Bagdad"
+      "nombre": "Babylonian Tablet",
+      "ciudad": "Bagdad"
     },
     {
-      "name": "Colmillo de jabalí",
-      "city": "Port Moresby"
+      "nombre": "Colmillo de jabalí",
+      "ciudad": "Port Moresby"
     },
     {
-      "name": "Araña de la Ópera",
-      "city": "Sydney"
+      "nombre": "Araña de la Ópera",
+      "ciudad": "Sydney"
     },
     {
-      "name": "Cruz enjoyada de Constantino",
-      "city": "Estanbul"
+      "nombre": "Cruz enjoyada de Constantino",
+      "ciudad": "Estanbul"
     },
     {
-      "name": "Joyas de la corona",
-      "city": "Londres"
+      "nombre": "Joyas de la corona",
+      "ciudad": "Londres"
     },
     {
-      "name": "Alfombra voladora",
-      "city": "Bagdad"
+      "nombre": "Alfombra voladora",
+      "ciudad": "Bagdad"
     },
     {
-      "name": "Buda dorado",
-      "city": "Bangkok"
+      "nombre": "Buda dorado",
+      "ciudad": "Bangkok"
     },
     {
-      "name": "Máscara de oro Inca",
-      "city": "Lima"
+      "nombre": "Máscara de oro Inca",
+      "ciudad": "Lima"
     },
     {
-      "name": "Manuscrito islámico",
-      "city": "Bamako"
+      "nombre": "Manuscrito islámico",
+      "ciudad": "Bamako"
     },
     {
-      "name": "Corona de Iván el Terrible",
-      "city": "Moscu"
+      "nombre": "Corona de Iván el Terrible",
+      "ciudad": "Moscu"
     },
     {
-      "name": "Máscara del rey Tut",
-      "city": "El Cairo"
+      "nombre": "Máscara del rey Tut",
+      "ciudad": "El Cairo"
     },
     {
-      "name": "Máscara de Montezuma",
-      "city": "Ciudad de México"
+      "nombre": "Máscara de Montezuma",
+      "ciudad": "Ciudad de México"
     },
     {
-      "name": "Máscara de Príamo",
-      "city": "Atenas"
+      "nombre": "Máscara de Príamo",
+      "ciudad": "Atenas"
     },
     {
-      "name": "Merlion el León Dorado",
-      "city": "Singapur"
+      "nombre": "Merlion el León Dorado",
+      "ciudad": "Singapur"
     },
     {
-      "name": "Pintura del Kremlin",
-      "city": "Moscu"
+      "nombre": "Pintura del Kremlin",
+      "ciudad": "Moscu"
     },
     {
-      "name": "Anillo del Papa",
-      "city": "Roma"
+      "nombre": "Anillo del Papa",
+      "ciudad": "Roma"
     },
     {
-      "name": "Cerámica rara del Imperio de Malí",
-      "city": "Bamako"
+      "nombre": "Cerámica rara del Imperio de Malí",
+      "ciudad": "Bamako"
     },
     {
-      "name": "Planta de té rara",
-      "city": "Colombo"
+      "nombre": "Planta de té rara",
+      "ciudad": "Colombo"
     },
     {
-      "name": "Colección Royal Quartz",
-      "city": "Katmandu"
+      "nombre": "Colección Royal Quartz",
+      "ciudad": "Katmandu"
     },
     {
-      "name": "Sernedip Ruby",
-      "city": "Colombo"
+      "nombre": "Sernedip Ruby",
+      "ciudad": "Colombo"
     },
     {
-      "name": "Plata LLama",
-      "city": "Lima"
+      "nombre": "Plata LLama",
+      "ciudad": "Lima"
     },
     {
-      "name": "Bola de oro macizo",
-      "city": "Buenos Aires"
+      "nombre": "Bola de oro macizo",
+      "ciudad": "Buenos Aires"
     },
     {
-      "name": "Taza de Stanley",
-      "city": "Montreal"
+      "nombre": "Taza de Stanley",
+      "ciudad": "Montreal"
     },
     {
-      "name": "Loro relleno",
-      "city": "Rio de Janeiro"
+      "nombre": "Loro relleno",
+      "ciudad": "Rio de Janeiro"
     },
     {
-      "name": "Los Rockettes",
-      "city": "New York"
+      "nombre": "Los Rockettes",
+      "ciudad": "New York"
     },
     {
-      "name": "Casco vikingo",
-      "city": "Oslo"
+      "nombre": "Casco vikingo",
+      "ciudad": "Oslo"
     },
     {
-      "name": "Tocado del rey Watusi",
-      "city": "Kigali"
+      "nombre": "Tocado del rey Watusi",
+      "ciudad": "Kigali"
     }
   ]
 }
