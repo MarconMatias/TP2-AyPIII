@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -35,5 +36,9 @@ public class LectorItem {
       e.printStackTrace();
     }
     return items;
+  }
+
+  public List<Item> leerItems(JSONObject entrada) {
+    return null;
   }
 }
