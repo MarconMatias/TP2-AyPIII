@@ -16,8 +16,6 @@ import edu.fiuba.algo3.modelo.Item.Item;
 
 public class LectorItem {
 
-  ArrayList<Item> items = new ArrayList<Item>();
-
   public ArrayList<Item> leerItems() {
 
     JSONParser parser = new JSONParser();
@@ -25,18 +23,14 @@ public class LectorItem {
     try (Reader reader = new FileReader("/src/main/java/edu/fiuba/algo3/recursos/items.json")) {
 
       JSONObject json = (JSONObject) parser.parse(reader);
-      JSONArray itemsJson = (JSONArray) json.get("items");
-      Iterator<JSONObject> iterator = itemsJson.iterator();
-      while (iterator.hasNext()) {
-        items.add(new Item((String) (iterator.next()).get("nombre"), (String) (iterator.next()).get("ciudad")));
-      }
-
-    } catch (IOException e) {
-      e.printStackTrace();
-    } catch (org.json.simple.parser.ParseException e) {
-      e.printStackTrace();
+      return leerItems(json);
+    } catch (IOException ex) {
+      ex.printStackTrace();
+      throw new RuntimeException("No pudo leerse el archivo de items: " + ex.getMessage());
+    } catch (org.json.simple.parser.ParseException ex) {
+      ex.printStackTrace();
+      throw new RuntimeException("No pudo parsearse el archivo de items: " + ex.getMessage());
     }
-    return items;
   }
 
   private JSONObject comoDiccionario(Object elemento)
@@ -68,7 +62,7 @@ public class LectorItem {
     return clase.cast(valor);
   }
 
-  public List<Item> leerItems(JSONObject entrada) {
+  public ArrayList<Item> leerItems(JSONObject entrada) {
     JSONArray jsonItems = leerPropiedadComo(JSONArray.class,entrada,"items");
     ArrayList<Item> items = new ArrayList<Item>();
     int i=0;
