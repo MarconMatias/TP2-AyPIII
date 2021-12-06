@@ -1,15 +1,13 @@
-package edu.fiuba.algo3.modelo.Edificio.EdificiosEspeciales;
+package edu.fiuba.algo3.modelo.Edificio;
 
-import edu.fiuba.algo3.modelo.Edificio.IComportamientoEdificio;
-import edu.fiuba.algo3.modelo.Edificio.ComportamientosEdificios.NoVisitado;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 
-public class Banco {
+public class Edificio {
 
     private final String nombreEdificio;
     private IComportamientoEdificio comportamientoEdificio;
 
-    public Banco(String nombreEdificio) {
+    public Edificio(String nombreEdificio) {
         this.nombreEdificio = nombreEdificio;
         this.comportamientoEdificio = new NoVisitado();
     }

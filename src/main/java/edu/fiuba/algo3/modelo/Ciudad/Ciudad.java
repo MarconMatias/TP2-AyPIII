@@ -16,10 +16,6 @@ public class Ciudad {
         this.pistas = pistas;
     }
 
-    public Ciudad(String nombre) {
-        this.nombre = nombre;
-    }
-
     public void visitar() {
         //
     }
