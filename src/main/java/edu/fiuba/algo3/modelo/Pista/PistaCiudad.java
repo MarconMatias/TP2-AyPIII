@@ -27,7 +27,8 @@ public class PistaCiudad implements IPista {
     }
 
     public boolean esDeUnTipoDe(Collection<String> tipos) {
-        return tipos.stream().anyMatch(buscado -> this.tipo == buscado);
+        boolean algunaCoincidencia = tipos.stream().anyMatch(buscado -> buscado.equals(tipo));
+        return algunaCoincidencia;
     }
 
     @Override
