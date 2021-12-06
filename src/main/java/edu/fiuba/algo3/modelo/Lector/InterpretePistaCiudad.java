@@ -28,21 +28,11 @@ public class InterpretePistaCiudad {
       }
       String tipo = dicc.get("tipo").toString();
       String pista = dicc.get("pista").toString();
-      int dificultad = 2;
+      int dificultad = ((Number) dicc.get("dificultad")).intValue();
       NivelPista nivel = InterpreteNivelPista.crearConDificultad(dificultad);
       pistas.add(new PistaCiudad(tipo, pista,nivel));
       i++;
     }
-    //Iterator<JSONObject> iterator = listaPistas.iterator();
-    /*
-    while (iterator.hasNext()) {
-      String tipo = (String) (iterator.next()).get("tipo");
-      String pista = (String) (iterator.next()).get("pista");
-      int dificultad = (int) (iterator.next()).get("dificultad");
-      NivelPista nivel = InterpreteNivelPista.crearConDificultad(dificultad);
-      pistas.add(new PistaCiudad(tipo, pista,nivel));
-    }
-    */
     return pistas;
   }
 }
