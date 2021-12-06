@@ -7,12 +7,12 @@ import edu.fiuba.algo3.modelo.Policia.Policia;
 
 public class Ladron implements ISospechoso {
 
-  private String nombre;
-  private String sexo;
-  private String deporte;
-  private String cabello;
-  private String distincion;
-  private String vehiculo;
+  private final String nombre;
+  private final String sexo;
+  private final String deporte;
+  private final String cabello;
+  private final String distincion;
+  private final String vehiculo;
 
   public Ladron(String nombre, String sexo, String deporte, String cabello, String distincion, String vehiculo) {
 
