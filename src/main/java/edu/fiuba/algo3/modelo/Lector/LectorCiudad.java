@@ -39,6 +39,7 @@ public class LectorCiudad {
   private Ciudad interpretarCiudad(String ciudad) {
     // return (Ciudad ciudad = new Ciudad(ciudad.nombre,
     // interprete.interpretar(listaPistas) ));
+    return null;
   }
 
 }

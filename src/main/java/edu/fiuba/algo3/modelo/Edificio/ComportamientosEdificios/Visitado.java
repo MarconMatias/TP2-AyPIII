@@ -1,5 +1,6 @@
-package edu.fiuba.algo3.modelo.Edificio;
+package edu.fiuba.algo3.modelo.Edificio.ComportamientosEdificios;
 
+import edu.fiuba.algo3.modelo.Edificio.IComportamientoEdificio;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 
 public class Visitado implements IComportamientoEdificio {
