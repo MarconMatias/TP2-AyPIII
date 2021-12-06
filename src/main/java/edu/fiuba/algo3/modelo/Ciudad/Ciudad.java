@@ -57,4 +57,8 @@ public class Ciudad {
         int posicion = (new Random()).nextInt(largo);
         return filtrada.get(posicion);
     }
+
+    public String getNombre() {
+        return this.nombre;
+    }
 }
