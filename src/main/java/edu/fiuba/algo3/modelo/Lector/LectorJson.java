@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.Lector;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -66,6 +67,17 @@ public class LectorJson {
         } catch(org.json.simple.parser.ParseException ex) {
             ex.printStackTrace();
             throw new RuntimeException("Error de interpretación:" + ex.getMessage());
+        }
+    }
+
+    public Map leerJsonMap(String ruta)
+    {
+        try
+        {
+            return leerJsonMap(new FileReader(ruta));
+        } catch(IOException ex){
+            ex.printStackTrace();
+            throw new RuntimeException("Error al leer el archivo:" + ex.getMessage());
         }
     }
 
