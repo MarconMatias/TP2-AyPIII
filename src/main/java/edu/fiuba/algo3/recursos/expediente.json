@@ -1,0 +1,84 @@
+{
+  "ladrones": [
+    {
+      "name": "Nick Brunch",
+      "sex": "Macho",
+      "hobby": "Escalada de montaña",
+      "hair": "Negro",
+      "feature": "Anillo",
+      "car": "Moto"
+    },
+    {
+      "name": "Len Bulk",
+      "sex": "Macho",
+      "hobby": "Escalada de montaña",
+      "hair": "Rojo",
+      "feature": "Tatuaje",
+      "car": "Convertible"
+    },
+    {
+      "name": "Ihor Ihorovitch",
+      "sex": "Macho",
+      "hobby": "Croquet",
+      "hair": "Rubio",
+      "feature": "Tatuaje",
+      "car": "Limusina"
+    },
+    {
+      "name": "Fast Eddie B.",
+      "sex": "Macho",
+      "hobby": "Croquet",
+      "hair": "Negro",
+      "feature": "Joyas",
+      "car": "Convertible"
+    },
+    {
+      "name": "Scar Graynolt",
+      "sex": "Macho",
+      "hobby": "Croquet",
+      "hair": "Rojo",
+      "feature": "Anillo",
+      "car": "Limusina"
+    },
+    {
+      "name": "Merey Laroc",
+      "sex": "Hembra",
+      "hobby": "Escalada de montaña",
+      "hair": "Marron",
+      "feature": "Joyas",
+      "car": "Limusina"
+    },
+    {
+      "name": "Lady Agatha",
+      "sex": "Hembra",
+      "hobby": "Tennis",
+      "hair": "Rojo",
+      "feature": "Anillo",
+      "car": "Convertible"
+    },
+    {
+      "name": "Katherine Drib",
+      "sex": "Hembra",
+      "hobby": "Escalada de montaña",
+      "hair": "Marron",
+      "feature": "Tatuaje",
+      "car": "Moto"
+    },
+    {
+      "name": "Dazzle Annie",
+      "sex": "Hembra",
+      "hobby": "Tennis",
+      "hair": "Rubio",
+      "feature": "Tatuaje",
+      "car": "Limusina"
+    },
+    {
+      "name": "Carmen Sandiego",
+      "sex": "Hembra",
+      "hobby": "Tennis",
+      "hair": "Marron",
+      "feature": "Joyas",
+      "car": "Convertible"
+    }
+  ]
+}

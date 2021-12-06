@@ -1,0 +1,34 @@
+{
+  "ciudades": [
+    {
+      "nombre": "Atenas",
+      "pistas": [
+        {
+          "tipo": "Bandera",
+          "pista": "Tenía una bandera azul y blanca",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Dijo que quería comprar Dracmas",
+          "dificultad": 0
+        }
+      ]
+    },
+    {
+      "nombre": "Buenos Aires",
+      "pistas": [
+        {
+          "tipo": "Bandera",
+          "pista": "Tenía una bandera celeste y blanca",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Dijo que la moneda se devaluaba seguido y no podía comprar más de 200 dólares por mes",
+          "dificultad": 0
+        }
+      ]
+    }
+  ]
+}
