@@ -61,7 +61,7 @@ public class LectorCiudad {
     int i=0;
     for(Object elemento : ciudades)
     {
-      String nombre = "";
+      String nombre = String.valueOf(i);
       ArrayList<PistaCiudad> pistas = new ArrayList<>();
       dicc.put(nombre,new Ciudad(nombre,pistas));
       i++;
