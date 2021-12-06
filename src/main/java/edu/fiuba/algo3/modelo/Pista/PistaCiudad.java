@@ -1,23 +1,33 @@
 package edu.fiuba.algo3.modelo.Pista;
 
+import edu.fiuba.algo3.modelo.Pista.NivelPista.NivelPista;
+
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class PistaCiudad implements IPista {
 
     private final String tipo;
     private final String pista;
-    // private final NivelPista nivel;
+    private final NivelPista nivel;
 
-    // private NivelPista nivel;
-
-    public PistaCiudad(String tipo, String pista, int dificultad) {
+    public PistaCiudad(String tipo, String pista, NivelPista nivel) {
 
         this.tipo = tipo;
         this.pista = pista;
-        // this.nivel = definirNivel(dificultad);
+        this.nivel = nivel;
     }
 
-    private void definirNivel(int dificultad) {
-        // return nivel.definirNivel(dificultad);
+    @Override
+    public void agregarAListaSiEsNivel(ArrayList<IPista> pistas, NivelPista nivel) {
+        if(this.nivel.esEquivalente(nivel))
+        {
+            pistas.add(this);
+        }
+
+    }
+
+    public boolean esDeUnTipoDe(Collection<String> tipos) {
+        return tipos.stream().anyMatch(buscado -> this.tipo == buscado);
     }
 }
