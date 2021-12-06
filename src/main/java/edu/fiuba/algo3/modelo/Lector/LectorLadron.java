@@ -3,10 +3,7 @@ package edu.fiuba.algo3.modelo.Lector;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -87,11 +84,7 @@ public class LectorLadron {
 
   private Ladron interpretarLadron(JSONObject jsonLadron) {
     String nombre = leerPropiedadComo(String.class,jsonLadron,"nombre");
-    String sexo = "";
-    String deporte = "";
-    String cabello = "";
-    String distincion = "";
-    String vehiculo = "";
-    return new Ladron(nombre,sexo,deporte,cabello,distincion,vehiculo);
+    Map<String,String> detalles = new HashMap<String,String>();
+    return new Ladron(nombre,detalles);
   }
 }
