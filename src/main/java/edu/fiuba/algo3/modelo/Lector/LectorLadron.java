@@ -16,6 +16,7 @@ public class LectorLadron {
   ArrayList<Ladron> ladrones = new ArrayList<Ladron>();
 
   public ArrayList<Ladron> leerLadrones() {
+    LectorJson lector = new LectorJson();
 
     JSONParser parser = new JSONParser();
 

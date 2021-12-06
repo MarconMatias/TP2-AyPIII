@@ -15,6 +15,7 @@ import org.json.simple.parser.JSONParser;
 import edu.fiuba.algo3.modelo.Item.Item;
 
 public class LectorItem {
+  LectorJson lector = new LectorJson();
 
   public ArrayList<Item> leerItems() {
 

@@ -14,7 +14,7 @@ import org.json.simple.parser.JSONParser;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 
 public class LectorCiudad {
-
+  LectorJson lector = new LectorJson();
   InterpretePistaCiudad interprete = new InterpretePistaCiudad();
 
   public Map<String,Ciudad> leerCiudades() {
