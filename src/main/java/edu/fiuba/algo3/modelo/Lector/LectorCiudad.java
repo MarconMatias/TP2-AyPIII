@@ -8,8 +8,6 @@ import java.util.Map;
 
 import edu.fiuba.algo3.modelo.Pista.PistaCiudad;
 import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 
@@ -18,16 +16,16 @@ public class LectorCiudad {
   InterpretePistaCiudad interprete = new InterpretePistaCiudad();
 
   public Map<String,Ciudad> leerCiudades() {
-    return leerCiudades("/src/main/java/edu/fiuba/algo3/recursos/ciudades.json");
+    return leerCiudadesMap("/src/main/java/edu/fiuba/algo3/recursos/ciudades.json");
   }
-  public Map<String,Ciudad> leerCiudades(String ruta) {
-    try
-    {
-      return leerCiudadesMap(new FileReader(ruta));
-    } catch(IOException ex){
-      ex.printStackTrace();
-      throw new RuntimeException("Error al leer las ciudades:" + ex.getMessage());
-    }
+
+  public List<Ciudad> leerCiudades(String ruta)
+  {
+    return leerCiudades(lector.leerJsonMap(ruta));
+  }
+
+  public Map<String,Ciudad> leerCiudadesMap(String ruta) {
+    return lector.mapear(leerCiudades(ruta), Ciudad::getNombre);
   }
 
   public ArrayList<Ciudad> leerCiudades(java.io.Reader lectorDatos)
@@ -36,16 +34,16 @@ public class LectorCiudad {
   }
 
   public Map<String,Ciudad> leerCiudadesMap(java.io.Reader lectorDatos) {
-    return lector.mapear(leerCiudades(lectorDatos), ciudad -> ciudad.getNombre());
+    return lector.mapear(leerCiudades(lectorDatos), Ciudad::getNombre);
   }
 
   public ArrayList<Ciudad> leerCiudades(Map parseado) {
     ArrayList jsonCiudades = lector.leerPropiedadComo(ArrayList.class,parseado,"ciudades");
-    return lector.interpetarArray(jsonCiudades, obj->interpretarCiudad(obj));
+    return lector.interpetarArray(jsonCiudades, this::interpretarCiudad);
   }
 
   public Map<String,Ciudad> leerCiudadesMap(Map parseado) {
-    return lector.mapear(leerCiudades(parseado),ciudad->ciudad.getNombre());
+    return lector.mapear(leerCiudades(parseado), Ciudad::getNombre);
   }
 
   private Ciudad interpretarCiudad(Map ciudad) {
