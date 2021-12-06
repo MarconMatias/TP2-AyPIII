@@ -1,9 +1,11 @@
 package edu.fiuba.algo3.modelo.Ladron;
 
+import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
+import edu.fiuba.algo3.modelo.Pista.Filtro.IFiltroCiudad;
 import edu.fiuba.algo3.modelo.Pista.IPista;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 
-public class Ladron {
+public class Ladron implements ISospechoso {
 
   private String nombre;
   private String genero;
@@ -37,4 +39,8 @@ public class Ladron {
       System.out.println("Veo a un sujeto con un " + this.seña + " dentro del edificio. ");
       return this.seña;
     }
+
+  public String testimonioAlAzar(Policia policia, Ciudad destino, IFiltroCiudad filtroCiudad) {
+    return destino.pistaAlAzar(policia,filtroCiudad) + mostrarSeña();
+  }
 }
