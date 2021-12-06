@@ -27,7 +27,7 @@ public class LectorCiudadTest {
         catch(ParseException ex) {
             throw new RuntimeException("Error al parsear test: "+ex.toString());
         }
-        Map<String, Ciudad> ciudades = lector.leerCiudades(entrada);
+        Map<String, Ciudad> ciudades = lector.leerCiudadesMap(entrada);
         assertEquals(0, ciudades.size());
     }
 
@@ -45,7 +45,7 @@ public class LectorCiudadTest {
         catch(ParseException ex) {
             throw new RuntimeException("Error al parsear test: "+ex.toString());
         }
-        Map<String, Ciudad> ciudades = lector.leerCiudades(entrada);
+        Map<String, Ciudad> ciudades = lector.leerCiudadesMap(entrada);
         assertEquals(2, ciudades.size());
     }
 
@@ -63,7 +63,7 @@ public class LectorCiudadTest {
         catch(ParseException ex) {
             throw new RuntimeException("Error al parsear test: "+ex.toString());
         }
-        Map<String, Ciudad> ciudades = lector.leerCiudades(entrada);
+        Map<String, Ciudad> ciudades = lector.leerCiudadesMap(entrada);
         assertTrue(ciudades.containsKey("Ciudad1"));
         assertTrue(ciudades.containsKey("Ciudad2"));
     }
