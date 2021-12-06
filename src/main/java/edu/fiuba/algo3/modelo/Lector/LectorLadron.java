@@ -41,7 +41,7 @@ public class LectorLadron {
   }
 
 
-  public List<Ladron> leerLadrones(JSONObject entrada) {
+  public ArrayList<Ladron> leerLadrones(Map entrada) {
     JSONArray jsonLadrones = lector.leerPropiedadComo(JSONArray.class, entrada, "ladrones");
     ArrayList<Ladron> ladrones = lector.interpetarArray(jsonLadrones, obj->interpretarLadron(obj));
     return ladrones;
