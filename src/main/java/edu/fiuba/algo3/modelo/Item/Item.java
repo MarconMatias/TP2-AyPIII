@@ -14,4 +14,12 @@ public class Item {
     public boolean estaElItem(String nombreItem) {
         return this.nombreDelItem.equals(nombreItem);
     }
+
+    public String getNombre() {
+        return nombreDelItem;
+    }
+
+    public String getNombreCiudadDelRobo() {
+        return nombreCiudadDelRobo;
+    }
 }
