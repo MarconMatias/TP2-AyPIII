@@ -83,7 +83,7 @@ public class LectorItem {
   public Item interpretarItem(JSONObject jsonItem)
   {
     String nombre = leerPropiedadComoString(jsonItem,"nombre");
-    String ciudad = "";
+    String ciudad = leerPropiedadComoString(jsonItem,"ciudad");
     return new Item(nombre,ciudad);
   }
 }
