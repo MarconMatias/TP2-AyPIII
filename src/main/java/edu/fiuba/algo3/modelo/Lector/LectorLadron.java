@@ -4,6 +4,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.*;
+import java.util.function.Function;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -39,30 +40,14 @@ public class LectorLadron {
     return ladrones;
   }
 
-  private JSONObject comoDiccionario(Object elemento)
-  {
-    if(!(elemento instanceof JSONObject)) {
-      throw new RuntimeException("No es un diccionario.");
-    }
-    return (JSONObject) elemento;
-  }
 
   public List<Ladron> leerLadrones(JSONObject entrada) {
-    ArrayList<Ladron> ladrones = new ArrayList<Ladron>();
     JSONArray jsonLadrones = lector.leerPropiedadComo(JSONArray.class, entrada, "ladrones");
-    int i = 0;
-    for(Object elemento:jsonLadrones)
-      try {
-        ladrones.add(interpretarLadron(comoDiccionario(elemento)));
-        i++;
-      } catch (RuntimeException ex) {
-        ex.printStackTrace();
-        throw new RuntimeException("Error al leer ladrón "+i+": "+ex.getMessage());
-      }
+    ArrayList<Ladron> ladrones = lector.interpetarArray(jsonLadrones, obj->interpretarLadron(obj));
     return ladrones;
   }
 
-  private Ladron interpretarLadron(JSONObject jsonLadron) {
+  public Ladron interpretarLadron(Map jsonLadron) {
     String nombre = lector.leerPropiedadComo(String.class,jsonLadron,"nombre");
     Map<String,String> detalles = new HashMap<String,String>();
     for(String tipo : List.of("sexo", "deporte", "cabello", "distincion", "vehiculo"))
