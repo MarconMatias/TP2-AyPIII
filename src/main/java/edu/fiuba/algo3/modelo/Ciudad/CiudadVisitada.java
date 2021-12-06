@@ -31,12 +31,12 @@ public class CiudadVisitada {
 
     public void visitadoPorLadron(Ladron ladron, Ciudad destino)
     {
-        for(Edificio edificio : edificios) {
+        for(ITipoEdificio edificio : edificios) {
             edificio.visitadoPorLadron(ladron,destino);
         }
     }
 
-    public void visitarEdificio(Edificio edificio)
+    public void visitarEdificio(ITipoEdificio edificio)
     {
         int demora = visitas.demoraEdificio();
         visitas.siguiente();

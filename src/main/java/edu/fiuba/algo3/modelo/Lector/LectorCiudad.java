@@ -1,16 +1,15 @@
 package edu.fiuba.algo3.modelo.Lector;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.util.ArrayList;
 
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
+import org.json.simple.JSONObject;
 
 public class LectorCiudad {
 
   InterpretePistaCiudad interprete = new InterpretePistaCiudad();
 
-  public ArrayList<Ciudad> leerCiudades() {
+  public ArrayList<Ciudad> leerCiudades(JSONObject entrada) {
 
     // leer archivo
     // por cada ciudad llama a interpretarCiudad
@@ -39,6 +38,7 @@ public class LectorCiudad {
   private Ciudad interpretarCiudad(String ciudad) {
     // return (Ciudad ciudad = new Ciudad(ciudad.nombre,
     // interprete.interpretar(listaPistas) ));
+    return null;
   }
 
 }

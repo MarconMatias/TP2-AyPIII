@@ -47,7 +47,7 @@ public class Juego {
   }
 
   private void leerCiudades() throws IOException {
-    ciudades = lectorCiudad.leerCiudades();
+    //ciudades = lectorCiudad.leerCiudades();
   }
 
   private void armarMapa() {

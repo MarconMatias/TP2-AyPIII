@@ -7,9 +7,9 @@ import java.util.Random;
 
 public abstract class NivelPista {
 
-    private final String nivel;
+    private NivelPista nivel = null;
 
-    public NivelPista(String nivel) {
+    public NivelPista() {
         this.nivel = nivel;
     }
 
@@ -25,4 +25,6 @@ public abstract class NivelPista {
         int indiceRandom = numeroRandom.nextInt(pistasFiltradas.size());
         return pistasFiltradas.get((indiceRandom));
     }
+
+    public abstract boolean esEquivalente(NivelPista nivel);
 }
