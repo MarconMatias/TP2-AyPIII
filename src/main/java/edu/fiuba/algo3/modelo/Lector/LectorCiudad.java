@@ -1,65 +1,48 @@
 package edu.fiuba.algo3.modelo.Lector;
 
-//import com.google.gson.Gson;
-
-//import com.google.gson.JsonParser;
-// import org.json.simple.JSONArray;
-// import org.json.simple.JSONObject;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.IOException;
+import java.io.Reader;
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Iterator;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 
 public class LectorCiudad {
 
-  final Gson gson = new Gson();
-
   InterpretePistaCiudad interprete = new InterpretePistaCiudad();
+  ArrayList<Ciudad> ciudades = new ArrayList<Ciudad>();
 
   public ArrayList<Ciudad> leerCiudades() {
 
-    JSONObject obj = new JSONObject();
-
     JSONParser parser = new JSONParser();
 
-    File doc = new File("/src/main/java/edu/fiuba/algo3/recursos/ciudades.json");
-    BufferedReader obj = new BufferedReader(new FileReader(doc));
+    try (Reader reader = new FileReader("/src/main/java/edu/fiuba/algo3/recursos/ciudades.json")) {
 
-    // leer archivo
-    // por cada ciudad llama a interpretarCiudad
-    // agrega la ciudad a la lista
-    // devuelve la lista
+      JSONObject json = (JSONObject) parser.parse(reader);
+      JSONArray ciudadesJson = (JSONArray) json.get("ciudades");
+      Iterator<JSONObject> iterator = ciudadesJson.iterator();
+      while (iterator.hasNext()) {
+        ciudades.add(interpretarCiudad(iterator.next()));
+      }
 
-    // Brenda implementara:
-    // BufferedReader lector = new BufferedReader(new
-    // FileReader("src/main/java/edu/fiuba/algo3/model/Ciudad/ciudades.csv"));
-    // try {
-    // String row;
-    // while ((row = lector.readLine()) != null) {
-    // String[] data = row.split(";");
-    // Ciudad nuevaCiduad = new Ciudad(data);
-    // ciudades.add(nuevaCiduad);
-    // }
-    // } catch (IOException e) {
-    // lector.close();
-    // }
-    // lector.close();
-    // }
-
-    Object ob = new JSONParser().parse(new FileReader("JSONFile.json"));
-
-    return null;
+    } catch (IOException e) {
+      e.printStackTrace();
+    } catch (org.json.simple.parser.ParseException e) {
+      e.printStackTrace();
+    }
+    return ciudades;
   }
 
-  private Ciudad interpretarCiudad(String ciudad) {
-    // return (Ciudad ciudad = new Ciudad(ciudad.nombre,
-    // interprete.interpretar(listaPistas) ));
+  private Ciudad interpretarCiudad(JSONObject ciudad) {
+    return (new Ciudad((String) ciudad.get("nombre"), interprete.interpretar((JSONArray) ciudad.get("pistas"))));
   }
 
 }
