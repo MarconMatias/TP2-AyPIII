@@ -1,84 +1,84 @@
 {
   "ladrones": [
     {
-      "name": "Nick Brunch",
-      "sex": "Macho",
-      "hobby": "Escalada de montaña",
-      "hair": "Negro",
-      "feature": "Anillo",
-      "car": "Moto"
+      "nombre": "Nick Brunch",
+      "sexo": "Macho",
+      "deporte": "Escalada de montaña",
+      "cabello": "Negro",
+      "distincion": "Anillo",
+      "vehiculo": "Moto"
     },
     {
-      "name": "Len Bulk",
-      "sex": "Macho",
-      "hobby": "Escalada de montaña",
-      "hair": "Rojo",
-      "feature": "Tatuaje",
-      "car": "Convertible"
+      "nombre": "Len Bulk",
+      "sexo": "Macho",
+      "deporte": "Escalada de montaña",
+      "cabello": "Rojo",
+      "distincion": "Tatuaje",
+      "vehiculo": "Convertible"
     },
     {
-      "name": "Ihor Ihorovitch",
-      "sex": "Macho",
-      "hobby": "Croquet",
-      "hair": "Rubio",
-      "feature": "Tatuaje",
-      "car": "Limusina"
+      "nombre": "Ihor Ihorovitch",
+      "sexo": "Macho",
+      "deporte": "Croquet",
+      "cabello": "Rubio",
+      "distincion": "Tatuaje",
+      "vehiculo": "Limusina"
     },
     {
-      "name": "Fast Eddie B.",
-      "sex": "Macho",
-      "hobby": "Croquet",
-      "hair": "Negro",
-      "feature": "Joyas",
-      "car": "Convertible"
+      "nombre": "Fast Eddie B.",
+      "sexo": "Macho",
+      "deporte": "Croquet",
+      "cabello": "Negro",
+      "distincion": "Joyas",
+      "vehiculo": "Convertible"
     },
     {
-      "name": "Scar Graynolt",
-      "sex": "Macho",
-      "hobby": "Croquet",
-      "hair": "Rojo",
-      "feature": "Anillo",
-      "car": "Limusina"
+      "nombre": "Svehiculo Graynolt",
+      "sexo": "Macho",
+      "deporte": "Croquet",
+      "cabello": "Rojo",
+      "distincion": "Anillo",
+      "vehiculo": "Limusina"
     },
     {
-      "name": "Merey Laroc",
-      "sex": "Hembra",
-      "hobby": "Escalada de montaña",
-      "hair": "Marron",
-      "feature": "Joyas",
-      "car": "Limusina"
+      "nombre": "Merey Laroc",
+      "sexo": "Hembra",
+      "deporte": "Escalada de montaña",
+      "cabello": "Marron",
+      "distincion": "Joyas",
+      "vehiculo": "Limusina"
     },
     {
-      "name": "Lady Agatha",
-      "sex": "Hembra",
-      "hobby": "Tennis",
-      "hair": "Rojo",
-      "feature": "Anillo",
-      "car": "Convertible"
+      "nombre": "Lady Agatha",
+      "sexo": "Hembra",
+      "deporte": "Tennis",
+      "cabello": "Rojo",
+      "distincion": "Anillo",
+      "vehiculo": "Convertible"
     },
     {
-      "name": "Katherine Drib",
-      "sex": "Hembra",
-      "hobby": "Escalada de montaña",
-      "hair": "Marron",
-      "feature": "Tatuaje",
-      "car": "Moto"
+      "nombre": "Katherine Drib",
+      "sexo": "Hembra",
+      "deporte": "Escalada de montaña",
+      "cabello": "Marron",
+      "distincion": "Tatuaje",
+      "vehiculo": "Moto"
     },
     {
-      "name": "Dazzle Annie",
-      "sex": "Hembra",
-      "hobby": "Tennis",
-      "hair": "Rubio",
-      "feature": "Tatuaje",
-      "car": "Limusina"
+      "nombre": "Dazzle Annie",
+      "sexo": "Hembra",
+      "deporte": "Tennis",
+      "cabello": "Rubio",
+      "distincion": "Tatuaje",
+      "vehiculo": "Limusina"
     },
     {
-      "name": "Carmen Sandiego",
-      "sex": "Hembra",
-      "hobby": "Tennis",
-      "hair": "Marron",
-      "feature": "Joyas",
-      "car": "Convertible"
+      "nombre": "vehiculomen Sandiego",
+      "sexo": "Hembra",
+      "deporte": "Tennis",
+      "cabello": "Marron",
+      "distincion": "Joyas",
+      "vehiculo": "Convertible"
     }
   ]
 }

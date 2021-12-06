@@ -1,37 +1,41 @@
 package edu.fiuba.algo3.modelo.Lector;
 
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Reader;
 import java.util.ArrayList;
+import java.util.Iterator;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 
 public class LectorLadron {
 
+  ArrayList<Ladron> ladrones = new ArrayList<Ladron>();
+
   public ArrayList<Ladron> leerLadrones() {
 
-    // leer archivo
-    // por cada ciudad llama a interpretarCiudad
-    // agrega la ciudad a la lista
-    // devuelve la lista
+    JSONParser parser = new JSONParser();
 
-    // foreach row
-    // ArrayList<String> caracteristicas = row.split(,);
-    // ladron new (caracteristicas)
-    // BufferedReader lector = new BufferedReader(
-    // new
-    // FileReader("src/main/java/edu/fiuba/algo3/model/Ladron/DatosLadron/dossiers.csv"));
-    // try {
-    // String row;
-    // while ((row = lector.readLine()) != null) {
-    // String[] data = row.split(",");
-    // Ladron nuevoLadron = new Ladron(data[0], data[1], data[2], data[3], data[4],
-    // data[5]);
-    // ladrones.add(nuevoLadron);
-    // }
-    // } catch (IOException e) {
-    // lector.close();
-    // }
-    // lector.close();
+    try (Reader reader = new FileReader("/src/main/java/edu/fiuba/algo3/recursos/expediente.json")) {
 
-    return null;
+      JSONObject json = (JSONObject) parser.parse(reader);
+      JSONArray expedienteJson = (JSONArray) json.get("items");
+      Iterator<JSONObject> iterator = expedienteJson.iterator();
+      while (iterator.hasNext()) {
+        ladrones.add(new Ladron((String) (iterator.next()).get("nombre"), (String) (iterator.next()).get("sexo"),
+            (String) (iterator.next()).get("deporte"), (String) (iterator.next()).get("cabello"),
+            (String) (iterator.next()).get("distincion"), (String) (iterator.next()).get("vehiculo")));
+      }
+
+    } catch (IOException e) {
+      e.printStackTrace();
+    } catch (org.json.simple.parser.ParseException e) {
+      e.printStackTrace();
+    }
+    return ladrones;
   }
 }
