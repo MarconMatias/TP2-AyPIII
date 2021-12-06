@@ -8,7 +8,7 @@ import edu.fiuba.algo3.modelo.Policia.Policia;
 
 public class HacerUnaSolaVez implements IComportamientoEdificio {
     protected IEstadoVisitado estado = new NoVisitado();
-    public HacerUnaSolaVez(/** Accion **/);
+    public HacerUnaSolaVez(/** Accion **/)
     {
     }
 
