@@ -53,7 +53,7 @@ public class Ciudad {
         List<IPista> filtrada = new ArrayList<>(policia.filtrarPistas(filtradaPorEdificio));
         int largo = filtrada.size();
         if( 0 == largo)
-            return new PistaCiudad("Desconocida","No sabría darte alguna pista", new PistaFacil());
+            return new SinPistaCiudad();
         int posicion = (new Random()).nextInt(largo);
         return filtrada.get(posicion);
     }
