@@ -41,6 +41,7 @@ public class LectorLadron {
   }
 
   public List<Ladron> leerLadrones(JSONObject entrada) {
-    return null;
+    ArrayList<Ladron> ladrones = new ArrayList<Ladron>();
+    return ladrones;
   }
 }
