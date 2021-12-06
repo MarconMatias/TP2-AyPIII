@@ -74,4 +74,26 @@ public class LectorItemTest {
         assertEquals("Item2",items.get(1).getNombre());
     }
 
+
+    @Test
+    public void leer2ElementosDaListaCon2ItemsConCiudadCorrecto()
+    {
+        String fuente = "{\"items\":[{\"nombre\":\"Nombre1\",\"ciudad\":\"Ciudad1\"},";
+        fuente+= "{\"nombre\":\"Item2\",\"ciudad\":\"Otro lugar\"}]}";
+        LectorItem lector = new LectorItem();
+
+        JSONObject entrada;
+        try
+        {
+            entrada = (JSONObject) (new JSONParser()).parse(fuente);
+        }
+        catch(ParseException ex) {
+            throw new RuntimeException("Error al parsear test: "+ex.toString());
+        }
+
+        List<Item> items = lector.leerItems(entrada);
+        assertEquals("Ciudad1",items.get(0).getNombreCiudadDelRobo());
+        assertEquals("Otro lugar",items.get(1).getNombreCiudadDelRobo());
+    }
+
 }
