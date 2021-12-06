@@ -4,6 +4,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
@@ -38,8 +39,43 @@ public class LectorItem {
     return items;
   }
 
+  private JSONObject comoDiccionario(Object elemento)
+  {
+    if(!(elemento instanceof JSONObject)) {
+      throw new RuntimeException("No es un diccionario.");
+    }
+    return (JSONObject) elemento;
+  }
+
+  private JSONArray leerPropiedadComoArray(HashMap objeto, String propiedad)
+  {
+    Object valor = objeto.getOrDefault(propiedad,null);
+    if(!(valor instanceof JSONArray))
+    {
+      throw new RuntimeException("No contiene propiedad " + propiedad + " o no es un array.");
+    }
+    return (JSONArray) valor;
+  }
+
   public List<Item> leerItems(JSONObject entrada) {
+    JSONArray jsonItems = leerPropiedadComoArray(entrada,"items");
     ArrayList<Item> items = new ArrayList<Item>();
+    int i=0;
+    for(Object elemento:jsonItems)
+    try {
+      items.add(interpretarItem(comoDiccionario(elemento)));
+      i++;
+    } catch (RuntimeException ex) {
+      ex.printStackTrace();
+      throw new RuntimeException("Error al leer elemento "+i+": "+ex.getMessage());
+    }
     return items;
+  }
+
+  public Item interpretarItem(JSONObject jsonItem)
+  {
+    String nombre = "";
+    String ciudad = "";
+    return new Item(nombre,ciudad);
   }
 }
