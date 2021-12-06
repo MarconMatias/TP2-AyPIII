@@ -49,6 +49,12 @@ public class Ciudad {
     }
 
     public IPista pistaAlAzar(Policia policia, IFiltroCiudad filtroCiudad) {
-         return filtroCiudad.filtrarPistas(pistas).stream().findFirst().orElse(new PistaCiudad("Desconocida","No sabría darte alguna pista"));
+        List<PistaCiudad> filtradaPorEdificio = filtroCiudad.filtrarPistas(pistas);
+        List<IPista> filtrada = new ArrayList<>(policia.filtrarPistas(filtradaPorEdificio));
+        int largo = filtrada.size();
+        if( 0 == largo)
+            return new PistaCiudad("Desconocida","No sabría darte alguna pista", new PistaFacil());
+        int posicion = (new Random()).nextInt(largo);
+        return filtrada.get(posicion);
     }
 }
