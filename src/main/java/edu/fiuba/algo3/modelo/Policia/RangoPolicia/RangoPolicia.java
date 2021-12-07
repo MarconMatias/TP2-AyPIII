@@ -19,9 +19,9 @@ public class RangoPolicia {
 
     }
 
-    public ArrayList<IPista> filtrarPistas(Collection<PistaCiudad> pistas){
+    public ArrayList<IPista> filtrarPistas(ArrayList<IPista> pistas){
 
-        return nivelPista.filtrarPistas(pistas);
+        return (ArrayList<IPista>) nivelPista.filtrarPistas(pistas);
     }
 
     public void actualizarArrestos(){

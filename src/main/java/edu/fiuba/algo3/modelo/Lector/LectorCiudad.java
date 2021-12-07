@@ -1,35 +1,41 @@
 package edu.fiuba.algo3.modelo.Lector;
 
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
-import edu.fiuba.algo3.modelo.Pista.PistaCiudad;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
+import org.json.simple.JSONObject;
 
 public class LectorCiudad {
 
   InterpretePistaCiudad interprete = new InterpretePistaCiudad();
 
-  public Map<String,Ciudad> leerCiudades() {
-    return leerCiudades("/src/main/java/edu/fiuba/algo3/recursos/ciudades.json");
-  }
-  public Map<String,Ciudad> leerCiudades(String ruta) {
-    try
-    {
-      return leerCiudades(new FileReader(ruta));
-    } catch(IOException ex){
-      ex.printStackTrace();
-      throw new RuntimeException("Error al leer las ciudades:" + ex.getMessage());
-    }
+  public ArrayList<Ciudad> leerCiudades(JSONObject entrada) {
+
+    // leer archivo
+    // por cada ciudad llama a interpretarCiudad
+    // agrega la ciudad a la lista
+    // devuelve la lista
+
+    // Brenda implementara:
+    // BufferedReader lector = new BufferedReader(new
+    // FileReader("src/main/java/edu/fiuba/algo3/model/Ciudad/ciudades.csv"));
+    // try {
+    // String row;
+    // while ((row = lector.readLine()) != null) {
+    // String[] data = row.split(";");
+    // Ciudad nuevaCiduad = new Ciudad(data);
+    // ciudades.add(nuevaCiduad);
+    // }
+    // } catch (IOException e) {
+    // lector.close();
+    // }
+    // lector.close();
+    // }
+
+    return null;
   }
 
+<<<<<<< HEAD
   public Map<String,Ciudad> leerCiudades(java.io.Reader lector)
   {
     JSONParser parser = new JSONParser();
@@ -78,6 +84,12 @@ public class LectorCiudad {
     String nombre = (String) ciudad.get("nombre");
     ArrayList<PistaCiudad> pistas = interprete.interpretar((JSONArray) ciudad.get("pistas"));
     return (new Ciudad(nombre, pistas));
+=======
+  private Ciudad interpretarCiudad(String ciudad) {
+    // return (Ciudad ciudad = new Ciudad(ciudad.nombre,
+    // interprete.interpretar(listaPistas) ));
+    return null;
+>>>>>>> 98e67cf7bebb438f2023ea83de30f8ebb1031c8f
   }
 
 }
