@@ -11,18 +11,22 @@ public class RangoPolicia {
 
     private IComportamientoRango comportamientoRango;
     private NivelPista nivelPista;
+    private Integer arrestos;
 
     public RangoPolicia(){
 
         this.comportamientoRango = (IComportamientoRango) new ComoNovato();
+
     }
 
-    public ArrayList<IPista> filtrarPistas(Collection<PistaCiudad> pistas){
+    public ArrayList<IPista> filtrarPistas(ArrayList<IPista> pistas){
 
-        return nivelPista.filtrarPistas(pistas);
-    };
+        return (ArrayList<IPista>) nivelPista.filtrarPistas(pistas);
+    }
 
-    public void ascender(){
-        this.comportamientoRango.ascender();
+    public void actualizarArrestos(){
+
+        this.arrestos = this.arrestos + 1;
+        this.comportamientoRango = this.comportamientoRango.siguienteComportamientoConArrestos(this.arrestos);
     }
 }

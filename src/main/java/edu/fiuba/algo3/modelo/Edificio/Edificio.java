@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo.Edificio;
 
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
-import edu.fiuba.algo3.modelo.Edificio.HacerUnaSolaVez.NoVisitado;
 import edu.fiuba.algo3.modelo.Edificio.Testigo.Testigo;
 import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.ITipoEdificio;
 import edu.fiuba.algo3.modelo.Juego.Calendario;
@@ -40,7 +39,7 @@ public class Edificio {
 
     public String visitar(Policia policia, Calendario cal)
     {
-        comportamiento.visitar(this,policia,cal);
+        comportamiento.visitar((ITipoEdificio) this,policia,cal);
         return testigo.getTestimonio(policia);
     }
 }

@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.Ciudad;
 
 import edu.fiuba.algo3.modelo.Ciudad.EstadoVisitas.EstadoVisitasCiudad;
-import edu.fiuba.algo3.modelo.Edificio.Edificio;
+import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.ITipoEdificio;
 import edu.fiuba.algo3.modelo.Juego.Calendario;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Policia.Policia;
@@ -16,7 +16,7 @@ public class CiudadVisitada {
     private final Calendario cal;
     private final Policia policia;
     private final EstadoVisitasCiudad visitas = new EstadoVisitasCiudad();
-    private final List<Edificio> edificios;
+    private final List<ITipoEdificio> edificios;
     private Ladron ladron = null;
     private Ciudad destino = null;
 
@@ -31,12 +31,12 @@ public class CiudadVisitada {
 
     public void visitadoPorLadron(Ladron ladron, Ciudad destino)
     {
-        for(Edificio edificio : edificios) {
+        for(ITipoEdificio edificio : edificios) {
             edificio.visitadoPorLadron(ladron,destino);
         }
     }
 
-    public void visitarEdificio(Edificio edificio)
+    public void visitarEdificio(ITipoEdificio edificio)
     {
         int demora = visitas.demoraEdificio();
         visitas.siguiente();

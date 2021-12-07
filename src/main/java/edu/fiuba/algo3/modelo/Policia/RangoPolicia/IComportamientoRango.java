@@ -1,5 +1,9 @@
 package edu.fiuba.algo3.modelo.Policia.RangoPolicia;
 
 public interface IComportamientoRango {
-    public IComportamientoRango ascender();
+
+
+    IComportamientoRango ascender(Integer arrestos);
+
+    IComportamientoRango siguienteComportamientoConArrestos(Integer arrestos);
 }

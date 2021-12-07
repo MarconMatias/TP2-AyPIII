@@ -1,15 +1,12 @@
 package edu.fiuba.algo3.modelo.Policia;
 
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
-import edu.fiuba.algo3.modelo.Edificio.Edificio;
+import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.ITipoEdificio;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Pista.IPista;
-import edu.fiuba.algo3.modelo.Pista.PistaCiudad;
 import edu.fiuba.algo3.modelo.Policia.RangoPolicia.RangoPolicia;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
 public class Policia {
 
@@ -23,7 +20,7 @@ public class Policia {
         this.nombre = nombre;
     }
 
-    public ArrayList<IPista> filtrarPistas(Collection<PistaCiudad> pistas){
+    public ArrayList<IPista> filtrarPistas(ArrayList<IPista> pistas){
 
         return rango.filtrarPistas(pistas);
 
@@ -33,16 +30,13 @@ public class Policia {
         return this.nombre.equals(nombreAgente);
     }
 
-    public boolean entraAlEdificio(Edificio unEdificio, Ladron unLadron) {
+    public boolean entraAlEdificio(ITipoEdificio unEdificio, Ladron unLadron) {
 
         boolean pistaEncontrada = false;
 
-        pistaEncontrada = unEdificio.generarEvento(unLadron);
+        pistaEncontrada = unEdificio.mostrarPista(unLadron);
 
         return pistaEncontrada;
     }
 
-    public void setCiudadActual(Ciudad ciudad){
-        ciudadActual = ciudad;
-    }
 }
