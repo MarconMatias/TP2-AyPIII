@@ -37,6 +37,7 @@ public class Juego {
     leerAgentes(); // datos guardados de partidas
   }
 
+
   private void leerLadrones() throws IOException {
 
     ladrones = lectorLadron.leerLadrones();

@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Policia;
 
+import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Pista.IPista;
@@ -14,6 +15,7 @@ public class Policia {
 
     private final String nombre;
     private RangoPolicia rango;
+    private Ciudad ciudadActual;
 
     public Policia(RangoPolicia rango, String nombre){
 
@@ -38,5 +40,9 @@ public class Policia {
         pistaEncontrada = unEdificio.generarEvento(unLadron);
 
         return pistaEncontrada;
+    }
+
+    public void setCiudadActual(Ciudad ciudad){
+        ciudadActual = ciudad;
     }
 }

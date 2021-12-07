@@ -12,6 +12,7 @@ import edu.fiuba.algo3.modelo.Juego.Juego;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.mock;
 
 import java.io.IOException;
 
@@ -32,7 +33,12 @@ public class TestsJuego {
 
     @Test
     public void test02(){
+        
+    }
 
+    @Test
+    public void test03(){
+      
     }
 
 
