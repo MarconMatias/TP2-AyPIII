@@ -15,7 +15,7 @@ import java.util.List;
 public class Banco extends EdificioAbstracto {
     private final IFiltroCiudad filtro = new FiltroEconomia();
 
-    public Banco(String banco_de_montreal)
+    public Banco(String nombreBanco)
     {
         super(new FiltroEconomia());
     }

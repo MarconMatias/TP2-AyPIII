@@ -21,6 +21,6 @@ public class ComoDetective implements IComportamientoRango{
 
         if( this.arrestos >= this.arrestosASuperar )
             return this.ascender( arrestos );
-        return null;
+        return this;
     }
 }

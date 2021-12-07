@@ -12,16 +12,14 @@ public class Ciudad {
 
     private final String nombre;
     private final ArrayList<PistaCiudad> pistas;
+    private final ArrayList<Ciudad> ciudadesVecinas;
 
     private int cantidadDeVisitas = 0;
 
-    public Ciudad(String nombre, ArrayList<PistaCiudad> pistas) {
+    public Ciudad(String nombre, ArrayList<PistaCiudad> pistas, ArrayList<Ciudad> ciudadVecinas) {
         this.nombre = nombre;
         this.pistas = pistas;
-    }
-
-    public void visitar() {
-        //
+        this.ciudadesVecinas = ciudadVecinas;
     }
 
     public boolean esLaCiudad(String nombre) {
@@ -34,5 +32,17 @@ public class Ciudad {
 
     public String pistaAlAzar(Policia unPolicia, IFiltroCiudad filtroCiudad) {
         return null;
+    }
+
+    public Ciudad getCiudadVecina(String nombreDeLaCiudadVecina) {
+
+        Ciudad ciudadVecina = null;
+
+        for ( Ciudad c : ciudadesVecinas ){
+            if( c.esLaCiudad(nombreDeLaCiudadVecina) )
+                ciudadVecina = c;
+        }
+
+        return ciudadVecina;
     }
 }

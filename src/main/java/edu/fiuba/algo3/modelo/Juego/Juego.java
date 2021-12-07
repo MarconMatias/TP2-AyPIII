@@ -51,6 +51,8 @@ public class Juego {
   }
 
   private void armarMapa() {
+
+
   }
 
   private void leerAgentes() throws IOException {

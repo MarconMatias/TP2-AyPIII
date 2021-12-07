@@ -38,9 +38,4 @@ public class Policia {
         return pistaEncontrada;
     }
 
-    public boolean viajarACiudad(Ciudad unaCiudad) {
-
-
-        return true;
-    }
 }
