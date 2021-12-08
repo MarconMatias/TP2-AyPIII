@@ -2,9 +2,11 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
+import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.Aeropuerto;
 import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.Banco;
 import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.Biblioteca;
-import edu.fiuba.algo3.modelo.Juego.Juego;
+import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.ITipoEdificio;
+import edu.fiuba.algo3.modelo.Juego.Calendario;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Policia.Policia;
@@ -22,39 +24,35 @@ public class TestsCasosDeUsos {
     //Casos de usos
     @Test
 
-    public void test01CasoDeUso1ElLadronRobaUnTesoroNacionalDeMontrealSospechosoFemeninoYDetectiveNovatoEncuentraPistaEnUnBanco() throws IOException {
+    public void test01CasoDeUso1() throws IOException {
 
-        boolean policiaEntro = false;
-        Policia nuevoPolicia = new Policia((new RangoPolicia()),"Agus");
-        Ladron unLadron = new Ladron("Ada","Femenino","Jockey sobre Hielo","Rubio","anillo de oro","Moto");
-        Banco banco = new Banco("Banco de Montreal"); //En vez de usar un campo true podria settearse con Strategy el comportamiento de un Edificio para que muestre una pista o no
-        policiaEntro = nuevoPolicia.entraAlEdificio( banco, unLadron );
-        assertTrue(policiaEntro);
+
     }
 
     @Test
-    public void test02DetectiveComienzaEnMontrealVistaUnBancoSeDespliegaUnaPistaYLuegoVisitaUnaBibliotecaYSeDespliegaUnaPista(){
+    public void test02CasoDeUso2(){
 
         Policia mockPolicia = mock(Policia.class);
-        Banco mockBanco = mock(Banco.class);
-        Biblioteca mockBiblioteca = mock(Biblioteca.class);
+        Edificio mockBanco = mock(Edificio.class);
+        Edificio mockBiblioteca = mock(Edificio.class);
         Ladron mockLadron = mock(Ladron.class);
+        Calendario mockCalendario = mock(Calendario.class);
 
-        mockPolicia.entraAlEdificio(mockBanco,mockLadron);
-        mockBanco.mostrarPista(mockLadron);
+        mockPolicia.visitar(mockBanco,mockLadron);
+        mockBanco.visitar(mockPolicia,mockCalendario);
 
-        verify(mockPolicia).entraAlEdificio(mockBanco,mockLadron);
-        verify(mockBanco).mostrarPista(mockLadron);
+        verify(mockPolicia).visitar(mockBanco,mockLadron);
+        verify(mockBanco).visitar(mockPolicia,mockCalendario);
 
-        mockPolicia.entraAlEdificio(mockBiblioteca,mockLadron);
-        mockBiblioteca.mostrarPista(mockLadron);
+        mockPolicia.visitar(mockBiblioteca,mockLadron);
+        mockBiblioteca.visitar(mockPolicia,mockCalendario);
 
-        verify(mockPolicia).entraAlEdificio(mockBiblioteca,mockLadron);
-        verify(mockBiblioteca).mostrarPista(mockLadron);
+        verify(mockPolicia).visitar(mockBiblioteca,mockLadron);
+        verify(mockBiblioteca).visitar(mockPolicia,mockCalendario);
     }
 
     @Test
-    public void test03DetectiveViajaDeMontrealAMexico(){
+    public void test03CasoDeUso3(){
 
         Mision mockMision = mock(Mision.class);
         Ciudad mockCiudadActual = mock(Ciudad.class);
@@ -70,5 +68,23 @@ public class TestsCasosDeUsos {
 
     }
 
+    @Test
+    public void test04CasoDeUso4(){
+
+        Policia mockPolicia = mock(Policia.class);
+        Edificio mockAeropuerto = mock(Edificio.class);
+        Edificio mockPuerto = mock(Edificio.class);
+        Calendario mockCalendario = mock(Calendario.class);
+        Ladron mockLadron = mock(Ladron.class);
+
+        mockPolicia.visitar(mockAeropuerto,mockLadron);
+        mockPolicia.visitar(mockPuerto,mockLadron);
+
+        verify(mockPolicia).visitar(mockAeropuerto,mockLadron);
+        verify(mockPolicia).visitar(mockPuerto,mockLadron);
+
+        verify(mockAeropuerto).visitar(mockPolicia,mockCalendario);
+        verify(mockPuerto).visitar(mockPolicia,mockCalendario);
+    }
 
 }

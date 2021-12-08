@@ -7,7 +7,7 @@ import edu.fiuba.algo3.modelo.Juego.Calendario;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 
-public class Edificio {
+public class Edificio{
     private final ITipoEdificio tipo;
     private IComportamientoEdificio comportamiento;
     private final Testigo testigo;

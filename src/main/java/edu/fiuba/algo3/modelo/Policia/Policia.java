@@ -1,7 +1,9 @@
 package edu.fiuba.algo3.modelo.Policia;
 
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
+import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.ITipoEdificio;
+import edu.fiuba.algo3.modelo.Juego.Calendario;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Pista.IPista;
 import edu.fiuba.algo3.modelo.Policia.RangoPolicia.RangoPolicia;
@@ -12,6 +14,7 @@ public class Policia {
 
     private final String nombre;
     private RangoPolicia rango;
+    private Calendario calendario;
 
     public Policia(RangoPolicia rango, String nombre){
 
@@ -29,13 +32,11 @@ public class Policia {
         return this.nombre.equals(nombreAgente);
     }
 
-    public boolean entraAlEdificio(ITipoEdificio unEdificio, Ladron unLadron) {
+    public void visitar(Edificio unEdificio, Ladron unLadron) {
 
-        boolean pistaEncontrada = false;
+        unEdificio.visitar(this,calendario);
+        return;
 
-        pistaEncontrada = unEdificio.mostrarPista(unLadron);
-
-        return pistaEncontrada;
     }
 
 }
