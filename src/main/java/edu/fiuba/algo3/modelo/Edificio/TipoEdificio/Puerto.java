@@ -12,9 +12,14 @@ import edu.fiuba.algo3.modelo.Policia.Policia;
 public class Puerto implements ITipoEdificio {
 
 
+    private final String nombre;
+
+    public Puerto(String nombre){
+        this.nombre = nombre;
+    }
     @Override
     public String getNombreTipo() {
-        return null;
+        return nombre;
     }
 
     @Override

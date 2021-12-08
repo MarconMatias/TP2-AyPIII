@@ -26,7 +26,11 @@ public class RangoPolicia {
 
     public void actualizarArrestos(){
 
-        this.arrestos = this.arrestos + 1;
+        actualizarArrestos(this.arrestos + 1);
+    }
+
+    public void actualizarArrestos(int arrestos) {
+        this.arrestos = arrestos;
         this.comportamientoRango = this.comportamientoRango.siguienteComportamientoConArrestos(this.arrestos);
     }
 }

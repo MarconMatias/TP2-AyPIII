@@ -14,15 +14,18 @@ import java.util.List;
 
 public class Banco extends EdificioAbstracto {
     private final IFiltroCiudad filtro = new FiltroEconomia();
+    private String nombre;
 
     public Banco(String nombreBanco)
     {
+
         super(new FiltroEconomia());
+        this.nombre = nombreBanco;
     }
 
     @Override
     public String getNombreTipo() {
-        return "Banco";
+        return this.nombre ;
     }
 
     @Override

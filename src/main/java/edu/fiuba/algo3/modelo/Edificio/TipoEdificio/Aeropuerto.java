@@ -11,15 +11,26 @@ import edu.fiuba.algo3.modelo.Pista.PistaCiudad;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 
 
-public class Aeropuerto implements ITipoEdificio{
+public class Aeropuerto extends EdificioAbstracto{
+
+    private final String nombre;
+
+    public Aeropuerto(String nombreAeropuerto) {
+        this.nombre = nombreAeropuerto;
+    }
 
     @Override
     public String getNombreTipo() {
-        return null;
+        return nombre;
     }
 
     @Override
     public Testigo getTestigo() {
+        return null;
+    }
+
+    @Override
+    protected String getNombreTestigo() {
         return null;
     }
 

@@ -42,4 +42,8 @@ public class Edificio{
         comportamiento.visitar((ITipoEdificio) this,policia,cal);
         return testigo.getTestimonio(policia);
     }
+
+    public boolean esElEdificio(String nombreDelEdificioAVisitar) {
+        return (tipo.getNombreTipo().equals(nombreDelEdificioAVisitar));
+    }
 }

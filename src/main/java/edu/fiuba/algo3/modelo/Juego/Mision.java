@@ -30,10 +30,23 @@ public class Mision {
         calendario = unCalendario;
     }
 
+    public Mision(Policia unPolicia) {
+
+        ladronDeLaMision = null;
+        policiaDeLaMision = null;
+        itemDelJuego = null;
+        ciudadActual = null;
+        calendario = null;
+    }
+
 
     public CiudadVisitada viajarACiudad(Ciudad ciudadActual, String nombreDeLaCiudadDestino) {
 
         CiudadVisitada unaCiudad = mapa.viajarHacia(policiaDeLaMision,calendario,nombreDeLaCiudadDestino);
         return unaCiudad;
+    }
+
+    public boolean arrestar() {
+        return false;
     }
 }

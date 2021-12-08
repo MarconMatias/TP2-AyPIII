@@ -24,6 +24,13 @@ public class Policia {
         this.nombre = nombre;
     }
 
+    public Policia(String nombre, int arrestos) {
+
+        this.rango = new RangoPolicia();
+        rango.actualizarArrestos(arrestos);
+        this.nombre = nombre;
+    }
+
     public ArrayList<IPista> filtrarPistas(ArrayList<IPista> pistas){
 
         return rango.filtrarPistas(pistas);
@@ -34,18 +41,14 @@ public class Policia {
         return this.nombre.equals(nombreAgente);
     }
 
-    public void visitar(Edificio unEdificio, Ladron unLadron) {
+    public String visitar(Edificio unEdificio, Ladron unLadron) {
 
-        unEdificio.visitar(this,calendario);
-        return;
-
+        return unEdificio.visitar(this,calendario);
     }
 
     public void hacerAccion(AccionCuchilloUnica mockAccion) {
     }
 
-    public Mision tomarCaso(Caso unCaso) {
-
-        return null;
+    public void tomarCaso(Caso mockCaso) {
     }
 }
