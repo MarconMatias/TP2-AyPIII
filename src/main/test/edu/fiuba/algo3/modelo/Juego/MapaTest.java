@@ -5,6 +5,8 @@ import edu.fiuba.algo3.modelo.Policia.RangoPolicia.RangoPolicia;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -68,5 +70,21 @@ public class MapaTest {
     {
         Mapa mapa = new Mapa();
         assertEquals(0, mapa.getOrigenes().size());
+    }
+
+    @Test
+    public void getOrigenesConMapa3OrigenesDevuelve3MismosOrigenes()
+    {
+        Mapa mapa = new Mapa();
+        mapa.agregarConexion("Bamako","Montreal",7113);
+        mapa.agregarConexion("Bamako","Moroni",6270);
+        mapa.agregarConexion("Bamako","Tokyo",13657);
+        mapa.agregarConexion("Atenas","Bangkok",7917);
+        mapa.agregarConexion("Moroni","Bamako",6270);
+        List<String> origenes = mapa.getOrigenes();
+        assertEquals(3, origenes.size());
+        assertEquals("Atenas",origenes.get(0));
+        assertEquals("Bamako",origenes.get(1));
+        assertEquals("Moroni",origenes.get(2));
     }
 }
