@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Lector;
 
+import edu.fiuba.algo3.modelo.Juego.Mapa;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -14,7 +15,7 @@ public class LectorMapaTest {
     @Test
     public void leerJsonVacioDaOrigenesVacio() {
         final String fuente = "{\"mapa\":[]}";
-        LectorLadron lector = new LectorMapa();
+        LectorMapa lector = new LectorMapa();
         JSONObject entrada;
         try
         {
@@ -23,7 +24,7 @@ public class LectorMapaTest {
         catch(ParseException ex) {
             throw new RuntimeException("Error al parsear test: "+ex.toString());
         }
-        List<Ladron> ladrones = lector.leerMapa(entrada);
-        assertEquals(0, ladrones.getOrigenes().size());
+        Mapa mapa = lector.leerMapa(entrada);
+        assertEquals(0, mapa.getOrigenes().size());
     }
 }
