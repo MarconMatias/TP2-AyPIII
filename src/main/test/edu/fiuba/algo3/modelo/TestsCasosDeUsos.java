@@ -20,6 +20,22 @@ public class TestsCasosDeUsos {
     @Test
 
     public void test01CasoDeUso1() throws IOException {
+
+        Ladron mockLadronFemenino = mock(Ladron.class);
+        Policia mockPolicia = mock(Policia.class);
+        Edificio mockBancoDeMontreal = mock(Edificio.class);
+        Ciudad mockCiudadDeMontreal = mock(Ciudad.class);
+        Calendario mockCalendario = mock(Calendario.class);
+
+        mockPolicia.visitar(mockBancoDeMontreal, mockLadronFemenino);
+        mockBancoDeMontreal.visitadoPorLadron(mockLadronFemenino, mockCiudadDeMontreal);
+        mockBancoDeMontreal.visitar(mockPolicia, mockCalendario);
+        mockCalendario.avanzarHoras(2);
+
+        verify(mockPolicia).visitar(mockBancoDeMontreal, mockLadronFemenino);
+        verify(mockBancoDeMontreal).visitadoPorLadron(mockLadronFemenino, mockCiudadDeMontreal);
+        verify(mockBancoDeMontreal).visitar(mockPolicia, mockCalendario);
+        verify(mockCalendario).avanzarHoras(2);
     }
 
     @Test
