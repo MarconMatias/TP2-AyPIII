@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
 public class LectorMapaTest {
     @Test
     public void leerJsonVacioDaOrigenesVacio() {
-        final String fuente = "{\"mapa\":[]}";
+        final String fuente = "{\"mapa\":{}}";
         LectorMapa lector = new LectorMapa();
         JSONObject entrada;
         try
@@ -26,5 +26,21 @@ public class LectorMapaTest {
         }
         Mapa mapa = lector.leerMapa(entrada);
         assertEquals(0, mapa.getOrigenes().size());
+    }
+
+    @Test
+    public void leerJsonCon1OrigenTiene1Origen() {
+        final String fuente = "{\"mapa\":{\"Atenas\":{\"Bangkok\":7917}}}";
+        LectorMapa lector = new LectorMapa();
+        JSONObject entrada;
+        try
+        {
+            entrada = (JSONObject) (new JSONParser()).parse(fuente);
+        }
+            catch(ParseException ex) {
+            throw new RuntimeException("Error al parsear test: "+ex.toString());
+        }
+        Mapa mapa = lector.leerMapa(entrada);
+        assertEquals(1, mapa.getOrigenes().size());
     }
 }
