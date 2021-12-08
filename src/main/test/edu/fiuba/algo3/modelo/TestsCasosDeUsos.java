@@ -80,17 +80,18 @@ public class TestsCasosDeUsos {
         Aeropuerto mockAeropuerto = mock(Aeropuerto.class);
         Ladron mockLadron = mock(Ladron.class);
         Puerto mockPuerto = mock(Puerto.class);
-        mockPolicia.entraAlEdificio(mockAeropuerto,mockLadron);
-        mockAeropuerto.mostrarPista(mockLadron);
-
-        verify(mockPolicia).entraAlEdificio(mockAeropuerto,mockLadron);
-        verify(mockAeropuerto).mostrarPista(mockLadron);
-
-        mockPolicia.entraAlEdificio(mockPuerto,mockLadron);
-        mockPuerto.mostrarPista(mockLadron);
-
-        verify(mockPolicia).entraAlEdificio(mockPuerto,mockLadron);
-        verify(mockPuerto).mostrarPista(mockLadron);
+        for(int i = 0; i<3 ; i++){
+            mockPolicia.entraAlEdificio(mockAeropuerto,mockLadron);
+            mockAeropuerto.mostrarPista(mockLadron);
+        }
+        verify(mockPolicia, times(3)).entraAlEdificio(mockAeropuerto,mockLadron);
+        verify(mockAeropuerto, times (3)).mostrarPista(mockLadron);
+        for(int i= 0 ; i<55; i++){
+            mockPolicia.entraAlEdificio(mockPuerto,mockLadron);
+            mockPuerto.mostrarPista(mockLadron);
+        }
+        verify(mockPolicia, times(55)).entraAlEdificio(mockPuerto,mockLadron);
+        verify(mockPuerto, times(55)).mostrarPista(mockLadron);
     }
 
 
