@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.Policia.RangoPolicia.RangoPolicia;
 import org.junit.Assert;
 import org.junit.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 public class MapaTest {
@@ -60,5 +61,12 @@ public class MapaTest {
 
         mapa.viajar(policia, "Bamako", "Moroni", calendario);
         verify(policia).viajar(6270,calendario);
+    }
+
+    @Test
+    public void obtenerOrigenesConMapaVacioEstaVacio()
+    {
+        Mapa mapa = new Mapa();
+        assertEquals(0, mapa.getOrigenes().size());
     }
 }
