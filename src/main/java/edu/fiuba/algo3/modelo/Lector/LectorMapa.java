@@ -6,10 +6,18 @@ import org.json.simple.JSONObject;
 import java.util.Map;
 
 public class LectorMapa {
-    Mapa mapa = new Mapa();
+    Mapa mapa;
+    LectorJson lectorJson = new LectorJson();
+
+    public LectorMapa(Mapa mapa) {
+        this.mapa = mapa;
+    }
+    public LectorMapa()
+    {
+        this(new Mapa());
+    }
 
     public Mapa leerMapa(JSONObject entrada) {
-        LectorJson lectorJson = new LectorJson();
         Map mapaJson = lectorJson.leerPropiedadComo(Map.class,entrada,"mapa");
         for (Object clave:mapaJson.keySet()) {
             if(!(clave instanceof String))
@@ -29,7 +37,8 @@ public class LectorMapa {
                 throw new RuntimeException("En " + origen + " hay un destino que no es String, es " + clave.getClass().getName() + ": " + clave.toString());
             }
             String destino = (String) clave;
-            mapa.agregarConexion(origen, destino, 0);
+            int distancia = lectorJson.leerPropiedadComo(Number.class,destinosJson,destino).intValue();
+            mapa.agregarConexion(origen, destino, distancia);
         }
     }
 }
