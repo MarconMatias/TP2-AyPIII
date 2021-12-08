@@ -24,6 +24,10 @@ public class Policia {
         this.nombre = nombre;
     }
 
+    public void viajar(int distancia, Calendario calendario)
+    {
+
+    }
     public ArrayList<IPista> filtrarPistas(ArrayList<IPista> pistas){
 
         return rango.filtrarPistas(pistas);
