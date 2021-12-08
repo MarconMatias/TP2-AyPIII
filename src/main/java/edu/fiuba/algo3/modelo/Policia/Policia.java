@@ -1,8 +1,6 @@
 package edu.fiuba.algo3.modelo.Policia;
 
-import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
-import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.ITipoEdificio;
 import edu.fiuba.algo3.modelo.Juego.Calendario;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Pista.IPista;
@@ -15,6 +13,7 @@ public class Policia {
     private final String nombre;
     private RangoPolicia rango;
     private Calendario calendario;
+    private String ciudadActual;
 
     public Policia(RangoPolicia rango, String nombre){
 

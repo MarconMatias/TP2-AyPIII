@@ -3,6 +3,8 @@ package edu.fiuba.algo3.modelo;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Juego.Calendario;
+import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.Aeropuerto;
+import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.Puerto;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Policia.Policia;
@@ -18,8 +20,6 @@ public class TestsCasosDeUsos {
     @Test
 
     public void test01CasoDeUso1() throws IOException {
-
-
     }
 
     @Test
@@ -61,23 +61,29 @@ public class TestsCasosDeUsos {
 
     }
 
+
     @Test
     public void test04CasoDeUso4(){
 
         Policia mockPolicia = mock(Policia.class);
         Edificio mockAeropuerto = mock(Edificio.class);
+        Ladron mockLadron = mock(Ladron.class);
         Edificio mockPuerto = mock(Edificio.class);
         Calendario mockCalendario = mock(Calendario.class);
-        Ladron mockLadron = mock(Ladron.class);
 
-        mockPolicia.visitar(mockAeropuerto,mockLadron);
-        mockPolicia.visitar(mockPuerto,mockLadron);
-
-        verify(mockPolicia).visitar(mockAeropuerto,mockLadron);
-        verify(mockPolicia).visitar(mockPuerto,mockLadron);
-
-        verify(mockAeropuerto).visitar(mockPolicia,mockCalendario);
-        verify(mockPuerto).visitar(mockPolicia,mockCalendario);
+        for(int i = 0; i<3 ; i++){
+            mockPolicia.visitar(mockAeropuerto,mockLadron);
+            mockAeropuerto.visitar(mockPolicia,mockCalendario);
+        }
+        verify(mockPolicia, times(3)).visitar(mockAeropuerto,mockLadron);
+        verify(mockAeropuerto, times (3)).visitar(mockPolicia,mockCalendario);
+        for(int i= 0 ; i<55; i++){
+            mockPolicia.visitar(mockPuerto,mockLadron);
+            mockPuerto.visitar(mockPolicia,mockCalendario);
+        }
+        verify(mockPolicia, times(55)).visitar(mockPuerto,mockLadron);
+        verify(mockPuerto, times(55)).visitar(mockPolicia,mockCalendario);
     }
+
 
 }

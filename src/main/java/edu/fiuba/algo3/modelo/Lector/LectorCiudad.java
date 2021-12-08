@@ -6,7 +6,7 @@ import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import org.json.simple.JSONObject;
 
 public class LectorCiudad {
-
+  LectorJson lector = new LectorJson();
   InterpretePistaCiudad interprete = new InterpretePistaCiudad();
 
   public ArrayList<Ciudad> leerCiudades(JSONObject entrada) {
