@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.Policia;
 
+import edu.fiuba.algo3.modelo.Acciones.Accion;
+import edu.fiuba.algo3.modelo.Acciones.AccionCuchilloUnica;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.ITipoEdificio;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
@@ -39,4 +41,6 @@ public class Policia {
         return pistaEncontrada;
     }
 
+    public void hacerAccion(AccionCuchilloUnica mockAccion) {
+    }
 }

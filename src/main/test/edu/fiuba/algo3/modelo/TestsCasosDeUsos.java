@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.Acciones.AccionCuchilloUnica;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.Aeropuerto;
@@ -94,5 +95,12 @@ public class TestsCasosDeUsos {
         verify(mockPuerto, times(55)).mostrarPista(mockLadron);
     }
 
-
+    @Test
+    public void test05CasoDeUso5(){
+        Policia mockPolicia = mock(Policia.class);
+        AccionCuchilloUnica mockAccion = mock(AccionCuchilloUnica.class);
+        mockPolicia.hacerAccion(mockAccion);
+        verify(mockPolicia).hacerAccion(mockAccion);
+        // Dormir
+    }
 }
