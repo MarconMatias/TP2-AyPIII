@@ -3,10 +3,8 @@ package edu.fiuba.algo3.modelo.Juego;
 import edu.fiuba.algo3.modelo.Ciudad.CiudadVisitada;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Mapa {
 
@@ -42,6 +40,8 @@ public class Mapa {
     }
 
     public List<String> getOrigenes() {
-        return new ArrayList<String>();
+        ArrayList<String> lista = new ArrayList<>(origenes.keySet());
+        Collections.sort(lista);
+        return lista;
     }
 }
