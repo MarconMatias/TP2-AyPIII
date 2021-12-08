@@ -2,8 +2,10 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
+import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.Aeropuerto;
 import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.Banco;
 import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.Biblioteca;
+import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.Puerto;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
@@ -22,7 +24,7 @@ public class TestsCasosDeUsos {
     //Casos de usos
     @Test
 
-    public void test01CasoDeUso1ElLadronRobaUnTesoroNacionalDeMontrealSospechosoFemeninoYDetectiveNovatoEncuentraPistaEnUnBanco() throws IOException {
+    public void test01CasoDeUso1() throws IOException {
 
         boolean policiaEntro = false;
         Policia nuevoPolicia = new Policia((new RangoPolicia()),"Agus");
@@ -33,7 +35,7 @@ public class TestsCasosDeUsos {
     }
 
     @Test
-    public void test02DetectiveComienzaEnMontrealVistaUnBancoSeDespliegaUnaPistaYLuegoVisitaUnaBibliotecaYSeDespliegaUnaPista(){
+    public void test02CasoDeUso2(){
 
         Policia mockPolicia = mock(Policia.class);
         Banco mockBanco = mock(Banco.class);
@@ -54,7 +56,7 @@ public class TestsCasosDeUsos {
     }
 
     @Test
-    public void test03DetectiveViajaDeMontrealAMexico(){
+    public void test03CasoDeUso3(){
 
         Mision mockMision = mock(Mision.class);
         Ciudad mockCiudadActual = mock(Ciudad.class);
@@ -68,6 +70,27 @@ public class TestsCasosDeUsos {
         verify(mockCiudadActual).getCiudadVecina("Mexico");
         verify(mockMision, never()).viajarACiudad(mockCiudadActual,"Buenos Aires");
 
+    }
+
+
+    @Test
+    public void test04CasoDeUso4(){
+
+        Policia mockPolicia = mock(Policia.class);
+        Aeropuerto mockAeropuerto = mock(Aeropuerto.class);
+        Ladron mockLadron = mock(Ladron.class);
+        Puerto mockPuerto = mock(Puerto.class);
+        mockPolicia.entraAlEdificio(mockAeropuerto,mockLadron);
+        mockAeropuerto.mostrarPista(mockLadron);
+
+        verify(mockPolicia).entraAlEdificio(mockAeropuerto,mockLadron);
+        verify(mockAeropuerto).mostrarPista(mockLadron);
+
+        mockPolicia.entraAlEdificio(mockPuerto,mockLadron);
+        mockPuerto.mostrarPista(mockLadron);
+
+        verify(mockPolicia).entraAlEdificio(mockPuerto,mockLadron);
+        verify(mockPuerto).mostrarPista(mockLadron);
     }
 
 
