@@ -142,7 +142,7 @@ public class TestsCasosDeUsos {
         ladrones.add(ladronMasculino);
         Computadora computadora = new Computadora(ladrones);
 
-        computadora.agregarDetalle("Sexo", "femenino");
+        computadora.agregarDetalle("sexo", "femenino");
         ArrayList<Ladron> sospechosos = computadora.buscarSospechosos();
         Assert.assertTrue(sospechosos.contains(ladronFemenino));
         Assert.assertEquals(1,sospechosos.size());
