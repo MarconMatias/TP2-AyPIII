@@ -2,19 +2,12 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
-import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.Aeropuerto;
-import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.Banco;
-import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.Biblioteca;
-import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.ITipoEdificio;
 import edu.fiuba.algo3.modelo.Juego.Calendario;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Policia.Policia;
-import edu.fiuba.algo3.modelo.Policia.RangoPolicia.RangoPolicia;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
 import java.io.IOException;
