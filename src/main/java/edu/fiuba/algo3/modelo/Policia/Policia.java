@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.Policia;
 
+import edu.fiuba.algo3.modelo.Acciones.Accion;
+import edu.fiuba.algo3.modelo.Acciones.IAccion;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Juego.Calendario;
 import edu.fiuba.algo3.modelo.Acciones.AccionCuchilloUnica;
@@ -92,5 +94,9 @@ public class Policia {
 
     public void avanzarHoras(int demora) {
         calendario.avanzarHoras(demora);
+    }
+
+    public void realizarAccion(IAccion herida) {
+        calendario.aplicarAccion(herida);
     }
 }
