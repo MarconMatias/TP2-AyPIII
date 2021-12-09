@@ -17,6 +17,14 @@ public class Mapa {
         this.ciudadesPorNombre = ciudadesPorNombre;
     }
 
+    public List<String> getCiudadesVecinas(Ciudad origen) {
+        if(!origenes.containsKey(origen.getNombre()))
+        {
+            throw new RuntimeException("El origen no existe en el mapa.");
+        }
+        Map<String,Integer> destinos = origenes.get(origen.getNombre());
+        return new ArrayList<>(destinos.keySet());
+    }
 
     public Ciudad viajar(Policia policia, Ciudad origen, String destino) {
         if(!origenes.containsKey(origen.getNombre()))
@@ -64,4 +72,5 @@ public class Mapa {
         String siguiente = destinos.get(indice);
         ruta.add(siguiente);
     }
+
 }
