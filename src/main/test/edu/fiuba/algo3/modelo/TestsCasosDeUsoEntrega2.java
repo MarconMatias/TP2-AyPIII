@@ -8,9 +8,6 @@ import edu.fiuba.algo3.modelo.Juego.*;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Lector.*;
 import edu.fiuba.algo3.modelo.Policia.Policia;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -21,10 +18,50 @@ import java.util.Random;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestsCasosDeUsoEntrega2 {
+
+    /**
+     * Detective sufre una herida de cuchillo.
+     * Detective duerme.
+     */
+    @Test
+    public void casoDeUso01() {
+        fail("Caso de uso incompleto.");
+    }
+
+    /**
+     * Detective con rango Investigador toma caso de un robo viaja de Montreal a México.
+     */
+    @Test
+    public void casoDeUso02() {
+        fail("Caso de uso incompleto.");
+    }
+
+    /**
+     * Cargar en la computadora los datos recopilados y buscar sospechosos.
+     */
+    @Test
+    public void casoDeUso03() {
+        fail("Caso de uso incompleto.");
+    }
+
+    /**
+     * Intentas atrapar al sospechoso sin la orden de arresto emitida.
+     */
+    @Test
+    public void casoDeUso04() {
+        fail("Caso de uso incompleto.");
+    }
+
+    /**
+     * Un detective hace 6 Arrestos.
+     * Toma un caso de un sospechoso que robó un Incan Gold Mask.
+     * Realiza la investigación.
+     * Emite la orden.
+     * Atrapa al sospechoso
+     */
     @Test
     public void casoDeUso05()
     {
-
         // Carga de mapa
         LectorCiudad lectorCiudad = new LectorCiudad();
         Map<String, Ciudad> ciudades = lectorCiudad.leerCiudades();
