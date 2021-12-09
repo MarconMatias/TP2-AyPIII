@@ -4,8 +4,10 @@ import edu.fiuba.algo3.modelo.Acciones.AccionCuchilloUnica;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Computadora.Computadora;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
+import edu.fiuba.algo3.modelo.Item.Item;
 import edu.fiuba.algo3.modelo.Juego.Calendario;
 import edu.fiuba.algo3.modelo.Juego.Caso;
+import edu.fiuba.algo3.modelo.Juego.Mapa;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.modelo.Ladron.ISospechoso;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
@@ -13,10 +15,11 @@ import edu.fiuba.algo3.modelo.Policia.Policia;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.*;
 
 public class TestsCasosDeUsos {
 
@@ -64,26 +67,37 @@ public class TestsCasosDeUsos {
         verify(mockBiblioteca).visitar(mockPolicia);
     }
 
+    /**
+     * Detective viaja de Montreal a México
+     */
     @Test
     public void test03CasoDeUso3(){
+        // Dependencias (reales y mock)
+        Policia policia = mock(Policia.class);
+        Item item = new Item("Algo robado en Montreal","Montreal");
+        Ladron ladron = new Ladron("Gordo Valor",new HashMap<>());
+        List<String> ruta = List.of("Montreal","Ciudad de México");
+        Computadora computadora = mock(Computadora.class);
+        Calendario calendario = new Calendario();
+        Random random = new Random();
 
-        Mision mockMision = mock(Mision.class);
-        Ciudad mockCiudadActual = mock(Ciudad.class);
+        Ciudad Mexico = new Ciudad("Ciudad de México",new ArrayList<>());
+        Ciudad Montreal = new Ciudad("Montreal",new ArrayList<>());
+        Map<String,Ciudad> ciudades = new HashMap<String,Ciudad>();
+        ciudades.put("Ciudad de México",Mexico);
+        ciudades.put("Montreal",Montreal);
+        Mapa mapa = new Mapa(ciudades);
+        mapa.agregarConexion("Montreal","Ciudad de México",1);
+
+        // Creo una misión iniciando en Montreal:
+        Mision mision = new Mision(policia,item,ladron,ruta,"Montreal",computadora,mapa,calendario,random);
+
         //Se despliega un menu que muestra las ciudades para viajar desde la ciudad actual donde se está
+        mision.getCiudadesVecinas();
         //se elije una y se actualiza la referencia de la ciudad actual
-        /* (mockMision devolveria la ciudad vecina de ciudadActual y la actualizaria
-        siendo esta ahora la actual) mockCiudadActual = */mockMision.viajarACiudad("Mexico");
-        // El que conoce las ciudades vecinas es Mapa.
-        //        mockCiudadActual.getCiudadVecina("Mexico");
-        Assert.fail("Modificar");
+        mision.viajarACiudad("Ciudad de México");
 
-        verify(mockMision).viajarACiudad("Mexico");
-        // El que conoce las ciudades vecinas es Mapa.
-        //verify(mockCiudadActual).getCiudadVecina("Mexico");
-        Assert.fail("Modificar");
-
-        verify(mockMision, never()).viajarACiudad("Buenos Aires");
-
+        assertEquals("Ciudad de México",mision.getNombreCiudadActual());
     }
 
 
