@@ -18,20 +18,12 @@ public class Item {
         this.nombreCiudadDelRobo = nombreCiudadDelRobo;
     }
 
-    public boolean estaElItem(String nombreItem) {
-        return this.nombreDelItem.equals(nombreItem);
-    }
-
     public String getNombre() {
         return nombreDelItem;
     }
 
     public String getNombreCiudadDelRobo() {
         return nombreCiudadDelRobo;
-    }
-
-    public Ciudad getCiudadInicial(Mapa unMapa) {
-        return unMapa.getCiudadPorNombre(this.nombreCiudadDelRobo);
     }
 
     public List<String> getRuta(Mapa unMapa, Random random) {
