@@ -18,8 +18,8 @@ public class HacerUnaSolaVez implements IComportamientoEdificio {
     }
 
     @Override
-    public void visitar(ITipoEdificio edificio, Policia policia, Calendario cal) {
-        estado.visitar(edificio, policia, cal);
+    public void visitar(ITipoEdificio edificio, Policia policia) {
+        estado.visitar(edificio, policia);
         estado = estado.siguiente();
     }
 }

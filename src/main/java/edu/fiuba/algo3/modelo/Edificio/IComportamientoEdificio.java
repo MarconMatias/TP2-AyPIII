@@ -8,5 +8,5 @@ import edu.fiuba.algo3.modelo.Policia.Policia;
 public interface IComportamientoEdificio {
 
     IComportamientoEdificio lanzarEvento(Ladron unLadron);
-    void visitar(ITipoEdificio edificio, Policia policia, Calendario cal);
+    void visitar(ITipoEdificio edificio, Policia policia);
 }

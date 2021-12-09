@@ -6,24 +6,29 @@ import edu.fiuba.algo3.modelo.Pista.PistaCiudad;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 public class RangoPolicia {
 
     private IComportamientoRango comportamientoRango;
     private NivelPista nivelPista;
-    private Integer arrestos;
+    private Integer arrestos = 0;
 
     public RangoPolicia(){
-
-        this.comportamientoRango = (IComportamientoRango) new ComoNovato();
-
+        this.comportamientoRango = new ComoNovato();
     }
 
-    public ArrayList<IPista> filtrarPistas(ArrayList<IPista> pistas){
+    public RangoPolicia(int cantidadDeArrestos) {
+        this();
+        this.actualizarArrestos(cantidadDeArrestos);
+    }
+
+    public ArrayList<IPista> filtrarPistas(Collection<IPista> pistas){
 
         return (ArrayList<IPista>) nivelPista.filtrarPistas(pistas);
     }
 
+<<<<<<< HEAD
     public void actualizarArrestos(){
 
         actualizarArrestos(this.arrestos + 1);
@@ -31,6 +36,10 @@ public class RangoPolicia {
 
     public void actualizarArrestos(int arrestos) {
         this.arrestos = arrestos;
+=======
+    public void actualizarArrestos(int cantidadDeArrestos) {
+        this.arrestos = cantidadDeArrestos;
+>>>>>>> 96100e3de4a8b4265ef50acb2dad73b2dcb5042e
         this.comportamientoRango = this.comportamientoRango.siguienteComportamientoConArrestos(this.arrestos);
     }
 }

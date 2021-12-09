@@ -63,7 +63,7 @@ public class Juego {
       String row;
       while ((row = lector.readLine()) != null) {
         String[] data = row.split(";");
-        Policia nuevoAgente = new Policia(new RangoPolicia(), data[0]);
+        Policia nuevoAgente = new Policia(data[0], 0);
         agentes.add(nuevoAgente);
       }
     } catch (IOException e) {

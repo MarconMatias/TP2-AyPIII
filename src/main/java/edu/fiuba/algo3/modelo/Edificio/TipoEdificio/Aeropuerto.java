@@ -1,8 +1,8 @@
 package edu.fiuba.algo3.modelo.Edificio.TipoEdificio;
 
-import java.util.Collection;
-import java.util.List;
+import edu.fiuba.algo3.modelo.Pista.Filtro.*;
 
+<<<<<<< HEAD
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Edificio.Testigo.Testigo;
 import edu.fiuba.algo3.modelo.Juego.Calendario;
@@ -37,21 +37,23 @@ public class Aeropuerto extends EdificioAbstracto{
     @Override
     public boolean mostrarPista(Ladron unLadron) {
         return false;
+=======
+public class Aeropuerto extends EdificioAbstracto{
+    public Aeropuerto() {
+        super(new SinFiltro());
     }
 
     @Override
-    public void visitadoPorLadron(Ladron ladron, Ciudad destino) {
-
+    public String getNombreTipo() {
+        return "Aeropuerto";
+>>>>>>> 96100e3de4a8b4265ef50acb2dad73b2dcb5042e
     }
 
     @Override
-    public void visitar(Policia policia, Calendario cal) {
-
+    protected String getNombreTestigo() {
+        return "Piloto";
     }
 
-    @Override
-    public List<PistaCiudad> filtrarPistas(Collection<PistaCiudad> sinFiltrar) {
-        return null;
-    }
+
 }
 

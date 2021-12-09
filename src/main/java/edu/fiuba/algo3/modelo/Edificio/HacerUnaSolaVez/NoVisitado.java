@@ -15,7 +15,7 @@ public class NoVisitado implements IEstadoVisitado {
     }
 
     @Override
-    public void visitar(ITipoEdificio edificio, Policia policia, Calendario cal) {
+    public void visitar(ITipoEdificio edificio, Policia policia) {
         // Ejecutar la acción
     }
 

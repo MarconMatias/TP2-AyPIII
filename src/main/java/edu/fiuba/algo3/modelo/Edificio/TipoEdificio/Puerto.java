@@ -1,14 +1,8 @@
 package edu.fiuba.algo3.modelo.Edificio.TipoEdificio;
 
-import java.util.Collection;
-import java.util.List;
-import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
-import edu.fiuba.algo3.modelo.Edificio.Testigo.Testigo;
-import edu.fiuba.algo3.modelo.Juego.Calendario;
-import edu.fiuba.algo3.modelo.Ladron.Ladron;
-import edu.fiuba.algo3.modelo.Pista.PistaCiudad;
-import edu.fiuba.algo3.modelo.Policia.Policia;
+import edu.fiuba.algo3.modelo.Pista.Filtro.*;
 
+<<<<<<< HEAD
 public class Puerto implements ITipoEdificio {
 
 
@@ -20,30 +14,23 @@ public class Puerto implements ITipoEdificio {
     @Override
     public String getNombreTipo() {
         return nombre;
+=======
+public class Puerto extends EdificioAbstracto{
+    public Puerto() {
+        super(new SinFiltro());
+>>>>>>> 96100e3de4a8b4265ef50acb2dad73b2dcb5042e
     }
 
     @Override
-    public Testigo getTestigo() {
-        return null;
+    public String getNombreTipo() {
+        return "Puerto";
     }
 
     @Override
-    public boolean mostrarPista(Ladron unLadron) {
-        return false;
+    protected String getNombreTestigo() {
+        return "Marino";
     }
 
-    @Override
-    public void visitadoPorLadron(Ladron ladron, Ciudad destino) {
 
-    }
-
-    @Override
-    public void visitar(Policia policia, Calendario cal) {
-
-    }
-
-    @Override
-    public List<PistaCiudad> filtrarPistas(Collection<PistaCiudad> sinFiltrar) {
-        return null;
-    }
 }
+

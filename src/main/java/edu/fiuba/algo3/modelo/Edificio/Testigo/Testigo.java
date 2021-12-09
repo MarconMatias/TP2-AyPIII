@@ -29,9 +29,9 @@ public class Testigo {
         return sospechoso.testimonioAlAzar(policia, destino, filtroCiudad);
     }
 
-    public void setTestimonio(Ladron ladron, Ciudad destino)
+    public void setTestimonio(ISospechoso sospechoso, Ciudad destino)
     {
-        this.sospechoso = ladron;
+        this.sospechoso = sospechoso;
         this.destino = destino;
     }
 
