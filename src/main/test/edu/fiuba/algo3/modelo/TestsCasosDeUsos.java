@@ -119,20 +119,7 @@ public class TestsCasosDeUsos {
         // Dormir
     }
 
-    @Test
-    public void test07CasoDeUso7(){
 
-        Policia mockDetective = mock(Policia.class);
-        Caso mockCaso = mock(Caso.class);
-        Ciudad mockCiudadActual = mock(Ciudad.class);
-
-        Mision mockMision = mock(Mision.class);
-        mockDetective.tomarCaso(mockCaso); //En realidad .tomarCaso() devuelve la mision para que luego dentro de la mision se viaje
-        mockMision.viajarACiudad("Mexico");
-
-        verify(mockDetective).tomarCaso(mockCaso);
-        verify(mockMision).viajarACiudad("Mexico");
-    }
 
     @Test
     public void test08CasoDeUso8(){

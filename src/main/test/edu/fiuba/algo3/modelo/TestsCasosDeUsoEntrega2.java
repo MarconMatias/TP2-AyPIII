@@ -16,6 +16,8 @@ import java.util.Map;
 import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 public class TestsCasosDeUsoEntrega2 {
 
@@ -33,7 +35,16 @@ public class TestsCasosDeUsoEntrega2 {
      */
     @Test
     public void casoDeUso02() {
-        fail("Caso de uso incompleto.");
+        Policia mockDetective = mock(Policia.class);
+        Caso mockCaso = mock(Caso.class);
+        Ciudad mockCiudadActual = mock(Ciudad.class);
+
+        Mision mockMision = mock(Mision.class);
+        mockDetective.tomarCaso(mockCaso); //En realidad .tomarCaso() devuelve la mision para que luego dentro de la mision se viaje
+        mockMision.viajarACiudad("Mexico");
+
+        verify(mockDetective).tomarCaso(mockCaso);
+        verify(mockMision).viajarACiudad("Mexico");
     }
 
     /**
