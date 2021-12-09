@@ -33,12 +33,12 @@ public class TestsCasosDeUsos {
 
         mockPolicia.visitar(mockBancoDeMontreal, mockLadronFemenino);
         mockBancoDeMontreal.visitadoPorLadron(mockLadronFemenino, mockCiudadDeMontreal);
-        mockBancoDeMontreal.visitar(mockPolicia, mockCalendario);
+        mockBancoDeMontreal.visitar(mockPolicia);
         mockCalendario.avanzarHoras(2);
 
         verify(mockPolicia).visitar(mockBancoDeMontreal, mockLadronFemenino);
         verify(mockBancoDeMontreal).visitadoPorLadron(mockLadronFemenino, mockCiudadDeMontreal);
-        verify(mockBancoDeMontreal).visitar(mockPolicia, mockCalendario);
+        verify(mockBancoDeMontreal).visitar(mockPolicia);
         verify(mockCalendario).avanzarHoras(2);
     }
 
@@ -52,16 +52,16 @@ public class TestsCasosDeUsos {
         Calendario mockCalendario = mock(Calendario.class);
 
         mockPolicia.visitar(mockBanco,mockLadron);
-        mockBanco.visitar(mockPolicia,mockCalendario);
+        mockBanco.visitar(mockPolicia);
 
         verify(mockPolicia).visitar(mockBanco,mockLadron);
-        verify(mockBanco).visitar(mockPolicia,mockCalendario);
+        verify(mockBanco).visitar(mockPolicia);
 
         mockPolicia.visitar(mockBiblioteca,mockLadron);
-        mockBiblioteca.visitar(mockPolicia,mockCalendario);
+        mockBiblioteca.visitar(mockPolicia);
 
         verify(mockPolicia).visitar(mockBiblioteca,mockLadron);
-        verify(mockBiblioteca).visitar(mockPolicia,mockCalendario);
+        verify(mockBiblioteca).visitar(mockPolicia);
     }
 
     @Test
@@ -72,12 +72,17 @@ public class TestsCasosDeUsos {
         //Se despliega un menu que muestra las ciudades para viajar desde la ciudad actual donde se está
         //se elije una y se actualiza la referencia de la ciudad actual
         /* (mockMision devolveria la ciudad vecina de ciudadActual y la actualizaria
-        siendo esta ahora la actual) mockCiudadActual = */mockMision.viajarACiudad(mockCiudadActual,"Mexico");
-        mockCiudadActual.getCiudadVecina("Mexico");
+        siendo esta ahora la actual) mockCiudadActual = */mockMision.viajarACiudad("Mexico");
+        // El que conoce las ciudades vecinas es Mapa.
+        //        mockCiudadActual.getCiudadVecina("Mexico");
+        Assert.fail("Modificar");
 
-        verify(mockMision).viajarACiudad(mockCiudadActual,"Mexico");
-        verify(mockCiudadActual).getCiudadVecina("Mexico");
-        verify(mockMision, never()).viajarACiudad(mockCiudadActual,"Buenos Aires");
+        verify(mockMision).viajarACiudad("Mexico");
+        // El que conoce las ciudades vecinas es Mapa.
+        //verify(mockCiudadActual).getCiudadVecina("Mexico");
+        Assert.fail("Modificar");
+
+        verify(mockMision, never()).viajarACiudad("Buenos Aires");
 
     }
 
@@ -93,16 +98,16 @@ public class TestsCasosDeUsos {
 
         for(int i = 0; i<3 ; i++){
             mockPolicia.visitar(mockAeropuerto,mockLadron);
-            mockAeropuerto.visitar(mockPolicia,mockCalendario);
+            mockAeropuerto.visitar(mockPolicia);
         }
         verify(mockPolicia, times(3)).visitar(mockAeropuerto,mockLadron);
-        verify(mockAeropuerto, times (3)).visitar(mockPolicia,mockCalendario);
+        verify(mockAeropuerto, times (3)).visitar(mockPolicia);
         for(int i= 0 ; i<55; i++){
             mockPolicia.visitar(mockPuerto,mockLadron);
-            mockPuerto.visitar(mockPolicia,mockCalendario);
+            mockPuerto.visitar(mockPolicia);
         }
         verify(mockPolicia, times(55)).visitar(mockPuerto,mockLadron);
-        verify(mockPuerto, times(55)).visitar(mockPolicia,mockCalendario);
+        verify(mockPuerto, times(55)).visitar(mockPolicia);
     }
 
     @Test
@@ -123,10 +128,10 @@ public class TestsCasosDeUsos {
 
         Mision mockMision = mock(Mision.class);
         mockDetective.tomarCaso(mockCaso); //En realidad .tomarCaso() devuelve la mision para que luego dentro de la mision se viaje
-        mockMision.viajarACiudad(mockCiudadActual,"Mexico");
+        mockMision.viajarACiudad("Mexico");
 
         verify(mockDetective).tomarCaso(mockCaso);
-        verify(mockMision).viajarACiudad(mockCiudadActual,"Mexico");
+        verify(mockMision).viajarACiudad("Mexico");
     }
 
     @Test
