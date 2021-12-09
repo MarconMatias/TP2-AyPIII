@@ -1,0 +1,174 @@
+{
+  "ciudades": [
+    {
+      "nombre": "Atenas",
+      "pistas": [
+        {
+          "tipo": "Bandera",
+          "pista": "Tenía una bandera azul y blanca",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Dijo que quería comprar Dracmas",
+          "dificultad": 0
+        }
+      ]
+    },
+    {
+      "nombre": "Bagdád",
+      "pistas": [
+      ]
+    },
+    {
+      "nombre": "Bamako",
+      "pistas": [
+      ]
+    },
+    {
+      "nombre": "Bangkok",
+      "pistas": [
+      ]
+    },
+    {
+      "nombre": "Budapest",
+      "pistas": [
+      ]
+    },
+    {
+      "nombre": "Buenos Aires",
+      "pistas": [
+        {
+          "tipo": "Bandera",
+          "pista": "Tenía una bandera celeste y blanca",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Dijo que la moneda se devaluaba seguido y no podía comprar más de 200 dólares por mes",
+          "dificultad": 0
+        }
+      ]
+    },
+    {
+      "nombre": "Cairo",
+      "pistas": [
+      ]
+    },
+    {
+      "nombre": "Colombo",
+      "pistas": [
+      ]
+    },
+    {
+      "nombre": "Istanbul",
+      "pistas": [
+      ]
+    },
+    {
+      "nombre": "Katmandú",
+      "pistas": [
+      ]
+    },
+    {
+      "nombre": "Kigali",
+      "pistas": [
+      ]
+    },
+    {
+      "nombre": "Lima",
+      "pistas": [
+      ]
+    },
+    {
+      "nombre": "Londres",
+      "pistas": [
+      ]
+    },
+    {
+      "nombre": "Ciudad de México",
+      "pistas": [
+      ]
+    },
+    {
+      "nombre": "Montreal",
+      "pistas": [
+      ]
+    },
+    {
+      "nombre": "Moroni",
+      "pistas": [
+      ]
+    },
+    {
+      "nombre": "Moscú",
+      "pistas": [
+      ]
+    },
+    {
+      "nombre": "Nueva Delhi",
+      "pistas": [
+      ]
+    },
+    {
+      "nombre": "New York",
+      "pistas": [
+      ]
+    },
+    {
+      "nombre": "Oslo",
+      "pistas": [
+      ]
+    },
+    {
+      "nombre": "París",
+      "pistas": [
+      ]
+    },
+    {
+      "nombre": "Pekín",
+      "pistas": [
+      ]
+    },
+    {
+      "nombre": "Puerto Moresby",
+      "pistas": [
+      ]
+    },
+    {
+      "nombre": "Reykjavik",
+      "pistas": [
+      ]
+    },
+    {
+      "nombre": "Río de Janeiro",
+      "pistas": [
+      ]
+    },
+    {
+      "nombre": "Roma",
+      "pistas": [
+      ]
+    },
+    {
+      "nombre": "San Marino",
+      "pistas": [
+      ]
+    },
+    {
+      "nombre": "Sidney",
+      "pistas": [
+      ]
+    },
+    {
+      "nombre": "Singapur",
+      "pistas": [
+      ]
+    },
+    {
+      "nombre": "Tokyo",
+      "pistas": [
+      ]
+    }
+  ]
+}

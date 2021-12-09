@@ -1,0 +1,168 @@
+{
+    "mapa": {
+        "Atenas": {
+            "Bangkok":          7917,
+            "New York":         7920,
+            "Reykjavik":        4160,
+            "Oslo":             2606
+        },
+        "Bagdád": {
+            "Colombo":          4681,
+            "Moscú":            2550,
+            "Puerto Moresby":   11768,
+            "Sidney":           13394
+        },
+        "Bamako": {
+            "Montreal":         7113,
+            "Moroni":           6270,
+            "Tokyo":            13657
+        },
+        "Bangkok": {
+            "Atenas":           7917,
+            "Katmandú":         2209,
+            "Kigali":           7953,
+            "Tokyo":            4603
+        },
+        "Budapest": {
+            "Buenos Aires":     11936,
+            "Katmandú":         6039,
+            "Sidney":           15784
+        },
+        "Buenos Aires": {
+            "Budapest":         11936,
+            "Ciudad de México": 7889,
+            "Oslo":             12248,
+            "Pekín":            19267
+        },
+        "Cairo": {
+            "Kigali":           3562,
+            "Nueva Delhi":      4421,
+            "París":            3209,
+            "Puerto Moresby":   13024
+        },
+        "Colombo": {
+            "Bagdád":           4681,
+            "Istanbul":         6283,
+            "Reykjavik":        9878
+        },
+        "Istanbul": {
+            "Colombo":          6283,
+            "Katmandú":         5284,
+            "Nueva Delhi":      4548
+        },
+        "Katmandú": {
+            "Bangkok":          2209,
+            "Budapest":         6039,
+            "Istanbul":         5284,
+            "Roma":             6633
+        },
+        "Kigali": {
+            "Bangkok":          7953,
+            "Cairo":            3562,
+            "Lima":             11817
+        },
+        "Lima": {
+            "Kigali":           11817,
+            "San Marino":       10894,
+            "Sidney":           12799
+        },
+        "Londres": {
+            "Ciudad de México": 8929,
+            "Reykjavik":        1890,
+            "Roma":             1435
+        },
+        "Ciudad de México": {
+            "Buenos Aires":     7889,
+            "Londres":          8929,
+            "Tokyo":            11307
+        },
+        "Montreal": {
+            "Bamako":           7113,
+            "Reykjavik":        3950,
+            "San Marino":       6450
+        },
+        "Moroni": {
+            "Bamako":           6270,
+            "Moscú":            7518,
+            "Nueva Delhi":      5773
+        },
+        "Moscú": {
+            "Bagdád":           2550,
+            "Moroni":           7518,
+            "Oslo":             1644,
+            "Singapur":         8418
+        },
+        "Nueva Delhi": {
+            "Cairo":            4421,
+            "Istanbul":         4548,
+            "Moroni":           5773,
+            "New York":         11578
+        },
+        "New York": {
+            "Atenas":           7920,
+            "Nueva Delhi":      11578,
+            "Río de Janeiro":   8040,
+            "Sidney":           15878
+        },
+        "Oslo": {
+            "Atenas":           2606,
+            "Buenos Aires":     12248,
+            "Moscú":            1644,
+            "París":            1342
+        },
+        "París": {
+            "Cairo":            3209,
+            "Oslo":             1342,
+            "Roma":             1107
+        },
+        "Pekín": {
+            "Buenos Aires":     19267,
+            "Río de Janeiro":   17332,
+            "Puerto Moresby":   6339
+        },
+        "Puerto Moresby": {
+            "Bagdád":           11768,
+            "Cairo":            13024,
+            "Pekín":            6339
+        },
+        "Reykjavik": {
+            "Atenas":           4160,
+            "Colombo":          9878,
+            "Londres":          1890,
+            "Montreal":         3950
+        },
+        "Río de Janeiro": {
+            "New York":         8040,
+            "Pekín":            17332,
+            "Roma":             9200,
+            "Singapur":         15724
+        },
+        "Roma": {
+            "Katmandú":         6633,
+            "Londres":          1435,
+            "París":            1107,
+            "Río de Janeiro":   9200
+        },
+        "San Marino": {
+            "Lima":             10894,
+            "Montreal":         6450,
+            "Singapur":         10020
+        },
+        "Sidney": {
+            "Bagdád":           13394,
+            "Budapest":         15784,
+            "Lima":             12799,
+            "New York":         15878
+        },
+        "Singapur": {
+            "Moscú":            8418,
+            "Río de Janeiro":   15724,
+            "San Marino":       10020
+        },
+        "Tokyo": {
+            "Bamako":           13657,
+            "Bangkok":          4603,
+            "Ciudad de México": 11307
+        }
+    }
+}
