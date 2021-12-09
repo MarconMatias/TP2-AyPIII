@@ -16,8 +16,8 @@ import java.util.Map;
 import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
 
 public class TestsCasosDeUsoEntrega2 {
 
@@ -35,16 +35,37 @@ public class TestsCasosDeUsoEntrega2 {
      */
     @Test
     public void casoDeUso02() {
-        Policia mockDetective = mock(Policia.class);
-        Caso mockCaso = mock(Caso.class);
-        Ciudad mockCiudadActual = mock(Ciudad.class);
+        // Dependencias (reales y mocks)
+        Calendario calendario = mock(Calendario.class);
+        Item item = mock(Item.class);
+        Ladron ladron = mock(Ladron.class);
+        List<String> ruta = List.of("Montreal","Ciudad de México");
+        Computadora computadora = mock(Computadora.class);
+        Mapa mapa = mock(Mapa.class);
+        Ciudad Montreal = mock(Ciudad.class);
+        Ciudad Mexico = mock(Ciudad.class);
+        when(mapa.getCiudadPorNombre("Montreal")).thenReturn(Montreal);
+        when(mapa.getCiudadPorNombre("Ciudad de México")).thenReturn(Mexico);
+        Random random = mock(Random.class);
 
-        Mision mockMision = mock(Mision.class);
-        mockDetective.tomarCaso(mockCaso); //En realidad .tomarCaso() devuelve la mision para que luego dentro de la mision se viaje
-        mockMision.viajarACiudad("Mexico");
+        // 10 arrestos debe ser investigador
+        Policia policia = new Policia("Un investigador",10);
 
-        verify(mockDetective).tomarCaso(mockCaso);
-        verify(mockMision).viajarACiudad("Mexico");
+        // Crear caso/misión inicia en México con Policía investigador
+        Mision mision = new Mision(policia,item,ladron,ruta,"Montreal",computadora,
+                mapa,calendario,random);
+
+        // VERIFICAR que se hayan actualizado las ciudades:
+        verify(Montreal).actualizarRutaLadron(anyList(),eq(ladron));
+        verify(Mexico).actualizarRutaLadron(anyList(),eq(ladron));
+        verify(Montreal).visitadaPorPolicia(policia);
+
+        // Viaja de Montreal a México
+        mision.viajarACiudad("Ciudad de México");
+
+        // VERIFICAR que se haya hecho el viaje:
+        verify(mapa).viajar(policia,Montreal,"Ciudad de México");
+        //verify(Mexico).visitadaPorPolicia(policia);
     }
 
     /**
