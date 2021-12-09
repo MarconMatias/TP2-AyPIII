@@ -6,7 +6,7 @@ import edu.fiuba.algo3.modelo.Policia.Policia;
 
 
 public interface IEstadoVisitado {
-    public void visitar(ITipoEdificio edificio, Policia policia, Calendario cal);
+    public void visitar(ITipoEdificio edificio, Policia policia);
 
     IEstadoVisitado siguiente();
 }
