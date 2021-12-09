@@ -1,5 +1,10 @@
 package edu.fiuba.algo3.modelo.Juego;
 
+import edu.fiuba.algo3.modelo.Acciones.AccionDormir;
+import edu.fiuba.algo3.modelo.Acciones.IAccion;
+
+import java.util.*;
+
 public class Calendario {
     private int horasActuales = 0;
 
@@ -10,6 +15,7 @@ public class Calendario {
     private final int dormirDesde = 22;
     private final int dormirDurante = 8;
     private final int dormirHasta = (dormirDesde+dormirDurante)%24;
+    private final Set<IObservadorAcciones> observadoresAcciones = new HashSet<IObservadorAcciones>();
 
     private int calcularHoraDelDia(int horas)
     {
@@ -43,7 +49,6 @@ public class Calendario {
         return (int) Math.floor(hs/24);
     }
 
-
     /**
      * Avanza el calendario al menos `horas`, durmiendo varias horas adicionales si es necesario.
      * @param horas Cantidad de horas que dura la acción que avanza el calendario.
@@ -51,11 +56,11 @@ public class Calendario {
     public void avanzarHoras(int horas)
     {
         int siguiente = this.horasActuales + horas;
-        if(this.deberiaDormirSiAvanzaHasta(siguiente))
-        {
-            this.dormir();
-        }
+        boolean debeDormir = this.deberiaDormirSiAvanzaHasta(siguiente);
         this.avanzarSolamente(horas);
+        if(debeDormir) {
+            aplicarAccion(new AccionDormir());
+        }
     }
 
     /**
@@ -65,14 +70,6 @@ public class Calendario {
     private void avanzarSolamente(int horas)
     {
         this.horasActuales += horas;
-    }
-
-    /**
-     * Avanza el calendario de acuerdo a la cantidad de horas necesarias para dormir.
-     */
-    private void dormir()
-    {
-        this.avanzarSolamente(dormirDurante);
     }
 
     /**
@@ -94,4 +91,28 @@ public class Calendario {
        return !esHoraDeDormir(getHoraDelDia()) && esHoraDeDormir(hsSiguiente);
     }
 
+    public void aplicarAccion(IAccion accion) {
+        notificarObservadores(accion);
+        accion.avanzarCalendario(this);
+    }
+
+    private void notificarObservadores(IAccion accion) {
+        ArrayList<RuntimeException> excepciones = new ArrayList<>();
+        for(IObservadorAcciones observador : observadoresAcciones)
+        try {
+            observador.accionRealizada(accion);
+        } catch(RuntimeException ex) {
+            excepciones.add(ex);
+        }
+        if(excepciones.size()>0) {
+            throw new RuntimeException("Hubo "+excepciones.size()+" errores al notificar observadores de acción.");
+        }
+    }
+
+    public void observarAcciones(IObservadorAcciones observador) {
+        observadoresAcciones.add(observador);
+    }
+    public void desobservarAcciones(IObservadorAcciones observador) {
+        observadoresAcciones.remove(observador);
+    }
 }
