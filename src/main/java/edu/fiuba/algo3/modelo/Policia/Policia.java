@@ -10,28 +10,62 @@ import edu.fiuba.algo3.modelo.Policia.RangoPolicia.RangoPolicia;
 import edu.fiuba.algo3.modelo.Juego.*;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class Policia {
 
     private final String nombre;
+    private final int arrestos;
     private RangoPolicia rango;
     private Calendario calendario;
     private String ciudadActual;
 
-    public Policia(RangoPolicia rango, String nombre){
-
-        this.rango = rango;
+    /**
+     * Crea un policía con una cantidad de arrestos dada.
+     * @param nombre Nombre elegido por el policía.
+     * @param cantidadDeArrestos Cantidad de arrestos que tiene el policía.
+     * @param calendario Calendario del tiempo del juego afectado por las acciones del policía.
+     */
+    public Policia(String nombre, int cantidadDeArrestos, Calendario calendario) {
         this.nombre = nombre;
+        this.arrestos = cantidadDeArrestos;
+        this.calendario = calendario;
+        this.rango = new RangoPolicia(cantidadDeArrestos);
     }
+
+    /**
+     * Crea un policía nuevo con 0 arrestos y un calendario nuevo.
+     * @param nombre Nombre elegido por el policía.
+     */
+    public Policia(String nombre) {
+        this(nombre,0);
+    }
+
+    /**
+     * Crea un policía nuevo y un calendario nuevo.
+     * @param nombre Nombre elegido por el policía.
+     * @param cantidadDeArrestos Cantidad de arrestos que tiene el policía.
+     */
+    public Policia(String nombre, int cantidadDeArrestos) {
+        this(nombre,0, new Calendario());
+    }
+
+    /**
+     * Prepara al policía para una nueva misión.
+     * @param calendario Calendario de tiempo del juego durante la misión.
+     */
+    public void iniciarMision(Calendario calendario) {
+        this.calendario = calendario;
+    }
+
 
     public void viajar(int distancia, Calendario calendario)
     {
 
     }
-    public ArrayList<IPista> filtrarPistas(ArrayList<IPista> pistas){
-
+    public ArrayList<IPista> filtrarPistas(Collection<IPista> pistas){
         return rango.filtrarPistas(pistas);
-
     }
 
     public boolean soyElAgente(String nombreAgente) {
@@ -40,7 +74,7 @@ public class Policia {
 
     public void visitar(Edificio unEdificio, Ladron unLadron) {
 
-        unEdificio.visitar(this,calendario);
+        unEdificio.visitar(this);
         return;
 
     }
@@ -51,5 +85,13 @@ public class Policia {
     public Mision tomarCaso(Caso unCaso) {
 
         return null;
+    }
+
+    public Object getArrestos() {
+        return this.arrestos;
+    }
+
+    public void avanzarHoras(int demora) {
+        calendario.avanzarHoras(demora);
     }
 }
