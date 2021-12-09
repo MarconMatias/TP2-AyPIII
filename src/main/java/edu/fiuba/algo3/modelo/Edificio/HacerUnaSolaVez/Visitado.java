@@ -9,7 +9,7 @@ import edu.fiuba.algo3.modelo.Policia.Policia;
 
 public class Visitado implements IEstadoVisitado {
     @Override
-    public void visitar(ITipoEdificio edificio, Policia policia, Calendario cal) {
+    public void visitar(ITipoEdificio edificio, Policia policia) {
         // Ya fue visitado, no debe hacer nada.
     }
 
