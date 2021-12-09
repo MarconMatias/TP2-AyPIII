@@ -177,10 +177,14 @@ public class Mision {
     }
 
     public List<String> getCiudadesVecinas() {
-        return null;
+        return mapa.getCiudadesVecinas(ciudadActual);
     }
 
     public String getMensajeMision() {
         return "";
+    }
+
+    public String getNombreCiudadActual() {
+        return ciudadActual.getNombre();
     }
 }
