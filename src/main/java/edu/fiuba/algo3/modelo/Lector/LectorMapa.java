@@ -1,8 +1,10 @@
 package edu.fiuba.algo3.modelo.Lector;
 
+import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Juego.Mapa;
 import org.json.simple.JSONObject;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class LectorMapa {
@@ -12,12 +14,10 @@ public class LectorMapa {
     public LectorMapa(Mapa mapa) {
         this.mapa = mapa;
     }
-    public LectorMapa()
-    {
-        this(new Mapa());
+    public LectorMapa() {
+        this(new Mapa(new HashMap<>()));
     }
-
-    public Mapa leerMapa(JSONObject entrada) {
+    public Mapa leerMapa(Map entrada) {
         Map mapaJson = lectorJson.leerPropiedadComo(Map.class,entrada,"mapa");
         for (Object clave:mapaJson.keySet()) {
             if(!(clave instanceof String))
@@ -40,5 +40,13 @@ public class LectorMapa {
             int distancia = lectorJson.leerPropiedadComo(Number.class,destinosJson,destino).intValue();
             mapa.agregarConexion(origen, destino, distancia);
         }
+    }
+
+    public void leerMapa() {
+        leerMapa("src/main/java/edu/fiuba/algo3/recursos/mapa.json");
+    }
+
+    private Mapa leerMapa(String ruta) {
+        return leerMapa(lectorJson.leerJsonMap(ruta));
     }
 }
