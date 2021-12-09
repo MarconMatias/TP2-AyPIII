@@ -11,7 +11,6 @@ import edu.fiuba.algo3.modelo.Juego.*;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 public class Policia {
 
@@ -60,7 +59,7 @@ public class Policia {
     }
 
 
-    public void viajar(int distancia, Calendario calendario)
+    public void viajar(int distancia)
     {
 
     }
