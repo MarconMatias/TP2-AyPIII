@@ -9,7 +9,8 @@ import edu.fiuba.algo3.modelo.Policia.Policia;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CiudadVisitada {
+public class CiudadVisitada implements IComportamientoCiudad {
+    /*
     private final int cantidadEdificios = 3;
 
     private final Ciudad ciudad;
@@ -26,7 +27,8 @@ public class CiudadVisitada {
         this.policia = policia;
         this.cal = cal;
 
-        edificios = ciudad.edificiosAlAzar(3);
+        //edificios = ciudad.edificiosAlAzar(3);
+        throw new RuntimeException("Revisar");
     }
 
     public void visitadoPorLadron(Ladron ladron, Ciudad destino)
@@ -43,4 +45,5 @@ public class CiudadVisitada {
         cal.avanzarHoras(demora);
         edificio.visitar(policia,cal);
     }
+     */
 }
