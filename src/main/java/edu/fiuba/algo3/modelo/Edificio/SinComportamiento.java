@@ -12,7 +12,7 @@ public class SinComportamiento implements IComportamientoEdificio {
     }
 
     @Override
-    public void visitar(ITipoEdificio edificio, Policia policia, Calendario cal) {
+    public void visitar(ITipoEdificio edificio, Policia policia) {
         // No tiene que hacer nada
     }
 }
