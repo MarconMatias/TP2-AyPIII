@@ -8,6 +8,7 @@ import edu.fiuba.algo3.modelo.Juego.*;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Lector.*;
 import edu.fiuba.algo3.modelo.Policia.Policia;
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -73,7 +74,20 @@ public class TestsCasosDeUsoEntrega2 {
      */
     @Test
     public void casoDeUso03() {
-        fail("Caso de uso incompleto.");
+        //Antes la computadora ya esta cargada desde el inicio del juego con los sospechosos
+
+        ArrayList<Ladron> ladrones = new ArrayList<>();
+        Ladron ladronFemenino = new Ladron("Ana","femenino","Hockey sobre cesped","Rubio","Anillo de oro", "Moto");
+        Ladron ladronMasculino = new Ladron("Agus","masculino","Fulbo","Castaño oscuro","Cadena de plata con dibujo de carpincho", "Moto");
+
+        ladrones.add(ladronFemenino);
+        ladrones.add(ladronMasculino);
+        Computadora computadora = new Computadora(ladrones);
+
+        computadora.agregarDetalle("sexo", "femenino");
+        ArrayList<Ladron> sospechosos = computadora.buscarSospechosos();
+        Assert.assertTrue(sospechosos.contains(ladronFemenino));
+        Assert.assertEquals(1,sospechosos.size());
     }
 
     /**
