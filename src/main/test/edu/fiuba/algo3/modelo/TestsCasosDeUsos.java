@@ -19,6 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class TestsCasosDeUsos {
 
@@ -103,4 +104,10 @@ public class TestsCasosDeUsos {
         verify(mockPolicia).hacerAccion(mockAccion);
         // Dormir
     }
+    
+    @Test
+    public void test08CasoDeUso8(){
+
+    }
+    
 }
