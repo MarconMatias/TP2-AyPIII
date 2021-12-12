@@ -1,5 +1,9 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.Acciones.Accion;
+import edu.fiuba.algo3.modelo.Acciones.AccionDormir;
+import edu.fiuba.algo3.modelo.Acciones.HeridaPorCuchillo;
+import edu.fiuba.algo3.modelo.Acciones.IAccion;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Computadora.Computadora;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
@@ -8,12 +12,10 @@ import edu.fiuba.algo3.modelo.Juego.*;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Lector.*;
 import edu.fiuba.algo3.modelo.Policia.Policia;
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -27,7 +29,23 @@ public class TestsCasosDeUsoEntrega2 {
      */
     @Test
     public void casoDeUso01() {
-        fail("Caso de uso incompleto.");
+        // Poner calendario en 21 hs para que al recibir herida deba dormir:
+        Calendario calendario = new Calendario();
+        int horaInicial = 7;
+        int horaDeseada = 21;
+        calendario.avanzarHoras(horaDeseada-horaInicial);
+        // Observador:
+        IObservadorAcciones observador = mock(IObservadorAcciones.class);
+        calendario.observarAcciones(observador);
+        // Policía debe ser detective:
+        int arrestosParaDetective = 5;
+        Policia policia = new Policia("Un detective", arrestosParaDetective, calendario);
+
+        IAccion herida = new HeridaPorCuchillo();
+        policia.realizarAccion(herida);
+
+        verify(observador).accionRealizada(any(AccionDormir.class));
+        verify(observador).accionRealizada(any(HeridaPorCuchillo.class));
     }
 
     /**
@@ -41,15 +59,18 @@ public class TestsCasosDeUsoEntrega2 {
         Ladron ladron = mock(Ladron.class);
         List<String> ruta = List.of("Montreal","Ciudad de México");
         Computadora computadora = mock(Computadora.class);
-        Mapa mapa = mock(Mapa.class);
         Ciudad Montreal = mock(Ciudad.class);
+        when(Montreal.getNombre()).thenReturn("Montreal");
         Ciudad Mexico = mock(Ciudad.class);
+        when(Mexico.getNombre()).thenReturn("Ciudad de México");
+        Mapa mapa = mock(Mapa.class);
         when(mapa.getCiudadPorNombre("Montreal")).thenReturn(Montreal);
         when(mapa.getCiudadPorNombre("Ciudad de México")).thenReturn(Mexico);
         Random random = mock(Random.class);
 
-        // 10 arrestos debe ser investigador
-        Policia policia = new Policia("Un investigador",10);
+        // Preparo investigador
+        int arrestosParaSerInvestigador = 10;
+        Policia policia = new Policia("Un investigador",arrestosParaSerInvestigador);
 
         // Crear caso/misión inicia en México con Policía investigador
         Mision mision = new Mision(policia,item,ladron,ruta,"Montreal",computadora,
@@ -65,7 +86,7 @@ public class TestsCasosDeUsoEntrega2 {
 
         // VERIFICAR que se haya hecho el viaje:
         verify(mapa).viajar(policia,Montreal,"Ciudad de México");
-        //verify(Mexico).visitadaPorPolicia(policia);
+        //verify(Mexico).visitadaPorPolicia(policia); // No funciona porque mapa es un mock
     }
 
     /**
@@ -73,7 +94,20 @@ public class TestsCasosDeUsoEntrega2 {
      */
     @Test
     public void casoDeUso03() {
-        fail("Caso de uso incompleto.");
+        //Antes la computadora ya esta cargada desde el inicio del juego con los sospechosos
+
+        ArrayList<Ladron> ladrones = new ArrayList<>();
+        Ladron ladronFemenino = new Ladron("Ana","femenino","Hockey sobre cesped","Rubio","Anillo de oro", "Moto");
+        Ladron ladronMasculino = new Ladron("Agus","masculino","Fulbo","Castaño oscuro","Cadena de plata con dibujo de carpincho", "Moto");
+
+        ladrones.add(ladronFemenino);
+        ladrones.add(ladronMasculino);
+        Computadora computadora = new Computadora(ladrones);
+
+        computadora.agregarDetalle("sexo", "femenino");
+        ArrayList<Ladron> sospechosos = computadora.buscarSospechosos();
+        Assert.assertTrue(sospechosos.contains(ladronFemenino));
+        Assert.assertEquals(1,sospechosos.size());
     }
 
     /**
@@ -81,7 +115,44 @@ public class TestsCasosDeUsoEntrega2 {
      */
     @Test
     public void casoDeUso04() {
-        fail("Caso de uso incompleto.");
+        // Dependencias (reales y mocks)
+        Calendario calendario = mock(Calendario.class);
+        Item item = mock(Item.class);
+        Ladron ladron = mock(Ladron.class);
+        List<String> ruta = List.of("Montreal","Ciudad de México");
+        Computadora computadora = mock(Computadora.class);
+
+        Ciudad Mexico = new Ciudad("Ciudad de México",new ArrayList<>());
+        Ciudad Montreal = new Ciudad("Montreal",new ArrayList<>());
+        Map<String,Ciudad> ciudades = new HashMap<String,Ciudad>();
+        ciudades.put("Ciudad de México",Mexico);
+        ciudades.put("Montreal",Montreal);
+        Mapa mapa = new Mapa(ciudades);
+        mapa.agregarConexion("Montreal","Ciudad de México",1);
+
+        Random random = mock(Random.class);
+
+        // Preparo investigador
+        int arrestosParaSerInvestigador = 10;
+        Policia policia = new Policia("Un investigador",arrestosParaSerInvestigador);
+
+        // Crear caso/misión inicia en México con Policía investigador
+        Mision mision = new Mision(policia,item,ladron,ruta,"Montreal",computadora,
+                mapa,calendario,random);
+
+        // Viaja de Montreal a México, donde al ser ruta final debería estar el ladrón
+        mision.viajarACiudad("Ciudad de México");
+
+        List<Edificio> edificios = mision.obtenerEdificios();
+        mision.visitarEdificio(edificios.get(0));
+        if(!mision.fueFinalizada()) {
+            mision.visitarEdificio(edificios.get(1));
+        }
+        if(!mision.fueFinalizada()) {
+            mision.visitarEdificio(edificios.get(2));
+        }
+        assertTrue(mision.fueFinalizada());
+        assertFalse(mision.fueVictoria());
     }
 
     /**
