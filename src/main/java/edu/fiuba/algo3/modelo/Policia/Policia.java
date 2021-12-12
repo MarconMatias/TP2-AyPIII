@@ -22,9 +22,11 @@ public class Policia {
 
     /**
      * Crea un policía con una cantidad de arrestos dada.
-     * @param nombre Nombre elegido por el policía.
+     * 
+     * @param nombre             Nombre elegido por el policía.
      * @param cantidadDeArrestos Cantidad de arrestos que tiene el policía.
-     * @param calendario Calendario del tiempo del juego afectado por las acciones del policía.
+     * @param calendario         Calendario del tiempo del juego afectado por las
+     *                           acciones del policía.
      */
     public Policia(String nombre, int cantidadDeArrestos, Calendario calendario) {
         this.nombre = nombre;
@@ -35,35 +37,37 @@ public class Policia {
 
     /**
      * Crea un policía nuevo con 0 arrestos y un calendario nuevo.
+     * 
      * @param nombre Nombre elegido por el policía.
      */
     public Policia(String nombre) {
-        this(nombre,0);
+        this(nombre, 0);
     }
 
     /**
      * Crea un policía nuevo y un calendario nuevo.
-     * @param nombre Nombre elegido por el policía.
+     * 
+     * @param nombre             Nombre elegido por el policía.
      * @param cantidadDeArrestos Cantidad de arrestos que tiene el policía.
      */
     public Policia(String nombre, int cantidadDeArrestos) {
-        this(nombre,0, new Calendario());
+        this(nombre, 0, new Calendario());
     }
 
     /**
      * Prepara al policía para una nueva misión.
+     * 
      * @param calendario Calendario de tiempo del juego durante la misión.
      */
     public void iniciarMision(Calendario calendario) {
         this.calendario = calendario;
     }
 
-
-    public void viajar(int distancia)
-    {
+    public void viajar(int distancia) {
 
     }
-    public ArrayList<IPista> filtrarPistas(Collection<IPista> pistas){
+
+    public ArrayList<IPista> filtrarPistas(Collection<IPista> pistas) {
         return rango.filtrarPistas(pistas);
     }
 
