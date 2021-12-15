@@ -145,15 +145,6 @@ public class Mision {
         return unItem.getRuta(unMapa, random);
     }
 
-    public Mision(Policia unPolicia) {
-
-        ladronDeLaMision = null;
-        policiaDeLaMision = null;
-        itemDelJuego = null;
-        ciudadActual = null;
-        calendario = null;
-    }
-
 
     public Ciudad viajarACiudad(String destino) {
         ciudadActual.desvisitar();
@@ -195,9 +186,5 @@ public class Mision {
 
     public String getNombreCiudadActual() {
         return ciudadActual.getNombre();
-    }
-
-    public boolean arrestar() {
-        return false;
     }
 }

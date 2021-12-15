@@ -28,18 +28,8 @@ public class RangoPolicia {
         return (ArrayList<IPista>) nivelPista.filtrarPistas(pistas);
     }
 
-<<<<<<< HEAD
-    public void actualizarArrestos(){
-
-        actualizarArrestos(this.arrestos + 1);
-    }
-
-    public void actualizarArrestos(int arrestos) {
-        this.arrestos = arrestos;
-=======
     public void actualizarArrestos(int cantidadDeArrestos) {
         this.arrestos = cantidadDeArrestos;
->>>>>>> 96100e3de4a8b4265ef50acb2dad73b2dcb5042e
         this.comportamientoRango = this.comportamientoRango.siguienteComportamientoConArrestos(this.arrestos);
     }
 }

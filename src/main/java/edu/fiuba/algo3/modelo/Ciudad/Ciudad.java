@@ -5,17 +5,12 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
-<<<<<<< HEAD
-import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.ITipoEdificio;
-import edu.fiuba.algo3.modelo.Ladron.Ladron;
-=======
 import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.*;
 import edu.fiuba.algo3.modelo.Juego.Calendario;
 import edu.fiuba.algo3.modelo.Ladron.ISospechoso;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Ladron.SinSospechoso;
 import edu.fiuba.algo3.modelo.Pista.*;
->>>>>>> 96100e3de4a8b4265ef50acb2dad73b2dcb5042e
 import edu.fiuba.algo3.modelo.Pista.Filtro.IFiltroCiudad;
 import edu.fiuba.algo3.modelo.Policia.*;
 
@@ -23,18 +18,6 @@ public class Ciudad {
 
     private final String nombre;
     private final ArrayList<PistaCiudad> pistas;
-<<<<<<< HEAD
-    private final ArrayList<Ciudad> ciudadesVecinas;
-    private ArrayList<Edificio> edificios = new ArrayList<Edificio>();
-
-    private int cantidadDeVisitas = 0;
-
-    public Ciudad(String nombre, ArrayList<PistaCiudad> pistas, ArrayList<Ciudad> ciudadVecinas, ArrayList<Edificio> edificios) {
-        this.nombre = nombre;
-        this.pistas = pistas;
-        this.ciudadesVecinas = ciudadVecinas;
-        this.edificios = edificios;
-=======
     private ISospechoso sospechoso = new SinSospechoso();
     private ICiudadVisitada visitada = new CiudadNoVisitada();
     private Ciudad destinoSospechoso = null;
@@ -42,7 +25,6 @@ public class Ciudad {
     public Ciudad(String nombre, ArrayList<PistaCiudad> pistas) {
         this.nombre = nombre;
         this.pistas = pistas;
->>>>>>> 96100e3de4a8b4265ef50acb2dad73b2dcb5042e
     }
 
     public boolean esLaCiudad(String nombre) {
@@ -118,19 +100,4 @@ public class Ciudad {
     public List<Edificio> obtenerEdificios() {
         return visitada.obtenerEdificios();
     }
-<<<<<<< HEAD
-
-    public boolean visitar(String nombreDelEdificioAVisitar, Ladron unLadron, Policia unPolicia) {
-
-        for ( Edificio e : edificios){
-            if( e.esElEdificio(nombreDelEdificioAVisitar)) {
-                unPolicia.visitar(e, unLadron);
-                return true;
-                }
-            }
-        return false;
-    }
 }
-=======
-}
->>>>>>> 96100e3de4a8b4265ef50acb2dad73b2dcb5042e

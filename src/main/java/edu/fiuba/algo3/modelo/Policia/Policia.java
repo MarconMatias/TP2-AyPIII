@@ -35,16 +35,6 @@ public class Policia {
         this.rango = new RangoPolicia(cantidadDeArrestos);
     }
 
-<<<<<<< HEAD
-    public Policia(String nombre, int arrestos) {
-
-        this.rango = new RangoPolicia();
-        rango.actualizarArrestos(arrestos);
-        this.nombre = nombre;
-    }
-
-    public ArrayList<IPista> filtrarPistas(ArrayList<IPista> pistas){
-=======
     /**
      * Crea un policía nuevo con 0 arrestos y un calendario nuevo.
      * @param nombre Nombre elegido por el policía.
@@ -52,7 +42,6 @@ public class Policia {
     public Policia(String nombre) {
         this(nombre,0);
     }
->>>>>>> 96100e3de4a8b4265ef50acb2dad73b2dcb5042e
 
     /**
      * Crea un policía nuevo y un calendario nuevo.
@@ -84,22 +73,19 @@ public class Policia {
         return this.nombre.equals(nombreAgente);
     }
 
-<<<<<<< HEAD
-    public String visitar(Edificio unEdificio, Ladron unLadron) {
-=======
     public void visitar(Edificio unEdificio, Ladron unLadron) {
 
         unEdificio.visitar(this);
         return;
->>>>>>> 96100e3de4a8b4265ef50acb2dad73b2dcb5042e
 
-        return unEdificio.visitar(this,calendario);
     }
 
     public void hacerAccion(AccionCuchilloUnica mockAccion) {
     }
 
-    public void tomarCaso(Caso mockCaso) {
+    public Mision tomarCaso(Caso unCaso) {
+
+        return null;
     }
 
     public Object getArrestos() {

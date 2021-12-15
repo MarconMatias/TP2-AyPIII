@@ -4,13 +4,6 @@ import edu.fiuba.algo3.modelo.Acciones.AccionCuchilloUnica;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Computadora.Computadora;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
-<<<<<<< HEAD
-import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.Aeropuerto;
-import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.Banco;
-import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.Bolsa;
-import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.ITipoEdificio;
-=======
->>>>>>> 96100e3de4a8b4265ef50acb2dad73b2dcb5042e
 import edu.fiuba.algo3.modelo.Item.Item;
 import edu.fiuba.algo3.modelo.Juego.Calendario;
 import edu.fiuba.algo3.modelo.Juego.Caso;
@@ -19,7 +12,6 @@ import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.modelo.Ladron.ISospechoso;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Policia.Policia;
-import edu.fiuba.algo3.modelo.Policia.RangoPolicia.RangoPolicia;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
@@ -142,41 +134,4 @@ public class TestsCasosDeUsos {
     }
 
 
-<<<<<<< HEAD
-        computadora.agregarDetalle("sexo", "femenino");
-        ArrayList<Ladron> sospechosos = computadora.buscarSospechosos();
-        Assert.assertTrue(sospechosos.contains(ladronFemenino));
-        Assert.assertEquals(1,sospechosos.size());
-
-
-    }
-
-    @Test
-    public void test09CasoDeUso9(){
-
-        Policia unPolicia = new Policia(new RangoPolicia(),"Mati");
-
-        Mision mision = new Mision( unPolicia );
-        Assert.assertFalse(mision.arrestar());
-
-    }
-
-    @Test
-    public void test10CasoDeUso10(){
-
-        Policia unPolicia = new Policia("Mati",6);
-        Item incanGoldMask = new Item("Incan Gold Mask","Lima");
-        Ladron unLadron = new Ladron("Ana","femenino","Tenis","Rubio","Falta con estampa de carpincho","Moto");
-        ArrayList<Edificio> edificios = new ArrayList<Edificio>();
-        edificios.add(new Edificio( new Banco("Banco de Lima"),new Bancario()));
-        edificios.add(new Edificio( new Aeropuerto("Aeropuerto de Lima")));
-        edificios.add(new Edificio( new Bolsa()));
-
-        Ciudad unaCiudad = new Ciudad("Lima",null,null,edificios);
-
-        Assert.assertTrue(unaCiudad.visitar("Banco de Lima",unLadron,unPolicia));
-
-    }
-=======
->>>>>>> 96100e3de4a8b4265ef50acb2dad73b2dcb5042e
 }
