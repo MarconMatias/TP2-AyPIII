@@ -64,7 +64,7 @@ public class Policia {
     public int viajar(int distancia)
     {
 
-        return rango.devolverTiempoDeViaje(distancia);
+        calendario.avanzarHoras(rango.devolverTiempoDeViaje(distancia));
 
     }
     public ArrayList<IPista> filtrarPistas(Collection<IPista> pistas){
