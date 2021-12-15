@@ -32,4 +32,9 @@ public class RangoPolicia {
         this.arrestos = cantidadDeArrestos;
         this.comportamientoRango = this.comportamientoRango.siguienteComportamientoConArrestos(this.arrestos);
     }
+
+    public int devolverTiempoDeViaje(int distancia) {
+
+        return comportamientoRango.estimarTiempoDeViajePara( distancia );
+    }
 }

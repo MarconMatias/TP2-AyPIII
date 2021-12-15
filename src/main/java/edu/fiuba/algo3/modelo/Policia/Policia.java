@@ -61,8 +61,10 @@ public class Policia {
     }
 
 
-    public void viajar(int distancia)
+    public int viajar(int distancia)
     {
+
+        return rango.devolverTiempoDeViaje(distancia);
 
     }
     public ArrayList<IPista> filtrarPistas(Collection<IPista> pistas){
@@ -81,11 +83,6 @@ public class Policia {
     }
 
     public void hacerAccion(AccionCuchilloUnica mockAccion) {
-    }
-
-    public Mision tomarCaso(Caso unCaso) {
-
-        return null;
     }
 
     public Object getArrestos() {
