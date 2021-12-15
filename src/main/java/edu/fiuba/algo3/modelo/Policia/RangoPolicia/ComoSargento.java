@@ -3,11 +3,11 @@ package edu.fiuba.algo3.modelo.Policia.RangoPolicia;
 public class ComoSargento implements IComportamientoRango{
 
 
-    private int tiempoPorKm;
+    private int velocidad;
 
     public ComoSargento(Integer arrestos){
 
-        this.tiempoPorKm = 1500;
+        this.velocidad = 1500;
     }
 
     @Override
@@ -22,7 +22,7 @@ public class ComoSargento implements IComportamientoRango{
 
     @Override
     public int estimarTiempoDeViajePara(int distancia) {
-        return tiempoPorKm * distancia;
+        return distancia/velocidad;
     }
 
 }

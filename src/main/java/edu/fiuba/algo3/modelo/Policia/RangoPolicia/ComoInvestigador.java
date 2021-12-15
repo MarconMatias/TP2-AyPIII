@@ -4,12 +4,12 @@ public class ComoInvestigador implements IComportamientoRango{
 
     private int arrestos;
     private final int arrestosASuperar = 20;
-    private int tiempoPorKm;
+    private int velocidad;
 
     public ComoInvestigador(Integer arrestos){
 
         this.arrestos = arrestos;
-        this.tiempoPorKm = 1300;
+        this.velocidad = 1300;
 
     }
 
@@ -27,8 +27,9 @@ public class ComoInvestigador implements IComportamientoRango{
         return null;
     }
 
+
     @Override
     public int estimarTiempoDeViajePara(int distancia) {
-        return tiempoPorKm * distancia;
+        return distancia/velocidad;
     }
 }
