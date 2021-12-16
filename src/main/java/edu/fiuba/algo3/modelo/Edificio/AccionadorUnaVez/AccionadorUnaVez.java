@@ -1,19 +1,18 @@
-package edu.fiuba.algo3.modelo.Edificio.HacerUnaSolaVez;
+package edu.fiuba.algo3.modelo.Edificio.AccionadorUnaVez;
 
-import edu.fiuba.algo3.modelo.Edificio.IComportamientoEdificio;
+import edu.fiuba.algo3.modelo.Edificio.IAccionador;
 import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.ITipoEdificio;
-import edu.fiuba.algo3.modelo.Juego.Calendario;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 
-public class HacerUnaSolaVez implements IComportamientoEdificio {
+public class AccionadorSolaVez implements IAccionador {
     protected IEstadoVisitado estado = new NoVisitado();
-    public HacerUnaSolaVez(/** Accion **/)
+    public AccionadorSolaVez(/** Accion **/)
     {
     }
 
     @Override
-    public IComportamientoEdificio lanzarEvento(Ladron unLadron) {
+    public IAccionador lanzarEvento(Ladron unLadron) {
         return null;
     }
 
