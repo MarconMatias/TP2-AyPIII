@@ -6,4 +6,6 @@ public interface IComportamientoRango {
     IComportamientoRango ascender(Integer arrestos);
 
     IComportamientoRango siguienteComportamientoConArrestos(Integer arrestos);
+
+    int estimarTiempoDeViajePara(int distancia);
 }

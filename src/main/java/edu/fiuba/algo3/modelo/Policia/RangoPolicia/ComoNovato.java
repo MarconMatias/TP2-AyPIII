@@ -4,8 +4,11 @@ public class ComoNovato implements IComportamientoRango{
 
     private Integer arrestosASuperar = 5;
     private Integer arrestos = 0;
+    private int velocidad;
 
     public ComoNovato() {
+
+        this.velocidad = 900;
 
     }
 
@@ -21,5 +24,10 @@ public class ComoNovato implements IComportamientoRango{
         if( this.arrestos >= this.arrestosASuperar )
             return this.ascender( arrestos );
         return null;
+    }
+
+    @Override
+    public int estimarTiempoDeViajePara(int distancia) {
+        return distancia/velocidad;
     }
 }
