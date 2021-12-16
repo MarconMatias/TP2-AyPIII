@@ -6,13 +6,10 @@ import edu.fiuba.algo3.modelo.Computadora.Computadora;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Item.Item;
 import edu.fiuba.algo3.modelo.Juego.Calendario;
-import edu.fiuba.algo3.modelo.Juego.Caso;
 import edu.fiuba.algo3.modelo.Juego.Mapa;
 import edu.fiuba.algo3.modelo.Juego.Mision;
-import edu.fiuba.algo3.modelo.Ladron.ISospechoso;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Policia.Policia;
-import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

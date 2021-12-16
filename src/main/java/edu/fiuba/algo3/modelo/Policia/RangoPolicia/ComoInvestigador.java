@@ -4,10 +4,13 @@ public class ComoInvestigador implements IComportamientoRango{
 
     private int arrestos;
     private final int arrestosASuperar = 20;
+    private int velocidad;
 
     public ComoInvestigador(Integer arrestos){
 
         this.arrestos = arrestos;
+        this.velocidad = 1300;
+        this.siguienteComportamientoConArrestos(this.arrestos);
 
     }
 
@@ -22,6 +25,12 @@ public class ComoInvestigador implements IComportamientoRango{
 
         if( this.arrestos >= this.arrestosASuperar )
             return this.ascender( arrestos );
-        return null;
+        return this;
+    }
+
+
+    @Override
+    public int estimarTiempoDeViajePara(int distancia) {
+        return distancia/velocidad;
     }
 }

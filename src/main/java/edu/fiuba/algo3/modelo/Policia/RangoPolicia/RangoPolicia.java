@@ -20,6 +20,7 @@ public class RangoPolicia {
 
     public RangoPolicia(int cantidadDeArrestos) {
         this();
+        this.comportamientoRango = new ComoNovato();
         this.actualizarArrestos(cantidadDeArrestos);
     }
 
@@ -31,5 +32,15 @@ public class RangoPolicia {
     public void actualizarArrestos(int cantidadDeArrestos) {
         this.arrestos = cantidadDeArrestos;
         this.comportamientoRango = this.comportamientoRango.siguienteComportamientoConArrestos(this.arrestos);
+    }
+
+    public int devolverTiempoDeViaje(int distancia) {
+
+        return comportamientoRango.estimarTiempoDeViajePara( distancia );
+    }
+
+    public void agregarArresto(int arrestos) {
+        this.arrestos = arrestos;
+        actualizarArrestos(arrestos);
     }
 }

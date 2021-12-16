@@ -165,7 +165,15 @@ public class Mision {
     }
 
     public void generarOrdenDeArresto() {
-        computadora.generarOrdenDeArresto();
+        if ((computadora.generarOrdenDeArresto()).esElLadron(ladron)) {
+            //fueVictoria();
+        //Se gana la partida porque coincide la orden de arresto con el ladron
+            return;
+        }else{
+            //Se pierde porque no coincide la orden de arresto con el ladron
+            return;
+        }
+
     }
 
     public boolean fueFinalizada() {

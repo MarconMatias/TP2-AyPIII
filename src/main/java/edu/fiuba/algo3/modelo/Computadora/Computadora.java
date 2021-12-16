@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.Computadora;
 import edu.fiuba.algo3.modelo.Ladron.ISospechoso;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Ladron.SinSospechoso;
+import edu.fiuba.algo3.modelo.OrdenDeArresto.Orden;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,7 +14,8 @@ public class Computadora {
 
     private final List<Ladron> sospechososRegistrados;
     private Map<String,String> detalles = new HashMap<String,String>();
-    private ISospechoso ordenDeArresto = new SinSospechoso();
+    private ISospechoso sospechoso = new SinSospechoso();
+    //private Orden ordenDeArresto;
 
     public Computadora(List<Ladron> ladrones) {
         sospechososRegistrados = ladrones;
@@ -34,13 +36,17 @@ public class Computadora {
         return sospechososFiltrados;
     }
 
-    public void generarOrdenDeArresto() {
+    public Orden generarOrdenDeArresto() {
         List<Ladron> sospechosos = buscarSospechosos();
         if(sospechosos.size()>1) {
-            throw new RuntimeException("Hay demasiados sospechosos, ingrese más detalles.");
+            //throw new RuntimeException("Hay demasiados sospechosos, ingrese más detalles.");
+            return null;
         } else if(sospechosos.size()<1) {
-            throw new RuntimeException("No hay ningún sospechoso con los detalles ingresados.");
+            //throw new RuntimeException("No hay ningún sospechoso con los detalles ingresados.");
+            return null;
         }
-        this.ordenDeArresto = sospechosos.get(0);
+        this.sospechoso = sospechosos.get(0);
+        return new Orden(this.sospechoso);
+
     }
 }
