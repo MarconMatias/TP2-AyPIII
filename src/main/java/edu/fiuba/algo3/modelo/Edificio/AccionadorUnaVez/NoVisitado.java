@@ -1,18 +1,22 @@
-package edu.fiuba.algo3.modelo.Edificio.HacerUnaSolaVez;
+package edu.fiuba.algo3.modelo.Edificio.AccionadorUnaVez;
 
+import edu.fiuba.algo3.modelo.Acciones.IAccion;
+import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.ITipoEdificio;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 
 public class NoVisitado implements IEstadoVisitado {
 
-    public NoVisitado(/** Accion **/)
+    private final IAccion accion;
+
+    public NoVisitado(IAccion accion)
     {
-        // Guardar la acción
+        this.accion = accion;
     }
 
     @Override
-    public void visitar(ITipoEdificio edificio, Policia policia) {
-        // Ejecutar la acción
+    public void visitar(Edificio edificio, Policia policia) {
+        policia.realizarAccion(accion);
     }
 
     @Override
