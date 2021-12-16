@@ -129,8 +129,6 @@ public class Mision {
                 unCalendario, random);
     }
 
-
-
     private static Item itemAlAzar(List<Item> items, Random random) {
         int indice = random.nextInt(items.size());
         return items.get(indice);
@@ -161,19 +159,11 @@ public class Mision {
     }
 
     public void visitarEdificio(Edificio edificio) {
-        /** \todo **/
+        edificio.visitar(policia);
     }
 
     public void generarOrdenDeArresto() {
-        if ((computadora.generarOrdenDeArresto()).esElLadron(ladron)) {
-            //fueVictoria();
-        //Se gana la partida porque coincide la orden de arresto con el ladron
-            return;
-        }else{
-            //Se pierde porque no coincide la orden de arresto con el ladron
-            return;
-        }
-
+        policia.setOrdenDeArresto(computadora.generarOrdenDeArresto());
     }
 
     public boolean fueFinalizada() {
