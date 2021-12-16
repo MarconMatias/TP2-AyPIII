@@ -10,6 +10,7 @@ public class ComoDetective implements IComportamientoRango{
 
         this.arrestos = arrestos;
         this.velocidad = 1100;
+        this.siguienteComportamientoConArrestos(this.arrestos);
     }
 
     @Override

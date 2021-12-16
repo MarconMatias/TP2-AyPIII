@@ -12,4 +12,6 @@ public class TestPolicia {
         Policia policia = new Policia("Agus",0, new Calendario());
         Assert.assertTrue(policia.viajar(1800) == 2);
     }
+
+
 }

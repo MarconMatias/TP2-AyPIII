@@ -21,9 +21,10 @@ public class ComoNovato implements IComportamientoRango{
     @Override
     public IComportamientoRango siguienteComportamientoConArrestos(Integer arrestos) {
 
+        this.arrestos = arrestos;
         if( this.arrestos >= this.arrestosASuperar )
             return this.ascender( arrestos );
-        return null;
+        return this;
     }
 
     @Override

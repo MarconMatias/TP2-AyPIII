@@ -38,4 +38,9 @@ public class RangoPolicia {
 
         return comportamientoRango.estimarTiempoDeViajePara( distancia );
     }
+
+    public void agregarArresto(int arrestos) {
+        this.arrestos = arrestos;
+        actualizarArrestos(arrestos);
+    }
 }

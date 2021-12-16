@@ -14,7 +14,7 @@ import java.util.Collection;
 public class Policia {
 
     private final String nombre;
-    private final int arrestos;
+    private int arrestos;
     private RangoPolicia rango;
     private Calendario calendario;
     private String ciudadActual;
@@ -93,5 +93,10 @@ public class Policia {
 
     public void realizarAccion(IAccion herida) {
         calendario.aplicarAccion(herida);
+    }
+
+    public void agregarArresto(){
+        this.arrestos = this.arrestos + 1;
+        rango.agregarArresto(this.arrestos);
     }
 }
