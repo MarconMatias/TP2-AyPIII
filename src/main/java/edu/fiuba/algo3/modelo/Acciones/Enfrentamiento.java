@@ -1,26 +1,34 @@
 package edu.fiuba.algo3.modelo.Acciones;
 
 import edu.fiuba.algo3.modelo.Juego.Calendario;
+import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 
-public class AccionDormir implements IAccion {
+public class Enfrentamiento implements IAccion {
+    private final Ladron ladron;
+    private Policia policia;
+
+    public Enfrentamiento(Ladron ladron) {
+        this.ladron = ladron;
+    }
+
     @Override
     public String getNombreAccion() {
-        return "Durmiendo";
+        return "Enfrentamiento";
     }
 
     @Override
     public void avanzarCalendario(Calendario calendario) {
-        calendario.avanzarHoras(8);
+        // No avanza el calendario
     }
 
     @Override
     public void setPolicia(Policia policia) {
-        /** No debe hacer nada. **/
+        this.policia = policia;
     }
 
     @Override
     public void realizar() {
-        /** No debe hacer nada. **/
+        policia.enfrentar(ladron);
     }
 }

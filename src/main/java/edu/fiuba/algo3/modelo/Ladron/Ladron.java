@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.Ladron;
 
-import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
+import edu.fiuba.algo3.modelo.Ciudad.IDestino;
 import edu.fiuba.algo3.modelo.Pista.Filtro.IFiltroCiudad;
 import edu.fiuba.algo3.modelo.Pista.IPista;
 import edu.fiuba.algo3.modelo.Policia.Policia;
@@ -31,11 +31,6 @@ public class Ladron implements ISospechoso {
     this(nombre, crearDetalles(sexo,deporte,cabello,distincion,vehiculo));
   }
 
-
-  public IPista pistaAlAzar(Policia policia) {
-    return null;
-  }
-
   public boolean meLlamo(String string) {
 
     return string.equals(nombre);
@@ -53,7 +48,7 @@ public class Ladron implements ISospechoso {
   }
 
   @Override
-  public String testimonioAlAzar(Policia policia, Ciudad destino, IFiltroCiudad filtroCiudad) {
+  public String testimonioAlAzar(Policia policia, IDestino destino, IFiltroCiudad filtroCiudad) {
     return destino.pistaAlAzar(policia,filtroCiudad) + mostrarDistincion();
   }
 
