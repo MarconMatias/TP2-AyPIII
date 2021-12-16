@@ -1,10 +1,16 @@
 package edu.fiuba.algo3.modelo.Policia.RangoPolicia;
 
+import edu.fiuba.algo3.modelo.Pista.IPista;
+import edu.fiuba.algo3.modelo.Pista.NivelPista.*;
+
+import java.util.Collection;
+
 public class ComoNovato implements IComportamientoRango{
 
     private Integer arrestosASuperar = 5;
     private Integer arrestos = 0;
     private int velocidad;
+    private NivelPista nivelPista = new PistaFacil();
 
     public ComoNovato() {
 
@@ -30,5 +36,11 @@ public class ComoNovato implements IComportamientoRango{
     @Override
     public int estimarTiempoDeViajePara(int distancia) {
         return distancia/velocidad;
+    }
+
+
+    @Override
+    public Collection<IPista> filtrarPistas(Collection<IPista> pistas) {
+        return nivelPista.filtrarPistas(pistas);
     }
 }
