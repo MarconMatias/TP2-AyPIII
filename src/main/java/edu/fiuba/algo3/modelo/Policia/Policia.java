@@ -80,10 +80,14 @@ public class Policia {
         return this.nombre.equals(nombreAgente);
     }
 
+    /** Reemplazar por visitar(unEdificio)??? **/
     public void visitar(Edificio unEdificio, Ladron unLadron) {
+        visitar(unEdificio);
+    }
+
+    public void visitar(Edificio unEdificio) {
         unEdificio.visitar(this);
         return;
-
     }
 
     public void hacerAccion(AccionCuchilloUnica mockAccion) {
