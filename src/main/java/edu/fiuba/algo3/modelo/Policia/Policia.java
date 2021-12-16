@@ -62,9 +62,10 @@ public class Policia {
         this.calendario = calendario;
     }
 
-    public void viajar(int distancia) {
+    public int viajar(int distancia) {
 
         calendario.avanzarHoras(rango.devolverTiempoDeViaje(distancia));
+        return rango.devolverTiempoDeViaje(distancia); // el return sirve para los tests
 
     }
 
