@@ -11,15 +11,15 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class EstategiaAccionesPenultima implements IEstrategiaAcciones {
+public class EstrategiaAccionesPenultima implements IEstrategiaAcciones {
     @Override
     public List<IAccionador> getAccionadores(int cantidad) {
-        Stream<IAccionador> cuchillo = Stream
+        Stream<IAccionador> disparo = Stream
                 .generate(() -> (IAccionador) new AccionadorUnaVez(new HeridaPorDisparo()))
                 .limit(1);
         Stream<IAccionador> relleno = Stream
                 .generate(((Supplier<IAccionador>) SinAccionador::new))
                 .limit(cantidad - 1);
-        return Stream.concat(cuchillo,relleno).limit(cantidad).collect(Collectors.toList());
+        return Stream.concat(disparo,relleno).limit(cantidad).collect(Collectors.toList());
     }
 }
