@@ -214,8 +214,8 @@ public class TestsCasosDeUsoEntrega2 {
         if(!mision.fueFinalizada()) {
             mision.visitarEdificio(edificios.get(2));
         }
+        assertEquals(7,policia.getArrestos());
         assertTrue(mision.fueFinalizada());
         assertTrue(mision.fueVictoria());
-        assertEquals(7,policia.getArrestos());
     }
 }
