@@ -4,9 +4,9 @@ import java.util.*;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
+import edu.fiuba.algo3.modelo.Ciudad.EstrategiaAcciones.*;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.*;
-import edu.fiuba.algo3.modelo.Juego.Calendario;
 import edu.fiuba.algo3.modelo.Ladron.ISospechoso;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Ladron.SinSospechoso;
@@ -14,13 +14,14 @@ import edu.fiuba.algo3.modelo.Pista.*;
 import edu.fiuba.algo3.modelo.Pista.Filtro.IFiltroCiudad;
 import edu.fiuba.algo3.modelo.Policia.*;
 
-public class Ciudad {
+public class Ciudad implements IDestino {
 
     private final String nombre;
     private final ArrayList<PistaCiudad> pistas;
     private ISospechoso sospechoso = new SinSospechoso();
     private ICiudadVisitada visitada = new CiudadNoVisitada();
-    private Ciudad destinoSospechoso = null;
+    private IDestino destinoSospechoso = new SinDestino();
+    private IEstrategiaAcciones estrategiaAcciones = new SinEstrategiaAcciones();
 
     public Ciudad(String nombre, ArrayList<PistaCiudad> pistas) {
         this.nombre = nombre;
@@ -76,7 +77,7 @@ public class Ciudad {
     }
 
     public void visitadaPorPolicia(Policia policia) {
-        visitada = new CiudadVisitada(this, policia, sospechoso, destinoSospechoso);
+        visitada = new CiudadVisitada(this, policia, sospechoso, destinoSospechoso, estrategiaAcciones);
     }
 
     public void actualizarRutaLadron(List<Ciudad> rutaLadron, Ladron ladron)
@@ -86,9 +87,22 @@ public class Ciudad {
         int indice = rutaLadron.indexOf(this);
         if(indice>=0) {
             this.sospechoso = ladron;
-            int indiceSiguiente = indice+1;
-            if(indiceSiguiente < rutaLadron.size()) {
+            int indiceSiguiente = indice + 1;
+            int ciudadesFaltantes = rutaLadron.size() - indiceSiguiente;
+            if(0 == ciudadesFaltantes) {
+                estrategiaAcciones = new EstrategiaAccionesUltima(ladron);
+            } else if(1 == ciudadesFaltantes) {
+                estrategiaAcciones = new EstrategiaAccionesPenultima();
+            } else if(2 == ciudadesFaltantes) {
+                estrategiaAcciones = new EstrategiaAccionesAntepenultima();
+            } else {
+                estrategiaAcciones = new EstrategiaAccionesComun();
+            }
+
+            if(ciudadesFaltantes>0) {
                 this.destinoSospechoso = rutaLadron.get(indiceSiguiente);
+            } else {
+                this.destinoSospechoso = new DestinoFinal();
             }
         }
     }
