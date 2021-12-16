@@ -27,5 +27,6 @@ public class Orden implements IOrden {
         } else {
             estrategia = new Perder("La orden de arresto era otra persona, no pudiste ");
         }
+        estrategia.realizar(policia, ladron);
     }
 }
