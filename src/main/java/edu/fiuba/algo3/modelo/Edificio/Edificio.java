@@ -4,10 +4,11 @@ import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Edificio.Testigo.Testigo;
 import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.ITipoEdificio;
 import edu.fiuba.algo3.modelo.Juego.Calendario;
+import edu.fiuba.algo3.modelo.Ladron.ISospechoso;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 
-public class Edificio {
+public class Edificio{
     private final ITipoEdificio tipo;
     private IComportamientoEdificio comportamiento;
     private final Testigo testigo;
@@ -33,13 +34,17 @@ public class Edificio {
         return true;
     }
 
-    public void visitadoPorLadron(Ladron ladron, Ciudad destino) {
+    public void visitadoPorLadron(ISospechoso ladron, Ciudad destino) {
         testigo.setTestimonio(ladron,destino);
     }
 
-    public String visitar(Policia policia, Calendario cal)
+    public String visitar(Policia policia)
     {
-        comportamiento.visitar((ITipoEdificio) this,policia,cal);
+        comportamiento.visitar((ITipoEdificio) this,policia);
         return testigo.getTestimonio(policia);
+    }
+
+    public boolean esElEdificio(String nombreDelEdificioAVisitar) {
+        return (tipo.getNombreTipo().equals(nombreDelEdificioAVisitar));
     }
 }

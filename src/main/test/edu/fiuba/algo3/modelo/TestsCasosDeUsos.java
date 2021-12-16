@@ -2,24 +2,21 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Acciones.AccionCuchilloUnica;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
+import edu.fiuba.algo3.modelo.Computadora.Computadora;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
-import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.Aeropuerto;
-import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.Banco;
-import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.Biblioteca;
-import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.Puerto;
-import edu.fiuba.algo3.modelo.Juego.Juego;
+import edu.fiuba.algo3.modelo.Item.Item;
+import edu.fiuba.algo3.modelo.Juego.Calendario;
+import edu.fiuba.algo3.modelo.Juego.Mapa;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Policia.Policia;
-import edu.fiuba.algo3.modelo.Policia.RangoPolicia.RangoPolicia;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.*;
 
 public class TestsCasosDeUsos {
 
@@ -28,50 +25,76 @@ public class TestsCasosDeUsos {
 
     public void test01CasoDeUso1() throws IOException {
 
-        boolean policiaEntro = false;
-        Policia nuevoPolicia = new Policia((new RangoPolicia()),"Agus");
-        Ladron unLadron = new Ladron("Ada","Femenino","Jockey sobre Hielo","Rubio","anillo de oro","Moto");
-        Banco banco = new Banco("Banco de Montreal"); //En vez de usar un campo true podria settearse con Strategy el comportamiento de un Edificio para que muestre una pista o no
-        policiaEntro = nuevoPolicia.entraAlEdificio( banco, unLadron );
-        assertTrue(policiaEntro);
+        Ladron mockLadronFemenino = mock(Ladron.class);
+        Policia mockPolicia = mock(Policia.class);
+        Edificio mockBancoDeMontreal = mock(Edificio.class);
+        Ciudad mockCiudadDeMontreal = mock(Ciudad.class);
+        Calendario mockCalendario = mock(Calendario.class);
+
+        mockPolicia.visitar(mockBancoDeMontreal, mockLadronFemenino);
+        mockBancoDeMontreal.visitadoPorLadron(mockLadronFemenino, mockCiudadDeMontreal);
+        mockBancoDeMontreal.visitar(mockPolicia);
+        mockCalendario.avanzarHoras(2);
+
+        verify(mockPolicia).visitar(mockBancoDeMontreal, mockLadronFemenino);
+        verify(mockBancoDeMontreal).visitadoPorLadron(mockLadronFemenino, mockCiudadDeMontreal);
+        verify(mockBancoDeMontreal).visitar(mockPolicia);
+        verify(mockCalendario).avanzarHoras(2);
     }
 
     @Test
     public void test02CasoDeUso2(){
 
         Policia mockPolicia = mock(Policia.class);
-        Banco mockBanco = mock(Banco.class);
-        Biblioteca mockBiblioteca = mock(Biblioteca.class);
+        Edificio mockBanco = mock(Edificio.class);
+        Edificio mockBiblioteca = mock(Edificio.class);
         Ladron mockLadron = mock(Ladron.class);
+        Calendario mockCalendario = mock(Calendario.class);
 
-        mockPolicia.entraAlEdificio(mockBanco,mockLadron);
-        mockBanco.mostrarPista(mockLadron);
+        mockPolicia.visitar(mockBanco,mockLadron);
+        mockBanco.visitar(mockPolicia);
 
-        verify(mockPolicia).entraAlEdificio(mockBanco,mockLadron);
-        verify(mockBanco).mostrarPista(mockLadron);
+        verify(mockPolicia).visitar(mockBanco,mockLadron);
+        verify(mockBanco).visitar(mockPolicia);
 
-        mockPolicia.entraAlEdificio(mockBiblioteca,mockLadron);
-        mockBiblioteca.mostrarPista(mockLadron);
+        mockPolicia.visitar(mockBiblioteca,mockLadron);
+        mockBiblioteca.visitar(mockPolicia);
 
-        verify(mockPolicia).entraAlEdificio(mockBiblioteca,mockLadron);
-        verify(mockBiblioteca).mostrarPista(mockLadron);
+        verify(mockPolicia).visitar(mockBiblioteca,mockLadron);
+        verify(mockBiblioteca).visitar(mockPolicia);
     }
 
+    /**
+     * Detective viaja de Montreal a México
+     */
     @Test
     public void test03CasoDeUso3(){
+        // Dependencias (reales y mock)
+        Policia policia = mock(Policia.class);
+        Item item = new Item("Algo robado en Montreal","Montreal");
+        Ladron ladron = new Ladron("Gordo Valor",new HashMap<>());
+        List<String> ruta = List.of("Montreal","Ciudad de México");
+        Computadora computadora = mock(Computadora.class);
+        Calendario calendario = new Calendario();
+        Random random = new Random();
 
-        Mision mockMision = mock(Mision.class);
-        Ciudad mockCiudadActual = mock(Ciudad.class);
+        Ciudad Mexico = new Ciudad("Ciudad de México",new ArrayList<>());
+        Ciudad Montreal = new Ciudad("Montreal",new ArrayList<>());
+        Map<String,Ciudad> ciudades = new HashMap<String,Ciudad>();
+        ciudades.put("Ciudad de México",Mexico);
+        ciudades.put("Montreal",Montreal);
+        Mapa mapa = new Mapa(ciudades);
+        mapa.agregarConexion("Montreal","Ciudad de México",1);
+
+        // Creo una misión iniciando en Montreal:
+        Mision mision = new Mision(policia,item,ladron,ruta,"Montreal",computadora,mapa,calendario,random);
+
         //Se despliega un menu que muestra las ciudades para viajar desde la ciudad actual donde se está
+        mision.getCiudadesVecinas();
         //se elije una y se actualiza la referencia de la ciudad actual
-        /* (mockMision devolveria la ciudad vecina de ciudadActual y la actualizaria
-        siendo esta ahora la actual) mockCiudadActual = */mockMision.viajarACiudad(mockCiudadActual,"Mexico");
-        mockCiudadActual.getCiudadVecina("Mexico");
+        mision.viajarACiudad("Ciudad de México");
 
-        verify(mockMision).viajarACiudad(mockCiudadActual,"Mexico");
-        verify(mockCiudadActual).getCiudadVecina("Mexico");
-        verify(mockMision, never()).viajarACiudad(mockCiudadActual,"Buenos Aires");
-
+        assertEquals("Ciudad de México",mision.getNombreCiudadActual());
     }
 
 
@@ -79,21 +102,23 @@ public class TestsCasosDeUsos {
     public void test04CasoDeUso4(){
 
         Policia mockPolicia = mock(Policia.class);
-        Aeropuerto mockAeropuerto = mock(Aeropuerto.class);
+        Edificio mockAeropuerto = mock(Edificio.class);
         Ladron mockLadron = mock(Ladron.class);
-        Puerto mockPuerto = mock(Puerto.class);
+        Edificio mockPuerto = mock(Edificio.class);
+        Calendario mockCalendario = mock(Calendario.class);
+
         for(int i = 0; i<3 ; i++){
-            mockPolicia.entraAlEdificio(mockAeropuerto,mockLadron);
-            mockAeropuerto.mostrarPista(mockLadron);
+            mockPolicia.visitar(mockAeropuerto,mockLadron);
+            mockAeropuerto.visitar(mockPolicia);
         }
-        verify(mockPolicia, times(3)).entraAlEdificio(mockAeropuerto,mockLadron);
-        verify(mockAeropuerto, times (3)).mostrarPista(mockLadron);
+        verify(mockPolicia, times(3)).visitar(mockAeropuerto,mockLadron);
+        verify(mockAeropuerto, times (3)).visitar(mockPolicia);
         for(int i= 0 ; i<55; i++){
-            mockPolicia.entraAlEdificio(mockPuerto,mockLadron);
-            mockPuerto.mostrarPista(mockLadron);
+            mockPolicia.visitar(mockPuerto,mockLadron);
+            mockPuerto.visitar(mockPolicia);
         }
-        verify(mockPolicia, times(55)).entraAlEdificio(mockPuerto,mockLadron);
-        verify(mockPuerto, times(55)).mostrarPista(mockLadron);
+        verify(mockPolicia, times(55)).visitar(mockPuerto,mockLadron);
+        verify(mockPuerto, times(55)).visitar(mockPolicia);
     }
 
     @Test
@@ -104,10 +129,6 @@ public class TestsCasosDeUsos {
         verify(mockPolicia).hacerAccion(mockAccion);
         // Dormir
     }
-    
-    @Test
-    public void test08CasoDeUso8(){
 
-    }
-    
+
 }

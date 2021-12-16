@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.Pista.Filtro.IFiltroCiudad;
 import edu.fiuba.algo3.modelo.Pista.IPista;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -59,4 +60,12 @@ public class Ladron implements ISospechoso {
     public String getNombre() {
       return this.nombre;
     }
+
+  public void agregarSiCoincideDetalle(Map<String, String> detalles, ArrayList<Ladron> sospechososFiltrados) {
+
+    for (String tipo : detalles.keySet()){
+      if(this.detalles.get(tipo) != detalles.get(tipo)){return;}
+    }
+    sospechososFiltrados.add(this);
+  }
 }
