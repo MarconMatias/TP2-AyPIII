@@ -3,7 +3,7 @@ package edu.fiuba.algo3.modelo.Computadora;
 import edu.fiuba.algo3.modelo.Ladron.ISospechoso;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Ladron.SinSospechoso;
-import edu.fiuba.algo3.modelo.OrdenDeArresto.OrdenValida;
+import edu.fiuba.algo3.modelo.OrdenDeArresto.Orden;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,6 +15,7 @@ public class Computadora {
     private final List<Ladron> sospechososRegistrados;
     private Map<String,String> detalles = new HashMap<String,String>();
     private ISospechoso sospechoso = new SinSospechoso();
+    private Orden ordenDeArresto;
 
     public Computadora(List<Ladron> ladrones) {
         sospechososRegistrados = ladrones;
