@@ -159,7 +159,8 @@ public class Mision {
     }
 
     public void visitarEdificio(Edificio edificio) {
-        edificio.visitar(policia);
+        //edificio.visitar(policia);
+        policia.visitar(edificio);
     }
 
     public void generarOrdenDeArresto() {
