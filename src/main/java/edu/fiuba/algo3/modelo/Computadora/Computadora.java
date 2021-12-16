@@ -15,7 +15,7 @@ public class Computadora {
     private final List<Ladron> sospechososRegistrados;
     private Map<String,String> detalles = new HashMap<String,String>();
     private ISospechoso sospechoso = new SinSospechoso();
-    private Orden ordenDeArresto;
+    //private Orden ordenDeArresto;
 
     public Computadora(List<Ladron> ladrones) {
         sospechososRegistrados = ladrones;
@@ -36,16 +36,17 @@ public class Computadora {
         return sospechososFiltrados;
     }
 
-    public void generarOrdenDeArresto() {
+    public Orden generarOrdenDeArresto() {
         List<Ladron> sospechosos = buscarSospechosos();
         if(sospechosos.size()>1) {
             //throw new RuntimeException("Hay demasiados sospechosos, ingrese más detalles.");
-            return;
+            return null;
         } else if(sospechosos.size()<1) {
             //throw new RuntimeException("No hay ningún sospechoso con los detalles ingresados.");
-            return;
+            return null;
         }
         this.sospechoso = sospechosos.get(0);
-        this.ordenDeArresto = new Orden(this.sospechoso);
+        return new Orden(this.sospechoso);
+
     }
 }
