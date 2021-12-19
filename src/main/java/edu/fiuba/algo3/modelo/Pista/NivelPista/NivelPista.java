@@ -15,17 +15,14 @@ public abstract class NivelPista {
         this.nivel = nivel;
     }
 
-    public IPista filtrarPistas(Collection<IPista> pistas){
+    public Collection<IPista> filtrarPistas(Collection<IPista> pistas){
 
         ArrayList<IPista> pistasFiltradas = new ArrayList<IPista>();
         for (IPista p: pistas){
 
             p.agregarAListaSiEsNivel(pistasFiltradas,this.nivel);
         }
-
-        Random numeroRandom = new Random();
-        int indiceRandom = numeroRandom.nextInt(pistasFiltradas.size());
-        return pistasFiltradas.get((indiceRandom));
+        return pistasFiltradas;
     }
 
     public abstract boolean esEquivalente(NivelPista nivel);

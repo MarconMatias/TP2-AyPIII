@@ -3,11 +3,14 @@ package edu.fiuba.algo3.modelo.Juego;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Computadora.Computadora;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
+import edu.fiuba.algo3.modelo.Evento.PoliciaFinaliza;
+import edu.fiuba.algo3.modelo.Evento.PoliciaFinalizaListener;
 import edu.fiuba.algo3.modelo.Item.Item;
+import edu.fiuba.algo3.modelo.Juego.EstadoMision.EstadoMision;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Policia.Policia;
+import edu.fiuba.algo3.modelo.Ruta.Ruta;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -16,14 +19,13 @@ public class Mision {
     private final Policia policia;
     private final Item itemRobado;
     private final Ladron ladron;
-    private final List<Ciudad> rutaLadron;
+    private final Ruta rutaLadron;
     private final Mapa mapa;
     private final Calendario calendario;
     private final Random random;
     private Ciudad ciudadActual;
     private Computadora computadora;
-    private boolean finalizada = false;
-    private boolean victoria = false;
+    private EstadoMision estadoMision = new EstadoMision();
 
     /**
      * Inicia una misión con todos los parámetros dados.
@@ -37,24 +39,33 @@ public class Mision {
      * @param calendario El calendario de tiempo del juego.
      * @param random El generador de números aleatorios.
      */
-    public Mision(Policia policia, Item itemRobado, Ladron ladron, List<String> rutaLadron, String ciudadInicial,
+    public Mision(Policia policia, Item itemRobado, Ladron ladron, List<Ciudad> rutaLadron, String ciudadInicial,
                   Computadora computadora, Mapa mapa,
                   Calendario calendario, Random random)
     {
+        this.estadoMision = new EstadoMision();
         this.policia = policia;
         policia.iniciarMision(calendario);
+        policia.escucharAlPerder(this::alPerderPolicia);
+        policia.escucharAlGanar(this::alGanarPolicia);
         this.itemRobado = itemRobado;
         this.ladron = ladron;
-        this.rutaLadron = rutaLadron.stream().map(mapa::getCiudadPorNombre).collect(Collectors.toList());
+        this.rutaLadron = new Ruta(rutaLadron);
         this.computadora = computadora;
         this.mapa = mapa;
         this.calendario = calendario;
         this.random = random;
-        for(Ciudad ciudadVisitadaPorLadron : this.rutaLadron) {
-            ciudadVisitadaPorLadron.actualizarRutaLadron(this.rutaLadron,ladron);
-        }
+        this.rutaLadron.visitadaPorLadron(ladron);
         this.ciudadActual = mapa.getCiudadPorNombre(ciudadInicial);
         ciudadActual.visitadaPorPolicia(policia);
+    }
+
+    private void alGanarPolicia(PoliciaFinaliza evento) {
+        estadoMision.hacerVictoria(evento.getExplicacion());
+    }
+
+    private void alPerderPolicia(PoliciaFinaliza evento) {
+        estadoMision.hacerDerrota(evento.getExplicacion());
     }
 
     /**
@@ -129,8 +140,6 @@ public class Mision {
                 unCalendario, random);
     }
 
-
-
     private static Item itemAlAzar(List<Item> items, Random random) {
         int indice = random.nextInt(items.size());
         return items.get(indice);
@@ -141,12 +150,12 @@ public class Mision {
         return ladrones.get(indice);
     }
 
-    private static List<String> calcularRuta(Item unItem, Mapa unMapa, Random random) {
+    private static List<Ciudad> calcularRuta(Item unItem, Mapa unMapa, Random random) {
         return unItem.getRuta(unMapa, random);
     }
 
 
-    public Ciudad viajarACiudad(String destino) {
+    public Ciudad viajarACiudad(Ciudad destino) {
         ciudadActual.desvisitar();
         ciudadActual = mapa.viajar(policia,ciudadActual,destino);
         return ciudadActual;
@@ -161,30 +170,23 @@ public class Mision {
     }
 
     public void visitarEdificio(Edificio edificio) {
-        /** \todo **/
+        //edificio.visitar(policia);
+        policia.visitar(edificio);
     }
 
     public void generarOrdenDeArresto() {
-        if ((computadora.generarOrdenDeArresto()).esElLadron(ladron)) {
-            //fueVictoria();
-        //Se gana la partida porque coincide la orden de arresto con el ladron
-            return;
-        }else{
-            //Se pierde porque no coincide la orden de arresto con el ladron
-            return;
-        }
-
+        policia.setOrdenDeArresto(computadora.generarOrdenDeArresto());
     }
 
     public boolean fueFinalizada() {
-        return finalizada;
+        return estadoMision.fueFinalizada();
     }
 
     public boolean fueVictoria() {
-        return victoria;
+        return estadoMision.fueVictoria();
     }
 
-    public List<String> getCiudadesVecinas() {
+    public List<Ciudad> getCiudadesVecinas() {
         return mapa.getCiudadesVecinas(ciudadActual);
     }
 
