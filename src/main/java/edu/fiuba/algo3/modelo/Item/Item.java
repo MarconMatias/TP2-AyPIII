@@ -25,12 +25,15 @@ public class Item {
     public String getNombreCiudadDelRobo() {
         return nombreCiudadDelRobo;
     }
+    public Ciudad getCiudadDelRobo(Mapa mapa) {
+        return mapa.getCiudadPorNombre(nombreCiudadDelRobo);
+    }
 
-    public List<String> getRuta(Mapa unMapa, Random random) {
+    public List<Ciudad> getRuta(Mapa mapa, Random random) {
         /** \todo Usar nivelItem. **/
-        List<String> ruta = new ArrayList<>(List.of(nombreCiudadDelRobo));
+        List<Ciudad> ruta = new ArrayList<>(List.of(getCiudadDelRobo(mapa)));
         while(ruta.size() < 4) {
-            unMapa.agregarSiguiente(ruta,random);
+            mapa.agregarSiguiente(ruta,random);
         }
         return ruta;
     }

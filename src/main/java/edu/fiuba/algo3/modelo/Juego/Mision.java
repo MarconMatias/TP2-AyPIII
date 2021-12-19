@@ -39,7 +39,7 @@ public class Mision {
      * @param calendario El calendario de tiempo del juego.
      * @param random El generador de números aleatorios.
      */
-    public Mision(Policia policia, Item itemRobado, Ladron ladron, List<String> rutaLadron, String ciudadInicial,
+    public Mision(Policia policia, Item itemRobado, Ladron ladron, List<Ciudad> rutaLadron, String ciudadInicial,
                   Computadora computadora, Mapa mapa,
                   Calendario calendario, Random random)
     {
@@ -50,7 +50,7 @@ public class Mision {
         policia.escucharAlGanar(this::alGanarPolicia);
         this.itemRobado = itemRobado;
         this.ladron = ladron;
-        this.rutaLadron = new Ruta(rutaLadron, mapa);
+        this.rutaLadron = new Ruta(rutaLadron);
         this.computadora = computadora;
         this.mapa = mapa;
         this.calendario = calendario;
@@ -150,12 +150,12 @@ public class Mision {
         return ladrones.get(indice);
     }
 
-    private static List<String> calcularRuta(Item unItem, Mapa unMapa, Random random) {
+    private static List<Ciudad> calcularRuta(Item unItem, Mapa unMapa, Random random) {
         return unItem.getRuta(unMapa, random);
     }
 
 
-    public Ciudad viajarACiudad(String destino) {
+    public Ciudad viajarACiudad(Ciudad destino) {
         ciudadActual.desvisitar();
         ciudadActual = mapa.viajar(policia,ciudadActual,destino);
         return ciudadActual;
@@ -186,7 +186,7 @@ public class Mision {
         return estadoMision.fueVictoria();
     }
 
-    public List<String> getCiudadesVecinas() {
+    public List<Ciudad> getCiudadesVecinas() {
         return mapa.getCiudadesVecinas(ciudadActual);
     }
 

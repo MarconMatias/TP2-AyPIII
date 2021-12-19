@@ -74,13 +74,13 @@ public class TestsCasosDeUsos {
         Policia policia = mock(Policia.class);
         Item item = new Item("Algo robado en Montreal", "Montreal");
         Ladron ladron = new Ladron("Gordo Valor", new HashMap<>());
-        List<String> ruta = List.of("Montreal", "Ciudad de México");
         Computadora computadora = mock(Computadora.class);
         Calendario calendario = new Calendario();
         Random random = new Random();
 
         Ciudad Mexico = new Ciudad("Ciudad de México", new ArrayList<>());
         Ciudad Montreal = new Ciudad("Montreal", new ArrayList<>());
+        List<Ciudad> ruta = List.of(Montreal, Mexico);
         Map<String, Ciudad> ciudades = new HashMap<String, Ciudad>();
         ciudades.put("Ciudad de México", Mexico);
         ciudades.put("Montreal", Montreal);
@@ -93,8 +93,8 @@ public class TestsCasosDeUsos {
         // Se despliega un menu que muestra las ciudades para viajar desde la ciudad
         // actual donde se está
         mision.getCiudadesVecinas();
-        // se elije una y se actualiza la referencia de la ciudad actual
-        mision.viajarACiudad("Ciudad de México");
+        // se elige una y se actualiza la referencia de la ciudad actual
+        mision.viajarACiudad(Mexico);
 
         assertEquals("Ciudad de México", mision.getNombreCiudadActual());
     }

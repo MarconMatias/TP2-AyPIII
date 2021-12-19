@@ -13,6 +13,7 @@ import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -54,12 +55,12 @@ public class TestsCasosDeUsoEntrega2 {
         Calendario calendario = mock(Calendario.class);
         Item item = mock(Item.class);
         Ladron ladron = mock(Ladron.class);
-        List<String> ruta = List.of("Montreal","Ciudad de México");
         Computadora computadora = mock(Computadora.class);
         Ciudad Montreal = mock(Ciudad.class);
         when(Montreal.getNombre()).thenReturn("Montreal");
         Ciudad Mexico = mock(Ciudad.class);
         when(Mexico.getNombre()).thenReturn("Ciudad de México");
+        List<Ciudad> ruta = List.of(Montreal,Mexico);
         Mapa mapa = mock(Mapa.class);
         when(mapa.getCiudadPorNombre("Montreal")).thenReturn(Montreal);
         when(mapa.getCiudadPorNombre("Ciudad de México")).thenReturn(Mexico);
@@ -79,10 +80,10 @@ public class TestsCasosDeUsoEntrega2 {
         verify(Montreal).visitadaPorPolicia(policia);
 
         // Viaja de Montreal a México
-        mision.viajarACiudad("Ciudad de México");
+        mision.viajarACiudad(Mexico);
 
         // VERIFICAR que se haya hecho el viaje:
-        verify(mapa).viajar(policia,Montreal,"Ciudad de México");
+        verify(mapa).viajar(policia,Montreal,Mexico);
         //verify(Mexico).visitadaPorPolicia(policia); // No funciona porque mapa es un mock
     }
 
@@ -116,11 +117,11 @@ public class TestsCasosDeUsoEntrega2 {
         Calendario calendario = new Calendario();
         Item item = mock(Item.class);
         Ladron ladron = mock(Ladron.class);
-        List<String> ruta = List.of("Montreal","Ciudad de México");
         Computadora computadora = mock(Computadora.class);
 
         Ciudad Mexico = new Ciudad("Ciudad de México",new ArrayList<>());
         Ciudad Montreal = new Ciudad("Montreal",new ArrayList<>());
+        List<Ciudad> ruta = List.of(Montreal,Mexico);
         Map<String,Ciudad> ciudades = new HashMap<String,Ciudad>();
         ciudades.put("Ciudad de México",Mexico);
         ciudades.put("Montreal",Montreal);
@@ -138,7 +139,7 @@ public class TestsCasosDeUsoEntrega2 {
                 mapa,calendario,random);
 
         // Viaja de Montreal a México, donde al ser ruta final debería estar el ladrón
-        mision.viajarACiudad("Ciudad de México");
+        mision.viajarACiudad(Mexico);
 
         List<Edificio> edificios = mision.obtenerEdificios();
         for(Edificio edificio : edificios) {
@@ -175,7 +176,11 @@ public class TestsCasosDeUsoEntrega2 {
         Policia policia = new Policia("Matute", 6, new Calendario());
         Item item = new Item("Incan Gold Mask","Lima");
         Ladron ladron = new Ladron("Nick Brunch", "masculino", "escalada de montaña", "negro", "anillo", "moto");
-        List<String> ruta = new ArrayList<>(List.of("Lima","San Marino", "Montreal", "Bamako"));
+        Ciudad lima = mapa.getCiudadPorNombre("Lima");
+        Ciudad sanMarino = mapa.getCiudadPorNombre("San Marino");
+        Ciudad montreal = mapa.getCiudadPorNombre("Montreal");
+        Ciudad bamako = mapa.getCiudadPorNombre("Bamako");
+        List<Ciudad> ruta = new ArrayList<>(List.of(lima,sanMarino, montreal, bamako));
         Random random = new Random(2021);
         Computadora computadora =new Computadora(new ArrayList<>(List.of(ladron)));
         Mision mision = new Mision(policia,item,ladron,ruta,item.getNombreCiudadDelRobo(),
@@ -192,7 +197,7 @@ public class TestsCasosDeUsoEntrega2 {
 
         // Solicitar ciudades, viajar a San Marino y visitar todos los edificios
         mision.getCiudadesVecinas();
-        mision.viajarACiudad("San Marino");
+        mision.viajarACiudad(sanMarino);
         edificios = mision.obtenerEdificios();
         for(Edificio edificio : edificios) {
             mision.visitarEdificio(edificio);
@@ -203,7 +208,7 @@ public class TestsCasosDeUsoEntrega2 {
 
         // Solicitar ciudades, viajar a Montreal y visitar todos los edificios
         mision.getCiudadesVecinas();
-        mision.viajarACiudad("Montreal");
+        mision.viajarACiudad(montreal);
         edificios = mision.obtenerEdificios();
         for(Edificio edificio : edificios) {
             mision.visitarEdificio(edificio);
@@ -211,7 +216,7 @@ public class TestsCasosDeUsoEntrega2 {
 
         // Solicitar ciudades, viajar a Bamako y visitar todos los edificios
         mision.getCiudadesVecinas();
-        mision.viajarACiudad("Bamako");
+        mision.viajarACiudad(bamako);
         edificios = mision.obtenerEdificios();
         for(Edificio edificio : edificios) {
             if(mision.fueFinalizada()) {
