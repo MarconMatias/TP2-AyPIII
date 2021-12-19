@@ -57,7 +57,7 @@ public class Policia {
      * @param cantidadDeArrestos Cantidad de arrestos que tiene el policía.
      */
     public Policia(String nombre, int cantidadDeArrestos) {
-        this(nombre,0, new Calendario());
+        this(nombre,cantidadDeArrestos, new Calendario());
     }
 
     public void setOrdenDeArresto(IOrden ordenDeArresto) {
@@ -100,7 +100,7 @@ public class Policia {
     public void hacerAccion(AccionCuchilloUnica mockAccion) {
     }
 
-    public Object getArrestos() {
+    public Integer getArrestos() {
         return this.arrestos;
     }
 
