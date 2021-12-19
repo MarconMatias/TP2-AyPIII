@@ -75,7 +75,7 @@ public class EstadoMisionTest {
     @Test
     public void alHacerseDerrotaRetieneExplicacion() {
         EstadoMision estado = new EstadoMision();
-        estado.hacerVictoria("¡Era El Gordo Valor, no Pepita La Pistolera!");
+        estado.hacerDerrota("¡Era El Gordo Valor, no Pepita La Pistolera!");
         assertEquals("¡Era El Gordo Valor, no Pepita La Pistolera!", estado.getExplicacion());
     }
 }
