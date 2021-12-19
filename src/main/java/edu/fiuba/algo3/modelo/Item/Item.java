@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.modelo.Item;
 
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
+import edu.fiuba.algo3.modelo.Item.RangoItem.ItemComun;
+import edu.fiuba.algo3.modelo.Item.RangoItem.RangoItem;
 import edu.fiuba.algo3.modelo.Juego.Mapa;
 
 import java.util.ArrayList;
@@ -11,11 +13,17 @@ public class Item {
 
     private final String nombreDelItem;
     private final String nombreCiudadDelRobo;
+    private final RangoItem rango;
 
-    public Item(String nombreDelItem, String nombreCiudadDelRobo){
+    public Item(String nombreDelItem, String nombreCiudadDelRobo, RangoItem rango){
 
         this.nombreDelItem = nombreDelItem;
         this.nombreCiudadDelRobo = nombreCiudadDelRobo;
+        this.rango = rango;
+    }
+
+    public Item(String nombreDelItem, String nombreCiudadDelRobo) {
+        this(nombreDelItem, nombreCiudadDelRobo, new ItemComun());
     }
 
     public String getNombre() {
@@ -30,11 +38,8 @@ public class Item {
     }
 
     public List<Ciudad> getRuta(Mapa mapa, Random random) {
-        /** \todo Usar nivelItem. **/
         List<Ciudad> ruta = new ArrayList<>(List.of(getCiudadDelRobo(mapa)));
-        while(ruta.size() < 4) {
-            mapa.agregarSiguiente(ruta,random);
-        }
+        rango.ampliarRuta(ruta, mapa, random);
         return ruta;
     }
 }
