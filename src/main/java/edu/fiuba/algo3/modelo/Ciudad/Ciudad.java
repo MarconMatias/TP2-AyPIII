@@ -15,16 +15,16 @@ import edu.fiuba.algo3.modelo.Pista.Filtro.IFiltroCiudad;
 import edu.fiuba.algo3.modelo.Policia.*;
 import edu.fiuba.algo3.modelo.Ruta.Ruta;
 
-public class Ciudad implements IDestino {
+public class Ciudad implements IDestino, Comparable<Ciudad> {
 
     private final String nombre;
-    private final ArrayList<PistaCiudad> pistas;
+    private final Collection<PistaCiudad> pistas;
     private ISospechoso sospechoso = new SinSospechoso();
     private ICiudadVisitada visitada = new CiudadNoVisitada();
     private IDestino destinoSospechoso = new SinDestino();
     private IEstrategiaAcciones estrategiaAcciones = new SinEstrategiaAcciones();
 
-    public Ciudad(String nombre, ArrayList<PistaCiudad> pistas) {
+    public Ciudad(String nombre, Collection<PistaCiudad> pistas) {
         this.nombre = nombre;
         this.pistas = pistas;
     }
@@ -94,5 +94,14 @@ public class Ciudad implements IDestino {
 
     public List<Edificio> obtenerEdificios() {
         return visitada.obtenerEdificios();
+    }
+
+    @Override
+    public int compareTo(Ciudad otra) {
+        return otra.compareTo(this.getNombre());
+    }
+
+    public int compareTo(String nombreOtraCiudad) {
+        return this.getNombre().compareTo(nombreOtraCiudad);
     }
 }
