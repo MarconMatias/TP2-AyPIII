@@ -5,7 +5,7 @@ public interface IEstadoMision {
 
     boolean fueVictoria();
 
-    IEstadoMision convertirEnDerrota();
+    IEstadoMision convertirEnDerrota(String explicacion);
 
-    IEstadoMision convertirEnVictoria();
+    IEstadoMision convertirEnVictoria(String explicacion);
 }

@@ -16,7 +16,7 @@ public class EstadoMisionTest {
     @Test
     public void alHacerseVictoriaEsVictoriaYFinalizada() {
         EstadoMision estado = new EstadoMision();
-        estado.hacerVictoria();
+        estado.hacerVictoria("");
         assertTrue(estado.fueVictoria());
         assertTrue(estado.fueFinalizada());
     }
@@ -24,7 +24,7 @@ public class EstadoMisionTest {
     @Test
     public void alHacerseDerrotaEsFinalizadaPeroNoVictoria() {
         EstadoMision estado = new EstadoMision();
-        estado.hacerDerrota();
+        estado.hacerDerrota("");
         assertTrue(estado.fueFinalizada());
         assertFalse(estado.fueVictoria());
     }
@@ -32,8 +32,8 @@ public class EstadoMisionTest {
     @Test
     public void alHacerseDerrotayHacerVictoriaSigueSiendoDerrota() {
         EstadoMision estado = new EstadoMision();
-        estado.hacerDerrota();
-        estado.hacerVictoria();
+        estado.hacerDerrota("");
+        estado.hacerVictoria("");
         assertTrue(estado.fueFinalizada());
         assertFalse(estado.fueVictoria());
     }
@@ -41,8 +41,8 @@ public class EstadoMisionTest {
     @Test
     public void alHacerseDerrota2vecesSigueSiendoDerrota() {
         EstadoMision estado = new EstadoMision();
-        estado.hacerDerrota();
-        estado.hacerDerrota();
+        estado.hacerDerrota("");
+        estado.hacerDerrota("");
         assertTrue(estado.fueFinalizada());
         assertFalse(estado.fueVictoria());
     }
@@ -50,8 +50,8 @@ public class EstadoMisionTest {
     @Test
     public void alHacerseVictoriayHacerDerrotaSigueSiendoVictoria() {
         EstadoMision estado = new EstadoMision();
-        estado.hacerVictoria();
-        estado.hacerDerrota();
+        estado.hacerVictoria("");
+        estado.hacerDerrota("");
         assertTrue(estado.fueVictoria());
         assertTrue(estado.fueFinalizada());
     }
@@ -59,8 +59,8 @@ public class EstadoMisionTest {
     @Test
     public void alHacerseVictoria2vecesSigueSiendoVictoria() {
         EstadoMision estado = new EstadoMision();
-        estado.hacerVictoria();
-        estado.hacerVictoria();
+        estado.hacerVictoria("");
+        estado.hacerVictoria("");
         assertTrue(estado.fueVictoria());
         assertTrue(estado.fueFinalizada());
     }

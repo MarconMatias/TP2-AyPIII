@@ -11,11 +11,11 @@ public class EstadoMision {
         return estado.fueVictoria();
     }
 
-    public void hacerDerrota() {
-        estado = estado.convertirEnDerrota();
+    public void hacerDerrota(String explicacion) {
+        estado = estado.convertirEnDerrota(explicacion);
     }
 
-    public void hacerVictoria() {
-        estado = estado.convertirEnVictoria();
+    public void hacerVictoria(String explicacion) {
+        estado = estado.convertirEnVictoria(explicacion);
     }
 }

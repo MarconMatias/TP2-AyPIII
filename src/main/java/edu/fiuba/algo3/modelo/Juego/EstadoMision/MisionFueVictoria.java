@@ -12,12 +12,12 @@ public class MisionFueVictoria implements IEstadoMision {
     }
 
     @Override
-    public IEstadoMision convertirEnDerrota() {
+    public IEstadoMision convertirEnDerrota(String explicacion) {
         return this;
     }
 
     @Override
-    public IEstadoMision convertirEnVictoria() {
+    public IEstadoMision convertirEnVictoria(String explicacion) {
         return this;
     }
 }
