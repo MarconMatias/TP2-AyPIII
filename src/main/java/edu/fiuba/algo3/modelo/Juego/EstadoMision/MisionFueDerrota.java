@@ -13,11 +13,11 @@ public class MisionFueDerrota implements IEstadoMision {
 
     @Override
     public IEstadoMision convertirEnDerrota() {
-        return null;
+        return this;
     }
 
     @Override
     public IEstadoMision convertirEnVictoria() {
-        return null;
+        return this;
     }
 }

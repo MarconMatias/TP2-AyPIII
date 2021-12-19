@@ -29,4 +29,40 @@ public class EstadoMisionTest {
         assertFalse(estado.fueVictoria());
     }
 
+    @Test
+    public void alHacerseDerrotayHacerVictoriaSigueSiendoDerrota() {
+        EstadoMision estado = new EstadoMision();
+        estado.hacerDerrota();
+        estado.hacerVictoria();
+        assertTrue(estado.fueFinalizada());
+        assertFalse(estado.fueVictoria());
+    }
+
+    @Test
+    public void alHacerseDerrota2vecesSigueSiendoDerrota() {
+        EstadoMision estado = new EstadoMision();
+        estado.hacerDerrota();
+        estado.hacerDerrota();
+        assertTrue(estado.fueFinalizada());
+        assertFalse(estado.fueVictoria());
+    }
+
+    @Test
+    public void alHacerseVictoriayHacerDerrotaSigueSiendoVictoria() {
+        EstadoMision estado = new EstadoMision();
+        estado.hacerVictoria();
+        estado.hacerDerrota();
+        assertTrue(estado.fueVictoria());
+        assertTrue(estado.fueFinalizada());
+    }
+
+    @Test
+    public void alHacerseVictoria2vecesSigueSiendoVictoria() {
+        EstadoMision estado = new EstadoMision();
+        estado.hacerVictoria();
+        estado.hacerVictoria();
+        assertTrue(estado.fueVictoria());
+        assertTrue(estado.fueFinalizada());
+    }
+
 }
