@@ -138,7 +138,7 @@ public class Policia {
 
     public void perder(String explicacion) {
         PoliciaPierde evento = new PoliciaPierde(this, explicacion);
-        notificarListeners(oyentesAlGanar, evento);
+        notificarListeners(oyentesAlPerder, evento);
     }
 
     private void notificarListeners(List<PoliciaFinalizaListener> listeners, PoliciaFinaliza evento) {
