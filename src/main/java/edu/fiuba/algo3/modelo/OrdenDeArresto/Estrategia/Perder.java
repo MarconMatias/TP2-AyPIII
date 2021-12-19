@@ -13,6 +13,6 @@ public class Perder implements IEstrategiaOrden {
 
     @Override
     public void realizar(Policia policia, Ladron ladron) {
-        // Notificar perdió y texto?
+        policia.perder(explicacion);
     }
 }
