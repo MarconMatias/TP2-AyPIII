@@ -7,40 +7,35 @@ import java.util.Collection;
 
 public class ComoInvestigador implements IComportamientoRango{
 
-    private int arrestos;
     private final int arrestosASuperar = 20;
     private int velocidad;
     private NivelPista nivelPista = new PistaMedia();
 
-    public ComoInvestigador(Integer arrestos){
-        this.arrestos = arrestos;
+    public ComoInvestigador(){
         this.velocidad = 1300;
-        this.siguienteComportamientoConArrestos(this.arrestos);
-    }
-
-    @Override
-    public IComportamientoRango ascender(Integer arrestos){
-
-        return (IComportamientoRango) new ComoSargento(arrestos);
     }
 
     @Override
     public IComportamientoRango siguienteComportamientoConArrestos(Integer arrestos) {
-
-        if( this.arrestos >= this.arrestosASuperar )
-            return this.ascender( arrestos );
+        if(arrestos >= arrestosASuperar) {
+            IComportamientoRango siguiente = new ComoSargento();
+            return siguiente.siguienteComportamientoConArrestos(arrestos);
+        }
         return this;
     }
-
 
     @Override
     public int estimarTiempoDeViajePara(int distancia) {
         return distancia/velocidad;
     }
 
-
     @Override
     public Collection<IPista> filtrarPistas(Collection<IPista> pistas) {
         return nivelPista.filtrarPistas(pistas);
+    }
+
+    @Override
+    public String getNombreRango() {
+        return "Investigador";
     }
 }

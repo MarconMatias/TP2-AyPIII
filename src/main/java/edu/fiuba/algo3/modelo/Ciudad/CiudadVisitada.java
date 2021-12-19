@@ -22,6 +22,7 @@ public class CiudadVisitada implements ICiudadVisitada {
         this.edificios = estaCiudad.edificiosAlAzar(cantidadEdificios);
         this.policia = policia;
         List<IAccionador> accionadores = estrategiaAcciones.getAccionadores(cantidadEdificios);
+
         for(int i = 0; i<edificios.size(); i++) {
             Edificio edificio = edificios.get(i);
             IAccionador accionador = accionadores.get(i);

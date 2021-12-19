@@ -7,6 +7,6 @@ public class Ganar implements IEstrategiaOrden {
     @Override
     public void realizar(Policia policia, Ladron ladron) {
         policia.agregarArresto();
-        // Llamar a los eventos
+        policia.ganar("¡Arrestaste a "+ladron.getNombre()+"!");
     }
 }

@@ -15,7 +15,7 @@ public class Orden implements IOrden {
         this.sospechoso = sospechoso;
     }
 
-    public boolean esElLadron(Ladron otroLadron){
+    private boolean esElLadron(Ladron otroLadron){
 
         return sospechoso.equals(otroLadron);
     }
@@ -27,5 +27,6 @@ public class Orden implements IOrden {
         } else {
             estrategia = new Perder("La orden de arresto era otra persona, no pudiste ");
         }
+        estrategia.realizar(policia, ladron);
     }
 }
