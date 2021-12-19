@@ -2,6 +2,10 @@ package edu.fiuba.algo3.modelo.Policia;
 
 import edu.fiuba.algo3.modelo.Acciones.IAccion;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
+import edu.fiuba.algo3.modelo.Evento.PoliciaFinaliza;
+import edu.fiuba.algo3.modelo.Evento.PoliciaFinalizaListener;
+import edu.fiuba.algo3.modelo.Evento.PoliciaGana;
+import edu.fiuba.algo3.modelo.Evento.PoliciaPierde;
 import edu.fiuba.algo3.modelo.Juego.Calendario;
 import edu.fiuba.algo3.modelo.Acciones.AccionCuchilloUnica;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
@@ -12,6 +16,7 @@ import edu.fiuba.algo3.modelo.Policia.EstadoCuchillada.*;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 public class Policia {
 
@@ -22,6 +27,8 @@ public class Policia {
     private String ciudadActual;
     private IOrden ordenDeArresto = new SinOrden();
     private EstadoCuchillada estadoCuchilladas = new EstadoCuchillada();
+    private List<PoliciaFinalizaListener> oyentesAlPerder = new ArrayList<>();
+    private List<PoliciaFinalizaListener> oyentesAlGanar = new ArrayList<>();
 
     /**
      * Crea un policía con una cantidad de arrestos dada.
@@ -122,5 +129,43 @@ public class Policia {
 
     public void recibirCuchillada() {
         estadoCuchilladas.siguienteEstado();
+    }
+
+    public void ganar(String explicacion) {
+        PoliciaGana evento = new PoliciaGana(this, explicacion);
+        notificarListeners(oyentesAlGanar, evento);
+    }
+
+    public void perder(String explicacion) {
+        PoliciaPierde evento = new PoliciaPierde(this, explicacion);
+        notificarListeners(oyentesAlGanar, evento);
+    }
+
+    private void notificarListeners(List<PoliciaFinalizaListener> listeners, PoliciaFinaliza evento) {
+        List<Exception> exs = new ArrayList<>();
+        for(PoliciaFinalizaListener listener : listeners) {
+            try {
+                listener.handle(evento);
+            } catch(RuntimeException ex) {
+                exs.add(ex);
+            }
+        }
+        if(exs.size()>0) {
+            final String textoError = "Sucedieron varios errores al notificar la finalización de un enfrentamiento.";
+            RuntimeException error = new RuntimeException(textoError);
+            /** Hacer clase de agregración, y agregar exs. **/
+            for(Exception ex : exs) {
+                System.err.println(ex.toString());
+            }
+            throw error;
+        }
+    }
+
+    public void escucharAlGanar(PoliciaFinalizaListener listener) {
+        oyentesAlGanar.add(listener);
+    }
+
+    public void escucharAlPerder(PoliciaFinalizaListener listener) {
+        oyentesAlPerder.add(listener);
     }
 }
