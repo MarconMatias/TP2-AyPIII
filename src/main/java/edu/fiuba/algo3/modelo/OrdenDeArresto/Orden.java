@@ -15,7 +15,7 @@ public class Orden implements IOrden {
         this.sospechoso = sospechoso;
     }
 
-    public boolean esElLadron(Ladron otroLadron){
+    private boolean esElLadron(Ladron otroLadron){
 
         return sospechoso.equals(otroLadron);
     }
