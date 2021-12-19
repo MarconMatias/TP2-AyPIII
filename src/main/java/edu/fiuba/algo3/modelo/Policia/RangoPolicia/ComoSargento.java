@@ -11,19 +11,13 @@ public class ComoSargento implements IComportamientoRango{
     private int velocidad;
     private NivelPista nivelPista = new PistaDificil();
 
-    public ComoSargento(Integer arrestos){
-
+    public ComoSargento(){
         this.velocidad = 1500;
     }
 
     @Override
-    public IComportamientoRango ascender(Integer arrestos) {
-        return this;
-    }
-
-    @Override
     public IComportamientoRango siguienteComportamientoConArrestos(Integer arrestos) {
-        return new ComoSargento( arrestos );
+        return this;
     }
 
     @Override
@@ -31,10 +25,14 @@ public class ComoSargento implements IComportamientoRango{
         return distancia/velocidad;
     }
 
-
     @Override
     public Collection<IPista> filtrarPistas(Collection<IPista> pistas) {
         return nivelPista.filtrarPistas(pistas);
+    }
+
+    @Override
+    public String getNombreRango() {
+        return "Sargento";
     }
 
 }
