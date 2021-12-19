@@ -13,6 +13,7 @@ import edu.fiuba.algo3.modelo.Ladron.SinSospechoso;
 import edu.fiuba.algo3.modelo.Pista.*;
 import edu.fiuba.algo3.modelo.Pista.Filtro.IFiltroCiudad;
 import edu.fiuba.algo3.modelo.Policia.*;
+import edu.fiuba.algo3.modelo.Ruta.Ruta;
 
 public class Ciudad implements IDestino {
 
@@ -80,31 +81,11 @@ public class Ciudad implements IDestino {
         visitada = new CiudadVisitada(this, policia, sospechoso, destinoSospechoso, estrategiaAcciones);
     }
 
-    public void actualizarRutaLadron(List<Ciudad> rutaLadron, Ladron ladron)
+    public void actualizarRutaLadron(Ruta rutaLadron, Ladron ladron)
     {
-        this.sospechoso = new SinSospechoso();
-        this.destinoSospechoso = null;
-        int indice = rutaLadron.indexOf(this);
-        if(indice>=0) {
-            this.sospechoso = ladron;
-            int indiceSiguiente = indice + 1;
-            int ciudadesFaltantes = rutaLadron.size() - indiceSiguiente;
-            if(0 == ciudadesFaltantes) {
-                estrategiaAcciones = new EstrategiaAccionesUltima(ladron);
-            } else if(1 == ciudadesFaltantes) {
-                estrategiaAcciones = new EstrategiaAccionesPenultima();
-            } else if(2 == ciudadesFaltantes) {
-                estrategiaAcciones = new EstrategiaAccionesAntepenultima();
-            } else {
-                estrategiaAcciones = new EstrategiaAccionesComun();
-            }
-
-            if(ciudadesFaltantes>0) {
-                this.destinoSospechoso = rutaLadron.get(indiceSiguiente);
-            } else {
-                this.destinoSospechoso = new DestinoFinal();
-            }
-        }
+        sospechoso = (null==ladron)?new SinSospechoso():ladron;
+        destinoSospechoso = rutaLadron.getDestinoSospechosoDesde(this);
+        estrategiaAcciones = rutaLadron.getEstrategiaAccionesPara(this, ladron);
     }
 
     public void desvisitar() {

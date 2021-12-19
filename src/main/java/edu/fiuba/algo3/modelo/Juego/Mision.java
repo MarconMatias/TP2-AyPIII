@@ -9,6 +9,7 @@ import edu.fiuba.algo3.modelo.Item.Item;
 import edu.fiuba.algo3.modelo.Juego.EstadoMision.EstadoMision;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Policia.Policia;
+import edu.fiuba.algo3.modelo.Ruta.Ruta;
 
 import java.util.List;
 import java.util.Random;
@@ -18,7 +19,7 @@ public class Mision {
     private final Policia policia;
     private final Item itemRobado;
     private final Ladron ladron;
-    private final List<Ciudad> rutaLadron;
+    private final Ruta rutaLadron;
     private final Mapa mapa;
     private final Calendario calendario;
     private final Random random;
@@ -49,14 +50,12 @@ public class Mision {
         policia.escucharAlGanar(this::alGanarPolicia);
         this.itemRobado = itemRobado;
         this.ladron = ladron;
-        this.rutaLadron = rutaLadron.stream().map(mapa::getCiudadPorNombre).collect(Collectors.toList());
+        this.rutaLadron = new Ruta(rutaLadron, mapa);
         this.computadora = computadora;
         this.mapa = mapa;
         this.calendario = calendario;
         this.random = random;
-        for(Ciudad ciudadVisitadaPorLadron : this.rutaLadron) {
-            ciudadVisitadaPorLadron.actualizarRutaLadron(this.rutaLadron,ladron);
-        }
+        this.rutaLadron.visitadaPorLadron(ladron);
         this.ciudadActual = mapa.getCiudadPorNombre(ciudadInicial);
         ciudadActual.visitadaPorPolicia(policia);
     }

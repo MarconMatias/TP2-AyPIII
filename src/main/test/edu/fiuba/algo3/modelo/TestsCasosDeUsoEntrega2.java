@@ -74,8 +74,8 @@ public class TestsCasosDeUsoEntrega2 {
                 mapa,calendario,random);
 
         // VERIFICAR que se hayan actualizado las ciudades:
-        verify(Montreal).actualizarRutaLadron(anyList(),eq(ladron));
-        verify(Mexico).actualizarRutaLadron(anyList(),eq(ladron));
+        verify(Montreal).actualizarRutaLadron(any(),eq(ladron));
+        verify(Mexico).actualizarRutaLadron(any(),eq(ladron));
         verify(Montreal).visitadaPorPolicia(policia);
 
         // Viaja de Montreal a México
