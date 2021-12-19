@@ -13,11 +13,16 @@ public class MisionEnJuego implements IEstadoMision {
 
     @Override
     public IEstadoMision convertirEnDerrota(String explicacion) {
-        return new MisionFueDerrota();
+        return new MisionFueDerrota(explicacion);
     }
 
     @Override
     public IEstadoMision convertirEnVictoria(String explicacion) {
-        return new MisionFueVictoria();
+        return new MisionFueVictoria(explicacion);
+    }
+
+    @Override
+    public String getExplicacion() {
+        return "";
     }
 }

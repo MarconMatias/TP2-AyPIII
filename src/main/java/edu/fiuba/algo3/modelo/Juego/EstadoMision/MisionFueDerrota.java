@@ -1,6 +1,12 @@
 package edu.fiuba.algo3.modelo.Juego.EstadoMision;
 
 public class MisionFueDerrota implements IEstadoMision {
+    private final String explicacion;
+
+    public MisionFueDerrota(String explicacion) {
+        this.explicacion = explicacion;
+    }
+
     @Override
     public boolean fueFinalizada() {
         return true;
@@ -19,5 +25,10 @@ public class MisionFueDerrota implements IEstadoMision {
     @Override
     public IEstadoMision convertirEnVictoria(String explicacion) {
         return this;
+    }
+
+    @Override
+    public String getExplicacion() {
+        return explicacion;
     }
 }

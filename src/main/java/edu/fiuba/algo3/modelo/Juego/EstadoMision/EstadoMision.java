@@ -18,4 +18,8 @@ public class EstadoMision {
     public void hacerVictoria(String explicacion) {
         estado = estado.convertirEnVictoria(explicacion);
     }
+
+    public String getExplicacion() {
+        return estado.getExplicacion();
+    }
 }

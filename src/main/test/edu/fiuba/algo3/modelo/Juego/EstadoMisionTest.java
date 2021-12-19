@@ -65,4 +65,17 @@ public class EstadoMisionTest {
         assertTrue(estado.fueFinalizada());
     }
 
+    @Test
+    public void alHacerseVictoriaRetieneExplicacion() {
+        EstadoMision estado = new EstadoMision();
+        estado.hacerVictoria("¡Era Pepita La Pistolera!");
+        assertEquals("¡Era Pepita La Pistolera!", estado.getExplicacion());
+    }
+
+    @Test
+    public void alHacerseDerrotaRetieneExplicacion() {
+        EstadoMision estado = new EstadoMision();
+        estado.hacerVictoria("¡Era El Gordo Valor, no Pepita La Pistolera!");
+        assertEquals("¡Era El Gordo Valor, no Pepita La Pistolera!", estado.getExplicacion());
+    }
 }

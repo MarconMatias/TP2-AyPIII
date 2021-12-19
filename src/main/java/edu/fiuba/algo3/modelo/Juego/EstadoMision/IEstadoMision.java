@@ -8,4 +8,6 @@ public interface IEstadoMision {
     IEstadoMision convertirEnDerrota(String explicacion);
 
     IEstadoMision convertirEnVictoria(String explicacion);
+
+    String getExplicacion();
 }
