@@ -113,7 +113,7 @@ public class TestsCasosDeUsoEntrega2 {
     @Test
     public void casoDeUso04() {
         // Dependencias (reales y mocks)
-        Calendario calendario = mock(Calendario.class);
+        Calendario calendario = new Calendario();
         Item item = mock(Item.class);
         Ladron ladron = mock(Ladron.class);
         List<String> ruta = List.of("Montreal","Ciudad de México");
@@ -150,8 +150,8 @@ public class TestsCasosDeUsoEntrega2 {
 
         // La cantidad de arrestos no cambió, la misión terminó y NO fue una victoria.
         assertEquals(arrestosParaSerInvestigador,policia.getArrestos());
-        assertTrue(mision.fueFinalizada());
         assertFalse(mision.fueVictoria());
+        assertTrue(mision.fueFinalizada());
     }
 
     /**
