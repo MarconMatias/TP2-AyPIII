@@ -14,14 +14,14 @@ public class RangoPolicia {
     private IComportamientoRango comportamientoRango;
     private Integer arrestos = 0;
 
-    public RangoPolicia() {
-            this.comportamientoRango = new ComoNovato();
-    }
-
     public RangoPolicia(int cantidadDeArrestos) {
-        this();
+        arrestos = cantidadDeArrestos;
         this.comportamientoRango = new ComoNovato();
         this.actualizarArrestos(cantidadDeArrestos);
+    }
+
+    public RangoPolicia() {
+        this(0);
     }
 
     public ArrayList<IPista> filtrarPistas(Collection<IPista> pistas){
@@ -42,5 +42,9 @@ public class RangoPolicia {
     public void agregarArresto(int arrestos) {
         this.arrestos = arrestos;
         actualizarArrestos(arrestos);
+    }
+
+    public String getNombreRango() {
+        return comportamientoRango.getNombreRango();
     }
 }
