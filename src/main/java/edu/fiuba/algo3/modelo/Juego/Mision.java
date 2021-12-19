@@ -3,11 +3,13 @@ package edu.fiuba.algo3.modelo.Juego;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Computadora.Computadora;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
+import edu.fiuba.algo3.modelo.Evento.PoliciaFinaliza;
+import edu.fiuba.algo3.modelo.Evento.PoliciaFinalizaListener;
 import edu.fiuba.algo3.modelo.Item.Item;
+import edu.fiuba.algo3.modelo.Juego.EstadoMision.EstadoMision;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -22,8 +24,7 @@ public class Mision {
     private final Random random;
     private Ciudad ciudadActual;
     private Computadora computadora;
-    private boolean finalizada = false;
-    private boolean victoria = false;
+    private EstadoMision estadoMision = new EstadoMision();
 
     /**
      * Inicia una misión con todos los parámetros dados.
@@ -41,8 +42,11 @@ public class Mision {
                   Computadora computadora, Mapa mapa,
                   Calendario calendario, Random random)
     {
+        this.estadoMision = new EstadoMision();
         this.policia = policia;
         policia.iniciarMision(calendario);
+        policia.escucharAlPerder(this::alPerderPolicia);
+        policia.escucharAlGanar(this::alGanarPolicia);
         this.itemRobado = itemRobado;
         this.ladron = ladron;
         this.rutaLadron = rutaLadron.stream().map(mapa::getCiudadPorNombre).collect(Collectors.toList());
@@ -55,6 +59,14 @@ public class Mision {
         }
         this.ciudadActual = mapa.getCiudadPorNombre(ciudadInicial);
         ciudadActual.visitadaPorPolicia(policia);
+    }
+
+    private void alGanarPolicia(PoliciaFinaliza evento) {
+        estadoMision.hacerVictoria(evento.getExplicacion());
+    }
+
+    private void alPerderPolicia(PoliciaFinaliza evento) {
+        estadoMision.hacerDerrota(evento.getExplicacion());
     }
 
     /**
@@ -168,11 +180,11 @@ public class Mision {
     }
 
     public boolean fueFinalizada() {
-        return finalizada;
+        return estadoMision.fueFinalizada();
     }
 
     public boolean fueVictoria() {
-        return victoria;
+        return estadoMision.fueVictoria();
     }
 
     public List<String> getCiudadesVecinas() {
