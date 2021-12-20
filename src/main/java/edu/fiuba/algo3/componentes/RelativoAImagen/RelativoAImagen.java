@@ -6,7 +6,6 @@ import edu.fiuba.algo3.componentes.bindings.Point2DBindingXY;
 import edu.fiuba.algo3.componentes.bindings.SimplePoint2DBinding;
 import javafx.beans.binding.DoubleBinding;
 import javafx.beans.binding.DoubleExpression;
-import javafx.beans.property.ReadOnlyDoubleProperty;
 import javafx.beans.property.ReadOnlyDoubleWrapper;
 import javafx.geometry.Point2D;
 import javafx.geometry.Rectangle2D;
@@ -125,6 +124,18 @@ public class RelativoAImagen extends Group {
      */
     public Imagen agregar(Imagen nodo, DoubleExpression centroX, DoubleExpression centroY) {
         agregar((Node) nodo, centroX, centroY, nodo.fitWidthProperty(), nodo.fitHeightProperty());
+        return nodo;
+    }
+
+    /**
+     * Agrega la imagen dada centrada en las coordenadas relativas dadas.
+     * @param nodo Imagen  a agregar.
+     * @param centroX Coordenadas relativas, entre 0.0 y 1.0 del componente X del centro de la imagen.
+     * @param centroY Coordenadas relativas, entre 0.0 y 1.0 del componente Y del centro de la imagen.
+     * @return
+     */
+    public Imagen agregar(Imagen nodo, double centroX, double centroY) {
+        agregar( nodo, new ReadOnlyDoubleWrapper(centroX), new ReadOnlyDoubleWrapper(centroY));
         return nodo;
     }
 
