@@ -3,6 +3,7 @@ package edu.fiuba.algo3;
 import edu.fiuba.algo3.componentes.FakeLoader.FakeService;
 import edu.fiuba.algo3.componentes.Radio.RadioSonido;
 import edu.fiuba.algo3.componentes.bindings.CargandoBinding;
+import edu.fiuba.algo3.controlador.Policia.PoliciaControlador;
 import edu.fiuba.algo3.controlador.Splash.SplashControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.vista.Policias;
@@ -39,11 +40,10 @@ public class App extends Application {
         stage.titleProperty().bind(tituloBinding);
 
         Splash splash = new Splash();
-        Group root = new Group(splash);
-        root.setFocusTraversable(false);
+        controlador = new ControladorStage(stage, splash);
         splash.requestFocus();
         splash.setFocusTraversable(false);
-        controlador = new ControladorStage(stage, root);
+        //root.setFocusTraversable(false);
         //Rectangle2D scr = controlador.getDimensionPantalla();
         controlador.start();
         stage.sizeToScene();
@@ -70,9 +70,9 @@ public class App extends Application {
     }
 
     private void mostrarPolicias(Event event) {
-        Group principal = new Policias(juego.getPolicias(), juego.getRadio());
-        Group root = new Group(principal);
-        controlador = new ControladorStage(stage, root);
+        PoliciaControlador policiaControlador = new PoliciaControlador(juego, controlador);
+        Group principal = new Policias(juego, policiaControlador);
+        controlador.cambiar(principal);
         controlador.start();
         stage.setTitle("AlgoThief — Elija el agente para iniciar una misión");
         stage.sizeToScene();

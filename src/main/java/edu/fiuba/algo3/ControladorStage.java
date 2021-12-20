@@ -1,11 +1,13 @@
 package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.componentes.Imagen.Imagen;
+import edu.fiuba.algo3.vista.Juego.GrupoInterno;
 import javafx.beans.binding.DoubleBinding;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.geometry.Point2D;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.transform.Scale;
@@ -16,15 +18,15 @@ import java.util.List;
 
 public class ControladorStage {
     private final Stage stage;
-    private final Parent raiz;
+    private final GrupoInterno raiz;
     private final Scene scene;
     private final Scale escalado = new Scale();
     private final DoubleProperty escala = new SimpleDoubleProperty(1.0);
     private final DoubleProperty ancho = new SimpleDoubleProperty(1024);
 
-    public ControladorStage(Stage stage, Parent raiz) {
+    public ControladorStage(Stage stage, Parent interno) {
         this.stage = stage;
-        this.raiz = raiz;
+        this.raiz = new GrupoInterno(interno);
         this.scene = new Scene(raiz);
         final String pathEstilo = "src/main/java/edu/fiuba/algo3/recursos/estilos.css";
         final String url = Imagen.urlDesdePath(pathEstilo);
@@ -93,5 +95,9 @@ public class ControladorStage {
 
     public Scene getScene() {
         return scene;
+    }
+
+    public void cambiar(Node interno) {
+        raiz.cambiar(interno);
     }
 }
