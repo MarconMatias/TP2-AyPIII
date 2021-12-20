@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.controlador.Policia;
 
 import edu.fiuba.algo3.ControladorStage;
+import edu.fiuba.algo3.controlador.Ciudad.LibroCiudadControlador;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
@@ -50,8 +51,9 @@ public class PoliciaControlador {
         try {
             Mision mision = juego.nuevaMision(policia);
             Ciudad ciudad = mision.getCiudadActual();
-            /* ControladorLibro controladorLibro = new ControladorLibro(mision, controladorStage);*/
-            LibroCiudad libro = new LibroCiudad(ciudad /*, controladorLibro*/);
+            LibroCiudadControlador controladorLibro = new LibroCiudadControlador(juego, mision, controladorStage);
+            LibroCiudad libro = new LibroCiudad(ciudad, controladorLibro);
+            libro.setRadio(juego.getRadio());
             controladorStage.cambiar(libro);
             /* liberar() */
         } catch(Exception ex) {
