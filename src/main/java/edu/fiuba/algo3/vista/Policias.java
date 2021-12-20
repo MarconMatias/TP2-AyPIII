@@ -2,7 +2,7 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.componentes.Cuaderno.Cuaderno;
 import edu.fiuba.algo3.componentes.Imagen.Imagen;
-import edu.fiuba.algo3.componentes.Radio.Radio;
+import edu.fiuba.algo3.vista.Radio.Radio;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
