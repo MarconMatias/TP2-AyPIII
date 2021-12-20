@@ -1,9 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.Acciones.Accion;
-import edu.fiuba.algo3.modelo.Acciones.AccionDormir;
-import edu.fiuba.algo3.modelo.Acciones.HeridaPorCuchillo;
-import edu.fiuba.algo3.modelo.Acciones.IAccion;
+import edu.fiuba.algo3.modelo.Acciones.*;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Computadora.Computadora;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
@@ -16,6 +13,7 @@ import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -57,12 +55,12 @@ public class TestsCasosDeUsoEntrega2 {
         Calendario calendario = mock(Calendario.class);
         Item item = mock(Item.class);
         Ladron ladron = mock(Ladron.class);
-        List<String> ruta = List.of("Montreal","Ciudad de México");
         Computadora computadora = mock(Computadora.class);
         Ciudad Montreal = mock(Ciudad.class);
         when(Montreal.getNombre()).thenReturn("Montreal");
         Ciudad Mexico = mock(Ciudad.class);
         when(Mexico.getNombre()).thenReturn("Ciudad de México");
+        List<Ciudad> ruta = List.of(Montreal,Mexico);
         Mapa mapa = mock(Mapa.class);
         when(mapa.getCiudadPorNombre("Montreal")).thenReturn(Montreal);
         when(mapa.getCiudadPorNombre("Ciudad de México")).thenReturn(Mexico);
@@ -77,15 +75,15 @@ public class TestsCasosDeUsoEntrega2 {
                 mapa,calendario,random);
 
         // VERIFICAR que se hayan actualizado las ciudades:
-        verify(Montreal).actualizarRutaLadron(anyList(),eq(ladron));
-        verify(Mexico).actualizarRutaLadron(anyList(),eq(ladron));
+        verify(Montreal).actualizarRutaLadron(any(),eq(ladron));
+        verify(Mexico).actualizarRutaLadron(any(),eq(ladron));
         verify(Montreal).visitadaPorPolicia(policia);
 
         // Viaja de Montreal a México
-        mision.viajarACiudad("Ciudad de México");
+        mision.viajarACiudad(Mexico);
 
         // VERIFICAR que se haya hecho el viaje:
-        verify(mapa).viajar(policia,Montreal,"Ciudad de México");
+        verify(mapa).viajar(policia,Montreal,Mexico);
         //verify(Mexico).visitadaPorPolicia(policia); // No funciona porque mapa es un mock
     }
 
@@ -116,14 +114,14 @@ public class TestsCasosDeUsoEntrega2 {
     @Test
     public void casoDeUso04() {
         // Dependencias (reales y mocks)
-        Calendario calendario = mock(Calendario.class);
+        Calendario calendario = new Calendario();
         Item item = mock(Item.class);
         Ladron ladron = mock(Ladron.class);
-        List<String> ruta = List.of("Montreal","Ciudad de México");
         Computadora computadora = mock(Computadora.class);
 
         Ciudad Mexico = new Ciudad("Ciudad de México",new ArrayList<>());
         Ciudad Montreal = new Ciudad("Montreal",new ArrayList<>());
+        List<Ciudad> ruta = List.of(Montreal,Mexico);
         Map<String,Ciudad> ciudades = new HashMap<String,Ciudad>();
         ciudades.put("Ciudad de México",Mexico);
         ciudades.put("Montreal",Montreal);
@@ -140,19 +138,21 @@ public class TestsCasosDeUsoEntrega2 {
         Mision mision = new Mision(policia,item,ladron,ruta,"Montreal",computadora,
                 mapa,calendario,random);
 
-        // Viaja de Montreal a México, donde al ser ruta final debería estar el ladrón        mision.viajarACiudad("Ciudad de México");
-
+        // Viaja de Montreal a México, donde al ser ruta final debería estar el ladrón
+        mision.viajarACiudad(Mexico);
 
         List<Edificio> edificios = mision.obtenerEdificios();
-        mision.visitarEdificio(edificios.get(0));
-        if(!mision.fueFinalizada()) {
-            mision.visitarEdificio(edificios.get(1));
+        for(Edificio edificio : edificios) {
+            if(mision.fueFinalizada()) {
+                break;
+            }
+            mision.visitarEdificio(edificio);
         }
-        if(!mision.fueFinalizada()) {
-            mision.visitarEdificio(edificios.get(2));
-        }
-        assertTrue(mision.fueFinalizada());
+
+        // La cantidad de arrestos no cambió, la misión terminó y NO fue una victoria.
+        assertEquals(arrestosParaSerInvestigador,policia.getArrestos());
         assertFalse(mision.fueVictoria());
+        assertTrue(mision.fueFinalizada());
     }
 
     /**
@@ -176,46 +176,58 @@ public class TestsCasosDeUsoEntrega2 {
         Policia policia = new Policia("Matute", 6, new Calendario());
         Item item = new Item("Incan Gold Mask","Lima");
         Ladron ladron = new Ladron("Nick Brunch", "masculino", "escalada de montaña", "negro", "anillo", "moto");
-        List<String> ruta = new ArrayList<>(List.of("Lima","San Marino", "Montreal", "Bamako"));
+        Ciudad lima = mapa.getCiudadPorNombre("Lima");
+        Ciudad sanMarino = mapa.getCiudadPorNombre("San Marino");
+        Ciudad montreal = mapa.getCiudadPorNombre("Montreal");
+        Ciudad bamako = mapa.getCiudadPorNombre("Bamako");
+        List<Ciudad> ruta = new ArrayList<>(List.of(lima,sanMarino, montreal, bamako));
         Random random = new Random(2021);
         Computadora computadora =new Computadora(new ArrayList<>(List.of(ladron)));
         Mision mision = new Mision(policia,item,ladron,ruta,item.getNombreCiudadDelRobo(),
                 computadora, mapa,new Calendario(),random);
 
-        List<Edificio> edificios;
         mision.getMensajeMision(); // Indica lugar e item robado y sexo del sospechoso.
         mision.agregarDetalleLadron("sexo","masculino");
-        edificios = mision.obtenerEdificios();
-        mision.visitarEdificio(edificios.get(0));
-        mision.visitarEdificio(edificios.get(1));
-        mision.visitarEdificio(edificios.get(2));
+
+        List<Edificio> edificios = mision.obtenerEdificios();
+        for(Edificio edificio : edificios) {
+            mision.visitarEdificio(edificio);
+        }
         mision.agregarDetalleLadron("deporte","escalada de montaña");
+
+        // Solicitar ciudades, viajar a San Marino y visitar todos los edificios
         mision.getCiudadesVecinas();
-        mision.viajarACiudad("San Marino");
+        mision.viajarACiudad(sanMarino);
         edificios = mision.obtenerEdificios();
-        mision.visitarEdificio(edificios.get(0));
-        mision.visitarEdificio(edificios.get(1));
-        mision.visitarEdificio(edificios.get(2));
+        for(Edificio edificio : edificios) {
+            mision.visitarEdificio(edificio);
+        }
+        // Agregar detalle y solicitar orden de arresto
         mision.agregarDetalleLadron("cabello","negro");
         mision.generarOrdenDeArresto();
+
+        // Solicitar ciudades, viajar a Montreal y visitar todos los edificios
         mision.getCiudadesVecinas();
-        mision.viajarACiudad("Montreal");
+        mision.viajarACiudad(montreal);
         edificios = mision.obtenerEdificios();
-        mision.visitarEdificio(edificios.get(0));
-        mision.visitarEdificio(edificios.get(1));
-        mision.visitarEdificio(edificios.get(2));
+        for(Edificio edificio : edificios) {
+            mision.visitarEdificio(edificio);
+        }
+
+        // Solicitar ciudades, viajar a Bamako y visitar todos los edificios
         mision.getCiudadesVecinas();
-        mision.viajarACiudad("Bamako");
+        mision.viajarACiudad(bamako);
         edificios = mision.obtenerEdificios();
-        mision.visitarEdificio(edificios.get(0));
-        if(!mision.fueFinalizada()) {
-            mision.visitarEdificio(edificios.get(1));
+        for(Edificio edificio : edificios) {
+            if(mision.fueFinalizada()) {
+                break;
+            }
+            mision.visitarEdificio(edificio);
         }
-        if(!mision.fueFinalizada()) {
-            mision.visitarEdificio(edificios.get(2));
-        }
+
+        // La cantidad de arrestos aumentó en 1, la misión terminó y SÍ fue una victoria.
+        assertEquals(7,policia.getArrestos());
         assertTrue(mision.fueFinalizada());
         assertTrue(mision.fueVictoria());
-        assertEquals(7,policia.getArrestos());
     }
 }

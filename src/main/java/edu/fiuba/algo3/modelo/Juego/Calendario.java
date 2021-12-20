@@ -94,6 +94,7 @@ public class Calendario {
     public void aplicarAccion(IAccion accion) {
         notificarObservadores(accion);
         accion.avanzarCalendario(this);
+        accion.realizar();
     }
 
     private void notificarObservadores(IAccion accion) {

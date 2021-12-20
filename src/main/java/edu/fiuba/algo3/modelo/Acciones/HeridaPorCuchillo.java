@@ -4,15 +4,10 @@ import edu.fiuba.algo3.modelo.Ciudad.EstadoVisitas.IEstado;
 import edu.fiuba.algo3.modelo.Juego.Calendario;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 
-public class HeridaPorCuchillo implements IAccion, IComportamientoAccion{
+public class HeridaPorCuchillo implements IAccion {
     private int demoraAccion;
     private AccionCuchilloUnica estado;
-    @Override
-    public void reaccion(Calendario calendario, Policia policia /* Por las dudas */) {
-        demoraAccion = estado.demoraEdificio();
-        calendario.avanzarHoras(demoraAccion);
-        // Mati - No se bien que haria el policia como reaccion a la accion
-    }
+    private Policia policia;
 
     @Override
     public String getNombreAccion() {
@@ -21,7 +16,16 @@ public class HeridaPorCuchillo implements IAccion, IComportamientoAccion{
 
     @Override
     public void avanzarCalendario(Calendario calendario) {
-        /** Falta comportamiento por cantidad */
-        calendario.avanzarHoras(2);
+        policia.avanzarHorasCuchillada(calendario);
+    }
+
+    @Override
+    public void setPolicia(Policia policia) {
+        this.policia = policia;
+    }
+
+    @Override
+    public void realizar() {
+       policia.recibirCuchillada();
     }
 }

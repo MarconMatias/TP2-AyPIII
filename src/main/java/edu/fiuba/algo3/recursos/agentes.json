@@ -1,0 +1,16 @@
+{
+  "agentes": [
+    {
+      "nombre": "Brenda",
+      "arrestos": 3
+    },
+    {
+      "nombre": "Elu",
+      "arrestos": 10
+    },
+    {
+      "nombre": "Agus",
+      "arrestos": 5
+    }
+  ]
+}
