@@ -40,6 +40,9 @@ public class App extends Application {
 
         Splash splash = new Splash();
         Group root = new Group(splash);
+        root.setFocusTraversable(false);
+        splash.requestFocus();
+        splash.setFocusTraversable(false);
         controlador = new ControladorStage(stage, root);
         //Rectangle2D scr = controlador.getDimensionPantalla();
         controlador.start();
@@ -52,6 +55,7 @@ public class App extends Application {
         lector.setOnSucceeded(ev -> {
             stage.titleProperty().unbind();
             splashControlador.bind(this::mostrarPolicias);
+            splash.requestFocus();
         });
         lector.setOnFailed(this::onSplashFailed);
     }
