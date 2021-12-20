@@ -56,7 +56,7 @@ public class Ruta {
             return new DestinoFinal();
         } else {
             int index = ciudades.indexOf(ciudad);
-            return ciudades.get(index);
+            return ciudades.get(index+1);
         }
     }
 }

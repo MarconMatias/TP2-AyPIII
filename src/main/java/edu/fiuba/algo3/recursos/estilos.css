@@ -1,0 +1,8 @@
+.cargandoMapamundi .text {
+    -fx-effect: dropshadow(gaussian, #000, 10, 0.5, 8,8);
+    -fx-fill: #fff;
+    -fx-stroke: #40202060;
+    -fx-stroke-width: 16;
+    -fx-font: 120 Arial;
+    -fx-wrap-text: true;
+}
