@@ -1,14 +1,13 @@
 package edu.fiuba.algo3;
 
-import edu.fiuba.algo3.componentes.Cuaderno.Cuaderno;
 import edu.fiuba.algo3.componentes.FakeLoader.FakeService;
+import edu.fiuba.algo3.componentes.Radio.RadioSonido;
 import edu.fiuba.algo3.componentes.bindings.CargandoBinding;
 import edu.fiuba.algo3.controlador.Splash.SplashControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.vista.Policias;
 import edu.fiuba.algo3.vista.Splash;
 import javafx.application.Application;
-import javafx.collections.ObservableList;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.Event;
 import javafx.scene.Group;
@@ -21,17 +20,18 @@ public class App extends Application {
 
     Juego juego = new Juego();
     Stage stage;
+    RadioSonido radio;
 
     @Override
     public void start(Stage stage) {
         this.stage = stage;
+        this.radio = new RadioSonido(juego.getRadio());
         startSplash(stage);
     }
 
     ControladorStage controlador;
 
     private void startSplash(Stage stage) {
-        juego = new Juego();
         FakeService lector = new FakeService(5);
         CargandoBinding tituloBinding = new CargandoBinding(lector.progressProperty(),
                 "AlgoThief — ¡Listo!",
@@ -52,7 +52,7 @@ public class App extends Application {
         lector.setOnSucceeded(ev -> {
             stage.titleProperty().unbind();
             splashControlador.bind(this::mostrarPolicias);
-        });git
+        });
         lector.setOnFailed(this::onSplashFailed);
     }
 
