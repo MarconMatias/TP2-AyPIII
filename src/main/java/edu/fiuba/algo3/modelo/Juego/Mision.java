@@ -4,7 +4,6 @@ import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Computadora.Computadora;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Evento.PoliciaFinaliza;
-import edu.fiuba.algo3.modelo.Evento.PoliciaFinalizaListener;
 import edu.fiuba.algo3.modelo.Item.Item;
 import edu.fiuba.algo3.modelo.Juego.EstadoMision.EstadoMision;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
@@ -13,7 +12,6 @@ import edu.fiuba.algo3.modelo.Ruta.Ruta;
 
 import java.util.List;
 import java.util.Random;
-import java.util.stream.Collectors;
 
 public class Mision {
     private final Policia policia;
@@ -196,5 +194,9 @@ public class Mision {
 
     public String getNombreCiudadActual() {
         return ciudadActual.getNombre();
+    }
+
+    public Ciudad getCiudadActual() {
+        return ciudadActual;
     }
 }
