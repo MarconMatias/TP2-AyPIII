@@ -1,12 +1,8 @@
 package edu.fiuba.algo3.controlador.Splash;
 
 import edu.fiuba.algo3.vista.Splash;
-import javafx.beans.InvalidationListener;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.event.*;
-import javafx.scene.input.MouseEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 
 public class SplashControlador {
     private final Splash splash;
