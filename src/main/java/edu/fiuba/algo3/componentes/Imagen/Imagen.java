@@ -2,6 +2,7 @@ package edu.fiuba.algo3.componentes.Imagen;
 
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Scale;
@@ -15,6 +16,13 @@ public class Imagen extends ImageView {
 
     public Imagen(String path) {
         super(path);
+        inicializar();
+    }
+    public Imagen(Image image) {
+        super(image);
+        inicializar();
+    }
+    private void inicializar() {
         setFitWidth(getImage().getWidth());
         setFitHeight(getImage().getHeight());
         Rotate rotacionEfecto = new Rotate();
