@@ -7,6 +7,7 @@ import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Item.Item;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Policia.Policia;
+import edu.fiuba.algo3.modelo.Radio.Radio;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -17,6 +18,7 @@ public class Juego {
   Map<String, Ciudad> ciudades = new HashMap<String, Ciudad>();
   ArrayList<Policia> agentes = new ArrayList<Policia>();
   Mapa mapa;
+  Radio radio = new Radio();
 
   DatosJuego datos = new DatosJuego();
   private ObservableList<Policia> agentesObservable;
@@ -42,5 +44,9 @@ public class Juego {
     Policia nuevo = new Policia(nombre);
     agentesObservable.add(nuevo);
     return nuevo;
+  }
+
+  public Radio getRadio() {
+    return radio;
   }
 }
