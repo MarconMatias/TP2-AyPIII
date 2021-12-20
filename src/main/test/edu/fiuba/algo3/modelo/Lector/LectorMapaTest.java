@@ -6,6 +6,8 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.junit.Test;
 
+import java.util.Collections;
+
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
@@ -22,7 +24,7 @@ public class LectorMapaTest {
         catch(ParseException ex) {
             throw new RuntimeException("Error al parsear test: "+ex.toString());
         }
-        Mapa mapa = lector.leerMapa(entrada);
+        Mapa mapa = lector.leerMapa(entrada, new Mapa(Collections.emptyList()));
         assertEquals(0, mapa.getOrigenes().size());
     }
 
@@ -38,7 +40,7 @@ public class LectorMapaTest {
             catch(ParseException ex) {
             throw new RuntimeException("Error al parsear test: "+ex.toString());
         }
-        Mapa mapa = lector.leerMapa(entrada);
+        Mapa mapa = lector.leerMapa(entrada, new Mapa(Collections.emptyList()));
         assertEquals(1, mapa.getOrigenes().size());
     }
 
@@ -52,7 +54,7 @@ public class LectorMapaTest {
                 "  \"Tokyo\": { \"Bamako\": 13657, \"Bangkok\": 4603, \"Ciudad de México\": 11307}"+
                 "} }";
         Mapa mapa = mock(Mapa.class);
-        LectorMapa lector = new LectorMapa(mapa);
+        LectorMapa lector = new LectorMapa();
         JSONObject entrada;
         try
         {
@@ -61,7 +63,7 @@ public class LectorMapaTest {
         catch(ParseException ex) {
             throw new RuntimeException("Error al parsear test: "+ex.toString());
         }
-        Mapa devuelto = lector.leerMapa(entrada);
+        Mapa devuelto = lector.leerMapa(entrada, mapa);
         assertEquals(mapa, devuelto);
         verify(mapa).agregarConexion("Atenas","Bangkok",7917);
         verify(mapa).agregarConexion("Atenas","New York",7920);
