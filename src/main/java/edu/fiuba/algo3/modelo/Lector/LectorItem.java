@@ -18,7 +18,7 @@ public class LectorItem {
 
     JSONParser parser = new JSONParser();
 
-    try (Reader reader = new FileReader("/src/main/java/edu/fiuba/algo3/recursos/items.json")) {
+    try (Reader reader = new FileReader("src/main/java/edu/fiuba/algo3/recursos/items.json")) {
 
       JSONObject json = (JSONObject) parser.parse(reader);
       return leerItems(json);
