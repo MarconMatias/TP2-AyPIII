@@ -2,11 +2,12 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.componentes.Cuaderno.Cuaderno;
 import edu.fiuba.algo3.componentes.Imagen.Imagen;
+import edu.fiuba.algo3.controlador.Policia.PoliciaControlador;
 import edu.fiuba.algo3.controlador.Radio.RadioControlador;
+import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 import edu.fiuba.algo3.modelo.Radio.Radio;
 import edu.fiuba.algo3.vista.Radio.Walkman;
-import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -19,9 +20,10 @@ public class Policias extends Cuaderno {
     private final TextField nombreNuevo;
     private final Button botonNuevo;
     private final ListView<Policia> listaPolicias;
-    private final Walkman walkman;
+    private Walkman walkman;
+    private PoliciaControlador controlador;
 
-    public Policias(ObservableList<Policia> modelo, Radio radio) {
+    public Policias(Juego juego, PoliciaControlador controlador) {
         Label etiquetaNuevo = new Label("Ingresante:");
         etiquetaNuevo.setAlignment(Pos.CENTER);
         etiquetaNuevo.setStyle("-fx-font: 120 Impact");
@@ -46,7 +48,7 @@ public class Policias extends Cuaderno {
         botonNuevo.getTransforms().setAll(new Rotate(anguloRotacion, botonNuevo.getWidth()/2, botonNuevo.getHeight()/2));
         agregar(botonNuevo, 0.69, 0.22);
 
-        listaPolicias = new ListView<Policia>(modelo);
+        listaPolicias = new ListView<Policia>(juego.getPolicias());
         listaPolicias.setPrefWidth(1536);
         listaPolicias.setPrefHeight(920);
         listaPolicias.setStyle("-fx-font: 80 Impact");
@@ -54,7 +56,24 @@ public class Policias extends Cuaderno {
         listaPolicias.getTransforms().setAll(new Rotate(anguloRotacion, listaPolicias.getWidth()/2, listaPolicias.getHeight()/2));
         agregar(listaPolicias, 0.53, 0.63);
 
+        setRadio(juego.getRadio());
+        setControlador(controlador);
+    }
+
+    public void setRadio(Radio radio) {
         walkman = new Walkman(new RadioControlador(radio));
         agregar((Imagen) walkman, 0.026, 0.285);
+    }
+
+    public void setControlador(PoliciaControlador controlador) {
+        if(null==controlador) {
+            return;
+        }
+        botonNuevo.setOnMouseClicked(controlador::botonNuevoClicked);
+        botonNuevo.setOnKeyPressed(controlador::botonNuevoKeyPressed);
+        listaPolicias.setOnMouseClicked(controlador::listaPoliciasClicked);
+        listaPolicias.setOnKeyPressed(controlador::listaPoliciasKeyPressed);
+        controlador.bindNombreProperty(nombreNuevo.textProperty());
+        this.controlador = controlador;
     }
 }
