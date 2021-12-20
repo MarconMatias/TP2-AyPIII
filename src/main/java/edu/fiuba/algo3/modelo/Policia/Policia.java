@@ -168,4 +168,12 @@ public class Policia {
     public void escucharAlPerder(PoliciaFinalizaListener listener) {
         oyentesAlPerder.add(listener);
     }
+
+    @Override
+    public String toString() {
+        if((null==nombre)||(nombre.trim().equals(""))) {
+            return Integer.toString(hashCode());
+        }
+        return nombre;
+    }
 }
