@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Radio.EstadoAlimentacion;
 
 import edu.fiuba.algo3.modelo.Radio.EstadoTracks.EstadoTracks;
+import edu.fiuba.algo3.modelo.Radio.Volumen.Volumen;
 
 public class EstadoAlimentacion {
     IEstadoAlimentacion estado = new EstadoEncendida();
@@ -23,5 +24,9 @@ public class EstadoAlimentacion {
 
     public void pulsarBotonSiguiente(EstadoTracks tracks) {
         estado.pulsarBotonSiguiente(tracks);
+    }
+
+    public double getVolumen(Volumen volumen) {
+        return estado.getVolumen(volumen);
     }
 }

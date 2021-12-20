@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Radio.EstadoAlimentacion;
 
 import edu.fiuba.algo3.modelo.Radio.EstadoTracks.EstadoTracks;
+import edu.fiuba.algo3.modelo.Radio.Volumen.Volumen;
 
 public class EstadoApagada implements IEstadoAlimentacion {
     @Override
@@ -26,5 +27,10 @@ public class EstadoApagada implements IEstadoAlimentacion {
     @Override
     public void pulsarBotonSiguiente(EstadoTracks tracks) {
         /* Nada, está apagada. */
+    }
+
+    @Override
+    public double getVolumen(Volumen volumen) {
+        return 0;
     }
 }

@@ -3,14 +3,17 @@ package edu.fiuba.algo3.modelo.Radio;
 import edu.fiuba.algo3.modelo.Evento.RadioEvento;
 import edu.fiuba.algo3.modelo.Evento.RadioListener;
 import edu.fiuba.algo3.modelo.Evento.TrackCambia;
+import edu.fiuba.algo3.modelo.Evento.VolumenCambia;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 public class RadioTest {
     @Test
@@ -167,4 +170,25 @@ public class RadioTest {
         Radio radio = new Radio();
         assertEquals(0.5, radio.getVolumen(), 1e-5);
     }
+
+    @Test
+    public void creadoYApagadoVolumen0() {
+        Radio radio = new Radio();
+        radio.pulsarBotonPrender();
+        assertEquals(0.0, radio.getVolumen(), 1e-5);
+    }
+
+    @Test
+    public void escuhandoVolumenSubir3vecesVolumenEs08() {
+        AtomicReference<Double> valor = new AtomicReference<>((double) -1);
+        Radio radio = new Radio();
+        radio.escucharVolumen(ev -> valor.set(((VolumenCambia) ev).getVolumen()));
+        radio.subirVolumen();
+        assertEquals(0.6, valor.get(), 1e-5);
+        radio.subirVolumen();
+        assertEquals(0.7, valor.get(), 1e-5);
+        radio.subirVolumen();
+        assertEquals(0.8, valor.get(), 1e-5);
+    }
+
 }
