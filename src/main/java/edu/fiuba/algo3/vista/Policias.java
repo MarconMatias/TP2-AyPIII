@@ -2,8 +2,10 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.componentes.Cuaderno.Cuaderno;
 import edu.fiuba.algo3.componentes.Imagen.Imagen;
-import edu.fiuba.algo3.vista.Radio.Radio;
+import edu.fiuba.algo3.controlador.Radio.RadioControlador;
 import edu.fiuba.algo3.modelo.Policia.Policia;
+import edu.fiuba.algo3.modelo.Radio.Radio;
+import edu.fiuba.algo3.vista.Radio.Walkman;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -17,9 +19,9 @@ public class Policias extends Cuaderno {
     private final TextField nombreNuevo;
     private final Button botonNuevo;
     private final ListView<Policia> listaPolicias;
-    private final Radio radio;
+    private final Walkman walkman;
 
-    public Policias(ObservableList<Policia> modelo) {
+    public Policias(ObservableList<Policia> modelo, Radio radio) {
         Label etiquetaNuevo = new Label("Ingresante:");
         etiquetaNuevo.setAlignment(Pos.CENTER);
         etiquetaNuevo.setStyle("-fx-font: 120 Impact");
@@ -52,7 +54,7 @@ public class Policias extends Cuaderno {
         listaPolicias.getTransforms().setAll(new Rotate(anguloRotacion, listaPolicias.getWidth()/2, listaPolicias.getHeight()/2));
         agregar(listaPolicias, 0.53, 0.63);
 
-        radio = new Radio();
-        agregar((Imagen) radio, 0.026, 0.285);
+        walkman = new Walkman(new RadioControlador(radio));
+        agregar((Imagen) walkman, 0.026, 0.285);
     }
 }

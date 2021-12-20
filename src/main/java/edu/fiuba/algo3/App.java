@@ -70,7 +70,7 @@ public class App extends Application {
     }
 
     private void mostrarPolicias(Event event) {
-        Group principal = new Policias(juego.getPolicias());
+        Group principal = new Policias(juego.getPolicias(), juego.getRadio());
         Group root = new Group(principal);
         controlador = new ControladorStage(stage, root);
         controlador.start();

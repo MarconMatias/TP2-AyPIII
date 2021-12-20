@@ -2,8 +2,10 @@ package edu.fiuba.algo3.vista.Radio;
 
 import edu.fiuba.algo3.componentes.Imagen.Imagen;
 import edu.fiuba.algo3.controlador.Radio.RadioControlador;
-import javafx.beans.binding.*;
-import javafx.beans.property.*;
+import javafx.beans.binding.DoubleBinding;
+import javafx.beans.binding.ObjectBinding;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
@@ -12,7 +14,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class Radio extends Imagen {
+public class Walkman extends Imagen {
 
     private RadioControlador controlador;
     private final BooleanProperty encendido = new SimpleBooleanProperty(true);
@@ -24,10 +26,10 @@ public class Radio extends Imagen {
                 "radio/radio_1160_inactivo_sel.png",
                 "radio/radio_1160_activo_desel.png",
                 "radio/radio_1160_activo_sel.png")
-                .map(Radio::urlDesdeRecursos).map(Image::new).collect(Collectors.toList());
+                .map(Walkman::urlDesdeRecursos).map(Image::new).collect(Collectors.toList());
     }
 
-    public Radio() {
+    public Walkman() {
         super(imgs.get(0));
         escalaProperty().set(0.5);
         anguloProperty().set(80);
@@ -45,7 +47,9 @@ public class Radio extends Imagen {
         };
         brilloHover.brightnessProperty().bind(hoverBinding);
         brilloHover.hueProperty().bind(hoverBinding);
-        super.setOnMouseClicked(this::mouseClicked);
+        //super.setOnMouseClicked(this::mouseClicked);
+        //addEventFilter(MouseEvent.MOUSE_CLICKED, this::mouseClicked);
+        addEventHandler(MouseEvent.MOUSE_CLICKED, this::mouseClicked);
         setFocusTraversable(true);
 
         imageProperty().bind(new ObjectBinding<Image>() {
@@ -60,9 +64,10 @@ public class Radio extends Imagen {
         });
     }
 
-    public Radio(RadioControlador controlador) {
+    public Walkman(RadioControlador controlador) {
         this();
         this.controlador = controlador;
+        controlador.bind(this);
     }
 
     private void mouseClicked(MouseEvent mouseEvent) {

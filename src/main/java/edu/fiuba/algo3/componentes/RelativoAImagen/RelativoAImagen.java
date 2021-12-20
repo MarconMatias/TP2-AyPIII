@@ -173,4 +173,5 @@ public class RelativoAImagen extends Group {
         double y = relativo.getY() * fondo.getHeight();
         return new Point2D(x,y);
     }
+
 }

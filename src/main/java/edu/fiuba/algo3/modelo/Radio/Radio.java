@@ -36,4 +36,12 @@ public class Radio {
     public void setTitulo(String error) {
         /** \todo */
     }
+
+    public void subirVolumen() {
+        /** \todo */
+    }
+
+    public void bajarVolumen() {
+        /** \todo */
+    }
 }
