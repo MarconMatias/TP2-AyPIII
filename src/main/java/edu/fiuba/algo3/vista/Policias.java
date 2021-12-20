@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.componentes.Cuaderno.Cuaderno;
+import edu.fiuba.algo3.componentes.Imagen.Imagen;
+import edu.fiuba.algo3.componentes.Radio.Radio;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
@@ -10,13 +12,12 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.transform.Rotate;
 
-import java.util.List;
-
 public class Policias extends Cuaderno {
     private final double anguloRotacion = -9;
     private final TextField nombreNuevo;
     private final Button botonNuevo;
     private final ListView<Policia> listaPolicias;
+    private final Radio radio;
 
     public Policias(ObservableList<Policia> modelo) {
         Label etiquetaNuevo = new Label("Ingresante:");
@@ -51,5 +52,7 @@ public class Policias extends Cuaderno {
         listaPolicias.getTransforms().setAll(new Rotate(anguloRotacion, listaPolicias.getWidth()/2, listaPolicias.getHeight()/2));
         agregar(listaPolicias, 0.53, 0.63);
 
+        radio = new Radio();
+        agregar((Imagen) radio, 0.07, 0.7);
     }
 }
