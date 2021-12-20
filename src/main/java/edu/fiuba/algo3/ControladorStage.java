@@ -1,14 +1,11 @@
 package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.componentes.Imagen.Imagen;
-import javafx.beans.Observable;
 import javafx.beans.binding.DoubleBinding;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
-import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.geometry.Rectangle2D;
-import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.transform.Scale;
@@ -31,7 +28,6 @@ public class ControladorStage {
         this.scene = new Scene(raiz);
         final String pathEstilo = "src/main/java/edu/fiuba/algo3/recursos/estilos.css";
         final String url = Imagen.urlDesdePath(pathEstilo);
-        System.out.println(url);
         scene.getStylesheets().addAll(url);
         escalado.setPivotX(0d);
         escalado.setPivotY(0d);
@@ -93,5 +89,9 @@ public class ControladorStage {
         stage.show();
         stage.sizeToScene();
         setCentro(getCentroPantalla());
+    }
+
+    public Scene getScene() {
+        return scene;
     }
 }
