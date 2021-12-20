@@ -161,4 +161,10 @@ public class RadioTest {
         radio.pulsarBotonSiguiente();
         assertEquals(0, valor.get());
     }
+
+    @Test
+    public void creadoVolumen0_5() {
+        Radio radio = new Radio();
+        assertEquals(0.5, radio.getVolumen(), 1e-5);
+    }
 }

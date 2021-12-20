@@ -44,4 +44,8 @@ public class Radio {
     public void bajarVolumen() {
         /** \todo */
     }
+
+    public double getVolumen() {
+        return 0.5;
+    }
 }
