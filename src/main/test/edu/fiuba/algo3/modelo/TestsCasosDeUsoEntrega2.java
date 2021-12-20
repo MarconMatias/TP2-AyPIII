@@ -169,8 +169,8 @@ public class TestsCasosDeUsoEntrega2 {
         LectorCiudad lectorCiudad = new LectorCiudad();
         Map<String, Ciudad> ciudades = lectorCiudad.leerCiudades();
         Mapa mapa = new Mapa(ciudades);
-        LectorMapa lectorMapa = new LectorMapa(mapa);
-        lectorMapa.leerMapa(/*entradaMapa*/);
+        LectorMapa lectorMapa = new LectorMapa();
+        lectorMapa.leerMapa(/*entradaMapa,*/mapa);
 
         // Entidades prefijadas en el caso de uso
         Policia policia = new Policia("Matute", 6, new Calendario());

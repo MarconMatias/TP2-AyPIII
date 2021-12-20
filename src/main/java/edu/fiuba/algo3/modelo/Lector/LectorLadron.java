@@ -21,17 +21,10 @@ public class LectorLadron {
 
     JSONParser parser = new JSONParser();
 
-    try (Reader reader = new FileReader("/src/main/java/edu/fiuba/algo3/recursos/expediente.json")) {
+    try (Reader reader = new FileReader("src/main/java/edu/fiuba/algo3/recursos/expediente.json")) {
 
       JSONObject json = (JSONObject) parser.parse(reader);
-      JSONArray expedienteJson = (JSONArray) json.get("items");
-      Iterator<JSONObject> iterator = expedienteJson.iterator();
-      while (iterator.hasNext()) {
-        ladrones.add(new Ladron((String) (iterator.next()).get("nombre"), (String) (iterator.next()).get("sexo"),
-            (String) (iterator.next()).get("deporte"), (String) (iterator.next()).get("cabello"),
-            (String) (iterator.next()).get("distincion"), (String) (iterator.next()).get("vehiculo")));
-      }
-
+      return leerLadrones(json);
     } catch (IOException e) {
       e.printStackTrace();
     } catch (org.json.simple.parser.ParseException e) {
@@ -52,7 +45,11 @@ public class LectorLadron {
     Map<String,String> detalles = new HashMap<String,String>();
     for(String tipo : List.of("sexo", "deporte", "cabello", "distincion", "vehiculo"))
     {
-      detalles.put(tipo, lector.leerPropiedadComo(String.class, jsonLadron,tipo));
+      String detalle = lector.leerPropiedadComo(String.class, jsonLadron, tipo);
+      if(null == detalle) {
+        detalle = "Desconocido";
+      }
+      detalles.put(tipo, detalle);
     }
     return new Ladron(nombre,detalles);
   }

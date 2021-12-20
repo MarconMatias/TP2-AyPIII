@@ -20,16 +20,16 @@ public class LectorPolicia {
 
     JSONParser parser = new JSONParser();
 
-    try (Reader reader = new FileReader("/src/main/java/edu/fiuba/algo3/recursos/agentes.json")) {
+    try (Reader reader = new FileReader("src/main/java/edu/fiuba/algo3/recursos/agentes.json")) {
 
       JSONObject json = (JSONObject) parser.parse(reader);
       return leerPolicias(json);
     } catch (IOException ex) {
       ex.printStackTrace();
-      throw new RuntimeException("No pudo leerse el archivo de items: " + ex.getMessage());
+      throw new RuntimeException("No pudo leerse el archivo de agentes: " + ex.getMessage());
     } catch (org.json.simple.parser.ParseException ex) {
       ex.printStackTrace();
-      throw new RuntimeException("No pudo parsearse el archivo de items: " + ex.getMessage());
+      throw new RuntimeException("No pudo parsearse el archivo de agentes: " + ex.getMessage());
     }
   }
 
@@ -41,6 +41,6 @@ public class LectorPolicia {
   public Policia interpretarItem(Map jsonAgente) {
     String nombre = lector.leerPropiedadComo(String.class, jsonAgente, "nombre");
     Number arrestos = lector.leerPropiedadComo(Number.class, jsonAgente, "arrestos");
-    return new Policia(nombre, (int) arrestos);
+    return new Policia(nombre, arrestos.intValue());
   }
 }
