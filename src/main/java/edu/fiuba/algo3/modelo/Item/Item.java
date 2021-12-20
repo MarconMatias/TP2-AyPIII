@@ -38,7 +38,11 @@ public class Item {
     }
 
     public List<Ciudad> getRuta(Mapa mapa, Random random) {
-        List<Ciudad> ruta = new ArrayList<>(List.of(getCiudadDelRobo(mapa)));
+        Ciudad ciudadInicial = getCiudadDelRobo(mapa);
+        if(null==ciudadInicial) {
+            throw new RuntimeException("La ciudad inicial " + nombreCiudadDelRobo + " del ítem "+nombreDelItem+" no se encuentra en el mapa dado.");
+        }
+        List<Ciudad> ruta = new ArrayList<>(List.of(ciudadInicial));
         rango.ampliarRuta(ruta, mapa, random);
         return ruta;
     }
