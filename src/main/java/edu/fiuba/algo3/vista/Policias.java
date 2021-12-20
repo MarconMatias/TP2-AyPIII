@@ -53,6 +53,6 @@ public class Policias extends Cuaderno {
         agregar(listaPolicias, 0.53, 0.63);
 
         radio = new Radio();
-        agregar((Imagen) radio, 0.07, 0.7);
+        agregar((Imagen) radio, 0.026, 0.285);
     }
 }
