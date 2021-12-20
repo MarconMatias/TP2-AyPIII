@@ -20,6 +20,7 @@ public class RangoPolicia {
 
     public RangoPolicia(int cantidadDeArrestos) {
         this();
+        this.comportamientoRango = new ComoNovato();
         this.actualizarArrestos(cantidadDeArrestos);
     }
 
