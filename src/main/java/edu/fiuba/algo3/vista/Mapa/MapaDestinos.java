@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.vista.Mapa;
 
-import edu.fiuba.algo3.componentes.Imagen.IconoVolver;
 import edu.fiuba.algo3.componentes.Libro.Librito;
 import edu.fiuba.algo3.componentes.Mapamundi.Mapamundi;
 import edu.fiuba.algo3.componentes.Trayecto.Trayecto;
@@ -30,7 +29,6 @@ public class MapaDestinos extends Mapamundi {
     private final ObjectProperty<DestinoCiudad> destinoSeleccionado = new SimpleObjectProperty<>(null);
     private final DoubleProperty progreso = new SimpleDoubleProperty(0d);
     private final ObjectProperty<DestinoCiudad> destinoElegido = new SimpleObjectProperty<>(null);
-    private final IconoVolver volver;
 
     public MapaDestinos(Juego juego, Mision mision, MapaDestinosControlador controlador)
     {
@@ -38,9 +36,6 @@ public class MapaDestinos extends Mapamundi {
         this.juego = juego;
         this.mision = mision;
         this.controlador = controlador;
-
-        volver = new IconoVolver(320);
-        agregar(volver, 0.9, 0.1);
 
         librito = new Librito(640);
         agregar(librito, 0.08, 0.4);
@@ -65,7 +60,7 @@ public class MapaDestinos extends Mapamundi {
             destino.focusedProperty().addListener(obs -> {
                 if(destino.isFocused()) {
                     destinoSeleccionado.set(destino);
-                } else if(destinoSeleccionado.equals(destino)) {
+                } else if(destinoSeleccionado.get().equals(destino)) {
                     destinoSeleccionado.set(null);
                 }
             });
