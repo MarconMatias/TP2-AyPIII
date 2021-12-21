@@ -6,11 +6,11 @@
             "Reykjavik":        4160,
             "Oslo":             2606
         },
-        "Bagdád": {
+        "Bagdad": {
             "Colombo":          4681,
             "Moscú":            2550,
             "Puerto Moresby":   11768,
-            "Sidney":           13394
+            "Sydney":           13394
         },
         "Bamako": {
             "Montreal":         7113,
@@ -26,7 +26,7 @@
         "Budapest": {
             "Buenos Aires":     11936,
             "Katmandú":         6039,
-            "Sidney":           15784
+            "Sydney":           15784
         },
         "Buenos Aires": {
             "Budapest":         11936,
@@ -34,18 +34,18 @@
             "Oslo":             12248,
             "Pekín":            19267
         },
-        "Cairo": {
+        "El Cairo": {
             "Kigali":           3562,
             "Nueva Delhi":      4421,
             "París":            3209,
             "Puerto Moresby":   13024
         },
         "Colombo": {
-            "Bagdád":           4681,
-            "Istanbul":         6283,
+            "Bagdad":           4681,
+            "Estambul":         6283,
             "Reykjavik":        9878
         },
-        "Istanbul": {
+        "Estambul": {
             "Colombo":          6283,
             "Katmandú":         5284,
             "Nueva Delhi":      4548
@@ -53,18 +53,18 @@
         "Katmandú": {
             "Bangkok":          2209,
             "Budapest":         6039,
-            "Istanbul":         5284,
+            "Estambul":         5284,
             "Roma":             6633
         },
         "Kigali": {
             "Bangkok":          7953,
-            "Cairo":            3562,
+            "El Cairo":         3562,
             "Lima":             11817
         },
         "Lima": {
             "Kigali":           11817,
             "San Marino":       10894,
-            "Sidney":           12799
+            "Sydney":           12799
         },
         "Londres": {
             "Ciudad de México": 8929,
@@ -87,14 +87,14 @@
             "Nueva Delhi":      5773
         },
         "Moscú": {
-            "Bagdád":           2550,
+            "Bagdad":           2550,
             "Moroni":           7518,
             "Oslo":             1644,
             "Singapur":         8418
         },
         "Nueva Delhi": {
-            "Cairo":            4421,
-            "Istanbul":         4548,
+            "El Cairo":         4421,
+            "Estambul":         4548,
             "Moroni":           5773,
             "New York":         11578
         },
@@ -102,7 +102,7 @@
             "Atenas":           7920,
             "Nueva Delhi":      11578,
             "Río de Janeiro":   8040,
-            "Sidney":           15878
+            "Sydney":           15878
         },
         "Oslo": {
             "Atenas":           2606,
@@ -111,7 +111,7 @@
             "París":            1342
         },
         "París": {
-            "Cairo":            3209,
+            "El Cairo":         3209,
             "Oslo":             1342,
             "Roma":             1107
         },
@@ -121,8 +121,8 @@
             "Puerto Moresby":   6339
         },
         "Puerto Moresby": {
-            "Bagdád":           11768,
-            "Cairo":            13024,
+            "Bagdad":           11768,
+            "El Cairo":         13024,
             "Pekín":            6339
         },
         "Reykjavik": {
@@ -148,8 +148,8 @@
             "Montreal":         6450,
             "Singapur":         10020
         },
-        "Sidney": {
-            "Bagdád":           13394,
+        "Sydney": {
+            "Bagdad":           13394,
             "Budapest":         15784,
             "Lima":             12799,
             "New York":         15878
