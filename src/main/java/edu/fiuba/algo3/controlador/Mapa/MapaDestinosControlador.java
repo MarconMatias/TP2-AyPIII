@@ -52,6 +52,10 @@ public class MapaDestinosControlador {
 
 
     public void destinoElegido(DestinoCiudad destino) {
-        System.out.println(destino.getNombre());
+        System.out.println("Viajando a "+destino.getNombre());
+        mision.viajarACiudad(destino.getCiudad());
+        /* De alguna forma suscribir a calendario. */
+        abrirLibro();
     }
+
 }
