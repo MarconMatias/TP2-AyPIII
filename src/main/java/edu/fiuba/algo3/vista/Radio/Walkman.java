@@ -47,8 +47,6 @@ public class Walkman extends Imagen {
         };
         brilloHover.brightnessProperty().bind(hoverBinding);
         brilloHover.hueProperty().bind(hoverBinding);
-        //super.setOnMouseClicked(this::mouseClicked);
-        //addEventFilter(MouseEvent.MOUSE_CLICKED, this::mouseClicked);
         addEventHandler(MouseEvent.MOUSE_CLICKED, this::mouseClicked);
         setFocusTraversable(true);
 
