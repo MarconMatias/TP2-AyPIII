@@ -1,17 +1,15 @@
 package edu.fiuba.algo3.vista.Ciudad;
 
-import edu.fiuba.algo3.componentes.Imagen.*;
+import edu.fiuba.algo3.componentes.Imagen.IconoEdificios;
+import edu.fiuba.algo3.componentes.Imagen.IconoVolver;
+import edu.fiuba.algo3.componentes.Imagen.Mapita;
+import edu.fiuba.algo3.componentes.Imagen.Tarjetas;
 import edu.fiuba.algo3.componentes.Libro.Libro;
 import edu.fiuba.algo3.controlador.Ciudad.LibroCiudadControlador;
-import edu.fiuba.algo3.controlador.Radio.RadioControlador;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
-import edu.fiuba.algo3.modelo.Radio.Radio;
-import edu.fiuba.algo3.vista.Radio.Walkman;
 import javafx.geometry.Pos;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.transform.Rotate;
 
@@ -82,16 +80,5 @@ public class LibroCiudad extends Libro {
         mapita.setOnKeyPressed(controlador::mapitaKeyPressed);
         edificios.setOnMouseClicked(controlador::edificiosClicked);
         edificios.setOnKeyPressed(controlador::edificiosKeyPressed);
-    }
-
-    public void setRadio(Radio radio) {
-        try {
-            Walkman walkman = new Walkman(new RadioControlador(radio));
-            agregar((Imagen) walkman, 0.026, 0.285);
-        } catch(Exception ex) {
-            ex.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.WARNING, "Error al crear la radio, es posible que la escuche pero no pueda controlarla.", ButtonType.OK);
-            alert.showAndWait();
-        }
     }
 }
