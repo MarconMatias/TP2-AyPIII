@@ -65,7 +65,7 @@ public class Walkman extends Imagen {
     public Walkman(RadioControlador controlador) {
         this();
         this.controlador = controlador;
-        controlador.bind(this);
+        controlador.enlazar(this);
     }
 
     private void mouseClicked(MouseEvent mouseEvent) {
