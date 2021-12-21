@@ -8,16 +8,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LectorMapa {
-    Mapa mapa;
     LectorJson lectorJson = new LectorJson();
 
-    public LectorMapa(Mapa mapa) {
-        this.mapa = mapa;
-    }
     public LectorMapa() {
-        this(new Mapa(new HashMap<>()));
     }
-    public Mapa leerMapa(Map entrada) {
+    public Mapa leerMapa(Map entrada, Mapa mapa) {
         Map mapaJson = lectorJson.leerPropiedadComo(Map.class,entrada,"mapa");
         for (Object clave:mapaJson.keySet()) {
             if(!(clave instanceof String))
@@ -26,12 +21,12 @@ public class LectorMapa {
             }
             String origen = (String) clave;
             Map destinosJson = lectorJson.leerPropiedadComo(Map.class,mapaJson,origen);
-            interpretarOrigen(origen,destinosJson);
+            interpretarOrigen(origen,destinosJson,mapa);
         }
         return mapa;
     }
 
-    private void interpretarOrigen(String origen, Map destinosJson) {
+    private void interpretarOrigen(String origen, Map destinosJson, Mapa mapa) {
         for (Object clave:destinosJson.keySet()) {
             if (!(clave instanceof String)) {
                 throw new RuntimeException("En " + origen + " hay un destino que no es String, es " + clave.getClass().getName() + ": " + clave.toString());
@@ -42,11 +37,11 @@ public class LectorMapa {
         }
     }
 
-    public void leerMapa() {
-        leerMapa("src/main/java/edu/fiuba/algo3/recursos/mapa.json");
+    public Mapa leerMapa(Mapa mapa) {
+        return leerMapa("src/main/java/edu/fiuba/algo3/recursos/mapa.json", mapa);
     }
 
-    private Mapa leerMapa(String ruta) {
-        return leerMapa(lectorJson.leerJsonMap(ruta));
+    private Mapa leerMapa(String ruta, Mapa mapa) {
+        return leerMapa(lectorJson.leerJsonMap(ruta), mapa);
     }
 }

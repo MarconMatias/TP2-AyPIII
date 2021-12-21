@@ -16,7 +16,7 @@
       ]
     },
     {
-      "nombre": "Bagdád",
+      "nombre": "Bagdad",
       "pistas": [
       ]
     },
@@ -51,7 +51,7 @@
       ]
     },
     {
-      "nombre": "Cairo",
+      "nombre": "El Cairo",
       "pistas": [
       ]
     },
@@ -61,7 +61,7 @@
       ]
     },
     {
-      "nombre": "Istanbul",
+      "nombre": "Estambul",
       "pistas": [
       ]
     },
@@ -156,7 +156,7 @@
       ]
     },
     {
-      "nombre": "Sidney",
+      "nombre": "Sydney",
       "pistas": [
       ]
     },
@@ -167,6 +167,11 @@
     },
     {
       "nombre": "Tokyo",
+      "pistas": [
+      ]
+    },
+    {
+      "nombre": "Estambul",
       "pistas": [
       ]
     }
