@@ -18,8 +18,39 @@ public class DestinoEdificio extends Destino {
         this(getImageSel(), getImageDesel(), edificio);
     }
 
-    public Point2D getCoordenada() {
+    public static DestinoEdificio crear(Edificio edificio) {
+        switch (edificio.getNombre()) {
+            case "Aeropuerto":
+                return new Aeropuerto(edificio);
+            case "Banco":
+                return new Banco(edificio);
+            case "Biblioteca":
+                return new Biblioteca(edificio);
+            case "Bolsa":
+                return new Bolsa(edificio);
+            case "Puerto":
+                return new Puerto(edificio);
+        }
+        System.out.println("Advertencia: "+edificio.getNombre()+" no puede construirse.");
+        return new DestinoEdificio(edificio);
+    }
+
+    public Point2D getCoordenadas() {
         return new Point2D(0.5,0.5);
     }
 
+
+    public Edificio getEdificio() {
+        return edificio;
+    }
+
+    /**
+     * Posición para ser usada en una lista de posibles coordenadas. Depende de la instancia de edificio.
+     *
+     * @param cantidad Cantidad (mayor a 0) de posibles coordenadas.
+     * @return Devuelve un número entre 0 y cantidad-1.
+     */
+    protected int getIndice(int cantidad) {
+        return edificio.hashCode() % cantidad;
+    }
 }
