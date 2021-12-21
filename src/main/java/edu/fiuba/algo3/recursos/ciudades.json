@@ -2,6 +2,7 @@
   "ciudades": [
     {
       "nombre": "Atenas",
+      "coordenadas": [0.535, 0.314],
       "pistas": [
         {
           "tipo": "Bandera",
@@ -17,26 +18,31 @@
     },
     {
       "nombre": "Bagdad",
+      "coordenadas": [0.59, 0.339],
       "pistas": [
       ]
     },
     {
       "nombre": "Bamako",
+      "coordenadas": [0.451, 0.454],
       "pistas": [
       ]
     },
     {
       "nombre": "Bangkok",
+      "coordenadas": [0.75, 0.448],
       "pistas": [
       ]
     },
     {
       "nombre": "Budapest",
+      "coordenadas": [0.525, 0.26],
       "pistas": [
       ]
     },
     {
       "nombre": "Buenos Aires",
+      "coordenadas": [0.3243, 0.7228],
       "pistas": [
         {
           "tipo": "Bandera",
@@ -52,126 +58,145 @@
     },
     {
       "nombre": "El Cairo",
+      "coordenadas": [0.556, 0.356],
       "pistas": [
       ]
     },
     {
       "nombre": "Colombo",
+      "coordenadas": [0.695, 0.486],
       "pistas": [
       ]
     },
     {
       "nombre": "Estambul",
+      "coordenadas": [0.547, 0.291],
       "pistas": [
       ]
     },
     {
       "nombre": "Katmandú",
+      "coordenadas": [0.703, 0.369],
       "pistas": [
       ]
     },
     {
       "nombre": "Kigali",
+      "coordenadas": [0.556, 0.534],
       "pistas": [
       ]
     },
     {
       "nombre": "Lima",
+      "coordenadas": [0.262, 0.594],
       "pistas": [
       ]
     },
     {
       "nombre": "Londres",
+      "coordenadas": [0.475, 0.234],
       "pistas": [
       ]
     },
     {
       "nombre": "Ciudad de México",
+      "coordenadas": [0.202, 0.417],
       "pistas": [
       ]
     },
     {
       "nombre": "Montreal",
+      "coordenadas": [0.295, 0.269],
       "pistas": [
       ]
     },
     {
       "nombre": "Moroni",
+      "coordenadas": [0.592, 0.589],
       "pistas": [
       ]
     },
     {
       "nombre": "Moscú",
+      "coordenadas": [0.592, 0.211],
       "pistas": [
       ]
     },
     {
       "nombre": "Nueva Delhi",
+      "coordenadas": [0.682, 0.365],
       "pistas": [
       ]
     },
     {
       "nombre": "New York",
+      "coordenadas": [0.2956, 0.2898],
       "pistas": [
       ]
     },
     {
       "nombre": "Oslo",
+      "coordenadas": [0.503, 0.19],
       "pistas": [
       ]
     },
     {
       "nombre": "París",
+      "coordenadas": [0.48, 0.252],
       "pistas": [
       ]
     },
     {
       "nombre": "Pekín",
+      "coordenadas": [0.773, 0.299],
       "pistas": [
       ]
     },
     {
       "nombre": "Puerto Moresby",
+      "coordenadas": [0.881, 0.578],
       "pistas": [
       ]
     },
     {
       "nombre": "Reykjavik",
+      "coordenadas": [0.431, 0.168],
       "pistas": [
       ]
     },
     {
       "nombre": "Río de Janeiro",
+      "coordenadas": [0.356, 0.653],
       "pistas": [
       ]
     },
     {
       "nombre": "Roma",
+      "coordenadas": [0.505, 0.287],
       "pistas": [
       ]
     },
     {
       "nombre": "San Marino",
+      "coordenadas": [0.506, 0.278],
       "pistas": [
       ]
     },
     {
       "nombre": "Sydney",
+      "coordenadas": [0.869, 0.718],
       "pistas": [
       ]
     },
     {
       "nombre": "Singapur",
+      "coordenadas": [0.762, 0.518],
       "pistas": [
       ]
     },
     {
       "nombre": "Tokyo",
-      "pistas": [
-      ]
-    },
-    {
-      "nombre": "Estambul",
+      "coordenadas": [0.839, 0.324],
       "pistas": [
       ]
     }

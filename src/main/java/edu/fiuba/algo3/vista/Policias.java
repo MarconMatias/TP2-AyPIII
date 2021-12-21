@@ -2,6 +2,7 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.componentes.Cuaderno.Cuaderno;
 import edu.fiuba.algo3.componentes.Imagen.Imagen;
+import edu.fiuba.algo3.componentes.Imagen.Tarjetas;
 import edu.fiuba.algo3.controlador.Policia.PoliciaControlador;
 import edu.fiuba.algo3.controlador.Radio.RadioControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
@@ -58,6 +59,13 @@ public class Policias extends Cuaderno {
 
         setRadio(juego.getRadio());
         setControlador(controlador);
+
+        ponerTarjetas();
+    }
+
+    private void ponerTarjetas() {
+        Tarjetas tarjetas = new Tarjetas(640);
+        agregar(tarjetas, 0.9, 0.9);
     }
 
     public void setRadio(Radio radio) {
