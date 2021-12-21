@@ -34,7 +34,11 @@ public class MapaDestinos extends Mapamundi {
     }
 
     private void setControlador(MapaDestinosControlador controlador) {
-        /** \todo. */
+        if(null == controlador) {
+            return;
+        }
+        librito.setOnMouseClicked(controlador::libritoClicked);
+        librito.setOnKeyPressed(controlador::libritoKeyPressed);
     }
 
     public void setRadio(Radio radio) {
