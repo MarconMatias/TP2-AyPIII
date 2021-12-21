@@ -52,7 +52,7 @@ public class PoliciaControlador {
             Mision mision = juego.nuevaMision(policia);
             Ciudad ciudad = mision.getCiudadActual();
             LibroCiudadControlador controladorLibro = new LibroCiudadControlador(juego, mision, controladorStage);
-            LibroCiudad libro = new LibroCiudad(juego, mision, ciudad, controladorLibro);
+            LibroCiudad libro = new LibroCiudad(juego, mision, controladorLibro);
             controladorStage.cambiar(libro);
             /* liberar() */
         } catch(Exception ex) {

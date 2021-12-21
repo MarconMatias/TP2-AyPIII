@@ -19,9 +19,10 @@ import javafx.scene.transform.Rotate;
 public class LibroCiudad extends Libro {
     private final Mapita mapita;
 
-    public LibroCiudad(Juego juego, Mision mision, Ciudad ciudad) {
+    public LibroCiudad(Juego juego, Mision mision) {
         super();
 
+        Ciudad ciudad = mision.getCiudadActual();
         Label tituloCiudad = new Label();
         tituloCiudad.setText(ciudad.getNombre());
         tituloCiudad.setAlignment(Pos.CENTER);
@@ -53,8 +54,8 @@ public class LibroCiudad extends Libro {
         setRadio(juego.getRadio());
     }
 
-    public LibroCiudad(Juego juego, Mision mision, Ciudad ciudad, LibroCiudadControlador controlador) {
-        this(juego, mision, ciudad);
+    public LibroCiudad(Juego juego, Mision mision, LibroCiudadControlador controlador) {
+        this(juego, mision);
         setControlador(controlador);
     }
 
