@@ -2,12 +2,14 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.componentes.Imagen.Destino;
 import edu.fiuba.algo3.componentes.Imagen.Imagen;
-import edu.fiuba.algo3.componentes.Mapamundi.*;
+import edu.fiuba.algo3.componentes.Imagen.Logo;
+import edu.fiuba.algo3.componentes.Mapamundi.Mapamundi;
 import edu.fiuba.algo3.componentes.Trayecto.Trayecto;
 import edu.fiuba.algo3.componentes.bindings.CargandoBinding;
 import edu.fiuba.algo3.componentes.bindings.Point2DBindingXY;
 import edu.fiuba.algo3.componentes.bindings.SimplePoint2DBinding;
-import javafx.beans.property.*;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Region;
@@ -20,6 +22,8 @@ public class Splash extends Mapamundi {
     private Point2DBindingXY hasta = new SimplePoint2DBinding(0.8460, 0.7660);
 
     public Splash() {
+        Logo logo = new Logo(1728d);
+        agregar(logo, 0.5, 0.172);
         labelEstado = new Label("Cargando");
         labelEstado.prefWidthProperty().bind(nuevoXRelativo(0.9));
         labelEstado.setAlignment(Pos.CENTER);
