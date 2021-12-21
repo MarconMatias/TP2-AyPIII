@@ -7,6 +7,7 @@ public class Logo extends Imagen {
         super(urlDesdeRecursos("logo.png"));
         this.setViewOrder(viewOrder);
     }
+
     public Logo(double ancho) {
         this();
         double alto =  getImage().getHeight() * ancho/ getImage().getWidth();

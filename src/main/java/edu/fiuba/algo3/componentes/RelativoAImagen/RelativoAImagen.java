@@ -14,6 +14,7 @@ import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Region;
+import javafx.scene.shape.Rectangle;
 
 public class RelativoAImagen extends Group {
     private final Image fondo;
@@ -29,6 +30,11 @@ public class RelativoAImagen extends Group {
         imageView.setViewOrder(0);
         imageView.viewportProperty().set(new Rectangle2D(0,0,fondo.getWidth(),fondo.getHeight()));
         this.getChildren().add(imageView);
+
+        Rectangle clip = new Rectangle(0,0,10,10);
+        clip.widthProperty().bind(imagen.widthProperty());
+        clip.heightProperty().bind(imagen.heightProperty());
+        setClip(clip);
     }
 
     public RelativoAImagen(String path) {
