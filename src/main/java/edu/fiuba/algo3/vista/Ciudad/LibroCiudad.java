@@ -1,8 +1,6 @@
 package edu.fiuba.algo3.vista.Ciudad;
 
-import edu.fiuba.algo3.componentes.Imagen.Imagen;
-import edu.fiuba.algo3.componentes.Imagen.Mapita;
-import edu.fiuba.algo3.componentes.Imagen.Tarjetas;
+import edu.fiuba.algo3.componentes.Imagen.*;
 import edu.fiuba.algo3.componentes.Libro.Libro;
 import edu.fiuba.algo3.controlador.Ciudad.LibroCiudadControlador;
 import edu.fiuba.algo3.controlador.Radio.RadioControlador;
@@ -19,6 +17,8 @@ import javafx.scene.transform.Rotate;
 
 public class LibroCiudad extends Libro {
     private final Mapita mapita;
+    private final IconoEdificios edificios;
+    private final IconoVolver volver;
 
     public LibroCiudad(Juego juego, Mision mision) {
         super();
@@ -52,6 +52,12 @@ public class LibroCiudad extends Libro {
         mapita = new Mapita(640);
         agregar(mapita, 0.08, 0.4);
 
+        edificios = new IconoEdificios(640);
+        agregar(edificios, 0.08, 0.5);
+
+        volver = new IconoVolver(320);
+        agregar(volver, 0.9, 0.1);
+
         setRadio(juego.getRadio());
         ponerTarjetas();
     }
@@ -70,8 +76,12 @@ public class LibroCiudad extends Libro {
         if(null == controlador) {
             return;
         }
+        volver.setOnMouseClicked(controlador::edificiosClicked);
+        volver.setOnKeyPressed(controlador::edificiosKeyPressed);
         mapita.setOnMouseClicked(controlador::mapitaClicked);
         mapita.setOnKeyPressed(controlador::mapitaKeyPressed);
+        edificios.setOnMouseClicked(controlador::edificiosClicked);
+        edificios.setOnKeyPressed(controlador::edificiosKeyPressed);
     }
 
     public void setRadio(Radio radio) {
