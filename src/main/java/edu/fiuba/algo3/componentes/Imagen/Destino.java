@@ -17,7 +17,6 @@ public class Destino extends ImagenSeleccionable {
                 ordenDeseleccionado);
         viewOrderProperty().bind(orden);
         this.nombre = nombre;
-        setWidth(96);
     }
 
     public Destino(String nombre) {

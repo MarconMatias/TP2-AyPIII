@@ -19,6 +19,7 @@ public class DestinoCiudad extends Destino {
     public DestinoCiudad(Ciudad ciudad) {
         super(ciudad.getNombre());
         this.ciudad = ciudad;
+        setWidth(96);
         addEventHandler(MouseEvent.MOUSE_CLICKED, this::mouseClicked);
         addEventHandler(KeyEvent.KEY_PRESSED, this::keyPressed);
     }

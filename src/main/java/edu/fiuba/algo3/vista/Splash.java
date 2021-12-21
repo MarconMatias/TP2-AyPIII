@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.componentes.Imagen.Destino;
-import edu.fiuba.algo3.componentes.Imagen.Imagen;
 import edu.fiuba.algo3.componentes.Imagen.Logo;
 import edu.fiuba.algo3.componentes.Mapamundi.Mapamundi;
 import edu.fiuba.algo3.componentes.Trayecto.Trayecto;
@@ -30,8 +29,15 @@ public class Splash extends Mapamundi {
         labelEstado.setStyle("-fx-font: 120 Arial");
         labelEstado.getStyleClass().add("cargandoMapamundi");
         agregar((Region) labelEstado, 0.5, 0.9);
-        Imagen origen = agregar(new Destino(""), desde.xProperty(), desde.yProperty());
-        Imagen destino = agregar(new Destino(""), hasta.xProperty(), hasta.yProperty());
+
+        Destino origen = new Destino("");
+        origen.setWidth(96);
+        agregar(origen, desde.xProperty(), desde.yProperty());
+
+        Destino destino = new Destino("");
+        destino.setWidth(96);
+        agregar(destino, hasta.xProperty(), hasta.yProperty());
+
         Trayecto trayecto = agregarTrayecto(desde, hasta);
         labelEstado.textProperty().bind(new CargandoBinding(progresoProperty(),textoFinal));
         cooordenadasAvionProperty().bind(nuevoRelativoConAbsoluto(trayecto.puntoDeProgreso(progreso)));
