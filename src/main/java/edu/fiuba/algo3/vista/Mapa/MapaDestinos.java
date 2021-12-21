@@ -1,25 +1,20 @@
 package edu.fiuba.algo3.vista.Mapa;
 
-import edu.fiuba.algo3.componentes.Imagen.Imagen;
+import edu.fiuba.algo3.componentes.Imagen.IconoVolver;
 import edu.fiuba.algo3.componentes.Libro.Librito;
 import edu.fiuba.algo3.componentes.Mapamundi.Mapamundi;
 import edu.fiuba.algo3.componentes.Trayecto.Trayecto;
 import edu.fiuba.algo3.componentes.bindings.AnguloDeDestinoBinding;
 import edu.fiuba.algo3.controlador.Mapa.MapaDestinosControlador;
-import edu.fiuba.algo3.controlador.Radio.RadioControlador;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
-import edu.fiuba.algo3.modelo.Radio.Radio;
 import edu.fiuba.algo3.vista.Ciudad.DestinoCiudad;
-import edu.fiuba.algo3.vista.Radio.Walkman;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.geometry.Point2D;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +30,7 @@ public class MapaDestinos extends Mapamundi {
     private final ObjectProperty<DestinoCiudad> destinoSeleccionado = new SimpleObjectProperty<>(null);
     private final DoubleProperty progreso = new SimpleDoubleProperty(0d);
     private final ObjectProperty<DestinoCiudad> destinoElegido = new SimpleObjectProperty<>(null);
+    private final IconoVolver volver;
 
     public MapaDestinos(Juego juego, Mision mision, MapaDestinosControlador controlador)
     {
@@ -42,6 +38,9 @@ public class MapaDestinos extends Mapamundi {
         this.juego = juego;
         this.mision = mision;
         this.controlador = controlador;
+
+        volver = new IconoVolver(320);
+        agregar(volver, 0.9, 0.1);
 
         librito = new Librito(640);
         agregar(librito, 0.08, 0.4);
@@ -95,17 +94,6 @@ public class MapaDestinos extends Mapamundi {
         librito.setOnMouseClicked(controlador::libritoClicked);
         librito.setOnKeyPressed(controlador::libritoKeyPressed);
         destinoElegido.addListener(ev->controlador.destinoElegido(destinoElegido.get()));
-    }
-
-    public void setRadio(Radio radio) {
-        try {
-            Walkman walkman = new Walkman(new RadioControlador(radio));
-            agregar((Imagen) walkman, 0.026, 0.285);
-        } catch(Exception ex) {
-            ex.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.WARNING, "Error al crear la radio, es posible que la escuche pero no pueda controlarla.", ButtonType.OK);
-            alert.showAndWait();
-        }
     }
 
 }
