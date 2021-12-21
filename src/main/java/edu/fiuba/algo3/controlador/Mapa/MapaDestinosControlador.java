@@ -45,7 +45,7 @@ public class MapaDestinosControlador {
             /* liberar() */
         } catch(Exception ex) {
             ex.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Error al abrir mapa: " + ex, ButtonType.OK);
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Error al abrir libro: " + ex, ButtonType.OK);
             alert.showAndWait();
         }
     }
