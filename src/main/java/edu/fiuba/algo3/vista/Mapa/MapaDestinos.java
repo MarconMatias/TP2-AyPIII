@@ -3,20 +3,30 @@ package edu.fiuba.algo3.vista.Mapa;
 import edu.fiuba.algo3.componentes.Imagen.Imagen;
 import edu.fiuba.algo3.componentes.Libro.Librito;
 import edu.fiuba.algo3.componentes.Mapamundi.Mapamundi;
+import edu.fiuba.algo3.componentes.Trayecto.Trayecto;
 import edu.fiuba.algo3.controlador.Mapa.MapaDestinosControlador;
 import edu.fiuba.algo3.controlador.Radio.RadioControlador;
+import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.modelo.Radio.Radio;
+import edu.fiuba.algo3.vista.Ciudad.DestinoCiudad;
 import edu.fiuba.algo3.vista.Radio.Walkman;
+import javafx.geometry.Point2D;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MapaDestinos extends Mapamundi {
     private final Juego juego;
     private final Mision mision;
     private final MapaDestinosControlador controlador;
     private final Librito librito;
+    private final List<DestinoCiudad> destinos = new ArrayList<>();
+    private final Ciudad actual;
+    private final Point2D origen;
 
     public MapaDestinos(Juego juego, Mision mision, MapaDestinosControlador controlador)
     {
@@ -28,9 +38,29 @@ public class MapaDestinos extends Mapamundi {
         librito = new Librito(640);
         agregar(librito, 0.08, 0.4);
 
-        setRadio(juego.getRadio());
+        actual = mision.getCiudadActual();
+        origen = new Point2D(actual.getCoordenadaX(), actual.getCoordenadaY());
+        cooordenadasAvionProperty().set(actual.getCoordenadaX(), actual.getCoordenadaY());
+        agregarDestinos(mision.getCiudadesVecinas());
+        agregarTrayectos();
 
+        setRadio(juego.getRadio());
         setControlador(controlador);
+    }
+
+    private void agregarDestinos(List<Ciudad> ciudades) {
+        for(Ciudad ciudad : ciudades) {
+            DestinoCiudad destino = new DestinoCiudad(ciudad);
+            agregar(destino, ciudad.getCoordenadaX(), ciudad.getCoordenadaY());
+            destinos.add(destino);
+        }
+    }
+
+    private void agregarTrayectos() {
+        for(DestinoCiudad destino : destinos) {
+            Trayecto trayecto = agregarTrayecto(origen, destino.getCoordenadas());
+            destino.setTrayecto(trayecto);
+        }
     }
 
     private void setControlador(MapaDestinosControlador controlador) {
