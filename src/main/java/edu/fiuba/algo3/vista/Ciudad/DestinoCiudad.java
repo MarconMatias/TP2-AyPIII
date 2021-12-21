@@ -64,4 +64,8 @@ public class DestinoCiudad extends Destino {
     public ObjectProperty<Event> elegidoProperty() {
         return elegido;
     }
+
+    public Ciudad getCiudad() {
+        return ciudad;
+    }
 }
