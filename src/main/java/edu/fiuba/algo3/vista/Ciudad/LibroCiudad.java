@@ -4,7 +4,10 @@ import edu.fiuba.algo3.componentes.Imagen.Imagen;
 import edu.fiuba.algo3.componentes.Imagen.Mapita;
 import edu.fiuba.algo3.componentes.Libro.Libro;
 import edu.fiuba.algo3.controlador.Ciudad.LibroCiudadControlador;
+import edu.fiuba.algo3.controlador.Radio.RadioControlador;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
+import edu.fiuba.algo3.modelo.Juego.Juego;
+import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.modelo.Radio.Radio;
 import edu.fiuba.algo3.vista.Radio.Walkman;
 import javafx.geometry.Pos;
@@ -16,7 +19,7 @@ import javafx.scene.transform.Rotate;
 public class LibroCiudad extends Libro {
     private final Mapita mapita;
 
-    public LibroCiudad(Ciudad ciudad) {
+    public LibroCiudad(Juego juego, Mision mision, Ciudad ciudad) {
         super();
 
         Label tituloCiudad = new Label();
@@ -46,10 +49,12 @@ public class LibroCiudad extends Libro {
 
         mapita = new Mapita(640);
         agregar(mapita, 0.08, 0.4);
+
+        setRadio(juego.getRadio());
     }
 
-    public LibroCiudad(Ciudad ciudad, LibroCiudadControlador controlador) {
-        this(ciudad);
+    public LibroCiudad(Juego juego, Mision mision, Ciudad ciudad, LibroCiudadControlador controlador) {
+        this(juego, mision, ciudad);
         setControlador(controlador);
     }
 
@@ -57,12 +62,13 @@ public class LibroCiudad extends Libro {
         if(null == controlador) {
             return;
         }
-        /** ... **/
+        mapita.setOnMouseClicked(controlador::mapitaClicked);
+        mapita.setOnKeyPressed(controlador::mapitaKeyPressed);
     }
 
     public void setRadio(Radio radio) {
         try {
-            Walkman walkman = new Walkman();
+            Walkman walkman = new Walkman(new RadioControlador(radio));
             agregar((Imagen) walkman, 0.026, 0.285);
         } catch(Exception ex) {
             ex.printStackTrace();
