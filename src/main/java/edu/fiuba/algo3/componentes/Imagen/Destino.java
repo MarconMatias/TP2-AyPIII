@@ -10,14 +10,26 @@ public class Destino extends ImagenSeleccionable {
     private static final Image desel = new Image(urlDesdeRecursos("Ciudad/DestinoCiudad_640_desel.png"));
     private String nombre;
 
-    public Destino(String nombre) {
-        super(sel,desel);
+    public Destino(Image imageSel, Image imageDesel, String nombre) {
+        super(imageSel, imageDesel);
         BooleanDoubleBinding orden = new BooleanDoubleBinding(focusedProperty(),
                 ordenSeleccionado,
                 ordenDeseleccionado);
         viewOrderProperty().bind(orden);
         this.nombre = nombre;
         setWidth(96);
+    }
+
+    public Destino(String nombre) {
+        this(getImageSel(), getImageDesel(), nombre);
+    }
+
+    protected static Image getImageDesel() {
+        return desel;
+    }
+
+    protected static Image getImageSel() {
+        return sel;
     }
 
     public String getNombre() {
