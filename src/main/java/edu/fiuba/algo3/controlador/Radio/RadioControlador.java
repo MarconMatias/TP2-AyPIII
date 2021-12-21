@@ -13,7 +13,7 @@ public class RadioControlador {
         this.radio = radio;
     }
 
-    public void bind(Node nodo) {
+    public void enlazar(Node nodo) {
         nodo.setOnKeyPressed(this::handleKeyPressed);
         nodo.addEventHandler(MouseEvent.MOUSE_CLICKED, this::handleClick);
     }
