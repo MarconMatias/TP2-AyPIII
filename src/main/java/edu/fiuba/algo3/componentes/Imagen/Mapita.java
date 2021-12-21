@@ -4,6 +4,7 @@ import javafx.beans.binding.DoubleBinding;
 import javafx.beans.binding.ObjectBinding;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 
 public class Mapita extends Imagen {
 
@@ -29,6 +30,7 @@ public class Mapita extends Imagen {
         };
         brilloHover.brightnessProperty().bind(hoverBinding);
         brilloHover.hueProperty().bind(hoverBinding);
+        addEventHandler(MouseEvent.MOUSE_CLICKED, this::mouseClicked);
         setFocusTraversable(true);
 
         imageProperty().bind(new ObjectBinding<Image>() {
@@ -49,4 +51,13 @@ public class Mapita extends Imagen {
         setFitHeight(alto);
         setFitWidth(ancho);
     }
+
+    private void mouseClicked(MouseEvent mouseEvent) {
+        if(!isFocused()) {
+            requestFocus();
+            mouseEvent.consume();
+            return;
+        }
+    }
+
 }
