@@ -32,8 +32,9 @@ public class MapaDestinos extends Mapamundi {
     private final List<DestinoCiudad> destinos = new ArrayList<>();
     private final Ciudad actual;
     private final Point2D origen;
-    private final ObjectProperty<DestinoCiudad> destinoSeleccionado = new SimpleObjectProperty<>();
+    private final ObjectProperty<DestinoCiudad> destinoSeleccionado = new SimpleObjectProperty<>(null);
     private final DoubleProperty progreso = new SimpleDoubleProperty(0d);
+    private final ObjectProperty<DestinoCiudad> destinoElegido = new SimpleObjectProperty<>(null);
 
     public MapaDestinos(Juego juego, Mision mision, MapaDestinosControlador controlador)
     {
@@ -70,6 +71,12 @@ public class MapaDestinos extends Mapamundi {
                 }
             });
 
+            destino.elegidoProperty().addListener(ev -> {
+                if(null != ev) {
+                    destinoElegido.set(destino);
+                }
+            });
+
             destinos.add(destino);
         }
     }
@@ -87,6 +94,7 @@ public class MapaDestinos extends Mapamundi {
         }
         librito.setOnMouseClicked(controlador::libritoClicked);
         librito.setOnKeyPressed(controlador::libritoKeyPressed);
+        destinoElegido.addListener(ev->controlador.destinoElegido(destinoElegido.get()));
     }
 
     public void setRadio(Radio radio) {
