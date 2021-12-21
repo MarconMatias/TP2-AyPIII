@@ -4,7 +4,6 @@ import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 
 import java.util.*;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Mapa {
@@ -71,11 +70,11 @@ public class Mapa {
     public void agregarConexion(String origen, String destino, int distanciaKm) {
         Ciudad ciudadOrigen = ciudadesPorNombre.get(origen);
         if(null == ciudadOrigen) {
-            throw new RuntimeException("El origen no es una ciudad existente.");
+            throw new RuntimeException("El origen "+origen+" no es una ciudad existente.");
         }
         Ciudad ciudadDestino = ciudadesPorNombre.get(destino);
         if(null == ciudadDestino) {
-            throw new RuntimeException("El destino no es una ciudad existente.");
+            throw new RuntimeException("El destino "+destino+" no es una ciudad existente.");
         }
         agregarConexion(ciudadOrigen, ciudadDestino, distanciaKm);
     }

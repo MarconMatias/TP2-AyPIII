@@ -6,10 +6,7 @@ import java.util.Map;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Item.Item;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
-import edu.fiuba.algo3.modelo.Lector.LectorCiudad;
-import edu.fiuba.algo3.modelo.Lector.LectorItem;
-import edu.fiuba.algo3.modelo.Lector.LectorLadron;
-import edu.fiuba.algo3.modelo.Lector.LectorPolicia;
+import edu.fiuba.algo3.modelo.Lector.*;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 
 public class DatosJuego {
@@ -17,7 +14,9 @@ public class DatosJuego {
   LectorLadron lectorLadron = new LectorLadron();
   LectorItem lectorItem = new LectorItem();
   LectorCiudad lectorCiudad = new LectorCiudad();
+  Map<String,Ciudad> ciudades = null;
   LectorPolicia lectorPolicia = new LectorPolicia();
+  LectorMapa lectorMapa = new LectorMapa();
 
   public DatosJuego() {
 
@@ -32,9 +31,15 @@ public class DatosJuego {
   }
 
   public Map<String, Ciudad> leerCiudades() {
-    return lectorCiudad.leerCiudades();
+    if(null != ciudades) {
+      return ciudades;
+    }
+    return ciudades = lectorCiudad.leerCiudades();
   }
 
+  public Mapa leerMapa(Map<String, Ciudad> ciudades) {
+    return lectorMapa.leerMapa(new Mapa(leerCiudades()));
+  }
   public ArrayList<Policia> leerPolicias() {
     return lectorPolicia.leerPolicias();
   }
