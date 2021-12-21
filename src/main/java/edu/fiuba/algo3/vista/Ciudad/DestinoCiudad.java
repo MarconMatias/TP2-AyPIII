@@ -18,11 +18,14 @@ public class DestinoCiudad extends Destino {
         return new Point2D(ciudad.getCoordenadaX(), ciudad.getCoordenadaY());
     }
 
-    public void getTrayecto(Trayecto trayecto) {
+    public void setTrayecto(Trayecto trayecto) {
         this.trayecto = trayecto;
     }
 
-    public void setTrayecto(Trayecto trayecto) {
-        this.trayecto = trayecto;
+    public Double anguloParaProgreso(double valorProgreso) {
+        if(null == trayecto) {
+            return null;
+        }
+        return trayecto.anguloEnProgreso(valorProgreso);
     }
 }
