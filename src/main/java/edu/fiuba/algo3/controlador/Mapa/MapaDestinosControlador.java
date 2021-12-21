@@ -4,6 +4,7 @@ import edu.fiuba.algo3.ControladorStage;
 import edu.fiuba.algo3.controlador.Ciudad.LibroCiudadControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
+import edu.fiuba.algo3.vista.Ciudad.DestinoCiudad;
 import edu.fiuba.algo3.vista.Ciudad.LibroCiudad;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -47,5 +48,10 @@ public class MapaDestinosControlador {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Error al abrir mapa: " + ex, ButtonType.OK);
             alert.showAndWait();
         }
+    }
+
+
+    public void destinoElegido(DestinoCiudad destino) {
+        System.out.println(destino.getNombre());
     }
 }
