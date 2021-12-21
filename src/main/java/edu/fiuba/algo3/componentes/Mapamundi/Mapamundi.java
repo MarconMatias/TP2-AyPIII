@@ -2,10 +2,8 @@ package edu.fiuba.algo3.componentes.Mapamundi;
 
 import edu.fiuba.algo3.componentes.Imagen.Avion;
 import edu.fiuba.algo3.componentes.RelativoAImagen.RelativoAImagen;
-import edu.fiuba.algo3.componentes.bindings.Point2DBindingXY;
 import edu.fiuba.algo3.componentes.bindings.SimplePoint2DBinding;
 import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.geometry.Point2D;
 
 public class Mapamundi extends RelativoAImagen {
@@ -13,7 +11,7 @@ public class Mapamundi extends RelativoAImagen {
     private final SimplePoint2DBinding cooordenadasAvion = new SimplePoint2DBinding(0.5,0.5);
 
     public Mapamundi() {
-        super("src/main/java/edu/fiuba/algo3/recursos/MapaAlgoThief_3840.jpeg");
+        super("src/main/java/edu/fiuba/algo3/recursos/Mapa/MapaAlgoThief_3840.jpeg");
         agregar(avion, cooordenadasAvion.xProperty(), cooordenadasAvion.yProperty());
     }
 
