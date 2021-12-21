@@ -2,6 +2,7 @@ package edu.fiuba.algo3.vista.Ciudad;
 
 import edu.fiuba.algo3.componentes.Imagen.Imagen;
 import edu.fiuba.algo3.componentes.Imagen.Mapita;
+import edu.fiuba.algo3.componentes.Imagen.Tarjetas;
 import edu.fiuba.algo3.componentes.Libro.Libro;
 import edu.fiuba.algo3.controlador.Ciudad.LibroCiudadControlador;
 import edu.fiuba.algo3.controlador.Radio.RadioControlador;
@@ -52,6 +53,12 @@ public class LibroCiudad extends Libro {
         agregar(mapita, 0.08, 0.4);
 
         setRadio(juego.getRadio());
+        ponerTarjetas();
+    }
+
+    private void ponerTarjetas() {
+        Tarjetas tarjetas = new Tarjetas(640);
+        agregar(tarjetas, 0.9, 0.9);
     }
 
     public LibroCiudad(Juego juego, Mision mision, LibroCiudadControlador controlador) {
