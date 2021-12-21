@@ -47,6 +47,7 @@ public class RadioSonido {
             if(numero>0) {
                 musica = new MediaPlayer(medias.get(numero-1));
                 musica.setAutoPlay(true);
+                musica.setCycleCount(MediaPlayer.INDEFINITE);
                 musica.play();
                 radio.setTitulo(String.format("Track %02d",numero));
             } else {
