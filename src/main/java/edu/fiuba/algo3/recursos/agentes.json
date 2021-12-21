@@ -11,6 +11,10 @@
     {
       "nombre": "Agus",
       "arrestos": 5
+    },
+    {
+      "nombre": "Mati",
+      "arrestos": 1
     }
   ]
 }
