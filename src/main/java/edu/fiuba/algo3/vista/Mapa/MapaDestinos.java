@@ -91,4 +91,5 @@ public class MapaDestinos extends Mapamundi {
         destinoElegido.addListener(ev->controlador.destinoElegido(destinoElegido.get()));
     }
 
+
 }
