@@ -1,9 +1,7 @@
 package edu.fiuba.algo3.modelo.Radio.EstadoAlimentacion;
 
-import edu.fiuba.algo3.modelo.Evento.VolumenCambia;
 import edu.fiuba.algo3.modelo.Radio.EstadoTracks.EstadoTracks;
 import edu.fiuba.algo3.modelo.Radio.Volumen.Volumen;
-import edu.fiuba.algo3.modelo.Radio.Radio;
 
 public class EstadoEncendida implements IEstadoAlimentacion {
     @Override
@@ -36,12 +34,16 @@ public class EstadoEncendida implements IEstadoAlimentacion {
         return volumen.getVolumen();
     }
 
-    public double subirVolumen(Volumen volumen){
-        return volumen.getVolumen() * 1.2;
+    public void subirVolumen(Volumen volumen){
+        volumen.subirVolumen();
     }
 
-    public double bajarVolumen(Volumen volumen){
+    public void bajarVolumen(Volumen volumen){
+        volumen.bajarVolumen();
+    }
 
-        return volumen.getVolumen() * 0.5;
+    @Override
+    public void setVolumen(Volumen volumen, double nuevoValor) {
+        volumen.setVolumen(nuevoValor);
     }
 }

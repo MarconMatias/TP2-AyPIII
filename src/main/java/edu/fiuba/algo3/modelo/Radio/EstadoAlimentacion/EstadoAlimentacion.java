@@ -1,7 +1,5 @@
 package edu.fiuba.algo3.modelo.Radio.EstadoAlimentacion;
 
-import edu.fiuba.algo3.modelo.Evento.VolumenCambia;
-import edu.fiuba.algo3.modelo.Radio.Radio;
 import edu.fiuba.algo3.modelo.Radio.EstadoTracks.EstadoTracks;
 import edu.fiuba.algo3.modelo.Radio.Volumen.Volumen;
 
@@ -32,13 +30,15 @@ public class EstadoAlimentacion {
         return estado.getVolumen(volumen);
     }
 
-    public double subirVolumen(Radio radio,Volumen volumen) {
-        VolumenCambia nuevo_volumen =  new VolumenCambia(radio, estado.subirVolumen(volumen));
-        return nuevo_volumen.getVolumen();     
+    public void subirVolumen(Volumen volumen) {
+        estado.subirVolumen(volumen);
     }
 
-    public double bajarVolumen(Radio radio,Volumen volumen) {
-        VolumenCambia nuevo_volumen = new VolumenCambia(radio, estado.bajarVolumen(volumen));
-        return nuevo_volumen.getVolumen();         
+    public void bajarVolumen(Volumen volumen) {
+        estado.bajarVolumen(volumen);
+    }
+
+    public void setVolumen(Volumen volumen, double nuevoValor) {
+        estado.setVolumen(volumen,nuevoValor);
     }
 }
