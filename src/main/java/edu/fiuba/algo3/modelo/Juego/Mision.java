@@ -230,10 +230,6 @@ public class Mision {
         return FXCollections.observableList(computadora.buscarSospechosos());
     }
 
-    public void oirOrden(ComputadoraListener oyente) {
-        computadora.oirTodo(oyente);
-    }
-
     public ObservableMap<String, String> getDetallesDeOrden() {
         return computadora.getDetalles();
     }
