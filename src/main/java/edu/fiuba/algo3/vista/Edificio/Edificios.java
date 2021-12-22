@@ -1,12 +1,12 @@
 package edu.fiuba.algo3.vista.Edificio;
 
 import edu.fiuba.algo3.componentes.Libro.Librito;
-import edu.fiuba.algo3.componentes.RelativoAImagen.RelativoAImagen;
 import edu.fiuba.algo3.componentes.Trayecto.Trayecto;
 import edu.fiuba.algo3.controlador.Edificio.EdificiosControlador;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
+import edu.fiuba.algo3.vista.Juego.Pantalla;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleDoubleProperty;
@@ -16,7 +16,7 @@ import javafx.geometry.Point2D;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Edificios extends RelativoAImagen {
+public class Edificios extends Pantalla {
     private final Librito librito;
     private final List<DestinoEdificio> destinos = new ArrayList<>();
     private final static Point2D origen = new Point2D(0.5, 0.5);

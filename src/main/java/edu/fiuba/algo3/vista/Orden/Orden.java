@@ -2,17 +2,17 @@ package edu.fiuba.algo3.vista.Orden;
 
 import edu.fiuba.algo3.componentes.Imagen.Imagen;
 import edu.fiuba.algo3.componentes.Libro.Librito;
-import edu.fiuba.algo3.componentes.RelativoAImagen.RelativoAImagen;
 import edu.fiuba.algo3.controlador.Orden.DetallesControlador;
 import edu.fiuba.algo3.controlador.Orden.OrdenControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
+import edu.fiuba.algo3.vista.Juego.Pantalla;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.transform.Rotate;
 
-public class Orden extends RelativoAImagen {
+public class Orden extends Pantalla {
     private final static Image fondo = new Image(Imagen.urlDesdeRecursos("Orden/Orden_3840.jpeg"));
     private final Juego juego;
     private final Mision mision;
