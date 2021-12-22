@@ -9,6 +9,14 @@ public class FotoCiudad extends Imagen {
     }
 
     private static String pathDeCiudad(Ciudad ciudad) {
-        return urlDesdeRecursos("Ciudad/Ciudad_generica_1024.png");
+        String url;
+        if(ciudad != null){
+            url = "Ciudad/Foto_" + ciudad.getNombre().replace(" ", "_") + ".jpeg";
+        }
+        else{
+            url = "Ciudad/Ciudad_generica_1024.png";
+        }
+        return urlDesdeRecursos(url);
+        //return urlDesdeRecursos("Ciudad/Ciudad_generica_1024.png");
     }
 }
