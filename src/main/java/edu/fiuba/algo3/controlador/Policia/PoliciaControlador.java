@@ -26,28 +26,19 @@ public class PoliciaControlador {
     }
 
     public void botonNuevoClicked(MouseEvent mouseEvent) {
-        if(1 == mouseEvent.getButton().ordinal()) {
+        if (1 == mouseEvent.getButton().ordinal()) {
             hacerNuevo();
         }
     }
 
     public void botonNuevoKeyPressed(KeyEvent keyEvent) {
-        if(KeyCode.ENTER==keyEvent.getCode()) {
+        if (KeyCode.ENTER == keyEvent.getCode()) {
             hacerNuevo();
         }
     }
 
     private void hacerNuevo() {
-        /** \todo Refactorizar con Excepciones personalizadas y un solo try-catch. **/
-        Policia policia;
-        try {
-            policia = juego.nuevoPolicia(nombreProperty.get());
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Se produjo un error al crear el policía: "+ex, ButtonType.OK);
-            alert.showAndWait();
-            return;
-        }
+        Policia policia = crearPolicia();
         try {
             Mision mision = juego.nuevaMision(policia);
             Ciudad ciudad = mision.getCiudadActual();
@@ -55,17 +46,35 @@ public class PoliciaControlador {
             LibroCiudad libro = new LibroCiudad(juego, mision, controladorLibro);
             controladorStage.cambiar(libro);
             /* liberar() */
-        } catch(Exception ex) {
+        } catch (Exception ex) {
             ex.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR, "El policía fue creado pero no pudo crearse la misión: "+ex, ButtonType.OK);
+            Alert alert = new Alert(Alert.AlertType.ERROR,
+                    "El policía fue creado pero no pudo crearse la misión: " + ex, ButtonType.OK);
             alert.showAndWait();
         }
+    }
+
+    private Policia crearPolicia() {
+        Policia policia;
+        try {
+            policia = juego.nuevoPolicia(nombreProperty.get());
+        } catch (Exception ex) {
+
+            /** \todo Refactorizar con Excepciones personalizadas **/
+            ex.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Se produjo un error al crear el policía: " + ex,
+                    ButtonType.OK);
+            alert.showAndWait();
+            return null;
+        }
+        return policia;
     }
 
     public void listaPoliciasClicked(MouseEvent mouseEvent) {
     }
 
     public void listaPoliciasKeyPressed(KeyEvent keyEvent) {
+
     }
 
     public void bindNombreProperty(StringProperty textProperty) {

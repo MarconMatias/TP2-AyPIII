@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.transform.Rotate;
 
 public class Policias extends Cuaderno {
@@ -24,7 +25,7 @@ public class Policias extends Cuaderno {
         etiquetaNuevo.setAlignment(Pos.CENTER);
         etiquetaNuevo.setStyle("-fx-font: 120 Impact");
         etiquetaNuevo.getStyleClass().add("etiquetaNuevoIngresante");
-        etiquetaNuevo.getTransforms().setAll(new Rotate(anguloRotacion, 0,0));
+        etiquetaNuevo.getTransforms().setAll(new Rotate(anguloRotacion, 0, 0));
         agregar(etiquetaNuevo, 0.325, 0.325);
 
         nombreNuevo = new TextField();
@@ -33,7 +34,8 @@ public class Policias extends Cuaderno {
         nombreNuevo.setStyle("-fx-font: 120 Impact");
         nombreNuevo.getStyleClass().add("valorNuevoIngresante");
         nombreNuevo.setPrefWidth(1024);
-        nombreNuevo.getTransforms().setAll(new Rotate(anguloRotacion, nombreNuevo.getWidth()/2, nombreNuevo.getHeight()/2));
+        nombreNuevo.getTransforms()
+                .setAll(new Rotate(anguloRotacion, nombreNuevo.getWidth() / 2, nombreNuevo.getHeight() / 2));
         agregar(nombreNuevo, 0.535, 0.29);
 
         botonNuevo = new Button("▶");
@@ -41,7 +43,8 @@ public class Policias extends Cuaderno {
         botonNuevo.setPrefHeight(120);
         botonNuevo.setStyle("-fx-font: 80 Impact");
         botonNuevo.getStyleClass().add("botonNuevoIngresante");
-        botonNuevo.getTransforms().setAll(new Rotate(anguloRotacion, botonNuevo.getWidth()/2, botonNuevo.getHeight()/2));
+        botonNuevo.getTransforms()
+                .setAll(new Rotate(anguloRotacion, botonNuevo.getWidth() / 2, botonNuevo.getHeight() / 2));
         agregar(botonNuevo, 0.69, 0.22);
 
         listaPolicias = new ListView<Policia>(juego.getPolicias());
@@ -49,7 +52,8 @@ public class Policias extends Cuaderno {
         listaPolicias.setPrefHeight(920);
         listaPolicias.setStyle("-fx-font: 80 Impact");
         listaPolicias.getStyleClass().add("listaAgentes");
-        listaPolicias.getTransforms().setAll(new Rotate(anguloRotacion, listaPolicias.getWidth()/2, listaPolicias.getHeight()/2));
+        listaPolicias.getTransforms()
+                .setAll(new Rotate(anguloRotacion, listaPolicias.getWidth() / 2, listaPolicias.getHeight() / 2));
         agregar(listaPolicias, 0.53, 0.63);
 
         setRadio(juego.getRadio());
@@ -64,14 +68,19 @@ public class Policias extends Cuaderno {
     }
 
     public void setControlador(PoliciaControlador controlador) {
-        if(null==controlador) {
+        if (null == controlador) {
             return;
         }
+
+        Policia policiaSeleccionado = listaPolicias.getSelectionModel().getSelectedItem();
+
         botonNuevo.setOnMouseClicked(controlador::botonNuevoClicked);
         botonNuevo.setOnKeyPressed(controlador::botonNuevoKeyPressed);
+        /** TODO pasarle al controlador el policia seleccionado */
         listaPolicias.setOnMouseClicked(controlador::listaPoliciasClicked);
         listaPolicias.setOnKeyPressed(controlador::listaPoliciasKeyPressed);
         controlador.bindNombreProperty(nombreNuevo.textProperty());
         this.controlador = controlador;
     }
+
 }
