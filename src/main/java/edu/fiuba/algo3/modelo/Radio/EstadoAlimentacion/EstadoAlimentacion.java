@@ -1,15 +1,34 @@
 package edu.fiuba.algo3.modelo.Radio.EstadoAlimentacion;
 
+import edu.fiuba.algo3.modelo.Evento.RadioListener;
 import edu.fiuba.algo3.modelo.Evento.VolumenCambia;
-import edu.fiuba.algo3.modelo.Radio.Radio;
 import edu.fiuba.algo3.modelo.Radio.EstadoTracks.EstadoTracks;
+import edu.fiuba.algo3.modelo.Radio.Radio;
 import edu.fiuba.algo3.modelo.Radio.Volumen.Volumen;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class EstadoAlimentacion {
     IEstadoAlimentacion estado = new EstadoEncendida();
+    private List<RadioListener> oyentes = new ArrayList<>();
+    private final Radio radio;
+
+    public EstadoAlimentacion(Radio radio) {
+        this.radio = radio;
+    }
 
     public void pulsarBotonPrender() {
         estado = estado.pulsarBotonPrender();
+
+        VolumenCambia evento =  new VolumenCambia(radio, radio.getVolumen());
+        for(RadioListener listener : oyentes) {
+            try {
+                listener.handle(evento);
+            } catch(Exception ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 
     public boolean estaEncendida() {
@@ -32,13 +51,19 @@ public class EstadoAlimentacion {
         return estado.getVolumen(volumen);
     }
 
-    public double subirVolumen(Radio radio,Volumen volumen) {
-        VolumenCambia nuevo_volumen =  new VolumenCambia(radio, estado.subirVolumen(volumen));
-        return nuevo_volumen.getVolumen();     
+    public void subirVolumen(Volumen volumen) {
+        estado.subirVolumen(volumen);
     }
 
-    public double bajarVolumen(Radio radio,Volumen volumen) {
-        VolumenCambia nuevo_volumen = new VolumenCambia(radio, estado.bajarVolumen(volumen));
-        return nuevo_volumen.getVolumen();         
+    public void bajarVolumen(Volumen volumen) {
+        estado.bajarVolumen(volumen);
+    }
+
+    public void setVolumen(Volumen volumen, double nuevoValor) {
+        estado.setVolumen(volumen,nuevoValor);
+    }
+
+    public void escuchar(RadioListener listener) {
+        oyentes.add(listener);
     }
 }

@@ -2,12 +2,9 @@ package edu.fiuba.algo3.modelo.Ladron;
 
 import edu.fiuba.algo3.modelo.Ciudad.IDestino;
 import edu.fiuba.algo3.modelo.Pista.Filtro.IFiltroCiudad;
-import edu.fiuba.algo3.modelo.Pista.IPista;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Ladron implements ISospechoso {
   private final String nombre;
@@ -56,11 +53,27 @@ public class Ladron implements ISospechoso {
       return this.nombre;
     }
 
-  public void agregarSiCoincideDetalle(Map<String, String> detalles, ArrayList<Ladron> sospechososFiltrados) {
+  public void agregarSiCoincideDetalle(Map<String, String> detallesBuscados, ArrayList<Ladron> sospechososFiltrados) {
 
-    for (String tipo : detalles.keySet()){
-      if(this.detalles.get(tipo) != detalles.get(tipo)){return;}
+    for (String tipo : detallesBuscados.keySet()) {
+      String valorBuscado = detallesBuscados.get(tipo).trim();
+      String valorDeEste = this.detalles.get(tipo.trim());
+      if(!valorBuscado.equals(valorDeEste)) {
+        return;
+      }
     }
     sospechososFiltrados.add(this);
+  }
+
+  public void agregarDetallesAMap(Map<String, Set<String>> map) {
+    for(String tipo : detalles.keySet()) {
+      tipo = tipo.trim();
+      String valor = detalles.get(tipo).trim();
+      if(!map.containsKey(tipo)) {
+        map.put(tipo, new HashSet<String>(Set.of(valor)));
+      } else {
+        map.get(tipo).add(valor);
+      }
+    }
   }
 }

@@ -1,14 +1,10 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.componentes.Cuaderno.Cuaderno;
-import edu.fiuba.algo3.componentes.Imagen.Imagen;
 import edu.fiuba.algo3.componentes.Imagen.Tarjetas;
 import edu.fiuba.algo3.controlador.Policia.PoliciaControlador;
-import edu.fiuba.algo3.controlador.Radio.RadioControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Policia.Policia;
-import edu.fiuba.algo3.modelo.Radio.Radio;
-import edu.fiuba.algo3.vista.Radio.Walkman;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -21,7 +17,6 @@ public class Policias extends Cuaderno {
     private final TextField nombreNuevo;
     private final Button botonNuevo;
     private final ListView<Policia> listaPolicias;
-    private Walkman walkman;
     private PoliciaControlador controlador;
 
     public Policias(Juego juego, PoliciaControlador controlador) {
@@ -66,11 +61,6 @@ public class Policias extends Cuaderno {
     private void ponerTarjetas() {
         Tarjetas tarjetas = new Tarjetas(640);
         agregar(tarjetas, 0.9, 0.9);
-    }
-
-    public void setRadio(Radio radio) {
-        walkman = new Walkman(new RadioControlador(radio));
-        agregar((Imagen) walkman, 0.026, 0.285);
     }
 
     public void setControlador(PoliciaControlador controlador) {

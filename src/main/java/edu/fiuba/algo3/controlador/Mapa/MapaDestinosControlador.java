@@ -45,13 +45,17 @@ public class MapaDestinosControlador {
             /* liberar() */
         } catch(Exception ex) {
             ex.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Error al abrir mapa: " + ex, ButtonType.OK);
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Error al abrir libro: " + ex, ButtonType.OK);
             alert.showAndWait();
         }
     }
 
 
     public void destinoElegido(DestinoCiudad destino) {
-        System.out.println(destino.getNombre());
+        System.out.println("Viajando a "+destino.getNombre());
+        mision.viajarACiudad(destino.getCiudad());
+        /* De alguna forma suscribir a calendario. */
+        abrirLibro();
     }
+
 }
