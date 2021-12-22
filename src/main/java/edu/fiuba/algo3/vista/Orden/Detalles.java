@@ -21,7 +21,7 @@ public class Detalles extends ScrollPane {
         setHbarPolicy(ScrollBarPolicy.NEVER);
         setVbarPolicy(ScrollBarPolicy.AS_NEEDED);
         vBox.setSpacing(50);
-        setPrefSize(1024,750);
+        setPrefSize(1024,765);
         getStyleClass().add("vistaDetallesOrden");
 
         Label titulo = new Label("Información recolectada:");
@@ -36,4 +36,5 @@ public class Detalles extends ScrollPane {
             detalles.add(detalle);
         }
     }
+
 }
