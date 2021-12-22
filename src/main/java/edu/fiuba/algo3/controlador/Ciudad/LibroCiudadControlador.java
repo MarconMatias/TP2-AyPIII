@@ -25,14 +25,14 @@ public class LibroCiudadControlador {
     }
 
     public void mapitaClicked(MouseEvent ev) {
-        if(ev.isConsumed()) {
+        if (ev.isConsumed()) {
             return;
         }
         abrirMapa();
     }
 
     public void mapitaKeyPressed(KeyEvent ev) {
-        if(ev.isConsumed() || (KeyCode.ENTER != ev.getCode())) {
+        if (ev.isConsumed() || (KeyCode.ENTER != ev.getCode())) {
             return;
         }
         abrirMapa();
@@ -44,7 +44,7 @@ public class LibroCiudadControlador {
             MapaDestinos nuevaVista = new MapaDestinos(juego, mision, controlador);
             controladorStage.cambiar(nuevaVista);
             /* liberar() */
-        } catch(Exception ex) {
+        } catch (Exception ex) {
             ex.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR, "Error al abrir mapamundi: " + ex, ButtonType.OK);
             alert.showAndWait();
@@ -52,14 +52,14 @@ public class LibroCiudadControlador {
     }
 
     public void edificiosClicked(MouseEvent ev) {
-        if(ev.isConsumed()) {
+        if (ev.isConsumed()) {
             return;
         }
         abrirEdificios();
     }
 
     public void edificiosKeyPressed(KeyEvent ev) {
-        if(ev.isConsumed() || (KeyCode.ENTER != ev.getCode())) {
+        if (ev.isConsumed() || (KeyCode.ENTER != ev.getCode())) {
             return;
         }
         abrirEdificios();
@@ -71,7 +71,7 @@ public class LibroCiudadControlador {
             Edificios nuevaVista = new Edificios(juego, mision, controlador);
             controladorStage.cambiar(nuevaVista);
             /* liberar() */
-        } catch(Exception ex) {
+        } catch (Exception ex) {
             ex.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR, "Error al abrir plano de la ciudad: " + ex, ButtonType.OK);
             alert.showAndWait();
