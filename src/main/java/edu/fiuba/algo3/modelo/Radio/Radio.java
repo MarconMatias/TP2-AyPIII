@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Radio;
 
 import edu.fiuba.algo3.modelo.Evento.RadioListener;
+import edu.fiuba.algo3.modelo.Evento.VolumenCambia;
 import edu.fiuba.algo3.modelo.Radio.EstadoAlimentacion.EstadoAlimentacion;
 import edu.fiuba.algo3.modelo.Radio.EstadoTracks.EstadoTracks;
 import edu.fiuba.algo3.modelo.Radio.Volumen.Volumen;
@@ -42,12 +43,18 @@ public class Radio {
     public void setTitulo(String error) {
         /** \todo */
     }
+    private void setVolumen(double nuevoVolumen){
+        this.volumen = new Volumen(nuevoVolumen);
+    }
 
     public void subirVolumen() {
+        setVolumen(encendida.subirVolumen(this,volumen));
         /** \todo */
     }
 
+
     public void bajarVolumen() {
+        setVolumen(encendida.bajarVolumen(this,volumen));
         /** \todo */
     }
 

@@ -8,6 +8,7 @@ import edu.fiuba.algo3.modelo.Evento.PoliciaGana;
 import edu.fiuba.algo3.modelo.Evento.PoliciaPierde;
 import edu.fiuba.algo3.modelo.Juego.Calendario;
 import edu.fiuba.algo3.modelo.Acciones.AccionCuchilloUnica;
+import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Pista.IPista;
 import edu.fiuba.algo3.modelo.OrdenDeArresto.*;

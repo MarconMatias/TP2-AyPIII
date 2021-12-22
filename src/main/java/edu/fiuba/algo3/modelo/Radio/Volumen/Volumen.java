@@ -7,12 +7,15 @@ import java.util.List;
 
 public class Volumen {
     private List<RadioListener> oyentes = new ArrayList<>();
+    private double volumen;
 
-    public Volumen(double volumen) {
+    public Volumen(double unVolumen) {
+        this.volumen = unVolumen;
+
     }
 
     public double getVolumen() {
-        return 0.5;
+        return this.volumen;
     }
 
     public void escuchar(RadioListener listener) {
