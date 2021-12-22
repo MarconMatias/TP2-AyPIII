@@ -1,8 +1,6 @@
 package edu.fiuba.algo3.modelo.Computadora;
 
-import edu.fiuba.algo3.modelo.Ladron.ISospechoso;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
-import edu.fiuba.algo3.modelo.Ladron.SinSospechoso;
 import edu.fiuba.algo3.modelo.OrdenDeArresto.IOrden;
 import edu.fiuba.algo3.modelo.OrdenDeArresto.Orden;
 import edu.fiuba.algo3.modelo.OrdenDeArresto.SinOrden;
@@ -22,11 +20,12 @@ public class Computadora {
     }
 
     public void agregarDetalle(String tipo, String valor){
-
         detalles.put(tipo,valor);
-
     }
 
+    public String obtenerDetalle(String tipo) {
+        return detalles.get(tipo);
+    }
     public ArrayList<Ladron> buscarSospechosos() {
 
         ArrayList<Ladron> sospechososFiltrados = new ArrayList<Ladron>();

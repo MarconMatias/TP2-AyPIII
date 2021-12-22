@@ -188,6 +188,10 @@ public class Mision {
         return mapa.getCiudadesVecinas(ciudadActual);
     }
 
+    public String getDetalle(String tipo) {
+        return computadora.obtenerDetalle(tipo);
+    }
+
     public String getMensajeMision() {
         return "";
     }
