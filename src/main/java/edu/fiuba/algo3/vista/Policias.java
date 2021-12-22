@@ -10,7 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.transform.Rotate;
 
 public class Policias extends Cuaderno {
@@ -72,13 +71,16 @@ public class Policias extends Cuaderno {
             return;
         }
 
-        Policia policiaSeleccionado = listaPolicias.getSelectionModel().getSelectedItem();
-
         botonNuevo.setOnMouseClicked(controlador::botonNuevoClicked);
         botonNuevo.setOnKeyPressed(controlador::botonNuevoKeyPressed);
-        /** TODO pasarle al controlador el policia seleccionado */
-        listaPolicias.setOnMouseClicked(controlador::listaPoliciasClicked);
-        listaPolicias.setOnKeyPressed(controlador::listaPoliciasKeyPressed);
+        listaPolicias.setOnMouseClicked(ev -> {
+            Policia policiaSeleccionado = listaPolicias.getSelectionModel().getSelectedItem();
+            controlador.listaPoliciasClicked(ev, policiaSeleccionado);
+        });
+        listaPolicias.setOnKeyPressed(ev -> {
+            Policia policiaSeleccionado = listaPolicias.getSelectionModel().getSelectedItem();
+            controlador.listaPoliciasKeyPressed(ev, policiaSeleccionado);
+        });
         controlador.bindNombreProperty(nombreNuevo.textProperty());
         this.controlador = controlador;
     }

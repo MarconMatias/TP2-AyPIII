@@ -39,6 +39,10 @@ public class PoliciaControlador {
 
     private void hacerNuevo() {
         Policia policia = crearPolicia();
+        hacerMision(policia);
+    }
+
+    private void hacerMision(Policia policia) {
         try {
             Mision mision = juego.nuevaMision(policia);
             Ciudad ciudad = mision.getCiudadActual();
@@ -49,7 +53,7 @@ public class PoliciaControlador {
         } catch (Exception ex) {
             ex.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR,
-                    "El policía fue creado pero no pudo crearse la misión: " + ex, ButtonType.OK);
+                    "No pudo crearse la misión: " + ex, ButtonType.OK);
             alert.showAndWait();
         }
     }
@@ -70,11 +74,24 @@ public class PoliciaControlador {
         return policia;
     }
 
-    public void listaPoliciasClicked(MouseEvent mouseEvent) {
+    public void listaPoliciasClicked(MouseEvent event, Policia policiaSeleccionado) {
+        if(event.isConsumed() || (null == policiaSeleccionado)) {
+            return;
+        }
+        event.consume();
+        hacerMision(policiaSeleccionado);
     }
 
-    public void listaPoliciasKeyPressed(KeyEvent keyEvent) {
-
+    public void listaPoliciasKeyPressed(KeyEvent event, Policia policiaSeleccionado) {
+        if(event.isConsumed() || (null == policiaSeleccionado)) {
+            return;
+        }
+        switch(event.getCode()) {
+            case ENTER: case SPACE:
+                event.consume();
+                hacerMision(policiaSeleccionado);
+                break;
+        }
     }
 
     public void bindNombreProperty(StringProperty textProperty) {
