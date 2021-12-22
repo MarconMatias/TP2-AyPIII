@@ -12,6 +12,7 @@ import edu.fiuba.algo3.modelo.Ruta.Ruta;
 
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 public class Mision {
     private final Policia policia;
@@ -202,5 +203,17 @@ public class Mision {
 
     public Ciudad getCiudadActual() {
         return ciudadActual;
+    }
+
+    public Set<String> obtenerTiposDeDetalles() {
+        return computadora.obtenerTiposDeDetalles();
+    }
+
+    public Set<String> getValoresDeDetalleTipo(String tipo) {
+        return computadora.getValoresDeDetalleTipo(tipo);
+    }
+
+    public List<Ladron> getSospechosos() {
+        return computadora.buscarSospechosos();
     }
 }
