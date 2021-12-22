@@ -4,7 +4,7 @@ import edu.fiuba.algo3.modelo.Pista.Filtro.*;
 
 public class Puerto extends EdificioAbstracto{
     public Puerto() {
-        super(new SinFiltro());
+        super(new FiltroPais());
     }
 
     @Override

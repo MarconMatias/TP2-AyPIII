@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.Pista.Filtro.*;
 public class Biblioteca extends EdificioAbstracto {
     public Biblioteca()
     {
-        super(new SinFiltro());
+        super(new FiltroHistoria());
     }
 
     @Override
