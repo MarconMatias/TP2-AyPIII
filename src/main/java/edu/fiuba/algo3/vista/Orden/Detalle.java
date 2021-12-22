@@ -1,6 +1,9 @@
 package edu.fiuba.algo3.vista.Orden;
 
 import edu.fiuba.algo3.controlador.Orden.DetalleControlador;
+import edu.fiuba.algo3.modelo.Computadora.Evento.ComputadoraEvento;
+import edu.fiuba.algo3.modelo.Computadora.Evento.ComputadoraListener;
+import edu.fiuba.algo3.modelo.Computadora.Evento.DetalleModificadoEvento;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -10,11 +13,21 @@ import javafx.scene.layout.Priority;
 import java.util.Map;
 import java.util.function.UnaryOperator;
 
-public class Detalle extends HBox {
+public class Detalle extends HBox implements ComputadoraListener {
     private final static Map<String, String> textosTipos = Map.of("vehiculo", "Vehículo");
     private final static Map<String, String> textosValores = Map.of("Macho", "Masculino", "Hembra", "Femenino");
+    private final String tipo;
+    private final Mision mision;
+    private final Label valor;
+    private final UnaryOperator<String> valorATexto;
 
     public Detalle(String tipo, Mision mision, UnaryOperator<String> tipoATexto, UnaryOperator<String> valorATexto, DetalleControlador controlador) {
+        this.tipo = tipo;
+        this.mision = mision;
+        this.valorATexto = valorATexto;
+
+        mision.oirOrden(this);
+
         getStyleClass().add("vistaDetalle");
         setFocusTraversable(true);
 
@@ -26,7 +39,7 @@ public class Detalle extends HBox {
         titulo.getStyleClass().add("tipoDetalle");
         setHgrow(titulo, Priority.ALWAYS);
 
-        Label valor = new Label(valorATexto.apply(mision.getDetalle(tipo)));
+        valor = new Label("?");
         valor.setAlignment(Pos.TOP_LEFT);
         valor.setMinWidth(480);
         valor.setMaxWidth(480);
@@ -41,6 +54,7 @@ public class Detalle extends HBox {
             setOnKeyPressed(controlador::onKeyPressed);
             setOnMouseClicked(controlador::onMouseClicked);
         }
+        actualizar();
         this.getChildren().setAll(titulo, valor);
         this.setFocusTraversable(true);
     }
@@ -70,5 +84,21 @@ public class Detalle extends HBox {
             String texto = map.get(entrada);
             return (null == texto) ? entrada : texto;
         };
+    }
+
+    @Override
+    public void handle(ComputadoraEvento eventoGenerico) {
+        if(!(eventoGenerico instanceof DetalleModificadoEvento)) {
+            return;
+        }
+        DetalleModificadoEvento evento = ((DetalleModificadoEvento) eventoGenerico);
+        if(!evento.esTipo(tipo)) {
+            return;
+        }
+        actualizar();
+    }
+
+    private void actualizar() {
+        valor.setText(valorATexto.apply(mision.getDetalle(tipo)));
     }
 }
