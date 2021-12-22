@@ -39,7 +39,8 @@ public class App extends Application {
                 "AlgoThief — Cargando… %.2f%%");
         stage.titleProperty().bind(tituloBinding);
 
-        Splash splash = new Splash();
+        SplashControlador splashControlador = new SplashControlador(juego);
+        Splash splash = new Splash(juego, splashControlador);
         controlador = new ControladorStage(stage, splash);
         splash.requestFocus();
         splash.setFocusTraversable(false);
@@ -51,10 +52,9 @@ public class App extends Application {
         splash.progresoProperty().bind(lector.progressProperty());
         lector.start();
         stage.show();
-        SplashControlador splashControlador = new SplashControlador(splash);
         lector.setOnSucceeded(ev -> {
             stage.titleProperty().unbind();
-            splashControlador.bind(this::mostrarPolicias);
+            splashControlador.enlazarIniciar(this::mostrarPolicias);
             splash.requestFocus();
         });
         lector.setOnFailed(this::onSplashFailed);
