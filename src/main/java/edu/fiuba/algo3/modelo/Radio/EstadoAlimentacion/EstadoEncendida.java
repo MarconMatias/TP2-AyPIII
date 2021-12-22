@@ -37,11 +37,11 @@ public class EstadoEncendida implements IEstadoAlimentacion {
     }
 
     public double subirVolumen(Volumen volumen){
-        return volumen.getVolumen() * 1.2;
+        return volumen.getVolumen() + 0.1;
     }
 
     public double bajarVolumen(Volumen volumen){
 
-        return volumen.getVolumen() * 0.5;
+        return volumen.getVolumen() - 0.1;
     }
 }

@@ -72,4 +72,11 @@ public class CalendarioTest {
         assertEquals(1, cal.getCantidadDeDias());
     }
 
+    @Test
+    public void test(){
+        Calendario cal = new Calendario();
+        cal.avanzarHoras(62);
+        System.out.println(cal.getDiaDeLaSemana());
+    }
+
 }

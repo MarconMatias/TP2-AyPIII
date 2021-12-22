@@ -1,13 +1,12 @@
 package edu.fiuba.algo3.modelo.Lector;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
+import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Pista.PistaCiudad;
 import org.json.simple.JSONArray;
 
-import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class LectorCiudad {
   LectorJson lector = new LectorJson();
@@ -44,10 +43,27 @@ public class LectorCiudad {
     return lector.mapear(leerCiudades(parseado), Ciudad::getNombre);
   }
 
-  private Ciudad interpretarCiudad(Map ciudad) {
-    String nombre = (String) ciudad.get("nombre");
-    ArrayList<PistaCiudad> pistas = interprete.interpretar((JSONArray) ciudad.get("pistas"));
-    return (new Ciudad(nombre, pistas));
+  private Ciudad interpretarCiudad(Map jsonCiudad) {
+    String nombre = (String) jsonCiudad.get("nombre");
+    ArrayList<PistaCiudad> pistas = interprete.interpretar((JSONArray) jsonCiudad.get("pistas"));
+    Ciudad ciudad = new Ciudad(nombre, pistas);
+    agregarCoordenadas(jsonCiudad, ciudad);
+    return ciudad;
+  }
+
+  private void agregarCoordenadas(Map jsonCiudad, Ciudad ciudad) {
+    List coords = lector.leerPropiedadComo(List.class, jsonCiudad, "coordenadas");
+    if( (null != coords) && (2 == coords.size()) ) {
+      try {
+        Number x = (Number) coords.get(0);
+        Number y = (Number) coords.get(1);
+        ciudad.setCoordenadas(x.doubleValue(), y.doubleValue());
+      } catch(RuntimeException ex) {
+        ex.printStackTrace();
+      }
+    } else {
+      System.err.println("Advertencia: La ciudad "+ciudad.getNombre()+" no tiene coordenadas.");
+    }
   }
 
 }
