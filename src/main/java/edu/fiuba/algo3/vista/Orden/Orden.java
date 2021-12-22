@@ -3,6 +3,7 @@ package edu.fiuba.algo3.vista.Orden;
 import edu.fiuba.algo3.componentes.Imagen.Imagen;
 import edu.fiuba.algo3.componentes.Libro.Librito;
 import edu.fiuba.algo3.componentes.RelativoAImagen.RelativoAImagen;
+import edu.fiuba.algo3.controlador.Orden.DetallesControlador;
 import edu.fiuba.algo3.controlador.Orden.OrdenControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
@@ -41,8 +42,8 @@ public class Orden extends RelativoAImagen {
         tituloSospechosos.getTransforms().setAll(new Rotate(5d, 0,0));
         agregar(tituloSospechosos, 0.805, 0.330);
 
-        Detalle detalle1 = new Detalle("Pelo", mision);
-        agregar(detalle1, 0.4, 0.22);
+        Detalles detallesPane = new Detalles(juego, mision, new DetallesControlador(juego, mision));
+        agregar(detallesPane, 0.4, 0.4);
 
         librito = new Librito(640);
         agregar(librito, 0.08, 0.4);
