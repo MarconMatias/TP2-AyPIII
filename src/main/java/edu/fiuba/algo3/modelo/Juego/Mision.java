@@ -2,7 +2,6 @@ package edu.fiuba.algo3.modelo.Juego;
 
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Computadora.Computadora;
-import edu.fiuba.algo3.modelo.Computadora.Evento.ComputadoraListener;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Evento.PoliciaFinaliza;
 import edu.fiuba.algo3.modelo.Item.Item;
@@ -10,6 +9,7 @@ import edu.fiuba.algo3.modelo.Juego.EstadoMision.EstadoMision;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 import edu.fiuba.algo3.modelo.Ruta.Ruta;
+import javafx.collections.ObservableMap;
 
 import java.util.List;
 import java.util.Random;
@@ -218,7 +218,7 @@ public class Mision {
         return computadora.buscarSospechosos();
     }
 
-    public void oirOrden(ComputadoraListener oyente) {
-        computadora.oirTodo(oyente);
+    public ObservableMap<String, String> getDetallesDeOrden() {
+        return computadora.getDetalles();
     }
 }
