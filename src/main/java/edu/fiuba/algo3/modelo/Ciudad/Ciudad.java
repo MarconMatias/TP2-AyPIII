@@ -1,24 +1,28 @@
 package edu.fiuba.algo3.modelo.Ciudad;
 
-import java.util.*;
-import java.util.function.Supplier;
-import java.util.stream.Collectors;
-
-import edu.fiuba.algo3.modelo.Ciudad.EstrategiaAcciones.*;
+import edu.fiuba.algo3.modelo.Ciudad.EstrategiaAcciones.IEstrategiaAcciones;
+import edu.fiuba.algo3.modelo.Ciudad.EstrategiaAcciones.SinEstrategiaAcciones;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.*;
 import edu.fiuba.algo3.modelo.Ladron.ISospechoso;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Ladron.SinSospechoso;
-import edu.fiuba.algo3.modelo.Pista.*;
 import edu.fiuba.algo3.modelo.Pista.Filtro.IFiltroCiudad;
-import edu.fiuba.algo3.modelo.Policia.*;
+import edu.fiuba.algo3.modelo.Pista.IPista;
+import edu.fiuba.algo3.modelo.Pista.PistaCiudad;
+import edu.fiuba.algo3.modelo.Pista.SinPistaCiudad;
+import edu.fiuba.algo3.modelo.Policia.Policia;
 import edu.fiuba.algo3.modelo.Ruta.Ruta;
+
+import java.util.*;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 public class Ciudad implements IDestino, Comparable<Ciudad> {
 
     private final String nombre;
     private final Collection<PistaCiudad> pistas;
+    private double coordenadaX=0.5, coordenadaY=0.5;
     private ISospechoso sospechoso = new SinSospechoso();
     private ICiudadVisitada visitada = new CiudadNoVisitada();
     private IDestino destinoSospechoso = new SinDestino();
@@ -103,5 +107,17 @@ public class Ciudad implements IDestino, Comparable<Ciudad> {
 
     public int compareTo(String nombreOtraCiudad) {
         return this.getNombre().compareTo(nombreOtraCiudad);
+    }
+
+    public void setCoordenadas(double x, double y) {
+        coordenadaX = x;
+        coordenadaY = y;
+    }
+    public double getCoordenadaX() {
+        return coordenadaX;
+    }
+
+    public double getCoordenadaY() {
+        return coordenadaY;
     }
 }

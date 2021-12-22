@@ -9,6 +9,7 @@ public class FotoCiudad extends Imagen {
     }
 
     private static String pathDeCiudad(Ciudad ciudad) {
+        String buena = "Ciudad/Foto_" + ciudad.getNombre().replace(" ", "_") + ".png";
         return urlDesdeRecursos("Ciudad/Ciudad_generica_1024.png");
     }
 }

@@ -1,24 +1,27 @@
 package edu.fiuba.algo3.vista.Ciudad;
 
-import edu.fiuba.algo3.componentes.Imagen.Imagen;
+import edu.fiuba.algo3.componentes.Imagen.IconoEdificios;
+import edu.fiuba.algo3.componentes.Imagen.IconoVolver;
+import edu.fiuba.algo3.componentes.Imagen.Mapita;
+import edu.fiuba.algo3.componentes.Imagen.Tarjetas;
 import edu.fiuba.algo3.componentes.Libro.Libro;
 import edu.fiuba.algo3.controlador.Ciudad.LibroCiudadControlador;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
-import edu.fiuba.algo3.modelo.Radio.Radio;
-import edu.fiuba.algo3.vista.Radio.Walkman;
+import edu.fiuba.algo3.modelo.Juego.Juego;
+import edu.fiuba.algo3.modelo.Juego.Mision;
 import javafx.geometry.Pos;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.transform.Rotate;
 
 public class LibroCiudad extends Libro {
-    public LibroCiudad(Ciudad ciudad) {
-        super();
-    }
+    private final Mapita mapita;
+    private final IconoEdificios edificios;
+    private final IconoVolver volver;
 
-    public LibroCiudad(Ciudad ciudad, LibroCiudadControlador controlador) {
-        this(ciudad);
+    public LibroCiudad(Juego juego, Mision mision) {
+        super();
+
+        Ciudad ciudad = mision.getCiudadActual();
         Label tituloCiudad = new Label();
         tituloCiudad.setText(ciudad.getNombre());
         tituloCiudad.setAlignment(Pos.CENTER);
@@ -44,6 +47,26 @@ public class LibroCiudad extends Libro {
         textoCiudad.getStyleClass().add("etiquetaTextoLibroCiudad");
         agregar(textoCiudad, 0.368, 0.675);
 
+        mapita = new Mapita(640);
+        agregar(mapita, 0.08, 0.4);
+
+        edificios = new IconoEdificios(640);
+        agregar(edificios, 0.08, 0.5);
+
+        volver = new IconoVolver(320);
+        agregar(volver, 0.9, 0.1);
+
+        setRadio(juego.getRadio());
+        ponerTarjetas();
+    }
+
+    private void ponerTarjetas() {
+        Tarjetas tarjetas = new Tarjetas(640);
+        agregar(tarjetas, 0.9, 0.9);
+    }
+
+    public LibroCiudad(Juego juego, Mision mision, LibroCiudadControlador controlador) {
+        this(juego, mision);
         setControlador(controlador);
     }
 
@@ -51,17 +74,11 @@ public class LibroCiudad extends Libro {
         if(null == controlador) {
             return;
         }
-        /** ... **/
-    }
-
-    public void setRadio(Radio radio) {
-        try {
-            Walkman walkman = new Walkman();
-            agregar((Imagen) walkman, 0.026, 0.285);
-        } catch(Exception ex) {
-            ex.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.WARNING, "Error al crear la radio, es posible que la escuche pero no pueda controlarla.", ButtonType.OK);
-            alert.showAndWait();
-        }
+        volver.setOnMouseClicked(controlador::edificiosClicked);
+        volver.setOnKeyPressed(controlador::edificiosKeyPressed);
+        mapita.setOnMouseClicked(controlador::mapitaClicked);
+        mapita.setOnKeyPressed(controlador::mapitaKeyPressed);
+        edificios.setOnMouseClicked(controlador::edificiosClicked);
+        edificios.setOnKeyPressed(controlador::edificiosKeyPressed);
     }
 }
