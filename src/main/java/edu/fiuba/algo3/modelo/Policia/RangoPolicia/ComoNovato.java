@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.Pista.NivelPista.*;
 
 import java.util.Collection;
 
-public class ComoNovato implements IComportamientoRango{
+public class ComoNovato implements IComportamientoRango {
 
     private final Integer arrestosASuperar = 5;
     private Integer arrestos = 0;
@@ -18,7 +18,7 @@ public class ComoNovato implements IComportamientoRango{
 
     @Override
     public IComportamientoRango siguienteComportamientoConArrestos(Integer arrestos) {
-        if(arrestos >= arrestosASuperar) {
+        if (arrestos >= arrestosASuperar) {
             IComportamientoRango siguiente = new ComoDetective();
             return siguiente.siguienteComportamientoConArrestos(arrestos);
         }
@@ -27,7 +27,7 @@ public class ComoNovato implements IComportamientoRango{
 
     @Override
     public int estimarTiempoDeViajePara(int distancia) {
-        return distancia/velocidad;
+        return distancia / velocidad;
     }
 
     @Override

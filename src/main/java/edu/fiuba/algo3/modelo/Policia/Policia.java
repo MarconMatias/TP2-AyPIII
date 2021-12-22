@@ -8,6 +8,7 @@ import edu.fiuba.algo3.modelo.Evento.PoliciaGana;
 import edu.fiuba.algo3.modelo.Evento.PoliciaPierde;
 import edu.fiuba.algo3.modelo.Juego.Calendario;
 import edu.fiuba.algo3.modelo.Acciones.AccionCuchilloUnica;
+import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Pista.IPista;
 import edu.fiuba.algo3.modelo.OrdenDeArresto.*;
@@ -32,9 +33,11 @@ public class Policia {
 
     /**
      * Crea un policía con una cantidad de arrestos dada.
-     * @param nombre Nombre elegido por el policía.
+     * 
+     * @param nombre             Nombre elegido por el policía.
      * @param cantidadDeArrestos Cantidad de arrestos que tiene el policía.
-     * @param calendario Calendario del tiempo del juego afectado por las acciones del policía.
+     * @param calendario         Calendario del tiempo del juego afectado por las
+     *                           acciones del policía.
      */
     public Policia(String nombre, int cantidadDeArrestos, Calendario calendario) {
         this.nombre = nombre;
@@ -45,19 +48,21 @@ public class Policia {
 
     /**
      * Crea un policía nuevo con 0 arrestos y un calendario nuevo.
+     * 
      * @param nombre Nombre elegido por el policía.
      */
     public Policia(String nombre) {
-        this(nombre,0);
+        this(nombre, 0);
     }
 
     /**
      * Crea un policía nuevo y un calendario nuevo.
-     * @param nombre Nombre elegido por el policía.
+     * 
+     * @param nombre             Nombre elegido por el policía.
      * @param cantidadDeArrestos Cantidad de arrestos que tiene el policía.
      */
     public Policia(String nombre, int cantidadDeArrestos) {
-        this(nombre,cantidadDeArrestos, new Calendario());
+        this(nombre, cantidadDeArrestos, new Calendario());
     }
 
     public void setOrdenDeArresto(IOrden ordenDeArresto) {
@@ -66,20 +71,21 @@ public class Policia {
 
     /**
      * Prepara al policía para una nueva misión.
+     * 
      * @param calendario Calendario de tiempo del juego durante la misión.
      */
     public void iniciarMision(Calendario calendario) {
         this.calendario = calendario;
     }
 
+    public int viajar(int distancia) {
 
-    public int viajar(int distancia)
-    {
         calendario.avanzarHoras(rango.devolverTiempoDeViaje(distancia));
-        return rango.devolverTiempoDeViaje(distancia); //el return sirve para los tests
+        return rango.devolverTiempoDeViaje(distancia); // el return sirve para los tests
 
     }
-    public ArrayList<IPista> filtrarPistas(Collection<IPista> pistas){
+
+    public ArrayList<IPista> filtrarPistas(Collection<IPista> pistas) {
         return rango.filtrarPistas(pistas);
     }
 
@@ -113,13 +119,13 @@ public class Policia {
         calendario.aplicarAccion(accion);
     }
 
-    public void agregarArresto(){
+    public void agregarArresto() {
         this.arrestos = this.arrestos + 1;
         rango.agregarArresto(this.arrestos);
     }
 
     public void enfrentar(Ladron ladron) {
-        ordenDeArresto.enfrentar(this,ladron);
+        ordenDeArresto.enfrentar(this, ladron);
     }
 
     public void avanzarHorasCuchillada(Calendario calendario) {
@@ -143,18 +149,18 @@ public class Policia {
 
     private void notificarListeners(List<PoliciaFinalizaListener> listeners, PoliciaFinaliza evento) {
         List<Exception> exs = new ArrayList<>();
-        for(PoliciaFinalizaListener listener : listeners) {
+        for (PoliciaFinalizaListener listener : listeners) {
             try {
                 listener.handle(evento);
-            } catch(RuntimeException ex) {
+            } catch (RuntimeException ex) {
                 exs.add(ex);
             }
         }
-        if(exs.size()>0) {
+        if (exs.size() > 0) {
             final String textoError = "Sucedieron varios errores al notificar la finalización de un enfrentamiento.";
             RuntimeException error = new RuntimeException(textoError);
             /** Hacer clase de agregración, y agregar exs. **/
-            for(Exception ex : exs) {
+            for (Exception ex : exs) {
                 System.err.println(ex.toString());
             }
             throw error;
