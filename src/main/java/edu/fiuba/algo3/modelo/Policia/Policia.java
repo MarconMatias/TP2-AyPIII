@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Policia;
 
+import edu.fiuba.algo3.modelo.Acciones.AccionCuchilloUnica;
 import edu.fiuba.algo3.modelo.Acciones.IAccion;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Evento.PoliciaFinaliza;
@@ -7,13 +8,12 @@ import edu.fiuba.algo3.modelo.Evento.PoliciaFinalizaListener;
 import edu.fiuba.algo3.modelo.Evento.PoliciaGana;
 import edu.fiuba.algo3.modelo.Evento.PoliciaPierde;
 import edu.fiuba.algo3.modelo.Juego.Calendario;
-import edu.fiuba.algo3.modelo.Acciones.AccionCuchilloUnica;
-import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
+import edu.fiuba.algo3.modelo.OrdenDeArresto.IOrden;
+import edu.fiuba.algo3.modelo.OrdenDeArresto.SinOrden;
 import edu.fiuba.algo3.modelo.Pista.IPista;
-import edu.fiuba.algo3.modelo.OrdenDeArresto.*;
+import edu.fiuba.algo3.modelo.Policia.EstadoCuchillada.EstadoCuchillada;
 import edu.fiuba.algo3.modelo.Policia.RangoPolicia.RangoPolicia;
-import edu.fiuba.algo3.modelo.Policia.EstadoCuchillada.*;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -25,8 +25,7 @@ public class Policia {
     private int arrestos;
     private RangoPolicia rango;
     private Calendario calendario;
-    private String ciudadActual;
-    private IOrden ordenDeArresto = new SinOrden();
+    private IOrden ordenDeArresto = new SinOrden("No se emitió nunca una orden de arresto.");
     private EstadoCuchillada estadoCuchilladas = new EstadoCuchillada();
     private List<PoliciaFinalizaListener> oyentesAlPerder = new ArrayList<>();
     private List<PoliciaFinalizaListener> oyentesAlGanar = new ArrayList<>();

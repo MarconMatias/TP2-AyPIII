@@ -3,11 +3,12 @@ package edu.fiuba.algo3.componentes.Radio;
 import edu.fiuba.algo3.componentes.Imagen.Imagen;
 import edu.fiuba.algo3.modelo.Evento.RadioEvento;
 import edu.fiuba.algo3.modelo.Evento.TrackCambia;
-import edu.fiuba.algo3.modelo.Evento.VolumenCambia;
 import edu.fiuba.algo3.modelo.Radio.Radio;
-import javafx.scene.media.*;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RadioSonido {
     private final Radio radio;
@@ -25,13 +26,15 @@ public class RadioSonido {
     }
 
     private void volumenCambia(RadioEvento evento) {
+        setVolumen( radio.getVolumen() );
+    }
+
+    public void setVolumen(double elegido) {
         if(null == musica) {
             return;
         }
-        double elegido = ((VolumenCambia) evento).getVolumen();
-        musica.setVolume(elegido);
+        musica.setVolume(elegido*elegido);
     }
-
     private Media getMedia(int numeroTrack) {
         try {
             return new Media(getMediaPath(numeroTrack));
@@ -56,11 +59,11 @@ public class RadioSonido {
             musica = null;
             if(numero>0) {
                 musica = new MediaPlayer(medias.get(numero-1));
-                musica.setVolume(radio.getVolumen());
                 musica.setCycleCount(MediaPlayer.INDEFINITE);
                 musica.setAutoPlay(true);
                 musica.play();
                 radio.setTitulo(String.format("Track %02d",numero));
+                volumenCambia(null);
             } else {
                 radio.setTitulo("");
             }

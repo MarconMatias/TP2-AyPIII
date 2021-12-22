@@ -1,10 +1,11 @@
 package edu.fiuba.algo3.modelo.Computadora;
 
-import edu.fiuba.algo3.modelo.Computadora.Evento.*;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.OrdenDeArresto.IOrden;
 import edu.fiuba.algo3.modelo.OrdenDeArresto.Orden;
 import edu.fiuba.algo3.modelo.OrdenDeArresto.SinOrden;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableMap;
 
 import java.util.*;
 
@@ -14,7 +15,7 @@ public class Computadora {
     private final Map<String,Set<String>> tiposDeDetalles = new HashMap<>();
 
     private final Map<String,String> detalles = new HashMap<String,String>();
-    private List<ComputadoraListener> oyentesTodos = new ArrayList<>();
+    private final ObservableMap<String,String> detallesObservable = FXCollections.observableMap(detalles);
 
     /**
      * Crea una computadora de interpol.
@@ -28,20 +29,19 @@ public class Computadora {
     }
 
     /**
-     * Agrega un detalle a la orden a confeccionar.
+     * Agrega un detalle a la orden a confeccionar (modifica observable getDetalles()).
      * @param tipo Texto del tipo de detalle. Debe coincidir con los suministrados en getTiposDeDetalles().
      * @param valor Texto del valor de detalle. Debe ser uno de getValoresDeDetalleTipo(),
      *              o null (para indicar detalle desconocido).
      */
     public void agregarDetalle(String tipo, String valor) {
         if(null == valor) {
-            if(detalles.containsKey(tipo)) {
-                detalles.remove(tipo);
+            if(detallesObservable.containsKey(tipo)) {
+                detallesObservable.remove(tipo);
             }
         } else {
-            detalles.put(tipo,valor);
+            detallesObservable.put(tipo,valor);
         }
-        notificarOyentes(new DetalleModificadoEvento(this,tipo,valor));
     }
 
     /**
@@ -57,16 +57,7 @@ public class Computadora {
     }
 
     /**
-     * Agrega al listener para escuchar todos los eventos emitidos por esta computadora.
-     * @param listener Acepta cualquier evento ComputadoraEvento en el método handle.
-     */
-    public void oirTodo(ComputadoraListener listener) {
-        oyentesTodos.add(listener);
-    }
-
-    /**
-     * Genera una orden de arresto con los detalles suministrados. Emite un evento de tipo
-     * OrdenEmitidaEvento si pudo generarla, o SinOrdenEvento en caso contrario.
+     * Genera una orden de arresto con los detalles suministrados.
      * @return Un objeto Orden o un objeto SinOrden, según si pudo o no generarla.
      */
     public IOrden generarOrdenDeArresto() {
@@ -75,38 +66,12 @@ public class Computadora {
 
         List<Ladron> sospechosos = buscarSospechosos();
         if(sospechosos.size()>1) {
-            notificarOyentes(new SinOrdenEvento(this,textoDemasiados));
-            return new SinOrden();
+            return new SinOrden(textoDemasiados);
         } else if(sospechosos.size()<1) {
-            notificarOyentes(new SinOrdenEvento(this,textoNinguno));
-            return new SinOrden();
+            return new SinOrden(textoNinguno);
         }
         Ladron sospechoso = sospechosos.get(0);
-        notificarOyentes(new OrdenEmitidaEvento(this, sospechoso));
         return new Orden(sospechoso);
-    }
-
-    /**
-     * Notifica a los oyentes de una lista sobre un evento dado.
-     * @param oyentes Lista de oyentes a ser notificados.
-     * @param evento Evento a notificar.
-     */
-    private void notificarOyentes(List<ComputadoraListener> oyentes, ComputadoraEvento evento) {
-        for(ComputadoraListener oyente : oyentes) {
-            try {
-                oyente.handle(evento);
-            } catch(Exception ex) {
-                ex.printStackTrace();
-            }
-        }
-    }
-
-    /**
-     * Notifica a todos los oyentes correspondientes sobre un tipo de evento.
-     * @param evento
-     */
-    private void notificarOyentes(ComputadoraEvento evento) {
-        notificarOyentes(oyentesTodos, evento);
     }
 
     /**
@@ -116,7 +81,11 @@ public class Computadora {
      *          o null si el valor del detalle es desconocido.
      */
     public String obtenerDetalle(String tipo) {
-        return detalles.get(tipo);
+        return detallesObservable.get(tipo);
+    }
+
+    public ObservableMap<String, String> getDetalles() {
+        return detallesObservable;
     }
 
     /**
