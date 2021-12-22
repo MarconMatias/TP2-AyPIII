@@ -18,7 +18,7 @@ public class RadioControlador {
         nodo.addEventHandler(MouseEvent.MOUSE_CLICKED, this::handleClick);
     }
 
-    private void handleKeyPressed(KeyEvent keyEvent) {
+    public void handleKeyPressed(KeyEvent keyEvent) {
         KeyCode code = keyEvent.getCode();
         boolean consumida = true;
         switch(code) {
@@ -62,7 +62,7 @@ public class RadioControlador {
         }
     }
 
-    private void handleClick(MouseEvent mouseEvent) {
+    public void handleClick(MouseEvent mouseEvent) {
         if(mouseEvent.isConsumed()) {
             return;
         }
@@ -71,7 +71,7 @@ public class RadioControlador {
                 radio.pulsarBotonSiguiente();
                 mouseEvent.consume();
                 break;
-            case 2:
+            case 2: case 3:
                 radio.pulsarBotonAnterior();
                 mouseEvent.consume();
                 break;
