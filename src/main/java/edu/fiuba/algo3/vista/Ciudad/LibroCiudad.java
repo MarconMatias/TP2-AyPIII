@@ -17,7 +17,7 @@ import javafx.scene.transform.Rotate;
 public class LibroCiudad extends Libro {
     private final Mapita mapita;
     private final IconoEdificios edificios;
-    private final IconoVolver volver;
+    private IconoVolver volver;
     private final IconoOrden orden;
 
     public LibroCiudad(Juego juego, Mision mision) {
@@ -55,14 +55,17 @@ public class LibroCiudad extends Libro {
         edificios = new IconoEdificios(640);
         agregar(edificios, 0.08, 0.5);
 
-        volver = new IconoVolver(320);
-        agregar(volver, 0.9, 0.1);
-
         orden = new IconoOrden(640);
         agregar(orden, 0.08, 0.6);
 
         setRadio(juego.getRadio());
         ponerTarjetas();
+        ponerVolver();
+    }
+
+    private void ponerVolver() {
+        volver = new IconoVolver(320);
+        agregar(volver, 0.9, 0.1);
     }
 
     private void ponerTarjetas() {
@@ -79,13 +82,21 @@ public class LibroCiudad extends Libro {
         if(null == controlador) {
             return;
         }
-        volver.setOnMouseClicked(controlador::edificiosClicked);
-        volver.setOnKeyPressed(controlador::edificiosKeyPressed);
-        mapita.setOnMouseClicked(controlador::mapitaClicked);
-        mapita.setOnKeyPressed(controlador::mapitaKeyPressed);
-        edificios.setOnMouseClicked(controlador::edificiosClicked);
-        edificios.setOnKeyPressed(controlador::edificiosKeyPressed);
-        orden.setOnMouseClicked(controlador::ordenClicked);
-        orden.setOnKeyPressed(controlador::ordenKeyPressed);
+        if(null != volver) {
+            volver.setOnMouseClicked(controlador::edificiosClicked);
+            volver.setOnKeyPressed(controlador::edificiosKeyPressed);
+        }
+        if(null != mapita) {
+            mapita.setOnMouseClicked(controlador::mapitaClicked);
+            mapita.setOnKeyPressed(controlador::mapitaKeyPressed);
+        }
+        if(null != edificios) {
+            edificios.setOnMouseClicked(controlador::edificiosClicked);
+            edificios.setOnKeyPressed(controlador::edificiosKeyPressed);
+        }
+        if(null != orden) {
+            orden.setOnMouseClicked(controlador::ordenClicked);
+            orden.setOnKeyPressed(controlador::ordenKeyPressed);
+        }
     }
 }

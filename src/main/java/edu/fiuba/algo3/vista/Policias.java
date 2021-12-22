@@ -5,7 +5,6 @@ import edu.fiuba.algo3.componentes.Imagen.Tarjetas;
 import edu.fiuba.algo3.controlador.Policia.PoliciaControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Policia.Policia;
-import edu.fiuba.algo3.vista.Radio.Walkman;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -18,7 +17,6 @@ public class Policias extends Cuaderno {
     private final TextField nombreNuevo;
     private final Button botonNuevo;
     private final ListView<Policia> listaPolicias;
-    private Walkman walkman;
     private PoliciaControlador controlador;
 
     public Policias(Juego juego, PoliciaControlador controlador) {

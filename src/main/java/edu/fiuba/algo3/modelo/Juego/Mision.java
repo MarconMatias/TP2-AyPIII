@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.Juego;
 
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Computadora.Computadora;
+import edu.fiuba.algo3.modelo.Computadora.Evento.ComputadoraListener;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Evento.PoliciaFinaliza;
 import edu.fiuba.algo3.modelo.Item.Item;
@@ -206,7 +207,7 @@ public class Mision {
     }
 
     public Set<String> obtenerTiposDeDetalles() {
-        return computadora.obtenerTiposDeDetalles();
+        return computadora.getTiposDeDetalles();
     }
 
     public Set<String> getValoresDeDetalleTipo(String tipo) {
@@ -215,5 +216,9 @@ public class Mision {
 
     public List<Ladron> getSospechosos() {
         return computadora.buscarSospechosos();
+    }
+
+    public void oirOrden(ComputadoraListener oyente) {
+        computadora.oirTodo(oyente);
     }
 }

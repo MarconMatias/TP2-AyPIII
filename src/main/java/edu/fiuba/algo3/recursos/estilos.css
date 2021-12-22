@@ -6,3 +6,28 @@
     -fx-font: 120 Arial;
     -fx-wrap-text: true;
 }
+
+.vistaDetallesOrden {
+    -fx-background-color:transparent;
+    -fx-border-color: black;
+    -fx-border-insets: 0;
+    -fx-border-width: 5;
+    -fx-padding: 25;
+}
+
+.vistaDetallesOrden:focused {
+    -fx-border-color: blue;
+    -fx-text-fill: blue;
+}
+
+.vistaDetallesOrden:focused .etiquetaTituloDetalles {
+    -fx-text-fill: blue;
+}
+
+.vistaDetalle:focused .tipoDetalle, .vistaDetalle:focused .valorDetalle {
+    -fx-text-fill: blue;
+}
+
+.vistaDetallesOrden .viewport {
+       -fx-background-color: transparent;
+}
