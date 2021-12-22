@@ -18,17 +18,23 @@ public class RadioControlador {
         nodo.addEventHandler(MouseEvent.MOUSE_CLICKED, this::handleClick);
     }
 
-    private void handleKeyPressed(KeyEvent keyEvent) {
+    public void handleKeyPressed(KeyEvent keyEvent) {
         KeyCode code = keyEvent.getCode();
         boolean consumida = true;
         switch(code) {
+            case ESCAPE:
+                if(radio.estaEncendida()) {
+                    radio.pulsarBotonPrender();
+                }
+                break;
             case ENTER: case SPACE: case RIGHT:
-                if(keyEvent.isControlDown()) {
+                if(keyEvent.isControlDown() || keyEvent.isMetaDown() || keyEvent.isShiftDown()) {
                     radio.pulsarBotonPrender();
                 } else if(!radio.estaEncendida()) {
                     radio.pulsarBotonPrender();
+                } else {
+                    radio.pulsarBotonSiguiente();
                 }
-                radio.pulsarBotonSiguiente();
                 break;
             case BACK_SPACE: case LEFT:
                 radio.pulsarBotonAnterior();
@@ -36,13 +42,13 @@ public class RadioControlador {
                     radio.pulsarBotonPrender();
                 }
                 break;
-            case UP: case PLUS:
+            case UP: case PLUS: case ADD:
                 if(!radio.estaEncendida()) {
                     radio.pulsarBotonPrender();
                 }
                 radio.subirVolumen();
                 break;
-            case DOWN: case MINUS:
+            case DOWN: case MINUS: case SUBTRACT:
                 if(!radio.estaEncendida()) {
                     radio.pulsarBotonPrender();
                 }
@@ -56,7 +62,7 @@ public class RadioControlador {
         }
     }
 
-    private void handleClick(MouseEvent mouseEvent) {
+    public void handleClick(MouseEvent mouseEvent) {
         if(mouseEvent.isConsumed()) {
             return;
         }
@@ -65,7 +71,7 @@ public class RadioControlador {
                 radio.pulsarBotonSiguiente();
                 mouseEvent.consume();
                 break;
-            case 2:
+            case 2: case 3:
                 radio.pulsarBotonAnterior();
                 mouseEvent.consume();
                 break;

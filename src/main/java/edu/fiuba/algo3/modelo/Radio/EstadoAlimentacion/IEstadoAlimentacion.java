@@ -16,8 +16,9 @@ public interface IEstadoAlimentacion {
 
     double getVolumen(Volumen volumen);
 
-    double subirVolumen(Volumen volumen);
+    void subirVolumen(Volumen volumen);
 
-    double bajarVolumen(Volumen volumen);
-    
+    void bajarVolumen(Volumen volumen);
+
+    void setVolumen(Volumen volumen, double nuevoValor);
 }

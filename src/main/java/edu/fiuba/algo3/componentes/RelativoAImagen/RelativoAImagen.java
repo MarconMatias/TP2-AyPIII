@@ -47,6 +47,10 @@ public class RelativoAImagen extends Group {
         this(new Image(Imagen.urlDesdePath(path)));
     }
 
+    protected Walkman getWalkman() {
+        return walkman;
+    }
+
     public Point2DBindingXY nuevoRelativoConAbsoluto(Point2DBindingXY absoluto) {
         DoubleBinding x = absoluto.xProperty().divide(fondo.getWidth());
         DoubleBinding y = absoluto.yProperty().divide(fondo.getHeight());

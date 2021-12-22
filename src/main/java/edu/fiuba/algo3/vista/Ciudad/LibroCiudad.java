@@ -9,6 +9,7 @@ import edu.fiuba.algo3.controlador.Ciudad.LibroCiudadControlador;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
+import edu.fiuba.algo3.vista.Orden.IconoOrden;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.transform.Rotate;
@@ -17,6 +18,7 @@ public class LibroCiudad extends Libro {
     private final Mapita mapita;
     private final IconoEdificios edificios;
     private final IconoVolver volver;
+    private final IconoOrden orden;
 
     public LibroCiudad(Juego juego, Mision mision) {
         super();
@@ -56,6 +58,9 @@ public class LibroCiudad extends Libro {
         volver = new IconoVolver(320);
         agregar(volver, 0.9, 0.1);
 
+        orden = new IconoOrden(640);
+        agregar(orden, 0.08, 0.6);
+
         setRadio(juego.getRadio());
         ponerTarjetas();
     }
@@ -80,5 +85,7 @@ public class LibroCiudad extends Libro {
         mapita.setOnKeyPressed(controlador::mapitaKeyPressed);
         edificios.setOnMouseClicked(controlador::edificiosClicked);
         edificios.setOnKeyPressed(controlador::edificiosKeyPressed);
+        orden.setOnMouseClicked(controlador::ordenClicked);
+        orden.setOnKeyPressed(controlador::ordenKeyPressed);
     }
 }
