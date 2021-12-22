@@ -15,8 +15,7 @@ public class FotoCiudad extends Imagen {
         String buena = base + ciudad.getNombre().replace(" ", "_") + ".jpeg";
         File file = new File(buena);
         String url;
-        if(file.exists())
-        {
+        if (file.exists()) {
             try {
                 url = file.toURI().toURL().toString();
                 return url;
@@ -24,7 +23,7 @@ public class FotoCiudad extends Imagen {
                 System.err.println(ex.toString());
             }
         }
-        System.out.println("No pudo usarse foto: "+buena);
+        System.out.println("No pudo usarse foto: " + buena);
         url = urlDesdeRecursos("Ciudad/Ciudad_generica_1024.png");
         return url;
     }
