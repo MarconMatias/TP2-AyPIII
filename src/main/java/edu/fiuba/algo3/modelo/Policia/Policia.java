@@ -130,7 +130,6 @@ public class Policia {
 
     public void avanzarHorasCuchillada(Calendario calendario) {
         estadoCuchilladas.avanzarHoras(calendario);
-        calendario.avanzarHoras(2);
     }
 
     public void recibirCuchillada() {
