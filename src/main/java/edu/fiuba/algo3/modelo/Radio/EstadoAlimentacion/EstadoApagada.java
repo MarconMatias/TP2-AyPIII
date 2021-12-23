@@ -33,4 +33,20 @@ public class EstadoApagada implements IEstadoAlimentacion {
     public double getVolumen(Volumen volumen) {
         return 0;
     }
+
+    @Override
+    public void subirVolumen(Volumen volumen) {
+        /* Nada, está apagada */
+    }
+
+    @Override
+    public void bajarVolumen(Volumen volumen) {
+        /* Nada, está apagada */
+    }
+
+    @Override
+    public void setVolumen(Volumen volumen, double nuevoValor) {
+        /* Nada, está apagada */
+    }
+
 }

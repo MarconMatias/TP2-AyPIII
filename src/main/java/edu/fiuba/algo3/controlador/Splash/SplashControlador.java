@@ -1,27 +1,36 @@
 package edu.fiuba.algo3.controlador.Splash;
 
+import edu.fiuba.algo3.controlador.Radio.RadioControlador;
+import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.vista.Splash;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 
 public class SplashControlador {
-    private final Splash splash;
+    private final Juego juego;
+    private Splash splash;
     public EventHandler handler = new EventHandler() {
         @Override
         public void handle(Event event) { /* No hacer nada. */  }
     };
 
-    public SplashControlador(Splash splash) {
-        this.splash = splash;
-        splash.setOnMouseClicked(this::iniciar);
-        splash.setOnKeyPressed(this::iniciar);
+    public SplashControlador(Juego juego) {
+        this.juego = juego;
     }
 
-    public void bind(EventHandler nuevoHandler) {
+    public void enlazar(Splash splash) {
+        this.splash = splash;
+        RadioControlador radioControlador = new RadioControlador(juego.getRadio());
+        splash.setOnKeyPressed(radioControlador::handleKeyPressed);
+    }
+
+    public void enlazarIniciar(EventHandler nuevoHandler) {
+        splash.setOnMouseClicked(this::iniciar);
+        splash.setOnKeyPressed(this::iniciar);
         handler = nuevoHandler;
     }
 
-    private void iniciar(Event event) {
+    public void iniciar(Event event) {
         handler.handle(event);
     }
 }

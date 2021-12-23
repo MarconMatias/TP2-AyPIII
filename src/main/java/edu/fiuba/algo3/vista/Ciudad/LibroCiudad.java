@@ -1,24 +1,24 @@
 package edu.fiuba.algo3.vista.Ciudad;
 
-import edu.fiuba.algo3.componentes.Imagen.Imagen;
+import edu.fiuba.algo3.componentes.Imagen.IconoEdificios;
+import edu.fiuba.algo3.componentes.Imagen.IconoVolver;
 import edu.fiuba.algo3.componentes.Imagen.Mapita;
 import edu.fiuba.algo3.componentes.Imagen.Tarjetas;
 import edu.fiuba.algo3.componentes.Libro.Libro;
 import edu.fiuba.algo3.controlador.Ciudad.LibroCiudadControlador;
-import edu.fiuba.algo3.controlador.Radio.RadioControlador;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
-import edu.fiuba.algo3.modelo.Radio.Radio;
-import edu.fiuba.algo3.vista.Radio.Walkman;
+import edu.fiuba.algo3.vista.Orden.IconoOrden;
 import javafx.geometry.Pos;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.transform.Rotate;
 
 public class LibroCiudad extends Libro {
     private final Mapita mapita;
+    private final IconoEdificios edificios;
+    private IconoVolver volver;
+    private final IconoOrden orden;
 
     public LibroCiudad(Juego juego, Mision mision) {
         super();
@@ -52,8 +52,20 @@ public class LibroCiudad extends Libro {
         mapita = new Mapita(640);
         agregar(mapita, 0.08, 0.4);
 
+        edificios = new IconoEdificios(640);
+        agregar(edificios, 0.08, 0.5);
+
+        orden = new IconoOrden(640);
+        agregar(orden, 0.08, 0.6);
+
         setRadio(juego.getRadio());
         ponerTarjetas();
+        ponerVolver();
+    }
+
+    private void ponerVolver() {
+        volver = new IconoVolver(320);
+        agregar(volver, 0.9, 0.1);
     }
 
     private void ponerTarjetas() {
@@ -70,18 +82,21 @@ public class LibroCiudad extends Libro {
         if(null == controlador) {
             return;
         }
-        mapita.setOnMouseClicked(controlador::mapitaClicked);
-        mapita.setOnKeyPressed(controlador::mapitaKeyPressed);
-    }
-
-    public void setRadio(Radio radio) {
-        try {
-            Walkman walkman = new Walkman(new RadioControlador(radio));
-            agregar((Imagen) walkman, 0.026, 0.285);
-        } catch(Exception ex) {
-            ex.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.WARNING, "Error al crear la radio, es posible que la escuche pero no pueda controlarla.", ButtonType.OK);
-            alert.showAndWait();
+        if(null != volver) {
+            volver.setOnMouseClicked(controlador::edificiosClicked);
+            volver.setOnKeyPressed(controlador::edificiosKeyPressed);
+        }
+        if(null != mapita) {
+            mapita.setOnMouseClicked(controlador::mapitaClicked);
+            mapita.setOnKeyPressed(controlador::mapitaKeyPressed);
+        }
+        if(null != edificios) {
+            edificios.setOnMouseClicked(controlador::edificiosClicked);
+            edificios.setOnKeyPressed(controlador::edificiosKeyPressed);
+        }
+        if(null != orden) {
+            orden.setOnMouseClicked(controlador::ordenClicked);
+            orden.setOnKeyPressed(controlador::ordenKeyPressed);
         }
     }
 }

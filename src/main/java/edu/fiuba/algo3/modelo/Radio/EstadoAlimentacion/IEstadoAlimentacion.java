@@ -15,4 +15,10 @@ public interface IEstadoAlimentacion {
     void pulsarBotonSiguiente(EstadoTracks tracks);
 
     double getVolumen(Volumen volumen);
+
+    void subirVolumen(Volumen volumen);
+
+    void bajarVolumen(Volumen volumen);
+
+    void setVolumen(Volumen volumen, double nuevoValor);
 }

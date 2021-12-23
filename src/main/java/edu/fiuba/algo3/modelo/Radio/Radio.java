@@ -7,9 +7,9 @@ import edu.fiuba.algo3.modelo.Radio.Volumen.Volumen;
 
 public class Radio {
 
-    EstadoAlimentacion encendida = new EstadoAlimentacion();
+    EstadoAlimentacion encendida = new EstadoAlimentacion(this);
     EstadoTracks tracks = new EstadoTracks(this);
-    Volumen volumen = new Volumen(0.5);
+    Volumen volumen = new Volumen(this, 0.5);
     
     public void pulsarBotonPrender() {
         encendida.pulsarBotonPrender();
@@ -37,18 +37,22 @@ public class Radio {
 
     public void escucharVolumen(RadioListener listener) {
         volumen.escuchar(listener);
+        encendida.escuchar(listener);
     }
 
     public void setTitulo(String error) {
         /** \todo */
     }
+    private void setVolumen(double nuevoVolumen){
+        encendida.setVolumen(volumen, nuevoVolumen);
+    }
 
     public void subirVolumen() {
-        /** \todo */
+        encendida.subirVolumen(volumen);
     }
 
     public void bajarVolumen() {
-        /** \todo */
+        encendida.bajarVolumen(volumen);
     }
 
     public double getVolumen() {

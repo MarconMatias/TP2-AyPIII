@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.Pista.Filtro.*;
 
 public class Puerto extends EdificioAbstracto{
     public Puerto() {
+<<<<<<< HEAD
         super(new SinFiltro());
 =======
 <<<<<<< HEAD
@@ -35,6 +36,9 @@ public class Puerto implements ITipoEdificio{
         // TODO Auto-generated method stub
         return null;
 >>>>>>> ce92e3cf564b1cd7a8e01fd370036153672bccdd
+=======
+        super(new FiltroPais());
+>>>>>>> a0a9ceeff49ac7b86ff6fdd5b11f1e23ded6a103
     }
 
     @Override

@@ -1,25 +1,19 @@
 package edu.fiuba.algo3.vista.Mapa;
 
-import edu.fiuba.algo3.componentes.Imagen.Imagen;
 import edu.fiuba.algo3.componentes.Libro.Librito;
 import edu.fiuba.algo3.componentes.Mapamundi.Mapamundi;
 import edu.fiuba.algo3.componentes.Trayecto.Trayecto;
 import edu.fiuba.algo3.componentes.bindings.AnguloDeDestinoBinding;
 import edu.fiuba.algo3.controlador.Mapa.MapaDestinosControlador;
-import edu.fiuba.algo3.controlador.Radio.RadioControlador;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
-import edu.fiuba.algo3.modelo.Radio.Radio;
 import edu.fiuba.algo3.vista.Ciudad.DestinoCiudad;
-import edu.fiuba.algo3.vista.Radio.Walkman;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.geometry.Point2D;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,7 +60,7 @@ public class MapaDestinos extends Mapamundi {
             destino.focusedProperty().addListener(obs -> {
                 if(destino.isFocused()) {
                     destinoSeleccionado.set(destino);
-                } else if(destinoSeleccionado.equals(destino)) {
+                } else if(destinoSeleccionado.get().equals(destino)) {
                     destinoSeleccionado.set(null);
                 }
             });
@@ -97,15 +91,5 @@ public class MapaDestinos extends Mapamundi {
         destinoElegido.addListener(ev->controlador.destinoElegido(destinoElegido.get()));
     }
 
-    public void setRadio(Radio radio) {
-        try {
-            Walkman walkman = new Walkman(new RadioControlador(radio));
-            agregar((Imagen) walkman, 0.026, 0.285);
-        } catch(Exception ex) {
-            ex.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.WARNING, "Error al crear la radio, es posible que la escuche pero no pueda controlarla.", ButtonType.OK);
-            alert.showAndWait();
-        }
-    }
 
 }
