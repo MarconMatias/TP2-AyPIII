@@ -120,4 +120,15 @@ public class Ciudad implements IDestino, Comparable<Ciudad> {
     public double getCoordenadaY() {
         return coordenadaY;
     }
+
+    /**
+     * El policía que está visitando esta ciudad, vista al edificio dado.
+     * * Avanza el calendario por la visita misma.
+     * * Puede disparar acciones que avancen a su vez el calendario.
+     * @param edificio Un edificio de la ciudad actual.
+     * @return El testimonio obtenido en el edificio de la ciudad actual.
+     */
+    public String visitar(Edificio edificio) {
+        return visitada.visitar(edificio);
+    }
 }

@@ -4,9 +4,6 @@ import edu.fiuba.algo3.componentes.Imagen.Imagen;
 import edu.fiuba.algo3.componentes.Trayecto.Trayecto;
 import edu.fiuba.algo3.componentes.bindings.Point2DBindingXY;
 import edu.fiuba.algo3.componentes.bindings.SimplePoint2DBinding;
-import edu.fiuba.algo3.controlador.Radio.RadioControlador;
-import edu.fiuba.algo3.modelo.Radio.Radio;
-import edu.fiuba.algo3.vista.Radio.Walkman;
 import javafx.beans.binding.DoubleBinding;
 import javafx.beans.binding.DoubleExpression;
 import javafx.beans.property.ReadOnlyDoubleWrapper;
@@ -14,8 +11,6 @@ import javafx.geometry.Point2D;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
 import javafx.scene.Node;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Region;
@@ -24,7 +19,6 @@ import javafx.scene.shape.Rectangle;
 public class RelativoAImagen extends Group {
     private final Image fondo;
     private final ImageView imageView;
-    private Walkman walkman = null;
 
     public RelativoAImagen(Image imagen) {
         this.fondo = imagen;
@@ -45,10 +39,6 @@ public class RelativoAImagen extends Group {
 
     public RelativoAImagen(String path) {
         this(new Image(Imagen.urlDesdePath(path)));
-    }
-
-    protected Walkman getWalkman() {
-        return walkman;
     }
 
     public Point2DBindingXY nuevoRelativoConAbsoluto(Point2DBindingXY absoluto) {
@@ -205,22 +195,12 @@ public class RelativoAImagen extends Group {
         return new Point2D(x,y);
     }
 
-    protected void setRadio(Radio radio) {
-        if(null != walkman) {
-            getChildren().remove(walkman);
-            /* \todo liberar walkman anterior para que se desuscriba. */
-        }
-        if(null == radio) {
-            walkman = null;
-            return;
-        }
-        try {
-            walkman = new Walkman(new RadioControlador(radio));
-            agregar((Imagen) walkman, 0.026, 0.285);
-        } catch(Exception ex) {
-            ex.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.WARNING, "Error al crear la radio, es posible que la escuche pero no pueda controlarla.", ButtonType.OK);
-            alert.showAndWait();
-        }
+    public RelativoAImagen agregar(RelativoAImagen nodo, Point2DBindingXY coordenadas) {
+        Point2D dimensiones = nodo.absolutoConRelativo(new Point2D(1.0, 1.0));
+        agregar((Node) nodo, coordenadas.xProperty(), coordenadas.yProperty(),
+                new ReadOnlyDoubleWrapper(dimensiones.getX()),
+                new ReadOnlyDoubleWrapper(dimensiones.getY()));
+        return nodo;
     }
+
 }

@@ -2,6 +2,9 @@ package edu.fiuba.algo3.vista.Orden;
 
 import edu.fiuba.algo3.controlador.Orden.DetalleControlador;
 import edu.fiuba.algo3.modelo.Juego.Mision;
+import edu.fiuba.algo3.modelo.Ladron.DetallableSospechoso;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
@@ -10,50 +13,73 @@ import javafx.scene.layout.Priority;
 import java.util.Map;
 import java.util.function.UnaryOperator;
 
-public class Detalle extends HBox {
+public class Detalle extends HBox implements InvalidationListener {
     private final static Map<String, String> textosTipos = Map.of("vehiculo", "Vehículo");
     private final static Map<String, String> textosValores = Map.of("Macho", "Masculino", "Hembra", "Femenino");
 
-    public Detalle(String tipo, Mision mision, UnaryOperator<String> tipoATexto, UnaryOperator<String> valorATexto, DetalleControlador controlador) {
+    private final String tipo;
+    private final Mision mision;
+    private final UnaryOperator<String> valorATexto;
+
+    private final double anchoTotal = 970;
+    private final double anchoTitulo = 400;
+    private final double anchoEspaciado = 10;
+    private final double anchoValor = anchoTotal - anchoTitulo - anchoEspaciado;
+
+    private final Label valor;
+    private final DetallableSospechoso detallable;
+
+    public Detalle(String tipo, Mision mision, DetallableSospechoso detallable,
+                   UnaryOperator<String> tipoATexto, UnaryOperator<String> valorATexto,
+                   DetalleControlador controlador) {
+        this.tipo = tipo;
+        this.mision = mision;
+        this.detallable = detallable;
+        this.valorATexto = valorATexto;
+
+        detallable.getDetallesDeSospechoso().addListener(this);
+
         getStyleClass().add("vistaDetalle");
         setFocusTraversable(true);
 
         Label titulo = new Label(tipoATexto.apply(tipo) + ":");
         titulo.setAlignment(Pos.TOP_LEFT);
-        titulo.setMinWidth(480);
-        titulo.setMaxWidth(480);
+        titulo.setMinWidth(anchoTitulo);
+        titulo.setMaxWidth(anchoTitulo);
         titulo.setStyle("-fx-font: 60 Arial");
         titulo.getStyleClass().add("tipoDetalle");
         setHgrow(titulo, Priority.ALWAYS);
 
-        Label valor = new Label(valorATexto.apply(mision.getDetalle(tipo)));
+        valor = new Label("?");
         valor.setAlignment(Pos.TOP_LEFT);
-        valor.setMinWidth(480);
-        valor.setMaxWidth(480);
+        valor.setMinWidth(anchoValor);
+        valor.setMaxWidth(anchoValor);
         valor.setStyle("-fx-font: 60 \"Times New Roman\"");
         valor.getStyleClass().add("valorDetalle");
         setHgrow(valor, Priority.ALWAYS);
 
-        setSpacing(10);
-        setMinWidth(480 * 2 + 10);
+        setSpacing(anchoEspaciado);
+        setMinWidth(anchoTotal);
 
         if(null != controlador) {
             setOnKeyPressed(controlador::onKeyPressed);
             setOnMouseClicked(controlador::onMouseClicked);
         }
+        actualizar();
         this.getChildren().setAll(titulo, valor);
         this.setFocusTraversable(true);
     }
 
-    public Detalle(String tipo, Mision mision,
-                   Map<String, String> mapaTipos,
-                   Map<String, String> mapaValores,
+    public Detalle(String tipo, Mision mision, DetallableSospechoso detallable,
+                   Map<String, String> mapaTipos, Map<String, String> mapaValores,
                    DetalleControlador controlador) {
-        this(tipo, mision, textoDeMapODesconocido(mapaTipos), textoDeMapODesconocido(mapaValores), controlador);
+        this(tipo, mision, detallable,
+                textoDeMapODesconocido(mapaTipos), textoDeMapODesconocido(mapaValores),
+                controlador);
     }
 
-    public Detalle(String tipo, Mision mision, DetalleControlador controlador) {
-        this(tipo, mision, textosTipos, textosValores, controlador);
+    public Detalle(String tipo, Mision mision, DetallableSospechoso detallable, DetalleControlador controlador) {
+        this(tipo, mision, detallable, textosTipos, textosValores, controlador);
     }
 
     /**
@@ -70,5 +96,14 @@ public class Detalle extends HBox {
             String texto = map.get(entrada);
             return (null == texto) ? entrada : texto;
         };
+    }
+
+    private void actualizar() {
+        valor.setText(valorATexto.apply(detallable.getDetalle(tipo)));
+    }
+
+    @Override
+    public void invalidated(Observable observable) {
+        actualizar();
     }
 }

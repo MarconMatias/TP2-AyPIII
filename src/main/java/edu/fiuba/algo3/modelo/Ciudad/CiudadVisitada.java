@@ -4,11 +4,9 @@ import edu.fiuba.algo3.modelo.Ciudad.EstadoVisitas.EstadoVisitasCiudad;
 import edu.fiuba.algo3.modelo.Ciudad.EstrategiaAcciones.IEstrategiaAcciones;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Edificio.IAccionador;
-import edu.fiuba.algo3.modelo.Juego.Calendario;
 import edu.fiuba.algo3.modelo.Ladron.ISospechoso;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 
-import java.util.Iterator;
 import java.util.List;
 
 public class CiudadVisitada implements ICiudadVisitada {
@@ -37,12 +35,14 @@ public class CiudadVisitada implements ICiudadVisitada {
     }
 
     @Override
-    public void visitarEdificio(Edificio edificio)
+    public String visitar(Edificio edificio)
     {
-        /** \todo Debería estar en la lista edificios. */
+        if(!edificios.contains(edificio)) {
+            return "¡Epa! No tenés permiso para entrar a este edificio.";
+        }
         int demora = visitas.demoraEdificio();
         visitas.siguiente();
         policia.avanzarHoras(demora);
-        edificio.visitar(policia);
+        return edificio.visitar(policia);
     }
 }

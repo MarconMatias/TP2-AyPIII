@@ -7,6 +7,26 @@
     -fx-wrap-text: true;
 }
 
+.etiquetaTextoReloj {
+    -fx-background-color: #800000;
+    -fx-text-fill: white;
+    -fx-border-color: black;
+    -fx-border-insets: 2;
+    -fx-border-width: 5;
+}
+
+.listaSospechosos {
+    -fx-background-color:transparent;
+    -fx-border-color: black;
+    -fx-border-insets: 0;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+}
+
+.listaSospechosos .list-cell {
+    -fx-background-color: transparent;
+}
+
 .vistaDetallesOrden {
     -fx-background-color:transparent;
     -fx-border-color: black;

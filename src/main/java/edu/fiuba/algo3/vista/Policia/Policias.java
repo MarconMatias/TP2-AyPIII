@@ -1,7 +1,6 @@
-package edu.fiuba.algo3.vista;
+package edu.fiuba.algo3.vista.Policia;
 
 import edu.fiuba.algo3.componentes.Cuaderno.Cuaderno;
-import edu.fiuba.algo3.componentes.Imagen.Tarjetas;
 import edu.fiuba.algo3.controlador.Policia.PoliciaControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Policia.Policia;
@@ -20,11 +19,12 @@ public class Policias extends Cuaderno {
     private PoliciaControlador controlador;
 
     public Policias(Juego juego, PoliciaControlador controlador) {
+        super();
         Label etiquetaNuevo = new Label("Ingresante:");
         etiquetaNuevo.setAlignment(Pos.CENTER);
         etiquetaNuevo.setStyle("-fx-font: 120 Impact");
         etiquetaNuevo.getStyleClass().add("etiquetaNuevoIngresante");
-        etiquetaNuevo.getTransforms().setAll(new Rotate(anguloRotacion, 0,0));
+        etiquetaNuevo.getTransforms().setAll(new Rotate(anguloRotacion, 0, 0));
         agregar(etiquetaNuevo, 0.325, 0.325);
 
         nombreNuevo = new TextField();
@@ -33,7 +33,8 @@ public class Policias extends Cuaderno {
         nombreNuevo.setStyle("-fx-font: 120 Impact");
         nombreNuevo.getStyleClass().add("valorNuevoIngresante");
         nombreNuevo.setPrefWidth(1024);
-        nombreNuevo.getTransforms().setAll(new Rotate(anguloRotacion, nombreNuevo.getWidth()/2, nombreNuevo.getHeight()/2));
+        nombreNuevo.getTransforms()
+                .setAll(new Rotate(anguloRotacion, nombreNuevo.getWidth() / 2, nombreNuevo.getHeight() / 2));
         agregar(nombreNuevo, 0.535, 0.29);
 
         botonNuevo = new Button("▶");
@@ -41,7 +42,8 @@ public class Policias extends Cuaderno {
         botonNuevo.setPrefHeight(120);
         botonNuevo.setStyle("-fx-font: 80 Impact");
         botonNuevo.getStyleClass().add("botonNuevoIngresante");
-        botonNuevo.getTransforms().setAll(new Rotate(anguloRotacion, botonNuevo.getWidth()/2, botonNuevo.getHeight()/2));
+        botonNuevo.getTransforms()
+                .setAll(new Rotate(anguloRotacion, botonNuevo.getWidth() / 2, botonNuevo.getHeight() / 2));
         agregar(botonNuevo, 0.69, 0.22);
 
         listaPolicias = new ListView<Policia>(juego.getPolicias());
@@ -49,29 +51,33 @@ public class Policias extends Cuaderno {
         listaPolicias.setPrefHeight(920);
         listaPolicias.setStyle("-fx-font: 80 Impact");
         listaPolicias.getStyleClass().add("listaAgentes");
-        listaPolicias.getTransforms().setAll(new Rotate(anguloRotacion, listaPolicias.getWidth()/2, listaPolicias.getHeight()/2));
+        listaPolicias.getTransforms()
+                .setAll(new Rotate(anguloRotacion, listaPolicias.getWidth() / 2, listaPolicias.getHeight() / 2));
         agregar(listaPolicias, 0.53, 0.63);
 
         setRadio(juego.getRadio());
         setControlador(controlador);
 
-        ponerTarjetas();
-    }
-
-    private void ponerTarjetas() {
-        Tarjetas tarjetas = new Tarjetas(640);
-        agregar(tarjetas, 0.9, 0.9);
+        setTarjetasVisible(true);
     }
 
     public void setControlador(PoliciaControlador controlador) {
-        if(null==controlador) {
+        if (null == controlador) {
             return;
         }
+
         botonNuevo.setOnMouseClicked(controlador::botonNuevoClicked);
         botonNuevo.setOnKeyPressed(controlador::botonNuevoKeyPressed);
-        listaPolicias.setOnMouseClicked(controlador::listaPoliciasClicked);
-        listaPolicias.setOnKeyPressed(controlador::listaPoliciasKeyPressed);
+        listaPolicias.setOnMouseClicked(ev -> {
+            Policia policiaSeleccionado = listaPolicias.getSelectionModel().getSelectedItem();
+            controlador.listaPoliciasClicked(ev, policiaSeleccionado);
+        });
+        listaPolicias.setOnKeyPressed(ev -> {
+            Policia policiaSeleccionado = listaPolicias.getSelectionModel().getSelectedItem();
+            controlador.listaPoliciasKeyPressed(ev, policiaSeleccionado);
+        });
         controlador.bindNombreProperty(nombreNuevo.textProperty());
         this.controlador = controlador;
     }
+
 }

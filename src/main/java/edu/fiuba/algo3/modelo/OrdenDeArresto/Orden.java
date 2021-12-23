@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo.OrdenDeArresto;
 
-import edu.fiuba.algo3.modelo.Ladron.ISospechoso;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.OrdenDeArresto.Estrategia.Ganar;
 import edu.fiuba.algo3.modelo.OrdenDeArresto.Estrategia.IEstrategiaOrden;
@@ -28,5 +27,15 @@ public class Orden implements IOrden {
             estrategia = new Perder("La orden de arresto era otra persona, no pudiste ");
         }
         estrategia.realizar(policia, ladron);
+    }
+
+    @Override
+    public String getEmitidaPara() {
+        return sospechoso.getNombre();
+    }
+
+    @Override
+    public int getHorasDemora() {
+        return 3;
     }
 }

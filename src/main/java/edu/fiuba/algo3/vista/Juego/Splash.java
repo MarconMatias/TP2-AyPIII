@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.vista;
+package edu.fiuba.algo3.vista.Juego;
 
 import edu.fiuba.algo3.componentes.Imagen.Destino;
 import edu.fiuba.algo3.componentes.Imagen.Logo;

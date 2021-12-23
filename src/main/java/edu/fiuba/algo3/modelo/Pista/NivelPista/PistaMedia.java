@@ -4,6 +4,6 @@ public class PistaMedia extends NivelPista {
 
     @Override
     public boolean esEquivalente(NivelPista nivel) {
-        return nivel instanceof PistaMedia;
+        return (nivel instanceof PistaMedia) || (nivel instanceof PistaTodoNivel);
     }
 }

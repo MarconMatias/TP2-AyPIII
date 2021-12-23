@@ -1,22 +1,27 @@
 package edu.fiuba.algo3.vista.Edificio;
 
+import edu.fiuba.algo3.componentes.Imagen.Destino;
 import edu.fiuba.algo3.componentes.Libro.Librito;
-import edu.fiuba.algo3.componentes.RelativoAImagen.RelativoAImagen;
 import edu.fiuba.algo3.componentes.Trayecto.Trayecto;
 import edu.fiuba.algo3.controlador.Edificio.EdificiosControlador;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
+import edu.fiuba.algo3.vista.Juego.Pantalla;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.geometry.Point2D;
+import javafx.geometry.Pos;
+import javafx.scene.control.Label;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Edificios extends RelativoAImagen {
+import static javafx.beans.binding.Bindings.createStringBinding;
+
+public class Edificios extends Pantalla {
     private final Librito librito;
     private final List<DestinoEdificio> destinos = new ArrayList<>();
     private final static Point2D origen = new Point2D(0.5, 0.5);
@@ -34,10 +39,28 @@ public class Edificios extends RelativoAImagen {
         agregarDestinos(mision.getCiudadActual().obtenerEdificios());
         agregarTrayectos();
 
+        Label etiquetaDestino = new Label();
+        etiquetaDestino.textProperty().bind(createStringBinding(this::getNombreDestino, destinoSeleccionado));
+        etiquetaDestino.setAlignment(Pos.CENTER);
+        etiquetaDestino.setMaxWidth(960);
+        etiquetaDestino.setStyle("-fx-font: 60 Impact");
+        etiquetaDestino.getStyleClass().add("etiquetaDestinoSeleccionado");
+        agregar(etiquetaDestino, 0.500, 0.8);
+
+        setCalendario(mision.getCalendario());
+        setRelojVisible(true);
         setRadio(juego.getRadio());
         setControlador(controlador);
         destinos.get(0).requestFocus();
 
+    }
+
+    private String getNombreDestino() {
+        Destino destino = destinoSeleccionado.get();
+        if(null == destino) {
+            return "A seleccionar";
+        }
+        return destino.getNombre();
     }
 
     private void agregarDestinos(List<Edificio> edificios) {
@@ -74,6 +97,7 @@ public class Edificios extends RelativoAImagen {
         if(null == controlador) {
             return;
         }
+        observadorAccionesProperty().bind(controlador.getObservadorLiberable());
         librito.setOnMouseClicked(controlador::libritoClicked);
         librito.setOnKeyPressed(controlador::libritoKeyPressed);
         destinoElegido.addListener(ev->controlador.destinoElegido(destinoElegido.get()));

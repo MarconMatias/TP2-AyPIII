@@ -2,11 +2,21 @@ package edu.fiuba.algo3.modelo.Juego;
 
 import edu.fiuba.algo3.modelo.Acciones.AccionDormir;
 import edu.fiuba.algo3.modelo.Acciones.IAccion;
+import javafx.beans.binding.DoubleExpression;
+import javafx.beans.binding.IntegerExpression;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+
+import static javafx.beans.binding.Bindings.createIntegerBinding;
 
 public class Calendario {
-    private int horasActuales = 0;
+    private IntegerProperty horasActuales = new SimpleIntegerProperty(0);
+    private IntegerExpression horaDelDia = createIntegerBinding(this::getHoraDelDia,horasActuales);
+    private IntegerExpression diaDeSemana = createIntegerBinding(this::getDiaDeLaSemana,horasActuales);
 
     private final int inicioDia = 1; // Lunes
     private final int inicioHs = 7; // 7 hs.;
@@ -22,12 +32,14 @@ public class Calendario {
         return (horas + inicioHs)%24;
     }
 
+    private DoubleExpression horaObservable;
+
     /**
      * @return La hora del día en la que se encuentra, desde 0 hs, hasta 23 hs.
      */
     public int getHoraDelDia()
     {
-        return calcularHoraDelDia(horasActuales);
+        return calcularHoraDelDia(horasActuales.get());
     }
 
     /**
@@ -35,7 +47,7 @@ public class Calendario {
      */
     public int getDiaDeLaSemana()
     {
-        int hs = horasActuales + inicioHs;
+        int hs = horasActuales.get() + inicioHs;
         hs += inicioDia*24;
         return (int) Math.floor(hs/24)%7;
     }
@@ -45,7 +57,7 @@ public class Calendario {
      */
     public int getCantidadDeDias()
     {
-        int hs = horasActuales + inicioHs;
+        int hs = horasActuales.get() + inicioHs;
         return (int) Math.floor(hs/24);
     }
 
@@ -55,7 +67,7 @@ public class Calendario {
      */
     public void avanzarHoras(int horas)
     {
-        int siguiente = this.horasActuales + horas;
+        int siguiente = horasActuales.get() + horas;
         boolean debeDormir = this.deberiaDormirSiAvanzaHasta(siguiente);
         this.avanzarSolamente(horas);
         if(debeDormir) {
@@ -69,7 +81,7 @@ public class Calendario {
      */
     private void avanzarSolamente(int horas)
     {
-        this.horasActuales += horas;
+        horasActuales.set(horasActuales.get() + horas);
     }
 
     /**
@@ -115,5 +127,13 @@ public class Calendario {
     }
     public void desobservarAcciones(IObservadorAcciones observador) {
         observadoresAcciones.remove(observador);
+    }
+
+    public IntegerExpression getHoraObservable() {
+        return horaDelDia;
+    }
+
+    public IntegerExpression getDiaObservable() {
+        return diaDeSemana;
     }
 }

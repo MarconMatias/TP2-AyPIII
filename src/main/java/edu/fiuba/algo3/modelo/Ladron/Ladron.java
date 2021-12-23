@@ -2,13 +2,24 @@ package edu.fiuba.algo3.modelo.Ladron;
 
 import edu.fiuba.algo3.modelo.Ciudad.IDestino;
 import edu.fiuba.algo3.modelo.Pista.Filtro.IFiltroCiudad;
+import edu.fiuba.algo3.modelo.Pista.IPista;
+import edu.fiuba.algo3.modelo.Pista.NivelPista.PistaDificil;
+import edu.fiuba.algo3.modelo.Pista.NivelPista.PistaFacil;
+import edu.fiuba.algo3.modelo.Pista.NivelPista.PistaMedia;
+import edu.fiuba.algo3.modelo.Pista.PistaLadron;
+import edu.fiuba.algo3.modelo.Pista.PistaLadronNoFacil;
 import edu.fiuba.algo3.modelo.Policia.Policia;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableMap;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
-public class Ladron implements ISospechoso {
+public class Ladron implements ISospechoso, DetallableSospechoso {
   private final String nombre;
   private final Map<String,String> detalles;
+  private final List<IPista> pistas = new ArrayList<>();
+
   public Ladron(String nombre, Map<String,String> detalles) {
     this.nombre = nombre;
     this.detalles = detalles;
@@ -28,6 +39,30 @@ public class Ladron implements ISospechoso {
     this(nombre, crearDetalles(sexo,deporte,cabello,distincion,vehiculo));
   }
 
+  private void generarPistas() {
+    if(0 == detalles.size()) {
+      System.err.println(this + " no tiene detalles.");
+      return;
+    }
+    PistaFacil facil = new PistaFacil();
+    Collection<PistaLadron> faciles = detalles.keySet().stream()
+            .map(tipo -> new PistaLadron(tipo, detalles.get(tipo), facil))
+                    .collect(Collectors.toList());
+    pistas.addAll(faciles);
+
+    PistaMedia media = new PistaMedia();
+    Collection<PistaLadron> medias = detalles.keySet().stream()
+            .map(tipo -> new PistaLadronNoFacil(tipo, detalles.get(tipo), media, 2))
+            .collect(Collectors.toList());
+    pistas.addAll(medias);
+
+    PistaDificil dificil = new PistaDificil();
+    Collection<PistaLadron> dificiles = detalles.keySet().stream()
+            .map(tipo -> new PistaLadronNoFacil(tipo, detalles.get(tipo), dificil, 1))
+            .collect(Collectors.toList());
+    pistas.addAll(dificiles);
+  }
+
   public boolean meLlamo(String string) {
 
     return string.equals(nombre);
@@ -38,15 +73,25 @@ public class Ladron implements ISospechoso {
     return this.detalles.getOrDefault(tipo,porDefecto);
   }
 
-  public String mostrarDistincion() {
-    String distincion = getDetalle("distincion","");
-    System.out.println("Veo a un sujeto con un " + distincion + " dentro del edificio. ");
-    return distincion;
+  public String detalleAlAzar(Policia policia, Random random) {
+    // Generación lazy.
+    if(0 == pistas.size()) {
+      generarPistas();
+    }
+
+    List<IPista> filtrada = policia.filtrarPistas(pistas);
+    int largo = filtrada.size();
+    if (0 == largo)
+      return PistaLadron.textoNoHay();
+    int posicion = random.nextInt(largo);
+    return filtrada.get(posicion).toString();
   }
 
   @Override
   public String testimonioAlAzar(Policia policia, IDestino destino, IFiltroCiudad filtroCiudad) {
-    return destino.pistaAlAzar(policia,filtroCiudad) + mostrarDistincion();
+    IPista pistaCiudad = destino.pistaAlAzar(policia, filtroCiudad);
+    String pistaDetalle = detalleAlAzar(policia, new Random());
+    return pistaCiudad + ".\n" + pistaDetalle;
   }
 
     public String getNombre() {
@@ -76,4 +121,22 @@ public class Ladron implements ISospechoso {
       }
     }
   }
+
+  @Override
+  public String toString() {
+    if((null==nombre)||(nombre.trim().equals(""))) {
+      return Integer.toString(hashCode());
+    }
+    return nombre;
+  }
+
+    @Override
+    public ObservableMap<String, String> getDetallesDeSospechoso() {
+        return FXCollections.observableMap(detalles);
+    }
+
+    @Override
+    public String getDetalle(String tipo) {
+        return detalles.get(tipo);
+    }
 }

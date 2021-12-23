@@ -15,6 +15,11 @@ public class InterpreteNivelPista {
     );
 
     public static NivelPista crearConDificultad(int dificultad) {
-        return factories.get(dificultad).get();
+        if(dificultad>=factories.size()) {
+            System.err.println("Advertencia: No existe dificultad "+dificultad+", asumiendo máxima.");
+            dificultad = factories.size()-1;
+        }
+        Supplier<NivelPista> factory = factories.get(dificultad);
+        return factory.get();
     }
 }

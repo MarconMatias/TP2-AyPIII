@@ -6,8 +6,8 @@ import edu.fiuba.algo3.componentes.bindings.CargandoBinding;
 import edu.fiuba.algo3.controlador.Policia.PoliciaControlador;
 import edu.fiuba.algo3.controlador.Splash.SplashControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
-import edu.fiuba.algo3.vista.Policias;
-import edu.fiuba.algo3.vista.Splash;
+import edu.fiuba.algo3.vista.Policia.Policias;
+import edu.fiuba.algo3.vista.Juego.Splash;
 import javafx.application.Application;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.Event;
@@ -30,7 +30,7 @@ public class App extends Application {
         startSplash(stage);
     }
 
-    ControladorStage controlador;
+    ControlStage controlador;
 
     private void startSplash(Stage stage) {
         FakeService lector = new FakeService(5);
@@ -41,7 +41,7 @@ public class App extends Application {
 
         SplashControlador splashControlador = new SplashControlador(juego);
         Splash splash = new Splash(juego, splashControlador);
-        controlador = new ControladorStage(stage, splash);
+        controlador = new ControlStage(stage, splash);
         splash.requestFocus();
         splash.setFocusTraversable(false);
         //root.setFocusTraversable(false);

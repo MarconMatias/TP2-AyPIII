@@ -6,14 +6,19 @@ import java.util.ArrayList;
 
 public class PistaLadron implements IPista {
 
+    protected final static String noHayDetalles = "No puedo aportar ningún detalle sobre esa persona.";
     private final NivelPista nivel;
-    private final String tipo;
-    private final String valor;
+    protected final String tipo;
+    protected final String valor;
 
     public PistaLadron(String tipo, String valor, NivelPista nivel) {
         this.tipo = tipo;
         this.valor = valor;
         this.nivel = nivel;
+    }
+
+    public static String textoNoHay() {
+        return noHayDetalles;
     }
 
     @Override
@@ -27,6 +32,10 @@ public class PistaLadron implements IPista {
     @Override
     public String toString()
     {
+        if( (null == tipo) || ("".equals(tipo.trim()))
+                || (null == valor)  || ("".equals(valor.trim())) ) {
+            return noHayDetalles;
+        }
         return "Su " + tipo + " es " + valor + ".";
     }
 }
