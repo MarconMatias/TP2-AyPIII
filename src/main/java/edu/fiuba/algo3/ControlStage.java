@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 
 import java.util.List;
 
-public class ControladorStage {
+public class ControlStage {
     private final Stage stage;
     private final GrupoInterno raiz;
     private final Scene scene;
@@ -24,7 +24,7 @@ public class ControladorStage {
     private final DoubleProperty escala = new SimpleDoubleProperty(1.0);
     private final DoubleProperty ancho = new SimpleDoubleProperty(1024);
 
-    public ControladorStage(Stage stage, Parent interno) {
+    public ControlStage(Stage stage, Parent interno) {
         this.stage = stage;
         this.raiz = new GrupoInterno(interno);
         this.scene = new Scene(raiz);
