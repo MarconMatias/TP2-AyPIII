@@ -16,4 +16,7 @@ public class ExpedienteControlador {
     this.controlStage = controlStage;
   }
 
+  public SospechososControlador crearControladorSospechosos() {
+    return new SospechososControlador(juego,mision, controlStage);
+  }
 }
