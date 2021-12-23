@@ -54,7 +54,9 @@ public class Orden extends Pantalla {
         StringBinding bindingEstado = createStringBinding(this::textoEstado, mision.getOrden());
         labelEstado.textProperty().bind(bindingEstado);
         labelEstado.setAlignment(Pos.CENTER);
-        labelEstado.setMaxWidth(480);
+        labelEstado.setMinWidth(720);
+        labelEstado.setMinHeight(256);
+        labelEstado.setWrapText(true);
         labelEstado.setStyle("-fx-font: 90 \"Comic Sans\"");
         labelEstado.getStyleClass().add("etiquetaEstadoOrden");
         labelEstado.getTransforms().setAll(new Rotate(5d, 0,0));
@@ -96,7 +98,7 @@ public class Orden extends Pantalla {
         if(null == emitidaPara) {
             return "Sin emitir";
         }
-        return "Emitida para "+emitidaPara;
+        return "Emitida para\n"+emitidaPara;
     }
 
     private void setControlador(OrdenControlador controlador) {
