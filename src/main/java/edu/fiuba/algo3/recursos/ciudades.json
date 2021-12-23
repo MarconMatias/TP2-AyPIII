@@ -181,7 +181,7 @@
         },
         {
           "tipo": "Geografia",
-          "pista": "",
+          "pista": "Me dijo que se dirigia a la parte Oeste de Africa",
           "dificultad": 0
         },
         {
@@ -202,11 +202,11 @@
         {
           "tipo": "Exportaciones",
           "pista": "Menciono que el pais al que se dirige exporta mucho arroz y mijos",
-          "dificultad": 0
+          "dificultad": 2
         },
         {
           "tipo": "Animales",
-          "pista": "",
+          "pista": "Me dijo que queria ver los antílopes oribí y duiker común",
           "dificultad": 2
         },
         {
@@ -216,23 +216,23 @@
         },
         {
           "tipo": "Idioma",
-          "pista": "",
+          "pista": "Me dijo que la ciudad a la que se dirigia su gente hablaba frances",
           "dificultad": 1
         },
         {
           "tipo": "Arte",
-          "pista": "",
+          "pista": "Me dijo que le interesaba el arte Mali",
           "dificultad": 0
         },
         {
           "tipo": "Religion",
-          "pista": "",
-          "dificultad": 0
+          "pista": "Me comento que se dirigia a un pais donde la mayoria profesa el Islam",
+          "dificultad": 2
         },
         {
           "tipo": "Gobernante",
           "pista": "Escuche que queria luego robarle al presidente",
-          "dificultad": 0
+          "dificultad": 1
         },
         {
           "tipo": "Miscelaneos",
@@ -267,37 +267,37 @@
         },
         {
           "tipo": "Geografia",
-          "pista": "",
+          "pista": "Me dijo que se dirigia a una ciudad que esta situada en la desembocadura del río Chao Phraya",
           "dificultad": 0
         },
         {
           "tipo": "Puntos de Interes",
-          "pista": "",
+          "pista": "Me dijo que le interesaria visitar una ciudad con santuarios ornamentados y la animada vida callejera",
           "dificultad": 1
         },
         {
           "tipo": "Exportaciones",
-          "pista": "",
+          "pista": "Me dijo que el pais al que se dirige tiene una economia basada en la exportaciones de accesorios de maquinas y automoviles",
           "dificultad": 0
         },
         {
           "tipo": "Animales",
-          "pista": "",
+          "pista": "Me dijo que existen animales peligrosos como la Cobra Real o la Tarantula Tailandesa en el pais al que se dirige",
           "dificultad": 2
         },
         {
           "tipo": "Personajes Historicos",
-          "pista": "",
+          "pista": "Me dijo que queria conocer a Maha Vajiralongkorn, actual rey de Tailandia",
           "dificultad": 2
         },
         {
           "tipo": "Idioma",
-          "pista": "",
+          "pista": "Me dijo que necesitaba aprender Tailandes para poder viajar",
           "dificultad": 1
         },
         {
           "tipo": "Arte",
-          "pista": "",
+          "pista": "Me comento que el arte tradicional tailandés está principalmente vinculado a la religión budista y a las escenas de las historias épicas hindús y que le interesaria saber mas de ello",
           "dificultad": 0
         },
         {
@@ -307,7 +307,7 @@
         },
         {
           "tipo": "Gobernante",
-          "pista": "",
+          "pista": "Me dijo que hay una monarquia constitucional democratica en el pais al que se dirigia",
           "dificultad": 2
         },
         {
@@ -335,8 +335,8 @@
         },
         {
           "tipo": "Geografia",
-          "pista": "???",
-          "dificultad": 2
+          "pista": "Me dijo que se dirigia a la capital y ciudad más poblada de Hungría",
+          "dificultad": 1
         },
         {
           "tipo": "Puntos de Interes",
@@ -355,7 +355,7 @@
         },
         {
           "tipo": "Animales",
-          "pista": "???",
+          "pista": "Me comento lo siguiente: En las zonas rurales de Hungría es algo normal y corriente que después de la lluvia cigüeñas caminan por el jardín, búhos ululan en el nogal, pájaros protegidos anidan en el granero y a veces una familia de erizos o ciervos pasa por delante de los visitantes, o una manada descansa en el frescor del árbol solitario del pasto. Muy extraño...",
           "dificultad": 1
         },
         {
@@ -365,7 +365,7 @@
         },
         {
           "tipo": "Idioma",
-          "pista": "???",
+          "pista": "Me dijo que hablaban Hungaro en la ciudad a la que se dirigia",
           "dificultad": 2
         },
         {
@@ -375,16 +375,16 @@
         },
         {
           "tipo": "Religion",
-          "pista": "???",
+          "pista": "Me dijo que la poblacion del pais al que se dirige profesa el Cristianismo",
           "dificultad": 1
         },
         {
           "tipo": "Gobernante",
-          "pista": "???",
+          "pista": "Me dijo que queria conocer al presidente de Hungria",
           "dificultad": 2
         },
         {
-          "tipo": "Miscelanea",
+          "tipo": "Miscelaneos",
           "pista": "La ciudad a la que se dirige esta cerca de Austria",
           "dificultad": 0
         }
@@ -455,27 +455,27 @@
           "dificultad": 0
         },
         {
-          "tipo": "Miscelanea",
+          "tipo": "Miscelaneos",
           "pista": "Dijo que una vez hablo con un supervisor de colectivos y le dijo que era boludo y no tenia huevos",
           "dificultad": 1
         },
         {
-          "tipo": "Miscelanea",
+          "tipo": "Miscelaneos",
           "pista": "Dijo que queria conocer al comandante... RICARDO FORT",
           "dificultad": 2
         },
         {
-          "tipo": "Miscelanea",
+          "tipo": "Miscelaneos",
           "pista": "Me conto que una vez probo empanadas de tofu en un frasco en Palermo",
           "dificultad": 0
         },
         {
-          "tipo": "Miscelanea",
+          "tipo": "Miscelaneos",
           "pista": "Me dijo que en su pais el estilo mariposa refiere a dos cosas: 1. El tipo de nado y 2. El chorizo... del choripan",
           "dificultad": 2
         },
         {
-          "tipo": "Miscelanea",
+          "tipo": "Miscelaneos",
           "pista": "Me conto que un amigo de el lo bloquearon por boby",
           "dificultad": 0
         }
@@ -976,18 +976,213 @@
       "nombre": "Ciudad de México",
       "coordenadas": [0.202, 0.417],
       "pistas": [
+        {
+          "tipo": "Bandera",
+          "pista": "La bandera del pais al que viaja es de color verde, blanca y roja",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Me dijo que necesitaba comprar Pesos para viajar",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "Me dijo que queria conocer Cancun",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Dijo que queria visitar las piramides Aztecas",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Me dijo que queria probar la comida picante",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Animales",
+          "pista": "Me dijo que se dirigia a un pais donde hay una gran diversidad de especies",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "Me dijo que habitaban los Aztecas antiguamente en la ciudad a la que se dirigia",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Me dijo que tienen una industria manufacturera la ciudad a la que se dirige",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Me dijo que hablaban español la gente de la ciudad a la que se dirige",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Me dijo que queria comprar arte de Frida Khalo",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Me comento que la gente de la zona es catolica",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "Me comento que el pueblo eligio un presidente democraticamente",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Me dijo que queria conocer la historia de la antigua Tenocthtitlan",
+          "dificultad": 2
+        }
       ]
     },
     {
       "nombre": "Montreal",
       "coordenadas": [0.295, 0.269],
       "pistas": [
+        {
+          "tipo": "Bandera",
+          "pista": "La bandera del pais al que viaja es de color blanca y roja",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Me dijo que necesitaba comprar dolares canadienses para viajar",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "Me dijo que queria ver algun dia los juegos olimpicos de inverno en Vancouver",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Dijo que queria visitar las cataratas Montgomery",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Me dijo que queria probar la miel de maple",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Animales",
+          "pista": "Me dijo que se dirigia a un pais donde hay una gran cantidad de alces",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "Me dijo que el primer ministro del pais al que se dirige es Trudeau",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Me dijo que tienen una industria maderera importante en el pais",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Me dijo que hablaban ingles y frances la gente de la ciudad a la que se dirige",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Me dijo que queria comprar arte Canadiense",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Me comento que la gente de la zona es cristiana",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "Me comento que el pueblo eligio un primer ministro recientemente",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Me dijo que queria ver un partido de Hockey sobre hielo y ver las cataratas del Niagara",
+          "dificultad": 2
+        }
       ]
     },
     {
       "nombre": "Moroni",
       "coordenadas": [0.592, 0.589],
       "pistas": [
+        {
+          "tipo": "Bandera",
+          "pista": "La bandera del pais al que viaja es de color blanca y verde",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Me dijo que necesitaba comprar Francos para viajar",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "Me dijo que queria ver los volcanes de una isla",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Dijo que queria visitar el Monte Karthala",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Me dijo que queria comprar un perfume y que el pais al que se dirige es productor de ellos",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Animales",
+          "pista": "Me dijo que se dirigia a un pais donde hay un ave llamada Autillo de Anjouan que es familia de los buhos",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "Me dijo que los pobladores originarios de la isla fueron los Bantues",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Me dijo que tienen una industria de cafe, vainilla y coco importante en el pais",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Me dijo que hablaban frances y arabe la gente de la ciudad a la que se dirige",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Me dijo que queria comprar arte de Comoros",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Me comento que la gente de la zona es musulmana",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "Me comento que el pueblo eligio un presidente",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Me dijo que queria vacacionar en una isla",
+          "dificultad": 2
+        }
       ]
     },
     {
@@ -1006,7 +1201,7 @@
         },
         {
           "tipo": "Geografia",
-          "pista": "???",
+          "pista": "Me dijo que queria conocer el Rio Moskva",
           "dificultad": 0
         },
         {
@@ -1016,12 +1211,12 @@
         },
         {
           "tipo": "Exportaciones",
-          "pista": "???",
+          "pista": "Me dijo que el pais es un gran productor de gas, petroleo y bebidas alcoholicas",
           "dificultad": 0
         },
         {
           "tipo": "Animales",
-          "pista": "???",
+          "pista": "Me dijo que una vez queria ver un oso en los bosques de las afueras de la ciudad a la que se dirige",
           "dificultad": 0
         },
         {
@@ -1036,22 +1231,22 @@
         },
         {
           "tipo": "Arte",
-          "pista": "???",
+          "pista": "Me dijo que queria ver cuadros pintados de la familia Romanov",
           "dificultad": 0
         },
         {
           "tipo": "Religion",
-          "pista": "???",
+          "pista": "Me dijo que los habitantes de la ciudad a la que se dirigia eran catolicos ortodoxos",
           "dificultad": 0
         },
         {
           "tipo": "Gobernante",
-          "pista": "???",
+          "pista": "Me dijo que queria alguna vez conocer a Putin",
           "dificultad": 0
         },
         {
           "tipo": "Miscelaneos",
-          "pista": "Dijo que queria conocer los origines Moldavos",
+          "pista": "Dijo que queria tomar vodka",
           "dificultad": 2
         }
       ]
@@ -1072,17 +1267,17 @@
         },
         {
           "tipo": "Geografia",
-          "pista": "???",
+          "pista": "Me dijo que queria visitar la India",
           "dificultad": 0
         },
         {
           "tipo": "Puntos de Interes",
-          "pista": "???",
+          "pista": "Me dijo que queria conocer la tumba de Humayun",
           "dificultad": 0
         },
         {
           "tipo": "Exportaciones",
-          "pista": "???",
+          "pista": "Me comento que la actividad economica del pais se basa en el turismo",
           "dificultad": 0
         },
         {
@@ -1092,17 +1287,17 @@
         },
         {
           "tipo": "Personajes Historicos",
-          "pista": "???",
+          "pista": "Me dijo que Gandhi era oriundo del pais al que se dirigia",
           "dificultad": 0
         },
         {
           "tipo": "Idioma",
-          "pista": "???",
+          "pista": "Me dijo que la gente de la ciudad habla Hindu",
           "dificultad": 0
         },
         {
           "tipo": "Arte",
-          "pista": "???",
+          "pista": "Me dijo que queria comprar arte de la India",
           "dificultad": 0
         },
         {
@@ -1117,7 +1312,7 @@
         },
         {
           "tipo": "Miscelaneos",
-          "pista": "???",
+          "pista": "Me dijo que queria conocer la zona historica de la Old Delhi",
           "dificultad": 0
         }
       ]
@@ -1138,7 +1333,7 @@
         },
         {
           "tipo": "Geografia",
-          "pista": "???",
+          "pista": "Me dijo que queria conocer una de las islas mas importantes de Estados Unidos",
           "dificultad": 0
         },
         {
@@ -1153,7 +1348,7 @@
         },
         {
           "tipo": "Animales",
-          "pista": "???",
+          "pista": "Me dijo que la ciudad a la que se dirigia tenia un parque lleno de ardillas",
           "dificultad": 0
         },
         {
@@ -1163,22 +1358,22 @@
         },
         {
           "tipo": "Idioma",
-          "pista": "???",
+          "pista": "Me dijo que se dirigia a una ciudad donde la mayoria habla ingles",
           "dificultad": 0
         },
         {
           "tipo": "Arte",
-          "pista": "???",
+          "pista": "Me dijo que queria visitar el MOMA",
           "dificultad": 0
         },
         {
           "tipo": "Religion",
-          "pista": "???",
+          "pista": "Me dijo que la gente de la ciudad a la que se dirigia en su mayoria era cristiana",
           "dificultad": 0
         },
         {
           "tipo": "Gobernante",
-          "pista": "???",
+          "pista": "Me dijo que el pais al que se dirige eligio un presidente recientemente",
           "dificultad": 0
         },
         {
@@ -1199,12 +1394,12 @@
         },
         {
           "tipo": "Moneda",
-          "pista": "???",
+          "pista": "Me dijo que necesitaba comprar coronas noruegas",
           "dificultad": 0
         },
         {
           "tipo": "Geografia",
-          "pista": "???",
+          "pista": "Me dijo que se dirigia a un pais nordico",
           "dificultad": 0
         },
         {
@@ -1219,7 +1414,7 @@
         },
         {
           "tipo": "Animales",
-          "pista": "???",
+          "pista": "Me dijo que abundan zorros y renos en los bosques alrededor de la ciudad a la que se dirige",
           "dificultad": 0
         },
         {
@@ -1229,17 +1424,17 @@
         },
         {
           "tipo": "Idioma",
-          "pista": "???",
+          "pista": "Me dijo que hablan Noruego en la ciudad a la que se dirigia",
           "dificultad": 0
         },
         {
           "tipo": "Arte",
-          "pista": "???",
+          "pista": "Me dijo que estaba interesado en el arte Vikingo",
           "dificultad": 0
         },
         {
           "tipo": "Religion",
-          "pista": "???",
+          "pista": "Me dijo que la religion de la ciudad a la que se dirigia antiguamente veneraba a Thor",
           "dificultad": 0
         },
         {
@@ -1270,7 +1465,7 @@
         },
         {
           "tipo": "Geografia",
-          "pista": "???",
+          "pista": "Me comento que el Rio Sena atraviesa la ciudad a la que se dirigia",
           "dificultad": 0
         },
         {
@@ -1285,37 +1480,37 @@
         },
         {
           "tipo": "Animales",
-          "pista": "???",
+          "pista": "Me dijo que el gallo se ha convertido en uno de los símbolos de la nación ganadora del Mundial en 1998 del pais al que se dirige",
           "dificultad": 0
         },
         {
           "tipo": "Personajes Historicos",
-          "pista": "???",
+          "pista": "Me dijo que siempre le fascino la historia de Juana de Arco",
           "dificultad": 0
         },
         {
           "tipo": "Idioma",
-          "pista": "???",
+          "pista": "Me dijo que se dirigia a una ciudad donde hablan frances",
           "dificultad": 0
         },
         {
           "tipo": "Arte",
-          "pista": "???",
+          "pista": "Me dijo que queria contemplar la Gioconda en el Louvre",
           "dificultad": 0
         },
         {
           "tipo": "Religion",
-          "pista": "???",
+          "pista": "Me dijo que queria visitar la catedral de Notradame",
           "dificultad": 0
         },
         {
           "tipo": "Gobernante",
-          "pista": "???",
+          "pista": "Me dijo que queria conocer al presidente Macron",
           "dificultad": 1
         },
         {
           "tipo": "Miscelaneos",
-          "pista": "???",
+          "pista": "Me dijo que queria ver un partido de Messi en la ciudad a la que se dirigia",
           "dificultad": 0
         }
       ]
@@ -1336,7 +1531,7 @@
         },
         {
           "tipo": "Geografia",
-          "pista": "???",
+          "pista": "Me dijo que se dirigia a un pais que tenia como vecino a Corea del Norte",
           "dificultad": 0
         },
         {
@@ -1346,37 +1541,37 @@
         },
         {
           "tipo": "Exportaciones",
-          "pista": "???",
-          "dificultad": 0
+          "pista": "Me dijo que el pais al que se dirigia era conocido por su industria manufacturera",
+          "dificultad": 1
         },
         {
           "tipo": "Animales",
           "pista": "Menciono cierto afecto por los Pandas",
-          "dificultad": 0
+          "dificultad": 2
         },
         {
           "tipo": "Personajes Historicos",
-          "pista": "???",
-          "dificultad": 0
+          "pista": "Me comento que una vez acaricio un panda en un zoologico de la ciudad a la que se dirigia",
+          "dificultad": 1
         },
         {
           "tipo": "Idioma",
-          "pista": "???",
+          "pista": "Me dijo que hablaban chino en la ciudad a la que se dirigia ",
           "dificultad": 0
         },
         {
           "tipo": "Arte",
-          "pista": "???",
-          "dificultad": 0
+          "pista": "Me dijo que queria comprar lamparas orientales",
+          "dificultad": 2
         },
         {
           "tipo": "Religion",
-          "pista": "???",
+          "pista": "Me dijo que la gente de la ciudad a la que se dirigia era budista",
           "dificultad": 0
         },
         {
           "tipo": "Gobernante",
-          "pista": "???",
+          "pista": "Me dijo que el gobierno del pais al que se dirigia era uno comunista",
           "dificultad": 1
         },
         {
@@ -1417,7 +1612,7 @@
         },
         {
           "tipo": "Animales",
-          "pista": "???",
+          "pista": "Me dijo que se dirigia a una ciudad para poder acariciar un Cuscus",
           "dificultad": 0
         },
         {
@@ -1427,17 +1622,17 @@
         },
         {
           "tipo": "Idioma",
-          "pista": "???",
+          "pista": "Me dijo que se dirigia a una ciudad donde hablaban Ingles, Hiri Motu y Tok Pisin",
           "dificultad": 0
         },
         {
           "tipo": "Arte",
-          "pista": "???",
+          "pista": "Dijo que queria comprar arte de Papua Nueva Guinea",
           "dificultad": 0
         },
         {
           "tipo": "Religion",
-          "pista": "???",
+          "pista": "Me dijo que la gente de la ciudad a la que se dirigia era mayoritariamente Cristiana",
           "dificultad": 0
         },
         {
@@ -1473,43 +1668,48 @@
         },
         {
           "tipo": "Puntos de Interes",
-          "pista": "???",
+          "pista": "Uno de los puntos de interes que tenia fue el balneario geotermal de la laguna Azul, cerca de la villa de Grindavik.",
           "dificultad": 0
         },
         {
           "tipo": "Exportaciones",
           "pista": "Menciono la pesca como su principal industria",
-          "dificultad": 1
+          "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Menciono la actividad primaria como su principal industria",
+          "dificultad": 2
         },
         {
           "tipo": "Animales",
-          "pista": "???",
+          "pista": "Me dijo que queria ver un zorro artico, un frailecillo, una ballena jorobada y un oso polar.",
           "dificultad": 0
         },
         {
           "tipo": "Personajes Historicos",
-          "pista": "???",
+          "pista": "Me dijo que le interesaban los Vikingos",
           "dificultad": 0
         },
         {
           "tipo": "Idioma",
-          "pista": "???",
-          "dificultad": 0
+          "pista": "Me dijo que queria aprender Islandes",
+          "dificultad": 1
         },
         {
           "tipo": "Arte",
-          "pista": "???",
+          "pista": "Me dijo que queria ver las sagas Vikingas",
           "dificultad": 0
         },
         {
           "tipo": "Religion",
-          "pista": "???",
+          "pista": "Me comento que se dirigia a una ciudad donde su Iglesia Nacional profesa el cristianismo de tipo luterano y es de carácter nacional",
           "dificultad": 0
         },
         {
           "tipo": "Gobernante",
-          "pista": "???",
-          "dificultad": 0
+          "pista": "Me dijo que se dirigia a un pais donde hay una republica parlamentaria",
+          "dificultad": 2
         },
         {
           "tipo": "Miscelaneos",
@@ -1525,7 +1725,7 @@
         {
           "tipo": "Bandera",
           "pista": "Dijo que la bandera era Verde, Azul y Amarilla",
-          "dificultad": 0
+          "dificultad": 1
         },
         {
           "tipo": "Moneda",
@@ -1534,8 +1734,8 @@
         },
         {
           "tipo": "Geografia",
-          "pista": "???",
-          "dificultad": 0
+          "pista": "Me dijo que se dirigia a una ciudad que situada sobre el macizo de Brasilia y tiene costa de mar",
+          "dificultad": 2
         },
         {
           "tipo": "Puntos de Interes",
@@ -1554,22 +1754,22 @@
         },
         {
           "tipo": "Personajes Historicos",
-          "pista": "???",
+          "pista": "Me dijo que se dirigia a un pais donde jugaba un tal jugador de futbol Pele",
           "dificultad": 0
         },
         {
           "tipo": "Idioma",
           "pista": "Menciono querer aprender Portugues",
-          "dificultad": 0
+          "dificultad": 1
         },
         {
           "tipo": "Arte",
-          "pista": "???",
-          "dificultad": 0
+          "pista": "Me dijo que queria escuchar Bossa Nova",
+          "dificultad": 2
         },
         {
           "tipo": "Religion",
-          "pista": "???",
+          "pista": "Me dijo que se dirigia a una ciudad donde gran parte de sus habitantes eran catolicos, pero tambien un alto porcentaje de umbandistas",
           "dificultad": 0
         },
         {
@@ -1579,7 +1779,7 @@
         },
         {
           "tipo": "Miscelaneos",
-          "pista": "???",
+          "pista": "Me dijo que queria visitar el Cristo Redentor que esta en la ciudad a la que se dirige",
           "dificultad": 0
         }
       ]
@@ -1600,8 +1800,8 @@
         },
         {
           "tipo": "Geografia",
-          "pista": "???",
-          "dificultad": 0
+          "pista": "Me dijo que queria navegar por el Rio Tiber",
+          "dificultad": 2
         },
         {
           "tipo": "Puntos de Interes",
@@ -1611,22 +1811,22 @@
         {
           "tipo": "Exportaciones",
           "pista": "Menciono la industria textil como su principal actividad",
-          "dificultad": 1
+          "dificultad": 0
         },
         {
           "tipo": "Animales",
-          "pista": "???",
-          "dificultad": 0
+          "pista": "Me explico que se dirigia a una ciudad donde traian animales exoticos de todas partes del mundo para los juegos en las arenas",
+          "dificultad": 1
         },
         {
           "tipo": "Personajes Historicos",
           "pista": "Menciono una curiosidad por los Etruscos",
-          "dificultad": 0
+          "dificultad": 2
         },
         {
           "tipo": "Idioma",
           "pista": "Menciono querer aprender Italiano",
-          "dificultad": 0
+          "dificultad": 1
         },
         {
           "tipo": "Arte",
@@ -1635,17 +1835,17 @@
         },
         {
           "tipo": "Religion",
-          "pista": "???",
-          "dificultad": 0
+          "pista": "Me comento que se dirigia a una ciudad cerca de la Santa Sede",
+          "dificultad": 1
         },
         {
           "tipo": "Gobernante",
           "pista": "Dijo ir a un pais cuyo gobernado por un Presidente elegido democraticamente",
-          "dificultad": 0
+          "dificultad": 2
         },
         {
           "tipo": "Miscelaneos",
-          "pista": "???",
+          "pista": "Me dijo que queria visitar la ciudad porque le gustaba la pelicula Gladiador",
           "dificultad": 0
         }
       ]
@@ -1661,12 +1861,12 @@
         },
         {
           "tipo": "Moneda",
-          "pista": "???",
+          "pista": "Lo vi comprar euros para viajar a la siguiente ciudad, aunque tambien me menciono que no pertenecia a la Eurozona",
           "dificultad": 0
         },
         {
           "tipo": "Geografia",
-          "pista": "???",
+          "pista": "Me comento que se dirige al tercer pais mas pequeño de Europa despues del Vaticano y Monaco",
           "dificultad": 0
         },
         {
@@ -1681,13 +1881,13 @@
         },
         {
           "tipo": "Animales",
-          "pista": "???",
-          "dificultad": 0
+          "pista": "Me conto que dadas las características montanas del territorio, los pájaros y los mamíferos son los animales más difundidos de la zona a la que se dirige",
+          "dificultad": 2
         },
         {
           "tipo": "Personajes Historicos",
-          "pista": "???",
-          "dificultad": 0
+          "pista": "Me dijo que se dirigia a una ciudad reconocida como estado por Napoleon en 1797",
+          "dificultad": 2
         },
         {
           "tipo": "Idioma",
@@ -1696,18 +1896,18 @@
         },
         {
           "tipo": "Arte",
-          "pista": "???",
-          "dificultad": 0
+          "pista": "Me conto de tres torres ubicadas en el monte Titano",
+          "dificultad": 1
         },
         {
           "tipo": "Religion",
-          "pista": "???",
-          "dificultad": 0
+          "pista": "Me conto que se dirigia a una ciudad que si bien no es oficial su religion predomina el Cristianismo",
+          "dificultad": 1
         },
         {
           "tipo": "Gobernante",
-          "pista": "???",
-          "dificultad": 0
+          "pista": "Me conto que se dirigia a un pais donde la forma de gobierno era una republica parlamentaria",
+          "dificultad": 2
         },
         {
           "tipo": "Miscelaneos",
@@ -1727,12 +1927,12 @@
         },
         {
           "tipo": "Moneda",
-          "pista": "???",
+          "pista": "Me dijo que necesitaba dolares... pero para viajar a oceania",
           "dificultad": 0
         },
         {
           "tipo": "Geografia",
-          "pista": "???",
+          "pista": "Me dijo que viajaba a una de las islas mas grandes del mundo",
           "dificultad": 0
         },
         {
@@ -1748,7 +1948,7 @@
         {
           "tipo": "Animales",
           "pista": "Dijo que le interesaban los Koalas, las Serpientes Tigre, Wallaby y Wombats",
-          "dificultad": 0
+          "dificultad": 2
         },
         {
           "tipo": "Personajes Historicos",
@@ -1757,27 +1957,27 @@
         },
         {
           "tipo": "Idioma",
-          "pista": "???",
+          "pista": "Me dijo que hablaban Ingles en la ciudad a la que se dirigia",
           "dificultad": 0
         },
         {
           "tipo": "Arte",
-          "pista": "???",
-          "dificultad": 0
+          "pista": "Dijo que queria ir a la opera de Sydney",
+          "dificultad": 2
         },
         {
           "tipo": "Religion",
-          "pista": "???",
+          "pista": "Me dijo que la ciudad a la que se dirige gran parte de la poblacion es Cristiana",
           "dificultad": 0
         },
         {
           "tipo": "Gobernante",
-          "pista": "???",
-          "dificultad": 0
+          "pista": "Me comento que se dirigia a un pais con una forma de gobierno parlamentaria",
+          "dificultad": 1
         },
         {
           "tipo": "Miscelaneos",
-          "pista": "???",
+          "pista": "Me comento que podias encontrar arañas grandes como la cara de alguien dentro de las casas de los habitantes de la ciudad a la que se dirigia",
           "dificultad": 0
         }
       ]
@@ -1793,12 +1993,12 @@
         },
         {
           "tipo": "Moneda",
-          "pista": "???",
+          "pista": "Me dijo que necesitaba comprar dolares para viajar, aunque se dirigia a Asia",
           "dificultad": 0
         },
         {
           "tipo": "Geografia",
-          "pista": "???",
+          "pista": "Me dijo que se dirigia a una ciudad que se encontraba entre Malasya e Indonesia",
           "dificultad": 0
         },
         {
@@ -1814,32 +2014,32 @@
         {
           "tipo": "Animales",
           "pista": "Dijo que le interesaban los Peces Piedra",
-          "dificultad": 1
+          "dificultad": 2
         },
         {
           "tipo": "Personajes Historicos",
-          "pista": "???",
+          "pista": "Me conto que el primer fundador de la ciudad a la que se dirige se llamaba Lee Kuan Yew",
           "dificultad": 1
         },
         {
           "tipo": "Idioma",
-          "pista": "???",
+          "pista": "Me dijo que hablaban Ingles, Chino Mandarin, Malayo y Tamil en la ciudad a la que se dirigia",
           "dificultad": 0
         },
         {
           "tipo": "Arte",
           "pista": "Menciono interes en el arte malayo",
-          "dificultad": 0
+          "dificultad": 2
         },
         {
           "tipo": "Religion",
-          "pista": "???",
+          "pista": "Me dijo que las personas de la ciudad a la que se dirige profesan diferentes religiones y algunos son cristianos y otros son musulmanes, otros hindues y otros budistas",
           "dificultad": 0
         },
         {
           "tipo": "Gobernante",
-          "pista": "???",
-          "dificultad": 0
+          "pista": "Me dijo que el pais al que se dirige tiene un presidente elegido democraticamente",
+          "dificultad": 1
         },
         {
           "tipo": "Miscelaneos",
@@ -1864,22 +2064,22 @@
         },
         {
           "tipo": "Geografia",
-          "pista": "???",
+          "pista": "El pais al que se dirige me comento que es un conjunto de varias islas y algunas montañosas",
           "dificultad": 0
         },
         {
           "tipo": "Puntos de Interes",
           "pista": "Dijo que queria conocer el Monte Fuji",
-          "dificultad": 0
+          "dificultad": 2
         },
         {
           "tipo": "Exportaciones",
           "pista": "Menciono la industria Automotor como principal actividad",
-          "dificultad": 0
+          "dificultad": 1
         },
         {
           "tipo": "Animales",
-          "pista": "???",
+          "pista": "Me dijo que le gustaria ver en su siguiente ciudad algunos peces koi",
           "dificultad": 1
         },
         {
@@ -1889,27 +2089,27 @@
         },
         {
           "tipo": "Idioma",
-          "pista": "???",
-          "dificultad": 0
+          "pista": "Me dijo que queria aprender Japones",
+          "dificultad": 1
         },
         {
           "tipo": "Arte",
-          "pista": "???",
+          "pista": "Me comento que le gustaba el manga",
           "dificultad": 0
         },
         {
           "tipo": "Religion",
           "pista": "Demostro interes en la religion Shinto",
-          "dificultad": 0
+          "dificultad": 1
         },
         {
           "tipo": "Gobernante",
-          "pista": "???",
-          "dificultad": 0
+          "pista": "Me dijo que el pais elegio un presidente democraticamente",
+          "dificultad": 2
         },
         {
           "tipo": "Miscelaneos",
-          "pista": "???",
+          "pista": "Me dijo que elegio viajar a ese pais porque le gusto la pelicula El Ultimo Samurai",
           "dificultad": 0
         }
       ]
