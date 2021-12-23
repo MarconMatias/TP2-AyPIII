@@ -13,6 +13,8 @@ public class Reloj extends RelativoAImagen {
 
     public Reloj(ObjectExpression<Calendario> calendario) {
         super(fondo);
+
+
         /*imageView = new ImageView(fondo);
         imageView.setFitWidth(fondo.getWidth());
         imageView.setFitHeight(fondo.getHeight());
