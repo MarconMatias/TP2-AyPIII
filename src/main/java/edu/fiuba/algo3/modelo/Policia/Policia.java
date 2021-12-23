@@ -8,6 +8,7 @@ import edu.fiuba.algo3.modelo.Evento.PoliciaFinalizaListener;
 import edu.fiuba.algo3.modelo.Evento.PoliciaGana;
 import edu.fiuba.algo3.modelo.Evento.PoliciaPierde;
 import edu.fiuba.algo3.modelo.Juego.Calendario;
+import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.ITipoEdificio;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.OrdenDeArresto.IOrden;
 import edu.fiuba.algo3.modelo.OrdenDeArresto.SinOrden;
@@ -164,6 +165,15 @@ public class Policia {
             }
             throw error;
         }
+    }
+
+    public boolean entraAlEdificio(ITipoEdificio unEdificio, Ladron unLadron) {
+
+        boolean pistaEncontrada = false;
+
+        pistaEncontrada = unEdificio.mostrarPista(unLadron);
+
+        return pistaEncontrada;
     }
 
     public void escucharAlGanar(PoliciaFinalizaListener listener) {

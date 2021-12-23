@@ -17,6 +17,4 @@ public class Aeropuerto extends EdificioAbstracto{
         return "Piloto";
     }
 
-
 }
-
