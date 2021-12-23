@@ -120,84 +120,924 @@
       "nombre": "Moscú",
       "coordenadas": [0.592, 0.211],
       "pistas": [
+        {
+          "tipo": "Bandera",
+          "pista": "Tenía una bandera roja",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Quiso comprar Rublos",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Dijo que queria conocer el Lago Ladoga y las Montanias Ural",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Animales",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "Menciono estar interesado en Ivan el Terrible",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Menciono que se hablaba en Ruso y Uraliano",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Arte",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Religion",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Dijo que queria conocer los origines Moldavos",
+          "dificultad": 2
+        }
       ]
     },
     {
       "nombre": "Nueva Delhi",
       "coordenadas": [0.682, 0.365],
       "pistas": [
+        {
+          "tipo": "Bandera",
+          "pista": "Dijo que la bandera era Roja, Blanca y Verde",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Quiso convertir su moneda a Rupios",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Animales",
+          "pista": "Queria conocer de cerca la Vibora de Escamas de Sierra",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Arte",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Dijo que queria investigar el Sijismo",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "Menciono ir a una ciudad cuyo gobernante es el Primer Ministro",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "???",
+          "dificultad": 0
+        }
       ]
     },
     {
       "nombre": "New York",
       "coordenadas": [0.2956, 0.2898],
       "pistas": [
+        {
+          "tipo": "Bandera",
+          "pista": "Dijo que la bandera era Roja, Blanca y Azul",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Quiso cambiar su moneda a Dolares",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Queria conocer el Rio Hudson y el World Trade Center",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Menciono la Moda como su principal industria",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Animales",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "Menciono estar interesado en Henry Hudson",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Arte",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Religion",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Dijo que le encantaban los subtes",
+          "dificultad": 2
+        }
       ]
     },
     {
       "nombre": "Oslo",
       "coordenadas": [0.503, 0.19],
       "pistas": [
+        {
+          "tipo": "Bandera",
+          "pista": "Dijo que la bandera era Roja y tenia una cruz Azul",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Queria conocer el Mar de Barents",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Centrales Hidroelectricas como principal actividad",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Animales",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "Menciono estar interesado en los Vikingos",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Arte",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Religion",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "Se queria ir a un pais en el cual reinaba la monarquia",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Estaba interesado en aprender esqui Nordico",
+          "dificultad": 0
+        }
       ]
     },
     {
       "nombre": "París",
       "coordenadas": [0.48, 0.252],
       "pistas": [
+        {
+          "tipo": "Bandera",
+          "pista": "Dijo que la bandera era Roja, Blanca y Azul",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Cambio su moneda actual a Euros",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Queria conocer la ciudad Sienne",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Menciono a la moda como su principal Industria",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Animales",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Arte",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Religion",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "???",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "???",
+          "dificultad": 0
+        }
       ]
     },
     {
       "nombre": "Pekín",
       "coordenadas": [0.773, 0.299],
       "pistas": [
+        {
+          "tipo": "Bandera",
+          "pista": "Dijo que la bandera era Roja",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Cambio su moneda actual a Yuan",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Queria conocer la ciudad Prohibida y el Mar Amarillo",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Animales",
+          "pista": "Menciono cierto afecto por los Pandas",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Arte",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Religion",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "???",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Menciono cierta curiosidad sobre la Dinastia Shang y el Levantamiento de Wuchang",
+          "dificultad": 0
+        }
       ]
     },
     {
       "nombre": "Puerto Moresby",
       "coordenadas": [0.881, 0.578],
       "pistas": [
+        {
+          "tipo": "Bandera",
+          "pista": "Dijo que la bandera era Amarilla, Roja y Negra",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Cambio su moneda actual a Kina",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "Menciono dirigirse hacia un terreno Volcanoso",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Queria conocer los montes Karkar y Manam",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Menciono la mineria de Oro como su principal industria",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Animales",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "Menciono estar interesado en los Taipanes",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Arte",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Religion",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "Dijo dirigirse a un pais cuyo gobernante era el Primer Ministro",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Menciono cierta curiosidad sobre la Nueva Irlanda",
+          "dificultad": 2
+        }
       ]
     },
     {
       "nombre": "Reykjavik",
       "coordenadas": [0.431, 0.168],
       "pistas": [
+        {
+          "tipo": "Bandera",
+          "pista": "Dijo que la bandera era Roja y Azul",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Cambio su moneda actual a Corona",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "Menciono dirigirse hacia un terreno Volcanoso y con mucha presencia de Aguas Termales",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Menciono la pesca como su principal industria",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Animales",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Arte",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Religion",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Menciono cierta apego a las Naciones Insulares",
+          "dificultad": 2
+        }
       ]
     },
     {
       "nombre": "Río de Janeiro",
       "coordenadas": [0.356, 0.653],
       "pistas": [
+        {
+          "tipo": "Bandera",
+          "pista": "Dijo que la bandera era Verde, Azul y Amarilla",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Cambio su moneda actual a Reales",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Dijo que queria ver el Rio Amazonas",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Menciono la produccion de cafe, joyas y titanio como principales industrias",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Animales",
+          "pista": "Menciono estar interesado por la especie de serpiente Lachesis, el periquito dorado, guacamayo de Lear y el Puercoespín de espinas finas",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Menciono querer aprender Portugues",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Arte",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Religion",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "Dijo ir a un pais cuyo gobernado por un Presidente elegido democraticamente",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "???",
+          "dificultad": 0
+        }
       ]
     },
     {
       "nombre": "Roma",
       "coordenadas": [0.505, 0.287],
       "pistas": [
+        {
+          "tipo": "Bandera",
+          "pista": "Dijo que la bandera era Verde, Blanca y Roja",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Cambio su moneda actual a Euros",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Dijo que queria ver el Coliseo, El Foro, el Monte Etna y el Mar Tirreno",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Menciono la industria textil como su principal actividad",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Animales",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "Menciono una curiosidad por los Etruscos",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Menciono querer aprender Italiano",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Demostro interes por pinturas renacentistas",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Religion",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "Dijo ir a un pais cuyo gobernado por un Presidente elegido democraticamente",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "???",
+          "dificultad": 0
+        }
       ]
     },
     {
       "nombre": "San Marino",
       "coordenadas": [0.506, 0.278],
       "pistas": [
+        {
+          "tipo": "Bandera",
+          "pista": "Dijo que la bandera era Azul y Blanca",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Dijo que queria conocer el Monte Titano",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Menciono la industria ceramica y creacion de estampillas como su principal actividad",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Animales",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Menciono querer aprender Italiano",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Arte",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Religion",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Demostro curiosidad por la Republica Serena y El Estado mas Antiguo de Europa",
+          "dificultad": 2
+        }
       ]
     },
     {
       "nombre": "Sydney",
       "coordenadas": [0.869, 0.718],
       "pistas": [
+        {
+          "tipo": "Bandera",
+          "pista": "Dijo que la bandera era Roja, Blanca y Azul",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Dijo que queria conocer el Gran Desierto Arenoso y la Casa de Opera",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Menciono la produccion de lana como principal industria",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Animales",
+          "pista": "Dijo que le interesaban los Koalas, las Serpientes Tigre, Wallaby y Wombats",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "Demostro interes en los aborigenes y James Cook",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Arte",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Religion",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "???",
+          "dificultad": 0
+        }
       ]
     },
     {
       "nombre": "Singapur",
       "coordenadas": [0.762, 0.518],
       "pistas": [
+        {
+          "tipo": "Bandera",
+          "pista": "Dijo que la bandera era Roja y Blanca",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Dijo que queria conocer el Hotel Raffles, Mar de la China Meridional y el Estrcho de Malaca",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Menciono la produccion de caucho como principal industria",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Animales",
+          "pista": "Dijo que le interesaban los Peces Piedra",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "???",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Menciono interes en el arte malayo",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Religion",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Dijo que queria ver restos de una antigua Colonia Britanica",
+          "dificultad": 2
+        }
       ]
     },
     {
       "nombre": "Tokyo",
       "coordenadas": [0.839, 0.324],
       "pistas": [
+        {
+          "tipo": "Bandera",
+          "pista": "Dijo que la bandera era Roja y Blanca",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Convirtio su moneda a Yen",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Dijo que queria conocer el Monte Fuji",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Menciono la industria Automotor como principal actividad",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Animales",
+          "pista": "???",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "Menciono cierta curiosidad en los Shoguns",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Arte",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Demostro interes en la religion Shinto",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "???",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "???",
+          "dificultad": 0
+        }
       ]
     }
   ]
