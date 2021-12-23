@@ -194,4 +194,13 @@ public class RelativoAImagen extends Group {
         double y = relativo.getY() * fondo.getHeight();
         return new Point2D(x,y);
     }
+
+    public RelativoAImagen agregar(RelativoAImagen nodo, Point2DBindingXY coordenadas) {
+        Point2D dimensiones = nodo.absolutoConRelativo(new Point2D(1.0, 1.0));
+        agregar((Node) nodo, coordenadas.xProperty(), coordenadas.yProperty(),
+                new ReadOnlyDoubleWrapper(dimensiones.getX()),
+                new ReadOnlyDoubleWrapper(dimensiones.getY()));
+        return nodo;
+    }
+
 }
