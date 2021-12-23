@@ -177,9 +177,15 @@ public class Mision {
         computadora.agregarDetalle(tipo, valor);
     }
 
-    public void visitarEdificio(Edificio edificio) {
-        // edificio.visitar(policia);
-        policia.visitar(edificio);
+    /**
+     * En la misión, el policía vista un edificio de la ciudad actual.
+     * * Avanza el calendario por la visita misma.
+     * * Puede disparar acciones que avancen a su vez el calendario.
+     * @param edificio Un edificio de la ciudad actual.
+     * @return El testimonio obtenido en el edificio de la ciudad actual.
+     */
+    public String visitarEdificio(Edificio edificio) {
+        ciudadActual.visitar(edificio);
     }
 
     public void generarOrdenDeArresto() {
