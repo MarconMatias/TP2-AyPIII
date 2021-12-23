@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Policia;
 
+<<<<<<< HEAD
 import edu.fiuba.algo3.modelo.Acciones.IAccion;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Evento.PoliciaFinaliza;
@@ -8,6 +9,10 @@ import edu.fiuba.algo3.modelo.Evento.PoliciaGana;
 import edu.fiuba.algo3.modelo.Evento.PoliciaPierde;
 import edu.fiuba.algo3.modelo.Juego.Calendario;
 import edu.fiuba.algo3.modelo.Acciones.AccionCuchilloUnica;
+=======
+import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
+import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.ITipoEdificio;
+>>>>>>> ce92e3cf564b1cd7a8e01fd370036153672bccdd
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Pista.IPista;
 import edu.fiuba.algo3.modelo.OrdenDeArresto.*;
@@ -23,12 +28,15 @@ public class Policia {
     private final String nombre;
     private int arrestos;
     private RangoPolicia rango;
+<<<<<<< HEAD
     private Calendario calendario;
     private String ciudadActual;
     private IOrden ordenDeArresto = new SinOrden();
     private EstadoCuchillada estadoCuchilladas = new EstadoCuchillada();
     private List<PoliciaFinalizaListener> oyentesAlPerder = new ArrayList<>();
     private List<PoliciaFinalizaListener> oyentesAlGanar = new ArrayList<>();
+=======
+>>>>>>> ce92e3cf564b1cd7a8e01fd370036153672bccdd
 
     /**
      * Crea un policía con una cantidad de arrestos dada.
@@ -92,6 +100,7 @@ public class Policia {
         return this.nombre.equals(nombreAgente);
     }
 
+<<<<<<< HEAD
     /** Reemplazar por visitar(unEdificio)??? **/
     public void visitar(Edificio unEdificio, Ladron unLadron) {
         visitar(unEdificio);
@@ -164,6 +173,15 @@ public class Policia {
             }
             throw error;
         }
+=======
+    public boolean entraAlEdificio(ITipoEdificio unEdificio, Ladron unLadron) {
+
+        boolean pistaEncontrada = false;
+
+        pistaEncontrada = unEdificio.mostrarPista(unLadron);
+
+        return pistaEncontrada;
+>>>>>>> ce92e3cf564b1cd7a8e01fd370036153672bccdd
     }
 
     public void escucharAlGanar(PoliciaFinalizaListener listener) {
