@@ -25,6 +25,7 @@ public class Orden extends Pantalla {
     private final OrdenControlador controlador;
     private final Librito librito;
     private final Button botonEmitir;
+    private final Detalles detallesPane;
 
     public Orden(Juego juego, Mision mision, OrdenControlador controlador) {
         super(fondo);
@@ -73,7 +74,7 @@ public class Orden extends Pantalla {
                 mision.getSospechososObservables());
         botonEmitir.visibleProperty().bind(bindingEmitirVisible);
 
-        Detalles detallesPane = new Detalles(juego, mision, mision, new DetallesControlador(juego, mision));
+        detallesPane = new Detalles(juego, mision, mision, new DetallesControlador(juego, mision));
         detallesPane.setTitulo("Información recolectada:");
         agregar(detallesPane, 0.4, 0.4);
 

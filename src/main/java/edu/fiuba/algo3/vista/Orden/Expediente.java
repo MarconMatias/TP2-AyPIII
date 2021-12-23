@@ -22,6 +22,7 @@ public class Expediente extends Pantalla {
   private final ExpedienteControlador controlador;
   private final Librito librito;
   private final ImagenSeleccionable orden;
+  private final Detalles detallesPane;
 
   public Expediente(Juego juego, Mision mision, Ladron ladron, ExpedienteControlador controlador) {
     super(fondo);
@@ -47,7 +48,7 @@ public class Expediente extends Pantalla {
     tituloSospechosos.getTransforms().setAll(new Rotate(5d, 0, 0));
     agregar(tituloSospechosos, 0.805, 0.330);
 
-    Detalles detallesPane = new Detalles(juego, mision, ladron, null);
+    detallesPane = new Detalles(juego, mision, ladron, null);
     detallesPane.setTitulo("Expediente:");
     agregar(detallesPane, 0.4, 0.4);
 

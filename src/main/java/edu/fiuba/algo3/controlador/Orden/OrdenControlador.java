@@ -5,6 +5,7 @@ import edu.fiuba.algo3.controlador.Juego.ControladorAcciones;
 import edu.fiuba.algo3.modelo.Juego.IObservadorAcciones;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
+import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -53,7 +54,7 @@ public class OrdenControlador {
    }
 
     public SospechososControlador crearControladorSospechosos() {
-        return new SospechososControlador(juego,mision, controlStage);
+        return new SospechososControlador(juego,mision, this::sospechosoElegido);
     }
 
     public IObservadorAcciones getObservadorAcciones() {
@@ -71,5 +72,12 @@ public class OrdenControlador {
                 new ControladorAcciones(juego, mision, controlStage));
         liberadores.add(()->observable.set(null));
         return observable;
+    }
+
+    public void sospechosoElegido(Ladron elegido) {
+        if(controlStage.abrirExpediente(juego, mision, elegido))
+        {
+            liberar();
+        }
     }
 }
