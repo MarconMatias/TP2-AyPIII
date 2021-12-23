@@ -8,8 +8,9 @@ public class EmitirOrden implements IAccion {
     private final IOrden orden;
     private Policia policia;
 
-    public EmitirOrden(IOrden orden) {
+    public EmitirOrden(IOrden orden, Policia policia) {
         this.orden = orden;
+        this.policia = policia;
     }
 
     @Override

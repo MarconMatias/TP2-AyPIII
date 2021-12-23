@@ -194,7 +194,7 @@ public class Mision implements DetallableSospechoso {
 
     public void generarOrdenDeArresto() {
         IOrden orden = computadora.generarOrdenDeArresto();
-        calendario.aplicarAccion(new EmitirOrden(orden));
+        calendario.aplicarAccion(new EmitirOrden(orden, policia));
     }
 
     public boolean fueFinalizada() {
