@@ -243,4 +243,8 @@ public class Mision {
     public Calendario getCalendario() {
         return calendario;
     }
+
+    public String getTestigo(Edificio edificio) {
+        return edificio.getTestigo();
+    }
 }

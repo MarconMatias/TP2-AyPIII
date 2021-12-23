@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo.Edificio;
 
-import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Ciudad.IDestino;
 import edu.fiuba.algo3.modelo.Edificio.Testigo.Testigo;
 import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.ITipoEdificio;
@@ -50,5 +49,9 @@ public class Edificio{
     {
         accionador.visitar(this,policia);
         return testigo.getTestimonio(policia);
+    }
+
+    public String getTestigo() {
+        return testigo.getNombre();
     }
 }
