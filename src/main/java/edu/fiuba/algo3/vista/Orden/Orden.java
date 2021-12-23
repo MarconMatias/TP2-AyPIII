@@ -45,6 +45,9 @@ public class Orden extends Pantalla {
         Detalles detallesPane = new Detalles(juego, mision, new DetallesControlador(juego, mision));
         agregar(detallesPane, 0.4, 0.4);
 
+        Sospechosos sospechosos = new Sospechosos(juego, mision, controlador.crearControladorSospechosos());
+        agregar(sospechosos, 0.81, 0.535);
+
         librito = new Librito(640);
         agregar(librito, 0.08, 0.4);
 

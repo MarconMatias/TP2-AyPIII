@@ -76,4 +76,12 @@ public class Ladron implements ISospechoso {
       }
     }
   }
+
+  @Override
+  public String toString() {
+    if((null==nombre)||(nombre.trim().equals(""))) {
+      return Integer.toString(hashCode());
+    }
+    return nombre;
+  }
 }

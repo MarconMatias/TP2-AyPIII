@@ -48,4 +48,7 @@ public class OrdenControlador {
         }
     }
 
+    public OrdenControlador crearControladorSospechosos() {
+        return new OrdenControlador(juego,mision,controladorStage);
+    }
 }
