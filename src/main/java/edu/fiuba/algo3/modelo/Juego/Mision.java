@@ -7,6 +7,7 @@ import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Evento.PoliciaFinaliza;
 import edu.fiuba.algo3.modelo.Item.Item;
 import edu.fiuba.algo3.modelo.Juego.EstadoMision.EstadoMision;
+import edu.fiuba.algo3.modelo.Ladron.DetallableSospechoso;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.OrdenDeArresto.IOrden;
 import edu.fiuba.algo3.modelo.Policia.Policia;
@@ -19,7 +20,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
-public class Mision {
+public class Mision implements DetallableSospechoso {
     private final Policia policia;
     private final Item itemRobado;
     private final Ladron ladron;
@@ -239,7 +240,7 @@ public class Mision {
         return computadora.getSospechososObservables();
     }
 
-    public ObservableMap<String, String> getDetallesDeOrden() {
+    public ObservableMap<String, String> getDetallesDeSospechoso() {
         return computadora.getDetalles();
     }
 
