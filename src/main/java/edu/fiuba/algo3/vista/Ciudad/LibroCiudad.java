@@ -58,6 +58,9 @@ public class LibroCiudad extends Libro {
         orden = new IconoOrden(640);
         agregar(orden, 0.08, 0.6);
 
+        setCalendario(mision.getCalendario());
+        setRelojVisible(true);
+
         setRadio(juego.getRadio());
         ponerTarjetas();
         ponerVolver();
