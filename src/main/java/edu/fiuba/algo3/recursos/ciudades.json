@@ -1810,8 +1810,13 @@
         },
         {
           "tipo": "Exportaciones",
-          "pista": "Menciono la industria textil como su principal actividad",
+          "pista": "Menciono la industria textil como su principal actividad economica en Italia",
           "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Menciono la industria textil como su principal actividad",
+          "dificultad": 2
         },
         {
           "tipo": "Animales",
@@ -1876,8 +1881,13 @@
         },
         {
           "tipo": "Exportaciones",
-          "pista": "Menciono la industria ceramica y creacion de estampillas como su principal actividad",
+          "pista": "Menciono la industria ceramica y creacion de estampillas como su principal actividad economica en San Marino",
           "dificultad": 1
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Menciono la industria ceramica y creacion de estampillas como su principal actividad",
+          "dificultad": 2
         },
         {
           "tipo": "Animales",
@@ -1912,7 +1922,7 @@
         {
           "tipo": "Miscelaneos",
           "pista": "Demostro curiosidad por la Republica Serena y El Estado mas Antiguo de Europa",
-          "dificultad": 2
+          "dificultad": 0
         }
       ]
     },
@@ -1942,8 +1952,13 @@
         },
         {
           "tipo": "Exportaciones",
-          "pista": "Menciono la produccion de lana como principal industria",
+          "pista": "Menciono la produccion de lana como principal industria de Australia",
           "dificultad": 1
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Menciono la produccion de lana como principal industria",
+          "dificultad": 2
         },
         {
           "tipo": "Animales",
@@ -1989,7 +2004,7 @@
         {
           "tipo": "Bandera",
           "pista": "Dijo que la bandera era Roja y Blanca",
-          "dificultad": 1
+          "dificultad": 0
         },
         {
           "tipo": "Moneda",
@@ -2012,6 +2027,11 @@
           "dificultad": 1
         },
         {
+          "tipo": "Exportaciones",
+          "pista": "Menciono que la ciudad a la que se dirigia era una gran sede de comercio",
+          "dificultad": 2
+        },
+        {
           "tipo": "Animales",
           "pista": "Dijo que le interesaban los Peces Piedra",
           "dificultad": 2
@@ -2024,7 +2044,7 @@
         {
           "tipo": "Idioma",
           "pista": "Me dijo que hablaban Ingles, Chino Mandarin, Malayo y Tamil en la ciudad a la que se dirigia",
-          "dificultad": 0
+          "dificultad": 1
         },
         {
           "tipo": "Arte",
@@ -2055,7 +2075,7 @@
         {
           "tipo": "Bandera",
           "pista": "Dijo que la bandera era Roja y Blanca",
-          "dificultad": 1
+          "dificultad": 0
         },
         {
           "tipo": "Moneda",
@@ -2076,6 +2096,11 @@
           "tipo": "Exportaciones",
           "pista": "Menciono la industria Automotor como principal actividad",
           "dificultad": 1
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Menciono que se dirigia a una capital con una gran actividad financiera",
+          "dificultad": 2
         },
         {
           "tipo": "Animales",
