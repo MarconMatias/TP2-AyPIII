@@ -10,11 +10,10 @@ public abstract class NivelPista {
     protected NivelPista() {}
 
     public Collection<IPista> filtrarPistas(Collection<IPista> pistas){
-
         ArrayList<IPista> pistasFiltradas = new ArrayList<IPista>();
-        for (IPista p: pistas){
+        for (IPista pista : pistas){
 
-            p.agregarAListaSiEsNivel(pistasFiltradas,this);
+            pista.agregarAListaSiEsNivel(pistasFiltradas,this);
         }
         return pistasFiltradas;
     }
