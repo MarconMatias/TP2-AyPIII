@@ -1,26 +1,24 @@
 package edu.fiuba.algo3.controlador.Ciudad;
 
 import edu.fiuba.algo3.ControlStage;
-import edu.fiuba.algo3.controlador.Edificio.EdificiosControlador;
 import edu.fiuba.algo3.controlador.Juego.ControladorAcciones;
-import edu.fiuba.algo3.controlador.Mapa.MapaDestinosControlador;
-import edu.fiuba.algo3.controlador.Orden.OrdenControlador;
 import edu.fiuba.algo3.modelo.Juego.IObservadorAcciones;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
-import edu.fiuba.algo3.vista.Edificio.Edificios;
-import edu.fiuba.algo3.vista.Mapa.MapaDestinos;
-import edu.fiuba.algo3.vista.Orden.Orden;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class LibroCiudadControlador {
     private final Juego juego;
     private final ControlStage controlStage;
     private final Mision mision;
+    private List<Runnable> liberadores = new ArrayList<>();
 
     public LibroCiudadControlador(Juego juego, Mision mision, ControlStage controlStage) {
         this.juego = juego;
@@ -32,26 +30,19 @@ public class LibroCiudadControlador {
         if (ev.isConsumed()) {
             return;
         }
-        abrirMapa();
+        if(controlStage.abrirMapaCiudades(juego, mision)) {
+            ev.consume();
+            liberar();
+        }
     }
 
     public void mapitaKeyPressed(KeyEvent ev) {
         if (ev.isConsumed() || (KeyCode.ENTER != ev.getCode())) {
             return;
         }
-        abrirMapa();
-    }
-
-    private void abrirMapa() {
-        try {
-            MapaDestinosControlador controlador = new MapaDestinosControlador(juego, mision, controlStage);
-            MapaDestinos nuevaVista = new MapaDestinos(juego, mision, controlador);
-            controlStage.cambiar(nuevaVista);
-            /* liberar() */
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Error al abrir mapamundi: " + ex, ButtonType.OK);
-            alert.showAndWait();
+        if(controlStage.abrirMapaCiudades(juego, mision)) {
+            ev.consume();
+            liberar();
         }
     }
 
@@ -59,26 +50,19 @@ public class LibroCiudadControlador {
         if (ev.isConsumed()) {
             return;
         }
-        abrirEdificios();
+        if(controlStage.abrirEdificios(juego, mision)) {
+            ev.consume();
+            liberar();
+        }
     }
 
     public void edificiosKeyPressed(KeyEvent ev) {
         if (ev.isConsumed() || (KeyCode.ENTER != ev.getCode())) {
             return;
         }
-        abrirEdificios();
-    }
-
-    private void abrirEdificios() {
-        try {
-            EdificiosControlador controlador = new EdificiosControlador(juego, mision, controlStage);
-            Edificios nuevaVista = new Edificios(juego, mision, controlador);
-            controlStage.cambiar(nuevaVista);
-            /* liberar() */
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Error al abrir plano de la ciudad: " + ex, ButtonType.OK);
-            alert.showAndWait();
+        if(controlStage.abrirEdificios(juego, mision)) {
+            ev.consume();
+            liberar();
         }
     }
 
@@ -86,30 +70,32 @@ public class LibroCiudadControlador {
         if(ev.isConsumed()) {
             return;
         }
-        abrirOrden();
+        if(controlStage.abrirOrden(juego, mision)) {
+            ev.consume();
+            liberar();
+        }
     }
 
     public void ordenKeyPressed(KeyEvent ev) {
         if(ev.isConsumed() || (KeyCode.ENTER != ev.getCode())) {
             return;
         }
-        abrirOrden();
-    }
-
-    private void abrirOrden() {
-        try {
-            OrdenControlador controlador = new OrdenControlador(juego, mision, controlStage);
-            Orden nuevaVista = new Orden(juego, mision, controlador);
-            controlStage.cambiar(nuevaVista);
-            /* liberar() */
-        } catch(Exception ex) {
-            ex.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Error al abrir la orden: " + ex, ButtonType.OK);
-            alert.showAndWait();
+        if(controlStage.abrirOrden(juego, mision)) {
+            ev.consume();
+            liberar();
         }
     }
 
-    public IObservadorAcciones getObservadorAcciones() {
-        return new ControladorAcciones(juego, mision, controlStage);
+    private void liberar() {
+        for(Runnable liberador : liberadores) {
+            liberador.run();
+        }
+    }
+
+    public ObservableValue<? extends IObservadorAcciones> getObservadorLiberable() {
+        SimpleObjectProperty<IObservadorAcciones> observable = new SimpleObjectProperty<IObservadorAcciones>(
+                new ControladorAcciones(juego, mision, controlStage));
+        liberadores.add(()->observable.set(null));
+        return observable;
     }
 }

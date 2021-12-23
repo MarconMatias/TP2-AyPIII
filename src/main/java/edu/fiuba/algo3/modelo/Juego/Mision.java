@@ -1,11 +1,13 @@
 package edu.fiuba.algo3.modelo.Juego;
 
+import edu.fiuba.algo3.modelo.Acciones.EmitirOrden;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Computadora.Computadora;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Evento.PoliciaFinaliza;
 import edu.fiuba.algo3.modelo.Item.Item;
 import edu.fiuba.algo3.modelo.Juego.EstadoMision.EstadoMision;
+import edu.fiuba.algo3.modelo.Ladron.DetallableSospechoso;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.OrdenDeArresto.IOrden;
 import edu.fiuba.algo3.modelo.Policia.Policia;
@@ -18,7 +20,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
-public class Mision {
+public class Mision implements DetallableSospechoso {
     private final Policia policia;
     private final Item itemRobado;
     private final Ladron ladron;
@@ -191,7 +193,8 @@ public class Mision {
     }
 
     public void generarOrdenDeArresto() {
-        policia.setOrdenDeArresto(computadora.generarOrdenDeArresto());
+        IOrden orden = computadora.generarOrdenDeArresto();
+        calendario.aplicarAccion(new EmitirOrden(orden));
     }
 
     public boolean fueFinalizada() {

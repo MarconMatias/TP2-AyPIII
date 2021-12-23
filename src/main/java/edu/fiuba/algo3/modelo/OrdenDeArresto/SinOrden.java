@@ -23,4 +23,9 @@ public class SinOrden implements IOrden {
     public String getEmitidaPara() {
         return null;
     }
+
+    @Override
+    public int getHorasDemora() {
+        return 0;
+    }
 }

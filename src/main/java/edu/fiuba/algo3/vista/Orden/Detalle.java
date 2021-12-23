@@ -2,6 +2,7 @@ package edu.fiuba.algo3.vista.Orden;
 
 import edu.fiuba.algo3.controlador.Orden.DetalleControlador;
 import edu.fiuba.algo3.modelo.Juego.Mision;
+import edu.fiuba.algo3.modelo.Ladron.DetallableSospechoso;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.geometry.Pos;
@@ -26,13 +27,17 @@ public class Detalle extends HBox implements InvalidationListener {
     private final double anchoValor = anchoTotal - anchoTitulo - anchoEspaciado;
 
     private final Label valor;
+    private final DetallableSospechoso detallable;
 
-    public Detalle(String tipo, Mision mision, UnaryOperator<String> tipoATexto, UnaryOperator<String> valorATexto, DetalleControlador controlador) {
+    public Detalle(String tipo, Mision mision, DetallableSospechoso detallable,
+                   UnaryOperator<String> tipoATexto, UnaryOperator<String> valorATexto,
+                   DetalleControlador controlador) {
         this.tipo = tipo;
         this.mision = mision;
+        this.detallable = detallable;
         this.valorATexto = valorATexto;
 
-        mision.getDetallesDeOrden().addListener(this);
+        detallable.getDetallesDeSospechoso().addListener(this);
 
         getStyleClass().add("vistaDetalle");
         setFocusTraversable(true);
@@ -65,15 +70,16 @@ public class Detalle extends HBox implements InvalidationListener {
         this.setFocusTraversable(true);
     }
 
-    public Detalle(String tipo, Mision mision,
-                   Map<String, String> mapaTipos,
-                   Map<String, String> mapaValores,
+    public Detalle(String tipo, Mision mision, DetallableSospechoso detallable,
+                   Map<String, String> mapaTipos, Map<String, String> mapaValores,
                    DetalleControlador controlador) {
-        this(tipo, mision, textoDeMapODesconocido(mapaTipos), textoDeMapODesconocido(mapaValores), controlador);
+        this(tipo, mision, detallable,
+                textoDeMapODesconocido(mapaTipos), textoDeMapODesconocido(mapaValores),
+                controlador);
     }
 
-    public Detalle(String tipo, Mision mision, DetalleControlador controlador) {
-        this(tipo, mision, textosTipos, textosValores, controlador);
+    public Detalle(String tipo, Mision mision, DetallableSospechoso detallable, DetalleControlador controlador) {
+        this(tipo, mision, detallable, textosTipos, textosValores, controlador);
     }
 
     /**
@@ -93,7 +99,7 @@ public class Detalle extends HBox implements InvalidationListener {
     }
 
     private void actualizar() {
-        valor.setText(valorATexto.apply(mision.getDetalle(tipo)));
+        valor.setText(valorATexto.apply(detallable.getDetalle(tipo)));
     }
 
     @Override

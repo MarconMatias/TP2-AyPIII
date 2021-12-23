@@ -1,24 +1,27 @@
 package edu.fiuba.algo3.controlador.Edificio;
 
 import edu.fiuba.algo3.ControlStage;
-import edu.fiuba.algo3.controlador.Ciudad.LibroCiudadControlador;
 import edu.fiuba.algo3.controlador.Juego.ControladorAcciones;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Juego.IObservadorAcciones;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
-import edu.fiuba.algo3.vista.Ciudad.LibroCiudad;
 import edu.fiuba.algo3.vista.Edificio.DestinoEdificio;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class EdificiosControlador {
     private final Juego juego;
     private final Mision mision;
     private final ControlStage controlStage;
+    private List<Runnable> liberadores = new ArrayList<>();
 
     public EdificiosControlador(Juego juego, Mision mision, ControlStage controlStage) {
         this.juego = juego;
@@ -30,26 +33,19 @@ public class EdificiosControlador {
         if(ev.isConsumed()) {
             return;
         }
-        abrirLibro();
+        if(controlStage.abrirLibroCiudad(juego, mision)) {
+            ev.consume();
+            liberar();
+        }
     }
 
     public void libritoKeyPressed(KeyEvent ev) {
         if(ev.isConsumed() || (KeyCode.ENTER != ev.getCode())) {
             return;
         }
-        abrirLibro();
-    }
-
-    private void abrirLibro() {
-        try {
-            LibroCiudadControlador controladorLibro = new LibroCiudadControlador(juego, mision, controlStage);
-            LibroCiudad libro = new LibroCiudad(juego, mision, controladorLibro);
-            controlStage.cambiar(libro);
-            /* liberar() */
-        } catch(Exception ex) {
-            ex.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Error al abrir el libro: " + ex, ButtonType.OK);
-            alert.showAndWait();
+        if(controlStage.abrirLibroCiudad(juego, mision)) {
+            ev.consume();
+            liberar();
         }
     }
 
@@ -62,8 +58,18 @@ public class EdificiosControlador {
         alerta.showAndWait();
     }
 
-    public IObservadorAcciones getObservadorAcciones() {
-        return new ControladorAcciones(juego, mision, controlStage);
+
+    private void liberar() {
+        for(Runnable liberador : liberadores) {
+            liberador.run();
+        }
+    }
+
+    public ObservableValue<? extends IObservadorAcciones> getObservadorLiberable() {
+        SimpleObjectProperty<IObservadorAcciones> observable = new SimpleObjectProperty<IObservadorAcciones>(
+                new ControladorAcciones(juego, mision, controlStage));
+        liberadores.add(()->observable.set(null));
+        return observable;
     }
 
 }

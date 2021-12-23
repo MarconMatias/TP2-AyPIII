@@ -9,11 +9,13 @@ import edu.fiuba.algo3.modelo.Pista.NivelPista.PistaMedia;
 import edu.fiuba.algo3.modelo.Pista.PistaLadron;
 import edu.fiuba.algo3.modelo.Pista.PistaLadronNoFacil;
 import edu.fiuba.algo3.modelo.Policia.Policia;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableMap;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class Ladron implements ISospechoso {
+public class Ladron implements ISospechoso, DetallableSospechoso {
   private final String nombre;
   private final Map<String,String> detalles;
   private final List<IPista> pistas = new ArrayList<>();
@@ -127,4 +129,14 @@ public class Ladron implements ISospechoso {
     }
     return nombre;
   }
+
+    @Override
+    public ObservableMap<String, String> getDetallesDeSospechoso() {
+        return FXCollections.observableMap(detalles);
+    }
+
+    @Override
+    public String getDetalle(String tipo) {
+        return detalles.get(tipo);
+    }
 }

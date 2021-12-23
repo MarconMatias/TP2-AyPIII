@@ -109,7 +109,7 @@ public class MapaDestinos extends Mapamundi {
         if(null == controlador) {
             return;
         }
-        setObservadorAcciones(controlador.getObservadorAcciones());
+        observadorAccionesProperty().bind(controlador.getObservadorLiberable());
         librito.setOnMouseClicked(controlador::libritoClicked);
         librito.setOnKeyPressed(controlador::libritoKeyPressed);
         destinoElegido.addListener(ev->controlador.destinoElegido(destinoElegido.get()));

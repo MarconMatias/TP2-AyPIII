@@ -36,7 +36,7 @@ public class Expediente extends RelativoAImagen {
     tituloExpediente.getTransforms().setAll(new Rotate(5d, 0, 0));
     agregar(tituloExpediente, 0.805, 0.330);
 
-    listaLadrones = new ListView<Ladron>(mision.getSospechososRegistradosObservables());
+    listaLadrones = new ListView<Ladron>(mision.getSospechososObservables());
     listaLadrones.setPrefWidth(1536);
     listaLadrones.setPrefHeight(920);
     listaLadrones.setStyle("-fx-font: 80 Impact");

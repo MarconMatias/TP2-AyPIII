@@ -1,7 +1,21 @@
 package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.componentes.Imagen.Imagen;
+import edu.fiuba.algo3.controlador.Ciudad.LibroCiudadControlador;
+import edu.fiuba.algo3.controlador.Edificio.EdificiosControlador;
+import edu.fiuba.algo3.controlador.Mapa.MapaDestinosControlador;
+import edu.fiuba.algo3.controlador.Orden.ExpedienteControlador;
+import edu.fiuba.algo3.controlador.Orden.OrdenControlador;
+import edu.fiuba.algo3.modelo.Juego.Juego;
+import edu.fiuba.algo3.modelo.Juego.Mision;
+import edu.fiuba.algo3.modelo.Ladron.Ladron;
+import edu.fiuba.algo3.modelo.Policia.Policia;
+import edu.fiuba.algo3.vista.Ciudad.LibroCiudad;
+import edu.fiuba.algo3.vista.Edificio.Edificios;
 import edu.fiuba.algo3.vista.Juego.GrupoInterno;
+import edu.fiuba.algo3.vista.Mapa.MapaDestinos;
+import edu.fiuba.algo3.vista.Orden.Expediente;
+import edu.fiuba.algo3.vista.Orden.Orden;
 import javafx.beans.binding.DoubleBinding;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
@@ -10,6 +24,8 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.transform.Scale;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -46,6 +62,127 @@ public class ControlStage {
             }
         });
     }
+
+    /**************************************************************************/
+    /**************************************************************************/
+
+    public boolean abrirOrden(Juego juego, Mision mision, OrdenControlador controlador) {
+        try {
+            Orden nuevaVista = new Orden(juego, mision, controlador);
+            cambiar(nuevaVista);
+            return true;
+        } catch(Exception ex) {
+            ex.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Error al abrir la orden: " + ex, ButtonType.OK);
+            alert.showAndWait();
+            return false;
+        }
+    }
+    public boolean abrirOrden(Juego juego, Mision mision) {
+        return abrirOrden(juego,mision,new OrdenControlador(juego, mision, this));
+    }
+
+    /**************************************************************************/
+
+    public boolean abrirEdificios(Juego juego, Mision mision, EdificiosControlador controlador) {
+        try {
+            Edificios nuevaVista = new Edificios(juego, mision, controlador);
+            cambiar(nuevaVista);
+            return true;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Error al abrir plano de la ciudad: " + ex, ButtonType.OK);
+            alert.showAndWait();
+            return false;
+        }
+    }
+
+    public boolean abrirEdificios(Juego juego, Mision mision) {
+        return abrirEdificios(juego, mision, new EdificiosControlador(juego, mision, this));
+    }
+
+    /**************************************************************************/
+
+    private boolean abrirExpediente(Juego juego, Mision mision, Ladron ladron, ExpedienteControlador controlador) {
+        try {
+            Expediente nuevaVista = new Expediente(juego, mision, ladron, controlador);
+            cambiar(nuevaVista);
+            return true;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Error al abrir expediente: " + ex, ButtonType.OK);
+            alert.showAndWait();
+            return false;
+        }
+    }
+
+    public boolean abrirExpediente(Juego juego, Mision mision, Ladron ladron) {
+        return abrirExpediente(juego, mision, ladron, new ExpedienteControlador(juego, mision, this));
+    }
+
+    /**************************************************************************/
+
+    public boolean abrirLibroCiudad(Juego juego, Mision mision, LibroCiudadControlador controlador) {
+        try {
+            LibroCiudad libro = new LibroCiudad(juego, mision, controlador);
+            cambiar(libro);
+            return true;
+        } catch(Exception ex) {
+            ex.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Error al abrir libro: " + ex, ButtonType.OK);
+            alert.showAndWait();
+            return false;
+        }
+    }
+
+    public boolean abrirLibroCiudad(Juego juego, Mision mision) {
+        return abrirLibroCiudad(juego, mision, new LibroCiudadControlador(juego, mision, this));
+    }
+
+    /**************************************************************************/
+
+    public boolean abrirMapaCiudades(Juego juego, Mision mision, MapaDestinosControlador controlador) {
+        try {
+            MapaDestinos nuevaVista = new MapaDestinos(juego, mision, controlador);
+            cambiar(nuevaVista);
+            return true;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Error al abrir mapamundi: " + ex, ButtonType.OK);
+            alert.showAndWait();
+            return false;
+        }
+    }
+    public boolean abrirMapaCiudades(Juego juego, Mision mision) {
+        MapaDestinosControlador controlador = new MapaDestinosControlador(juego, mision, this);
+        return abrirMapaCiudades(juego, mision, controlador);
+    }
+
+    /**************************************************************************/
+
+    public boolean abrirMisionNueva(Juego juego, Policia policia, LibroCiudadControlador controlador) {
+        try {
+            Mision mision = juego.nuevaMision(policia);
+            if(null==controlador) {
+                return abrirLibroCiudad(juego, mision);
+            } else {
+                return abrirLibroCiudad(juego, mision, controlador);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR,
+                    "No pudo crearse la misión: " + ex, ButtonType.OK);
+            alert.showAndWait();
+            return false;
+        }
+    }
+
+    public boolean abrirMisionNueva(Juego juego, Policia policia) {
+        return abrirMisionNueva(juego, policia, null);
+    }
+
+    /**************************************************************************/
+    /**************************************************************************/
 
     public Point2D getCentro() {
         double x = stage.getX() + (stage.getWidth()/2);
