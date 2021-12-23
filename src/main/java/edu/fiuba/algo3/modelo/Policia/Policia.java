@@ -98,9 +98,15 @@ public class Policia {
         visitar(unEdificio);
     }
 
-    public void visitar(Edificio unEdificio) {
-        unEdificio.visitar(this);
-        return;
+    /**
+     * El policía vista al edificio dado. Puede disparar acciones que avancen el calendario,
+     * pero ya debe haber avanzado el calendario por la visita misma (a través de Ciudad).
+     *
+     * @param edificio Un edificio de la ciudad actual.
+     * @return El testimonio recibido en el edificio.
+     */
+    public String visitar(Edificio edificio) {
+        return edificio.visitar(this);
     }
 
     public void hacerAccion(AccionCuchilloUnica mockAccion) {
