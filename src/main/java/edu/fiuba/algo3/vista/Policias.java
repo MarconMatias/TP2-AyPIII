@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.componentes.Cuaderno.Cuaderno;
-import edu.fiuba.algo3.componentes.Imagen.Tarjetas;
 import edu.fiuba.algo3.controlador.Policia.PoliciaControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Policia.Policia;
@@ -20,6 +19,7 @@ public class Policias extends Cuaderno {
     private PoliciaControlador controlador;
 
     public Policias(Juego juego, PoliciaControlador controlador) {
+        super();
         Label etiquetaNuevo = new Label("Ingresante:");
         etiquetaNuevo.setAlignment(Pos.CENTER);
         etiquetaNuevo.setStyle("-fx-font: 120 Impact");
@@ -58,12 +58,7 @@ public class Policias extends Cuaderno {
         setRadio(juego.getRadio());
         setControlador(controlador);
 
-        ponerTarjetas();
-    }
-
-    private void ponerTarjetas() {
-        Tarjetas tarjetas = new Tarjetas(640);
-        agregar(tarjetas, 0.9, 0.9);
+        setTarjetasVisible(true);
     }
 
     public void setControlador(PoliciaControlador controlador) {
