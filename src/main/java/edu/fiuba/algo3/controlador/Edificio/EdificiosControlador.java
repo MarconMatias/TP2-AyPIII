@@ -54,6 +54,9 @@ public class EdificiosControlador {
     public void destinoElegido(DestinoEdificio destino) {
         Edificio edificio = destino.getEdificio();
         System.out.println("Visitando edificio "+edificio.getNombre());
-        mision.visitarEdificio(edificio);
+        String testimonio = mision.visitarEdificio(edificio);
+        String testigo = mision.getTestigo(edificio);
+        Alert alerta = new Alert(Alert.AlertType.INFORMATION, testigo+" dice:\n" + testimonio);
+        alerta.showAndWait();
     }
 }
