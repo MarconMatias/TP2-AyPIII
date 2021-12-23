@@ -1,0 +1,69 @@
+@startuml ds
+hide footbox
+!pragma teoz true
+skinparam maxMessageSize 200
+title Caso de uso 01 de Entrega 2\n<size:16>Detective sufre una herida de cuchillo y duerme.</size>\n<size:16>Se omite la creación de los objetos.</size>
+
+actor Tests
+participant "policia\n:Policia" as a
+participant "herida\n:HeridaPorCuchillo" as h
+participant "salud\n:EstadoCuchillada" as ecu
+participant "estado\n:SinCuchilladas" as iecu
+participant "calendario\n:Calendario" as cal
+participant "observador\n:IObservador" as obs
+participant "dormir\n:AccionDormir" as dormir
+
+Tests -> a++: realizarAccion(herida)
+    a -> h++: setPolicia(this)
+    return
+    a -> cal++: aplicarAccion(herida)
+        cal -> cal++: notificarObservadores\n(herida)
+            cal->obs++: accionRealizada\n(herida)
+            return
+        return
+        cal -> h++: avanzarCalendario\n(this)
+            h -> a++: avanzarHorasCuchillada\n(calendario)
+                h -> ecu++: avanzarHoras\n(calendario)
+                    ecu -> iecu++: avanzarHoras\n(calendario)
+                        iecu -> cal++: avanzarHoras(2)
+
+                            cal -> cal++: deberiaDormirSi\nAvanzaHasta(23)
+                            return true
+                            cal -> cal++: avanzarSolamente(2)
+                            return
+                            cal->dormir**
+                            cal-> cal++: aplicarAccion(dormir)
+
+        cal -> cal++: notificarObservadores\n(dormir)
+            cal->obs++: accionRealizada\n(dormir)
+            return
+        return
+        cal -> dormir++: avanzarCalendario\n(this)
+            dormir -> cal++: avanzarHoras(8)
+                cal -> cal++: deberiaDormirSi\nAvanzaHasta(7)
+                return false
+                cal -> cal++: avanzarSolamente(8)
+                return
+            return
+        return
+        cal -> dormir++: realizar\n()
+        return
+
+                            return
+                        return
+                    return
+                return
+            return
+        return
+        cal -> h++: realizar()
+        return
+    return
+return
+
+Tests -> Tests++: verify(\naccionRealizada(\nAccionDormir))
+return true
+
+Tests -> Tests++: verify(\naccionRealizada(\nHeridaPorCuchillo))
+return true
+
+@enduml
