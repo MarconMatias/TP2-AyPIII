@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.OrdenDeArresto.IOrden;
 import edu.fiuba.algo3.modelo.OrdenDeArresto.Orden;
 import edu.fiuba.algo3.modelo.OrdenDeArresto.SinOrden;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.collections.ObservableMap;
 
 import java.util.*;
@@ -16,6 +17,8 @@ public class Computadora {
 
     private final Map<String,String> detalles = new HashMap<String,String>();
     private final ObservableMap<String,String> detallesObservable = FXCollections.observableMap(detalles);
+    private final List<Ladron> sospechososFiltrados = new ArrayList<>();
+    private ObservableList<Ladron> sospechososObservables = FXCollections.observableList(sospechososFiltrados);
 
     /**
      * Crea una computadora de interpol.
@@ -23,6 +26,7 @@ public class Computadora {
      */
     public Computadora(List<Ladron> ladrones) {
         sospechososRegistrados = ladrones;
+        sospechososFiltrados.addAll(sospechososRegistrados);
         for(Ladron ladron : ladrones) {
             ladron.agregarDetallesAMap(tiposDeDetalles);
         }
@@ -41,6 +45,19 @@ public class Computadora {
             }
         } else {
             detallesObservable.put(tipo,valor);
+        }
+        recalcularSospechosos();
+    }
+
+    private void recalcularSospechosos() {
+        Collection<Ladron> calculados = buscarSospechosos();
+        // Remover elementos anteriores que no estén en la lista nueva:
+        sospechososObservables.removeIf(anterior -> !calculados.contains(anterior));
+        // Agregar elementos nuevos que no estén en la lista vieja:
+        for(Ladron nuevo : calculados) {
+            if(!sospechososObservables.contains(nuevo)) {
+                sospechososObservables.add(nuevo);
+            }
         }
     }
 
@@ -103,4 +120,9 @@ public class Computadora {
     public Set<String> getValoresDeDetalleTipo(String tipo) {
         return tiposDeDetalles.get(tipo);
     }
+
+    public ObservableList<Ladron> getSospechososObservables() {
+        return sospechososObservables;
+    }
+
 }

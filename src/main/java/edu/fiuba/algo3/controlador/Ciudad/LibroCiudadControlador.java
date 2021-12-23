@@ -1,9 +1,11 @@
 package edu.fiuba.algo3.controlador.Ciudad;
 
-import edu.fiuba.algo3.ControladorStage;
+import edu.fiuba.algo3.ControlStage;
 import edu.fiuba.algo3.controlador.Edificio.EdificiosControlador;
+import edu.fiuba.algo3.controlador.Juego.ControladorAcciones;
 import edu.fiuba.algo3.controlador.Mapa.MapaDestinosControlador;
 import edu.fiuba.algo3.controlador.Orden.OrdenControlador;
+import edu.fiuba.algo3.modelo.Juego.IObservadorAcciones;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.vista.Edificio.Edificios;
@@ -17,13 +19,13 @@ import javafx.scene.input.MouseEvent;
 
 public class LibroCiudadControlador {
     private final Juego juego;
-    private final ControladorStage controladorStage;
+    private final ControlStage controlStage;
     private final Mision mision;
 
-    public LibroCiudadControlador(Juego juego, Mision mision, ControladorStage controladorStage) {
+    public LibroCiudadControlador(Juego juego, Mision mision, ControlStage controlStage) {
         this.juego = juego;
         this.mision = mision;
-        this.controladorStage = controladorStage;
+        this.controlStage = controlStage;
     }
 
     public void mapitaClicked(MouseEvent ev) {
@@ -42,9 +44,9 @@ public class LibroCiudadControlador {
 
     private void abrirMapa() {
         try {
-            MapaDestinosControlador controlador = new MapaDestinosControlador(juego, mision, controladorStage);
+            MapaDestinosControlador controlador = new MapaDestinosControlador(juego, mision, controlStage);
             MapaDestinos nuevaVista = new MapaDestinos(juego, mision, controlador);
-            controladorStage.cambiar(nuevaVista);
+            controlStage.cambiar(nuevaVista);
             /* liberar() */
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -69,9 +71,9 @@ public class LibroCiudadControlador {
 
     private void abrirEdificios() {
         try {
-            EdificiosControlador controlador = new EdificiosControlador(juego, mision, controladorStage);
+            EdificiosControlador controlador = new EdificiosControlador(juego, mision, controlStage);
             Edificios nuevaVista = new Edificios(juego, mision, controlador);
-            controladorStage.cambiar(nuevaVista);
+            controlStage.cambiar(nuevaVista);
             /* liberar() */
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -96,14 +98,18 @@ public class LibroCiudadControlador {
 
     private void abrirOrden() {
         try {
-            OrdenControlador controlador = new OrdenControlador(juego, mision, controladorStage);
+            OrdenControlador controlador = new OrdenControlador(juego, mision, controlStage);
             Orden nuevaVista = new Orden(juego, mision, controlador);
-            controladorStage.cambiar(nuevaVista);
+            controlStage.cambiar(nuevaVista);
             /* liberar() */
         } catch(Exception ex) {
             ex.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR, "Error al abrir la orden: " + ex, ButtonType.OK);
             alert.showAndWait();
         }
+    }
+
+    public IObservadorAcciones getObservadorAcciones() {
+        return new ControladorAcciones(juego, mision, controlStage);
     }
 }

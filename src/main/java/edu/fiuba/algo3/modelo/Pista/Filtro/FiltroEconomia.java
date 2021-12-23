@@ -14,7 +14,8 @@ public class FiltroEconomia implements IFiltroCiudad {
 
     @Override
     public List<PistaCiudad> filtrarPistas(Collection<PistaCiudad> sinFiltrar) {
-        return sinFiltrar.stream().filter(pista -> pista.esDeUnTipoDe(tipos))
+        List<PistaCiudad> filtrada = sinFiltrar.stream().filter(pista -> pista.esDeUnTipoDe(tipos))
                 .collect(Collectors.toList());
+        return filtrada;
     }
 }

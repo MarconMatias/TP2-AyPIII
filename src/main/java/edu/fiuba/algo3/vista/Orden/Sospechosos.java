@@ -14,9 +14,9 @@ public class Sospechosos extends ListView<Ladron> {
   public Sospechosos(Juego juego, Mision mision, OrdenControlador controlador) {
     super(mision.getSospechososObservables());
 
-    this.setPrefWidth(1536);
-    this.setPrefHeight(920);
-    this.setStyle("-fx-font: 80 Impact");
+    this.setPrefWidth(1120);
+    this.setPrefHeight(760);
+    this.setStyle("-fx-font: 70 \"Times New Roman\"");
     this.getStyleClass().add("listaSospechosos");
     this.getTransforms()
         .setAll(new Rotate(anguloRotacion, this.getWidth() / 2, this.getHeight() / 2));

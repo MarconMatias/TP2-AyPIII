@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.controlador.Policia;
 
-import edu.fiuba.algo3.ControladorStage;
+import edu.fiuba.algo3.ControlStage;
 import edu.fiuba.algo3.controlador.Ciudad.LibroCiudadControlador;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Juego.Juego;
@@ -17,12 +17,12 @@ import javafx.scene.input.MouseEvent;
 
 public class PoliciaControlador {
     private final Juego juego;
-    private final ControladorStage controladorStage;
+    private final ControlStage controlStage;
     private StringProperty nombreProperty = new SimpleStringProperty("");
 
-    public PoliciaControlador(Juego juego, ControladorStage controladorStage) {
+    public PoliciaControlador(Juego juego, ControlStage controlStage) {
         this.juego = juego;
-        this.controladorStage = controladorStage;
+        this.controlStage = controlStage;
     }
 
     public void botonNuevoClicked(MouseEvent mouseEvent) {
@@ -39,17 +39,21 @@ public class PoliciaControlador {
 
     private void hacerNuevo() {
         Policia policia = crearPolicia();
+        hacerMision(policia);
+    }
+
+    private void hacerMision(Policia policia) {
         try {
             Mision mision = juego.nuevaMision(policia);
             Ciudad ciudad = mision.getCiudadActual();
-            LibroCiudadControlador controladorLibro = new LibroCiudadControlador(juego, mision, controladorStage);
+            LibroCiudadControlador controladorLibro = new LibroCiudadControlador(juego, mision, controlStage);
             LibroCiudad libro = new LibroCiudad(juego, mision, controladorLibro);
-            controladorStage.cambiar(libro);
+            controlStage.cambiar(libro);
             /* liberar() */
         } catch (Exception ex) {
             ex.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR,
-                    "El policía fue creado pero no pudo crearse la misión: " + ex, ButtonType.OK);
+                    "No pudo crearse la misión: " + ex, ButtonType.OK);
             alert.showAndWait();
         }
     }
@@ -70,11 +74,24 @@ public class PoliciaControlador {
         return policia;
     }
 
-    public void listaPoliciasClicked(MouseEvent mouseEvent) {
+    public void listaPoliciasClicked(MouseEvent event, Policia policiaSeleccionado) {
+        if(event.isConsumed() || (null == policiaSeleccionado)) {
+            return;
+        }
+        event.consume();
+        hacerMision(policiaSeleccionado);
     }
 
-    public void listaPoliciasKeyPressed(KeyEvent keyEvent) {
-
+    public void listaPoliciasKeyPressed(KeyEvent event, Policia policiaSeleccionado) {
+        if(event.isConsumed() || (null == policiaSeleccionado)) {
+            return;
+        }
+        switch(event.getCode()) {
+            case ENTER: case SPACE:
+                event.consume();
+                hacerMision(policiaSeleccionado);
+                break;
+        }
     }
 
     public void bindNombreProperty(StringProperty textProperty) {

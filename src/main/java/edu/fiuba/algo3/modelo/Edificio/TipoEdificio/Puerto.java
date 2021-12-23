@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.Edificio.TipoEdificio;
 
-import edu.fiuba.algo3.modelo.Pista.Filtro.*;
+import edu.fiuba.algo3.modelo.Pista.Filtro.SinFiltro;
 
 public class Puerto extends EdificioAbstracto{
     public Puerto() {
@@ -16,7 +16,6 @@ public class Puerto extends EdificioAbstracto{
     protected String getNombreTestigo() {
         return "Marino";
     }
-
 
 }
 

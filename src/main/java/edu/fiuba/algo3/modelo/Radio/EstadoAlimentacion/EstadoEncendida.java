@@ -34,10 +34,12 @@ public class EstadoEncendida implements IEstadoAlimentacion {
         return volumen.getVolumen();
     }
 
+    @Override
     public void subirVolumen(Volumen volumen) {
         volumen.subirVolumen();
-    }
+   }
 
+    @Override
     public void bajarVolumen(Volumen volumen) {
         volumen.bajarVolumen();
     }

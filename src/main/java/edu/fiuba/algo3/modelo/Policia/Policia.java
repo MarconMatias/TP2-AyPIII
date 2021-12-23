@@ -8,12 +8,15 @@ import edu.fiuba.algo3.modelo.Evento.PoliciaFinalizaListener;
 import edu.fiuba.algo3.modelo.Evento.PoliciaGana;
 import edu.fiuba.algo3.modelo.Evento.PoliciaPierde;
 import edu.fiuba.algo3.modelo.Juego.Calendario;
+import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.ITipoEdificio;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.OrdenDeArresto.IOrden;
 import edu.fiuba.algo3.modelo.OrdenDeArresto.SinOrden;
 import edu.fiuba.algo3.modelo.Pista.IPista;
 import edu.fiuba.algo3.modelo.Policia.EstadoCuchillada.EstadoCuchillada;
 import edu.fiuba.algo3.modelo.Policia.RangoPolicia.RangoPolicia;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -25,10 +28,11 @@ public class Policia {
     private int arrestos;
     private RangoPolicia rango;
     private Calendario calendario;
-    private IOrden ordenDeArresto = new SinOrden("No se emitió nunca una orden de arresto.");
+    private ObjectProperty<IOrden> ordenDeArresto = new SimpleObjectProperty<>(new SinOrden("No se emitió nunca una orden de arresto."));
     private EstadoCuchillada estadoCuchilladas = new EstadoCuchillada();
     private List<PoliciaFinalizaListener> oyentesAlPerder = new ArrayList<>();
     private List<PoliciaFinalizaListener> oyentesAlGanar = new ArrayList<>();
+
 
     /**
      * Crea un policía con una cantidad de arrestos dada.
@@ -65,7 +69,7 @@ public class Policia {
     }
 
     public void setOrdenDeArresto(IOrden ordenDeArresto) {
-        this.ordenDeArresto = ordenDeArresto;
+        this.ordenDeArresto.set(ordenDeArresto);
     }
 
     /**
@@ -97,9 +101,15 @@ public class Policia {
         visitar(unEdificio);
     }
 
-    public void visitar(Edificio unEdificio) {
-        unEdificio.visitar(this);
-        return;
+    /**
+     * El policía vista al edificio dado. Puede disparar acciones que avancen el calendario,
+     * pero ya debe haber avanzado el calendario por la visita misma (a través de Ciudad).
+     *
+     * @param edificio Un edificio de la ciudad actual.
+     * @return El testimonio recibido en el edificio.
+     */
+    public String visitar(Edificio edificio) {
+        return edificio.visitar(this);
     }
 
     public void hacerAccion(AccionCuchilloUnica mockAccion) {
@@ -124,12 +134,11 @@ public class Policia {
     }
 
     public void enfrentar(Ladron ladron) {
-        ordenDeArresto.enfrentar(this, ladron);
+        ordenDeArresto.get().enfrentar(this, ladron);
     }
 
     public void avanzarHorasCuchillada(Calendario calendario) {
         estadoCuchilladas.avanzarHoras(calendario);
-        calendario.avanzarHoras(2);
     }
 
     public void recibirCuchillada() {
@@ -166,6 +175,15 @@ public class Policia {
         }
     }
 
+    public boolean entraAlEdificio(ITipoEdificio unEdificio, Ladron unLadron) {
+
+        boolean pistaEncontrada = false;
+
+        pistaEncontrada = unEdificio.mostrarPista(unLadron);
+
+        return pistaEncontrada;
+    }
+
     public void escucharAlGanar(PoliciaFinalizaListener listener) {
         oyentesAlGanar.add(listener);
     }
@@ -180,5 +198,9 @@ public class Policia {
             return Integer.toString(hashCode());
         }
         return nombre;
+    }
+
+    public ObjectProperty<IOrden> getOrdenDeArresto() {
+        return ordenDeArresto;
     }
 }

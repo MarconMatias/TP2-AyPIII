@@ -1,8 +1,9 @@
 package edu.fiuba.algo3.componentes.bindings;
 
-import javafx.beans.InvalidationListener;
-import javafx.beans.binding.*;
-import javafx.beans.property.*;
+import javafx.beans.binding.DoubleBinding;
+import javafx.beans.binding.DoubleExpression;
+import javafx.beans.binding.ObjectBinding;
+import javafx.beans.property.ReadOnlyDoubleProperty;
 import javafx.geometry.Point2D;
 
 public class Point2DBindingXY extends ObjectBinding<Point2D> {

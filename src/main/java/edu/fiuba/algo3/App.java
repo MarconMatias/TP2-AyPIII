@@ -30,7 +30,7 @@ public class App extends Application {
         startSplash(stage);
     }
 
-    ControladorStage controlador;
+    ControlStage controlador;
 
     private void startSplash(Stage stage) {
         FakeService lector = new FakeService(5);
@@ -41,7 +41,7 @@ public class App extends Application {
 
         SplashControlador splashControlador = new SplashControlador(juego);
         Splash splash = new Splash(juego, splashControlador);
-        controlador = new ControladorStage(stage, splash);
+        controlador = new ControlStage(stage, splash);
         splash.requestFocus();
         splash.setFocusTraversable(false);
         //root.setFocusTraversable(false);

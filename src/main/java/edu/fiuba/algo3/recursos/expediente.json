@@ -2,7 +2,7 @@
   "ladrones": [
     {
       "nombre": "Nick Brunch",
-      "sexo": "Macho",
+      "sexo": "Masculino",
       "deporte": "Escalada de montaña",
       "cabello": "Negro",
       "distincion": "Anillo",
@@ -10,7 +10,7 @@
     },
     {
       "nombre": "Len Bulk",
-      "sexo": "Macho",
+      "sexo": "Masculino",
       "deporte": "Escalada de montaña",
       "cabello": "Rojo",
       "distincion": "Tatuaje",
@@ -18,7 +18,7 @@
     },
     {
       "nombre": "Ihor Ihorovitch",
-      "sexo": "Macho",
+      "sexo": "Masculino",
       "deporte": "Croquet",
       "cabello": "Rubio",
       "distincion": "Tatuaje",
@@ -26,57 +26,57 @@
     },
     {
       "nombre": "Fast Eddie B.",
-      "sexo": "Macho",
+      "sexo": "Masculino",
       "deporte": "Croquet",
       "cabello": "Negro",
       "distincion": "Joyas",
       "vehiculo": "Convertible"
     },
     {
-      "nombre": "Svehiculo Graynolt",
-      "sexo": "Macho",
+      "nombre": "Scar Graynolt",
+      "sexo": "Masculino",
       "deporte": "Croquet",
-      "cabello": "Rojo",
+      "cabello": "Castaño",
       "distincion": "Anillo",
       "vehiculo": "Limusina"
     },
     {
       "nombre": "Merey Laroc",
-      "sexo": "Hembra",
+      "sexo": "Femenino",
       "deporte": "Escalada de montaña",
-      "cabello": "Marron",
+      "cabello": "Castaño",
       "distincion": "Joyas",
       "vehiculo": "Limusina"
     },
     {
       "nombre": "Lady Agatha",
-      "sexo": "Hembra",
-      "deporte": "Tennis",
+      "sexo": "Femenino",
+      "deporte": "Tenis",
       "cabello": "Rojo",
       "distincion": "Anillo",
       "vehiculo": "Convertible"
     },
     {
       "nombre": "Katherine Drib",
-      "sexo": "Hembra",
+      "sexo": "Femenino",
       "deporte": "Escalada de montaña",
-      "cabello": "Marron",
+      "cabello": "Castaño",
       "distincion": "Tatuaje",
       "vehiculo": "Moto"
     },
     {
       "nombre": "Dazzle Annie",
-      "sexo": "Hembra",
-      "deporte": "Tennis",
+      "sexo": "Femenino",
+      "deporte": "Tenis",
       "cabello": "Rubio",
       "distincion": "Tatuaje",
       "vehiculo": "Limusina"
     },
     {
-      "nombre": "vehiculomen Sandiego",
-      "sexo": "Hembra",
-      "deporte": "Tennis",
-      "cabello": "Marron",
+      "nombre": "Carmen Sandiego",
+      "sexo": "Femenino",
+      "deporte": "Tenis",
+      "cabello": "Castaño",
       "distincion": "Joyas",
       "vehiculo": "Convertible"
     }

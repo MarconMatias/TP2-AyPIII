@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.componentes.Cuaderno.Cuaderno;
-import edu.fiuba.algo3.componentes.Imagen.Tarjetas;
 import edu.fiuba.algo3.controlador.Policia.PoliciaControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Policia.Policia;
@@ -10,7 +9,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.transform.Rotate;
 
 public class Policias extends Cuaderno {
@@ -21,6 +19,7 @@ public class Policias extends Cuaderno {
     private PoliciaControlador controlador;
 
     public Policias(Juego juego, PoliciaControlador controlador) {
+        super();
         Label etiquetaNuevo = new Label("Ingresante:");
         etiquetaNuevo.setAlignment(Pos.CENTER);
         etiquetaNuevo.setStyle("-fx-font: 120 Impact");
@@ -59,12 +58,7 @@ public class Policias extends Cuaderno {
         setRadio(juego.getRadio());
         setControlador(controlador);
 
-        ponerTarjetas();
-    }
-
-    private void ponerTarjetas() {
-        Tarjetas tarjetas = new Tarjetas(640);
-        agregar(tarjetas, 0.9, 0.9);
+        setTarjetasVisible(true);
     }
 
     public void setControlador(PoliciaControlador controlador) {
@@ -72,13 +66,16 @@ public class Policias extends Cuaderno {
             return;
         }
 
-        Policia policiaSeleccionado = listaPolicias.getSelectionModel().getSelectedItem();
-
         botonNuevo.setOnMouseClicked(controlador::botonNuevoClicked);
         botonNuevo.setOnKeyPressed(controlador::botonNuevoKeyPressed);
-        /** TODO pasarle al controlador el policia seleccionado */
-        listaPolicias.setOnMouseClicked(controlador::listaPoliciasClicked);
-        listaPolicias.setOnKeyPressed(controlador::listaPoliciasKeyPressed);
+        listaPolicias.setOnMouseClicked(ev -> {
+            Policia policiaSeleccionado = listaPolicias.getSelectionModel().getSelectedItem();
+            controlador.listaPoliciasClicked(ev, policiaSeleccionado);
+        });
+        listaPolicias.setOnKeyPressed(ev -> {
+            Policia policiaSeleccionado = listaPolicias.getSelectionModel().getSelectedItem();
+            controlador.listaPoliciasKeyPressed(ev, policiaSeleccionado);
+        });
         controlador.bindNombreProperty(nombreNuevo.textProperty());
         this.controlador = controlador;
     }

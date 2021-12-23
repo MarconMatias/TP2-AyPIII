@@ -9,6 +9,6 @@ public class PistaDificil extends NivelPista {
 
     @Override
     public boolean esEquivalente(NivelPista nivel) {
-        return nivel instanceof PistaDificil;
+        return (nivel instanceof PistaDificil) || (nivel instanceof PistaTodoNivel);
     }
 }

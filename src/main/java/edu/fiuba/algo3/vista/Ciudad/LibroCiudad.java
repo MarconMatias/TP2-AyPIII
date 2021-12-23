@@ -58,6 +58,9 @@ public class LibroCiudad extends Libro {
         orden = new IconoOrden(640);
         agregar(orden, 0.08, 0.6);
 
+        setCalendario(mision.getCalendario());
+        setRelojVisible(true);
+
         setRadio(juego.getRadio());
         ponerTarjetas();
         ponerVolver();
@@ -82,6 +85,7 @@ public class LibroCiudad extends Libro {
         if(null == controlador) {
             return;
         }
+        setObservadorAcciones(controlador.getObservadorAcciones());
         if(null != volver) {
             volver.setOnMouseClicked(controlador::edificiosClicked);
             volver.setOnKeyPressed(controlador::edificiosKeyPressed);

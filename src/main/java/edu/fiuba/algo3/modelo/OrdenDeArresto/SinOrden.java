@@ -18,4 +18,9 @@ public class SinOrden implements IOrden {
     public void enfrentar(Policia policia, Ladron ladron) {
         estrategiaOrden.realizar(policia,ladron);
     }
+
+    @Override
+    public String getEmitidaPara() {
+        return null;
+    }
 }

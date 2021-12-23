@@ -7,9 +7,10 @@ import edu.fiuba.algo3.modelo.Evento.PoliciaFinaliza;
 import edu.fiuba.algo3.modelo.Item.Item;
 import edu.fiuba.algo3.modelo.Juego.EstadoMision.EstadoMision;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
+import edu.fiuba.algo3.modelo.OrdenDeArresto.IOrden;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 import edu.fiuba.algo3.modelo.Ruta.Ruta;
-import javafx.collections.FXCollections;
+import javafx.beans.property.ObjectProperty;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableMap;
 
@@ -177,9 +178,15 @@ public class Mision {
         computadora.agregarDetalle(tipo, valor);
     }
 
-    public void visitarEdificio(Edificio edificio) {
-        // edificio.visitar(policia);
-        policia.visitar(edificio);
+    /**
+     * En la misión, el policía vista un edificio de la ciudad actual.
+     * * Avanza el calendario por la visita misma.
+     * * Puede disparar acciones que avancen a su vez el calendario.
+     * @param edificio Un edificio de la ciudad actual.
+     * @return El testimonio obtenido en el edificio de la ciudad actual.
+     */
+    public String visitarEdificio(Edificio edificio) {
+        return ciudadActual.visitar(edificio);
     }
 
     public void generarOrdenDeArresto() {
@@ -227,14 +234,22 @@ public class Mision {
     }
 
     public ObservableList<Ladron> getSospechososObservables() {
-        return FXCollections.observableList(computadora.buscarSospechosos());
-    }
-
-    public void oirOrden(ComputadoraListener oyente) {
-        computadora.oirTodo(oyente);
+        return computadora.getSospechososObservables();
     }
 
     public ObservableMap<String, String> getDetallesDeOrden() {
         return computadora.getDetalles();
+    }
+
+    public Calendario getCalendario() {
+        return calendario;
+    }
+
+    public String getTestigo(Edificio edificio) {
+        return edificio.getTestigo();
+    }
+
+    public ObjectProperty<IOrden> getOrden() {
+        return policia.getOrdenDeArresto();
     }
 }
