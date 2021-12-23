@@ -7,4 +7,6 @@ public interface IOrden {
     public void enfrentar(Policia policia, Ladron ladron);
 
     String getEmitidaPara();
+
+    int getHorasDemora();
 }

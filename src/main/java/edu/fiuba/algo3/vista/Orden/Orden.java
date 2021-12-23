@@ -24,6 +24,7 @@ public class Orden extends Pantalla {
     private final Mision mision;
     private final OrdenControlador controlador;
     private final Librito librito;
+    private final Button botonEmitir;
 
     public Orden(Juego juego, Mision mision, OrdenControlador controlador) {
         super(fondo);
@@ -58,7 +59,7 @@ public class Orden extends Pantalla {
         labelEstado.getTransforms().setAll(new Rotate(5d, 0,0));
         agregar(labelEstado, 0.4, 0.70);
 
-        Button botonEmitir = new Button("SOLICITAR ORDEN");
+        botonEmitir = new Button("SOLICITAR ORDEN");
         botonEmitir.setAlignment(Pos.CENTER);
         final double widthBotonEmitir = 720;
         botonEmitir.setMinWidth(widthBotonEmitir);
@@ -71,13 +72,13 @@ public class Orden extends Pantalla {
                 ()->(1 == mision.getSospechososObservables().size()),
                 mision.getSospechososObservables());
         botonEmitir.visibleProperty().bind(bindingEmitirVisible);
-        agregar(botonEmitir, 0.81, 0.5);
 
         Detalles detallesPane = new Detalles(juego, mision, new DetallesControlador(juego, mision));
         agregar(detallesPane, 0.4, 0.4);
 
         Sospechosos sospechosos = new Sospechosos(juego, mision, controlador.crearControladorSospechosos());
         agregar(sospechosos, 0.81, 0.535);
+        agregar(botonEmitir, 0.81, 0.5);
 
         librito = new Librito(640);
         agregar(librito, 0.08, 0.4);
@@ -103,5 +104,6 @@ public class Orden extends Pantalla {
         observadorAccionesProperty().bind(controlador.getObservadorLiberable());
         librito.setOnMouseClicked(controlador::libritoClicked);
         librito.setOnKeyPressed(controlador::libritoKeyPressed);
+        botonEmitir.setOnAction(controlador::emitir);
     }
 }

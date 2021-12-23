@@ -33,4 +33,9 @@ public class Orden implements IOrden {
     public String getEmitidaPara() {
         return sospechoso.getNombre();
     }
+
+    @Override
+    public int getHorasDemora() {
+        return 3;
+    }
 }

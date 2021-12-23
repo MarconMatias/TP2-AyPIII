@@ -7,6 +7,7 @@ import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -44,6 +45,11 @@ public class OrdenControlador {
             liberar();
         }
     }
+
+    public void emitir(ActionEvent ev) {
+        mision.generarOrdenDeArresto();
+        ev.consume();
+   }
 
     public OrdenControlador crearControladorSospechosos() {
         return new OrdenControlador(juego,mision, controlStage);

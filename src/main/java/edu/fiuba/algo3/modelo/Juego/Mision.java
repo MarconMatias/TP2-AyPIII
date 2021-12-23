@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Juego;
 
+import edu.fiuba.algo3.modelo.Acciones.EmitirOrden;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Computadora.Computadora;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
@@ -190,7 +191,8 @@ public class Mision {
     }
 
     public void generarOrdenDeArresto() {
-        policia.setOrdenDeArresto(computadora.generarOrdenDeArresto());
+        IOrden orden = computadora.generarOrdenDeArresto();
+        calendario.aplicarAccion(new EmitirOrden(orden));
     }
 
     public boolean fueFinalizada() {
