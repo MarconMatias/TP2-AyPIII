@@ -7,9 +7,10 @@ import edu.fiuba.algo3.modelo.Evento.PoliciaFinaliza;
 import edu.fiuba.algo3.modelo.Item.Item;
 import edu.fiuba.algo3.modelo.Juego.EstadoMision.EstadoMision;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
+import edu.fiuba.algo3.modelo.OrdenDeArresto.IOrden;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 import edu.fiuba.algo3.modelo.Ruta.Ruta;
-import javafx.collections.FXCollections;
+import javafx.beans.property.ObjectProperty;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableMap;
 
@@ -233,7 +234,7 @@ public class Mision {
     }
 
     public ObservableList<Ladron> getSospechososObservables() {
-        return FXCollections.observableList(computadora.buscarSospechosos());
+        return computadora.getSospechososObservables();
     }
 
     public ObservableMap<String, String> getDetallesDeOrden() {
@@ -246,5 +247,9 @@ public class Mision {
 
     public String getTestigo(Edificio edificio) {
         return edificio.getTestigo();
+    }
+
+    public ObjectProperty<IOrden> getOrden() {
+        return policia.getOrdenDeArresto();
     }
 }

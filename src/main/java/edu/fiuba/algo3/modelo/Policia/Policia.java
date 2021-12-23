@@ -15,6 +15,8 @@ import edu.fiuba.algo3.modelo.OrdenDeArresto.SinOrden;
 import edu.fiuba.algo3.modelo.Pista.IPista;
 import edu.fiuba.algo3.modelo.Policia.EstadoCuchillada.EstadoCuchillada;
 import edu.fiuba.algo3.modelo.Policia.RangoPolicia.RangoPolicia;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -26,10 +28,11 @@ public class Policia {
     private int arrestos;
     private RangoPolicia rango;
     private Calendario calendario;
-    private IOrden ordenDeArresto = new SinOrden("No se emitió nunca una orden de arresto.");
+    private ObjectProperty<IOrden> ordenDeArresto = new SimpleObjectProperty<>(new SinOrden("No se emitió nunca una orden de arresto."));
     private EstadoCuchillada estadoCuchilladas = new EstadoCuchillada();
     private List<PoliciaFinalizaListener> oyentesAlPerder = new ArrayList<>();
     private List<PoliciaFinalizaListener> oyentesAlGanar = new ArrayList<>();
+
 
     /**
      * Crea un policía con una cantidad de arrestos dada.
@@ -66,7 +69,7 @@ public class Policia {
     }
 
     public void setOrdenDeArresto(IOrden ordenDeArresto) {
-        this.ordenDeArresto = ordenDeArresto;
+        this.ordenDeArresto.set(ordenDeArresto);
     }
 
     /**
@@ -131,7 +134,7 @@ public class Policia {
     }
 
     public void enfrentar(Ladron ladron) {
-        ordenDeArresto.enfrentar(this, ladron);
+        ordenDeArresto.get().enfrentar(this, ladron);
     }
 
     public void avanzarHorasCuchillada(Calendario calendario) {
@@ -195,5 +198,9 @@ public class Policia {
             return Integer.toString(hashCode());
         }
         return nombre;
+    }
+
+    public ObjectProperty<IOrden> getOrdenDeArresto() {
+        return ordenDeArresto;
     }
 }
