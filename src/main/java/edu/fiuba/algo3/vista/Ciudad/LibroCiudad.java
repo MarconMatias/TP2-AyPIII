@@ -5,10 +5,12 @@ import edu.fiuba.algo3.componentes.Imagen.IconoVolver;
 import edu.fiuba.algo3.componentes.Imagen.Mapita;
 import edu.fiuba.algo3.componentes.Imagen.Tarjetas;
 import edu.fiuba.algo3.componentes.Libro.Libro;
+import edu.fiuba.algo3.componentes.bindings.SimplePoint2DBinding;
 import edu.fiuba.algo3.controlador.Ciudad.LibroCiudadControlador;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
+import edu.fiuba.algo3.vista.Juego.HojaMision;
 import edu.fiuba.algo3.vista.Orden.IconoOrden;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -48,6 +50,12 @@ public class LibroCiudad extends Libro {
         textoCiudad.setStyle("-fx-font: 60 \"Times New Roman\"");
         textoCiudad.getStyleClass().add("etiquetaTextoLibroCiudad");
         agregar(textoCiudad, 0.368, 0.675);
+
+        HojaMision hojaMision = new HojaMision(juego, mision);
+        hojaMision.setScaleX(0.85);
+        hojaMision.setScaleY(0.85);
+        hojaMision.setRotate(15);
+        agregar(hojaMision, new SimplePoint2DBinding(0.68, 0.5));
 
         mapita = new Mapita(640);
         agregar(mapita, 0.08, 0.4);

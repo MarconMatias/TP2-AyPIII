@@ -139,4 +139,12 @@ public class Ladron implements ISospechoso, DetallableSospechoso {
     public String getDetalle(String tipo) {
         return detalles.get(tipo);
     }
+
+  public String getTextoMision() {
+    String sexo = detalles.get("sexo");
+    boolean esFemenino = "Femenino".equals(sexo);
+    String texto = esFemenino ? "Una sospechosa de sexo femenino" : "Un sospechoso de sexo "+sexo;
+    texto +=" ha sido " + (esFemenino?"vista":"visto") + " en la escena del crimen.";
+    return texto;
+  }
 }
