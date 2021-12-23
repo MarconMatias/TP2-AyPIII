@@ -39,7 +39,7 @@ public class Orden extends RelativoAImagen {
         tituloSospechosos.setMaxWidth(960);
         tituloSospechosos.setStyle("-fx-font: 90 \"Comic Sans\"");
         tituloSospechosos.getStyleClass().add("etiquetaTituloSospechosos");
-        tituloSospechosos.getTransforms().setAll(new Rotate(5d, 0,0));
+        tituloSospechosos.getTransforms().setAll(new Rotate(5d, 0, 0));
         agregar(tituloSospechosos, 0.805, 0.330);
 
         Detalles detallesPane = new Detalles(juego, mision, new DetallesControlador(juego, mision));
@@ -53,7 +53,7 @@ public class Orden extends RelativoAImagen {
     }
 
     private void setControlador(OrdenControlador controlador) {
-        if(null == controlador) {
+        if (null == controlador) {
             return;
         }
         librito.setOnMouseClicked(controlador::libritoClicked);
