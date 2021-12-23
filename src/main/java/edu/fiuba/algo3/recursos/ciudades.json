@@ -181,7 +181,7 @@
         },
         {
           "tipo": "Geografia",
-          "pista": "",
+          "pista": "Me dijo que se dirigia a la parte Oeste de Africa",
           "dificultad": 0
         },
         {
@@ -202,11 +202,11 @@
         {
           "tipo": "Exportaciones",
           "pista": "Menciono que el pais al que se dirige exporta mucho arroz y mijos",
-          "dificultad": 0
+          "dificultad": 2
         },
         {
           "tipo": "Animales",
-          "pista": "",
+          "pista": "Me dijo que queria ver los antílopes oribí y duiker común",
           "dificultad": 2
         },
         {
@@ -216,23 +216,23 @@
         },
         {
           "tipo": "Idioma",
-          "pista": "",
+          "pista": "Me dijo que la ciudad a la que se dirigia su gente hablaba frances",
           "dificultad": 1
         },
         {
           "tipo": "Arte",
-          "pista": "",
+          "pista": "Me dijo que le interesaba el arte Mali",
           "dificultad": 0
         },
         {
           "tipo": "Religion",
-          "pista": "",
-          "dificultad": 0
+          "pista": "Me comento que se dirigia a un pais donde la mayoria profesa el Islam",
+          "dificultad": 2
         },
         {
           "tipo": "Gobernante",
           "pista": "Escuche que queria luego robarle al presidente",
-          "dificultad": 0
+          "dificultad": 1
         },
         {
           "tipo": "Miscelaneos",
@@ -267,37 +267,37 @@
         },
         {
           "tipo": "Geografia",
-          "pista": "",
+          "pista": "Me dijo que se dirigia a una ciudad que esta situada en la desembocadura del río Chao Phraya",
           "dificultad": 0
         },
         {
           "tipo": "Puntos de Interes",
-          "pista": "",
+          "pista": "Me dijo que le interesaria visitar una ciudad con santuarios ornamentados y la animada vida callejera",
           "dificultad": 1
         },
         {
           "tipo": "Exportaciones",
-          "pista": "",
+          "pista": "Me dijo que el pais al que se dirige tiene una economia basada en la exportaciones de accesorios de maquinas y automoviles",
           "dificultad": 0
         },
         {
           "tipo": "Animales",
-          "pista": "",
+          "pista": "Me dijo que existen animales peligrosos como la Cobra Real o la Tarantula Tailandesa en el pais al que se dirige",
           "dificultad": 2
         },
         {
           "tipo": "Personajes Historicos",
-          "pista": "",
+          "pista": "Me dijo que queria conocer a Maha Vajiralongkorn, actual rey de Tailandia",
           "dificultad": 2
         },
         {
           "tipo": "Idioma",
-          "pista": "",
+          "pista": "Me dijo que necesitaba aprender Tailandes para poder viajar",
           "dificultad": 1
         },
         {
           "tipo": "Arte",
-          "pista": "",
+          "pista": "Me comento que el arte tradicional tailandés está principalmente vinculado a la religión budista y a las escenas de las historias épicas hindús y que le interesaria saber mas de ello",
           "dificultad": 0
         },
         {
@@ -307,7 +307,7 @@
         },
         {
           "tipo": "Gobernante",
-          "pista": "",
+          "pista": "Me dijo que hay una monarquia constitucional democratica en el pais al que se dirigia",
           "dificultad": 2
         },
         {
@@ -335,8 +335,8 @@
         },
         {
           "tipo": "Geografia",
-          "pista": "???",
-          "dificultad": 2
+          "pista": "Me dijo que se dirigia a la capital y ciudad más poblada de Hungría",
+          "dificultad": 1
         },
         {
           "tipo": "Puntos de Interes",
@@ -355,7 +355,7 @@
         },
         {
           "tipo": "Animales",
-          "pista": "???",
+          "pista": "Me comento lo siguiente: En las zonas rurales de Hungría es algo normal y corriente que después de la lluvia cigüeñas caminan por el jardín, búhos ululan en el nogal, pájaros protegidos anidan en el granero y a veces una familia de erizos o ciervos pasa por delante de los visitantes, o una manada descansa en el frescor del árbol solitario del pasto. Muy extraño...",
           "dificultad": 1
         },
         {
@@ -365,7 +365,7 @@
         },
         {
           "tipo": "Idioma",
-          "pista": "???",
+          "pista": "Me dijo que hablaban Hungaro en la ciudad a la que se dirigia",
           "dificultad": 2
         },
         {
@@ -375,12 +375,12 @@
         },
         {
           "tipo": "Religion",
-          "pista": "???",
+          "pista": "Me dijo que la poblacion del pais al que se dirige profesa el Cristianismo",
           "dificultad": 1
         },
         {
           "tipo": "Gobernante",
-          "pista": "???",
+          "pista": "Me dijo que queria conocer al presidente de Hungria",
           "dificultad": 2
         },
         {
