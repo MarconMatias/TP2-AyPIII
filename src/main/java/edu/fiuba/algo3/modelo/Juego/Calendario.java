@@ -16,6 +16,7 @@ import static javafx.beans.binding.Bindings.createIntegerBinding;
 public class Calendario {
     private IntegerProperty horasActuales = new SimpleIntegerProperty(0);
     private IntegerExpression horaDelDia = createIntegerBinding(this::getHoraDelDia,horasActuales);
+    private IntegerExpression diaDeSemana = createIntegerBinding(this::getDiaDeLaSemana,horasActuales);
 
     private final int inicioDia = 1; // Lunes
     private final int inicioHs = 7; // 7 hs.;
@@ -130,5 +131,9 @@ public class Calendario {
 
     public IntegerExpression getHoraObservable() {
         return horaDelDia;
+    }
+
+    public IntegerExpression getDiaObservable() {
+        return diaDeSemana;
     }
 }

@@ -7,6 +7,14 @@
     -fx-wrap-text: true;
 }
 
+.etiquetaTextoReloj {
+    -fx-background-color: #800000;
+    -fx-text-fill: white;
+    -fx-border-color: black;
+    -fx-border-insets: 2;
+    -fx-border-width: 5;
+}
+
 .vistaDetallesOrden {
     -fx-background-color:transparent;
     -fx-border-color: black;
