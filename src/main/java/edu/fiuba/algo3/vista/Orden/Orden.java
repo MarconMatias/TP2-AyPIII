@@ -73,7 +73,8 @@ public class Orden extends Pantalla {
                 mision.getSospechososObservables());
         botonEmitir.visibleProperty().bind(bindingEmitirVisible);
 
-        Detalles detallesPane = new Detalles(juego, mision, new DetallesControlador(juego, mision));
+        Detalles detallesPane = new Detalles(juego, mision, mision, new DetallesControlador(juego, mision));
+        detallesPane.setTitulo("Información recolectada:");
         agregar(detallesPane, 0.4, 0.4);
 
         Sospechosos sospechosos = new Sospechosos(juego, mision, controlador.crearControladorSospechosos());
