@@ -5,14 +5,20 @@ import edu.fiuba.algo3.controlador.Juego.ControladorAcciones;
 import edu.fiuba.algo3.modelo.Juego.IObservadorAcciones;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class LibroCiudadControlador {
     private final Juego juego;
     private final ControlStage controlStage;
     private final Mision mision;
+    private List<Runnable> liberadores = new ArrayList<>();
 
     public LibroCiudadControlador(Juego juego, Mision mision, ControlStage controlStage) {
         this.juego = juego;
@@ -81,10 +87,15 @@ public class LibroCiudadControlador {
     }
 
     private void liberar() {
-        /** Si hubo suscripciones o recursos que liberar, debe hacerse acá. **/
+        for(Runnable liberador : liberadores) {
+            liberador.run();
+        }
     }
 
-    public IObservadorAcciones getObservadorAcciones() {
-        return new ControladorAcciones(juego, mision, controlStage);
+    public ObservableValue<? extends IObservadorAcciones> getObservadorLiberable() {
+        SimpleObjectProperty<IObservadorAcciones> observable = new SimpleObjectProperty<IObservadorAcciones>(
+                new ControladorAcciones(juego, mision, controlStage));
+        liberadores.add(()->observable.set(null));
+        return observable;
     }
 }

@@ -98,7 +98,7 @@ public class Orden extends Pantalla {
         if (null == controlador) {
             return;
         }
-        setObservadorAcciones(controlador.getObservadorAcciones());
+        observadorAccionesProperty().bind(controlador.getObservadorLiberable());
         librito.setOnMouseClicked(controlador::libritoClicked);
         librito.setOnKeyPressed(controlador::libritoKeyPressed);
     }

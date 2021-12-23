@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.controlador.Expediente;
+package edu.fiuba.algo3.controlador.Orden;
 
 import edu.fiuba.algo3.ControlStage;
 import edu.fiuba.algo3.modelo.Juego.Juego;
