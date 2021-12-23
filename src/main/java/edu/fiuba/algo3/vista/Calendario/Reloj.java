@@ -3,6 +3,7 @@ package edu.fiuba.algo3.vista.Calendario;
 import edu.fiuba.algo3.componentes.Imagen.Imagen;
 import edu.fiuba.algo3.componentes.RelativoAImagen.RelativoAImagen;
 import edu.fiuba.algo3.modelo.Juego.Calendario;
+import javafx.beans.binding.IntegerExpression;
 import javafx.beans.binding.ObjectExpression;
 import javafx.scene.image.Image;
 
@@ -13,7 +14,8 @@ public class Reloj extends RelativoAImagen {
 
     public Reloj(ObjectExpression<Calendario> calendario) {
         super(fondo);
-
+        IntegerExpression hora = calendario.get().getHoraObservable();
+        hora.addListener(ob->System.out.println("Hora: "+hora.get()));
 
         /*imageView = new ImageView(fondo);
         imageView.setFitWidth(fondo.getWidth());

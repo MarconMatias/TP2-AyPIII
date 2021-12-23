@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.Juego;
 import edu.fiuba.algo3.modelo.Acciones.AccionDormir;
 import edu.fiuba.algo3.modelo.Acciones.IAccion;
 import javafx.beans.binding.DoubleExpression;
+import javafx.beans.binding.IntegerExpression;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
@@ -10,8 +11,11 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
+import static javafx.beans.binding.Bindings.createIntegerBinding;
+
 public class Calendario {
     private IntegerProperty horasActuales = new SimpleIntegerProperty(0);
+    private IntegerExpression horaDelDia = createIntegerBinding(this::getHoraDelDia,horasActuales);
 
     private final int inicioDia = 1; // Lunes
     private final int inicioHs = 7; // 7 hs.;
@@ -124,6 +128,7 @@ public class Calendario {
         observadoresAcciones.remove(observador);
     }
 
-    public void getHoraObservable() {
+    public IntegerExpression getHoraObservable() {
+        return horaDelDia;
     }
 }
