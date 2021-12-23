@@ -4,14 +4,17 @@ import edu.fiuba.algo3.componentes.Imagen.Imagen;
 import edu.fiuba.algo3.controlador.Ciudad.LibroCiudadControlador;
 import edu.fiuba.algo3.controlador.Edificio.EdificiosControlador;
 import edu.fiuba.algo3.controlador.Mapa.MapaDestinosControlador;
+import edu.fiuba.algo3.controlador.Orden.ExpedienteControlador;
 import edu.fiuba.algo3.controlador.Orden.OrdenControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
+import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 import edu.fiuba.algo3.vista.Ciudad.LibroCiudad;
 import edu.fiuba.algo3.vista.Edificio.Edificios;
 import edu.fiuba.algo3.vista.Juego.GrupoInterno;
 import edu.fiuba.algo3.vista.Mapa.MapaDestinos;
+import edu.fiuba.algo3.vista.Orden.Expediente;
 import edu.fiuba.algo3.vista.Orden.Orden;
 import javafx.beans.binding.DoubleBinding;
 import javafx.beans.property.DoubleProperty;
@@ -96,6 +99,25 @@ public class ControlStage {
 
     public boolean abrirEdificios(Juego juego, Mision mision) {
         return abrirEdificios(juego, mision, new EdificiosControlador(juego, mision, this));
+    }
+
+    /**************************************************************************/
+
+    private boolean abrirExpediente(Juego juego, Mision mision, Ladron ladron, ExpedienteControlador controlador) {
+        try {
+            Expediente nuevaVista = new Expediente(juego, mision, controlador);
+            cambiar(nuevaVista);
+            return true;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Error al abrir expediente: " + ex, ButtonType.OK);
+            alert.showAndWait();
+            return false;
+        }
+    }
+
+    public boolean abrirExpediente(Juego juego, Mision mision, Ladron ladron) {
+        return abrirExpediente(juego, mision, ladron, new ExpedienteControlador(juego, mision, this));
     }
 
     /**************************************************************************/
@@ -215,5 +237,4 @@ public class ControlStage {
     public void cambiar(Node interno) {
         raiz.cambiar(interno);
     }
-
 }

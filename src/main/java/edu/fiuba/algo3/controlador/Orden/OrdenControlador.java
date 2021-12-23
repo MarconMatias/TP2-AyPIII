@@ -51,8 +51,8 @@ public class OrdenControlador {
         ev.consume();
    }
 
-    public OrdenControlador crearControladorSospechosos() {
-        return new OrdenControlador(juego,mision, controlStage);
+    public SospechososControlador crearControladorSospechosos() {
+        return new SospechososControlador(juego,mision, controlStage);
     }
 
     public IObservadorAcciones getObservadorAcciones() {
