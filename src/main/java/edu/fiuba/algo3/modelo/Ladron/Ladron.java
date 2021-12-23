@@ -2,13 +2,22 @@ package edu.fiuba.algo3.modelo.Ladron;
 
 import edu.fiuba.algo3.modelo.Ciudad.IDestino;
 import edu.fiuba.algo3.modelo.Pista.Filtro.IFiltroCiudad;
+import edu.fiuba.algo3.modelo.Pista.IPista;
+import edu.fiuba.algo3.modelo.Pista.NivelPista.PistaDificil;
+import edu.fiuba.algo3.modelo.Pista.NivelPista.PistaFacil;
+import edu.fiuba.algo3.modelo.Pista.NivelPista.PistaMedia;
+import edu.fiuba.algo3.modelo.Pista.PistaLadron;
+import edu.fiuba.algo3.modelo.Pista.PistaLadronNoFacil;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Ladron implements ISospechoso {
   private final String nombre;
   private final Map<String,String> detalles;
+  private final List<IPista> pistas = new ArrayList<>();
+
   public Ladron(String nombre, Map<String,String> detalles) {
     this.nombre = nombre;
     this.detalles = detalles;
@@ -28,6 +37,30 @@ public class Ladron implements ISospechoso {
     this(nombre, crearDetalles(sexo,deporte,cabello,distincion,vehiculo));
   }
 
+  private void generarPistas() {
+    if(0 == detalles.size()) {
+      System.err.println(this + " no tiene detalles.");
+      return;
+    }
+    PistaFacil facil = new PistaFacil();
+    Collection<PistaLadron> faciles = detalles.keySet().stream()
+            .map(tipo -> new PistaLadron(tipo, detalles.get(tipo), facil))
+                    .collect(Collectors.toList());
+    pistas.addAll(faciles);
+
+    PistaMedia media = new PistaMedia();
+    Collection<PistaLadron> medias = detalles.keySet().stream()
+            .map(tipo -> new PistaLadronNoFacil(tipo, detalles.get(tipo), media, 2))
+            .collect(Collectors.toList());
+    pistas.addAll(medias);
+
+    PistaDificil dificil = new PistaDificil();
+    Collection<PistaLadron> dificiles = detalles.keySet().stream()
+            .map(tipo -> new PistaLadronNoFacil(tipo, detalles.get(tipo), dificil, 1))
+            .collect(Collectors.toList());
+    pistas.addAll(dificiles);
+  }
+
   public boolean meLlamo(String string) {
 
     return string.equals(nombre);
@@ -38,28 +71,25 @@ public class Ladron implements ISospechoso {
     return this.detalles.getOrDefault(tipo,porDefecto);
   }
 
-  public String detalleAlAzar(Random random) {
-    final String noHayDetalles = "No puedo aportar ningún detalle sobre esa persona.";
-    if(0 == detalles.size()) {
-      System.err.println(this + " no tiene detalles.");
-      return noHayDetalles;
+  public String detalleAlAzar(Policia policia, Random random) {
+    // Generación lazy.
+    if(0 == pistas.size()) {
+      generarPistas();
     }
-    int posicionAlAzar = random.nextInt(detalles.size());
-    String tipo = detalles.keySet().stream().limit(posicionAlAzar)
-            .reduce((s1,s2)->s2).orElse(null);
-    if(null == tipo) {
-      System.err.println(this + " no encuentra tipo.");
-      return noHayDetalles;
-    }
-    String valor = detalles.get(tipo);
-    String pistaDetalle = "Su " + tipo + " es " + valor + ".";
-    System.out.println(pistaDetalle);
-    return pistaDetalle;
+
+    List<IPista> filtrada = policia.filtrarPistas(pistas);
+    int largo = filtrada.size();
+    if (0 == largo)
+      return PistaLadron.textoNoHay();
+    int posicion = random.nextInt(largo);
+    return filtrada.get(posicion).toString();
   }
 
   @Override
   public String testimonioAlAzar(Policia policia, IDestino destino, IFiltroCiudad filtroCiudad) {
-    return destino.pistaAlAzar(policia,filtroCiudad) + detalleAlAzar(new Random());
+    IPista pistaCiudad = destino.pistaAlAzar(policia, filtroCiudad);
+    String pistaDetalle = detalleAlAzar(policia, new Random());
+    return pistaCiudad + ".\n" + pistaDetalle;
   }
 
     public String getNombre() {
