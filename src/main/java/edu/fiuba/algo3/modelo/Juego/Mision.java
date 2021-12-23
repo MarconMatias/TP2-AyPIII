@@ -185,7 +185,7 @@ public class Mision {
      * @return El testimonio obtenido en el edificio de la ciudad actual.
      */
     public String visitarEdificio(Edificio edificio) {
-        ciudadActual.visitar(edificio);
+        return ciudadActual.visitar(edificio);
     }
 
     public void generarOrdenDeArresto() {
