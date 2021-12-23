@@ -38,15 +38,28 @@ public class Ladron implements ISospechoso {
     return this.detalles.getOrDefault(tipo,porDefecto);
   }
 
-  public String mostrarDistincion() {
-    String distincion = getDetalle("distincion","");
-    System.out.println("Veo a un sujeto con un " + distincion + " dentro del edificio. ");
-    return distincion;
+  public String detalleAlAzar(Random random) {
+    final String noHayDetalles = "No puedo aportar ningún detalle sobre esa persona.";
+    if(0 == detalles.size()) {
+      System.err.println(this + " no tiene detalles.");
+      return noHayDetalles;
+    }
+    int posicionAlAzar = random.nextInt(detalles.size());
+    String tipo = detalles.keySet().stream().limit(posicionAlAzar)
+            .reduce((s1,s2)->s2).orElse(null);
+    if(null == tipo) {
+      System.err.println(this + " no encuentra tipo.");
+      return noHayDetalles;
+    }
+    String valor = detalles.get(tipo);
+    String pistaDetalle = "Su " + tipo + " es " + valor + ".";
+    System.out.println(pistaDetalle);
+    return pistaDetalle;
   }
 
   @Override
   public String testimonioAlAzar(Policia policia, IDestino destino, IFiltroCiudad filtroCiudad) {
-    return destino.pistaAlAzar(policia,filtroCiudad) + mostrarDistincion();
+    return destino.pistaAlAzar(policia,filtroCiudad) + detalleAlAzar(new Random());
   }
 
     public String getNombre() {
