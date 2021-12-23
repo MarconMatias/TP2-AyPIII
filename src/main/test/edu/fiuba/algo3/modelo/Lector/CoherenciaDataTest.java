@@ -3,13 +3,26 @@ package edu.fiuba.algo3.modelo.Lector;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Item.Item;
 import edu.fiuba.algo3.modelo.Juego.Mapa;
+import edu.fiuba.algo3.modelo.Pista.IPista;
+import edu.fiuba.algo3.modelo.Pista.PistaCiudad;
+import edu.fiuba.algo3.modelo.Pista.NivelPista.NivelPista;
+import edu.fiuba.algo3.vista.Ciudad.FotoCiudad;
+import edu.fiuba.algo3.modelo.Pista.NivelPista.*;
+
+import org.json.simple.JSONArray;
+import org.json.simple.parser.JSONParser;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
+import com.thoughtworks.qdox.parser.ParseException;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.isNull;
+import static org.mockito.Mockito.framework;
 
 public class CoherenciaDataTest {
     @Test
@@ -78,5 +91,25 @@ public class CoherenciaDataTest {
         assertEquals(0, conFallas.size());
     }
 
+    @Test
+    public void cadaCiudadTieneUnaPistaDeCadaDificultad() throws org.json.simple.parser.ParseException {
+        InterpretePistaCiudad interprete = new InterpretePistaCiudad();
+        ArrayList<IPista> faciles = new ArrayList<IPista>();
+        ArrayList<IPista> medias = new ArrayList<IPista>();
+        ArrayList<IPista> dificiles = new ArrayList<IPista>();
+        NivelPista facil = new PistaFacil();
+        NivelPista media = new PistaMedia();
+        NivelPista dificil = new PistaDificil();
+        JSONArray entrada = null;
+        Collection<PistaCiudad> pistas;
+        String fuente = "src/main/java/edu/fiuba/algo3/recursos/ciudades.json";
+        LectorCiudad lector = new LectorCiudad();
+        List<Ciudad> ciudades =  lector.leerCiudades(fuente);
+        for(Ciudad ciudad : ciudades){
+            pistas = ciudad.getPistas();
+            pistas.toString();
+            assertEquals(12, pistas.size());
+        }
+    }
 
 }
