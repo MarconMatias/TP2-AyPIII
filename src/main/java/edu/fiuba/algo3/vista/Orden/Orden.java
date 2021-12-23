@@ -82,6 +82,8 @@ public class Orden extends Pantalla {
         librito = new Librito(640);
         agregar(librito, 0.08, 0.4);
 
+        setCalendario(mision.getCalendario());
+        setRelojVisible(true);
         setRadio(juego.getRadio());
         setControlador(controlador);
     }
