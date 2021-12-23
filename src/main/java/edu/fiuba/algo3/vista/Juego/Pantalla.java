@@ -8,10 +8,12 @@ import edu.fiuba.algo3.componentes.bindings.Point2DBindingXY;
 import edu.fiuba.algo3.componentes.bindings.SimplePoint2DBinding;
 import edu.fiuba.algo3.controlador.Radio.RadioControlador;
 import edu.fiuba.algo3.modelo.Juego.Calendario;
+import edu.fiuba.algo3.modelo.Juego.IObservadorAcciones;
 import edu.fiuba.algo3.modelo.Radio.Radio;
 import edu.fiuba.algo3.vista.Calendario.Reloj;
 import edu.fiuba.algo3.vista.Radio.Walkman;
 import javafx.beans.property.*;
+import javafx.beans.value.ObservableValue;
 import javafx.geometry.Point2D;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -26,6 +28,7 @@ public class Pantalla extends RelativoAImagen {
     private ObjectProperty<Calendario> calendario = new SimpleObjectProperty<>(null);
     private SimplePoint2DBinding relojCoordenadas = new SimplePoint2DBinding(0.08, 0.9);
     private DoubleProperty escalaReloj = new SimpleDoubleProperty(0.85);
+    private ObjectProperty<IObservadorAcciones> observadorAcciones = new SimpleObjectProperty<>(null);
 
     public Pantalla(Image imagen) {
         super(imagen);
@@ -40,6 +43,46 @@ public class Pantalla extends RelativoAImagen {
     private void inicializar() {
         tarjetas.bind(new ConstructorLazyConVisible<Tarjetas>(this::crearTarjetas, tarjetasVisible));
         reloj.bind(new ConstructorLazyConVisible<Reloj>(this::crearReloj, relojVisible));
+
+        calendario.addListener(this::alCambiarCalendario);
+        observadorAcciones.addListener(this::cambiarObservador);
+    }
+
+    private void cambiarObservador(ObservableValue<? extends IObservadorAcciones> obs,
+                                   IObservadorAcciones obsViejo, IObservadorAcciones obsNuevo) {
+        Calendario cal = calendario.get();
+        if(null != cal) {
+            if(null != obsViejo) {
+                cal.desobservarAcciones(obsViejo);
+            }
+            if(null != obsNuevo) {
+                cal.observarAcciones(obsNuevo);
+            }
+        }
+    }
+
+    private void alCambiarCalendario(ObservableValue<? extends Calendario> obs, Calendario viejo, Calendario nuevo) {
+        IObservadorAcciones observador = observadorAcciones.get();
+        if(null == observador) {
+            return;
+        }
+        if(null != viejo) {
+            nuevo.desobservarAcciones(observador);
+        } else if (null != nuevo) {
+            nuevo.observarAcciones(observador);
+        }
+    }
+
+    public IObservadorAcciones getObservadorAcciones() {
+        return observadorAcciones.get();
+    }
+
+    public ObjectProperty<IObservadorAcciones> observadorAccionesProperty() {
+        return observadorAcciones;
+    }
+
+    public void setObservadorAcciones(IObservadorAcciones observadorAcciones) {
+        this.observadorAcciones.set(observadorAcciones);
     }
 
     /*********************************************************/

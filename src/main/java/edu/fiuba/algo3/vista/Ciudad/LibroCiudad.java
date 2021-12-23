@@ -85,6 +85,7 @@ public class LibroCiudad extends Libro {
         if(null == controlador) {
             return;
         }
+        setObservadorAcciones(controlador.getObservadorAcciones());
         if(null != volver) {
             volver.setOnMouseClicked(controlador::edificiosClicked);
             volver.setOnKeyPressed(controlador::edificiosKeyPressed);

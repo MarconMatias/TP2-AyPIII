@@ -1,8 +1,10 @@
 package edu.fiuba.algo3.controlador.Edificio;
 
-import edu.fiuba.algo3.ControladorStage;
+import edu.fiuba.algo3.ControlStage;
 import edu.fiuba.algo3.controlador.Ciudad.LibroCiudadControlador;
+import edu.fiuba.algo3.controlador.Juego.ControladorAcciones;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
+import edu.fiuba.algo3.modelo.Juego.IObservadorAcciones;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.vista.Ciudad.LibroCiudad;
@@ -16,12 +18,12 @@ import javafx.scene.input.MouseEvent;
 public class EdificiosControlador {
     private final Juego juego;
     private final Mision mision;
-    private final ControladorStage controladorStage;
+    private final ControlStage controlStage;
 
-    public EdificiosControlador(Juego juego, Mision mision, ControladorStage controladorStage) {
+    public EdificiosControlador(Juego juego, Mision mision, ControlStage controlStage) {
         this.juego = juego;
         this.mision = mision;
-        this.controladorStage = controladorStage;
+        this.controlStage = controlStage;
     }
 
     public void libritoClicked(MouseEvent ev) {
@@ -40,9 +42,9 @@ public class EdificiosControlador {
 
     private void abrirLibro() {
         try {
-            LibroCiudadControlador controladorLibro = new LibroCiudadControlador(juego, mision, controladorStage);
+            LibroCiudadControlador controladorLibro = new LibroCiudadControlador(juego, mision, controlStage);
             LibroCiudad libro = new LibroCiudad(juego, mision, controladorLibro);
-            controladorStage.cambiar(libro);
+            controlStage.cambiar(libro);
             /* liberar() */
         } catch(Exception ex) {
             ex.printStackTrace();
@@ -59,4 +61,9 @@ public class EdificiosControlador {
         Alert alerta = new Alert(Alert.AlertType.INFORMATION, testigo+" dice:\n" + testimonio);
         alerta.showAndWait();
     }
+
+    public IObservadorAcciones getObservadorAcciones() {
+        return new ControladorAcciones(juego, mision, controlStage);
+    }
+
 }

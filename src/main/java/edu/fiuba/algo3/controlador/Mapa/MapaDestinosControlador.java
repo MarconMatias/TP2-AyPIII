@@ -1,7 +1,9 @@
 package edu.fiuba.algo3.controlador.Mapa;
 
-import edu.fiuba.algo3.ControladorStage;
+import edu.fiuba.algo3.ControlStage;
 import edu.fiuba.algo3.controlador.Ciudad.LibroCiudadControlador;
+import edu.fiuba.algo3.controlador.Juego.ControladorAcciones;
+import edu.fiuba.algo3.modelo.Juego.IObservadorAcciones;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.vista.Ciudad.DestinoCiudad;
@@ -15,12 +17,12 @@ import javafx.scene.input.MouseEvent;
 public class MapaDestinosControlador {
     private final Juego juego;
     private final Mision mision;
-    private final ControladorStage controladorStage;
+    private final ControlStage controlStage;
 
-    public MapaDestinosControlador(Juego juego, Mision mision, ControladorStage controladorStage) {
+    public MapaDestinosControlador(Juego juego, Mision mision, ControlStage controlStage) {
         this.juego = juego;
         this.mision = mision;
-        this.controladorStage = controladorStage;
+        this.controlStage = controlStage;
     }
 
     public void libritoClicked(MouseEvent ev) {
@@ -39,9 +41,9 @@ public class MapaDestinosControlador {
 
     private void abrirLibro() {
         try {
-            LibroCiudadControlador controladorLibro = new LibroCiudadControlador(juego, mision, controladorStage);
+            LibroCiudadControlador controladorLibro = new LibroCiudadControlador(juego, mision, controlStage);
             LibroCiudad libro = new LibroCiudad(juego, mision, controladorLibro);
-            controladorStage.cambiar(libro);
+            controlStage.cambiar(libro);
             /* liberar() */
         } catch(Exception ex) {
             ex.printStackTrace();
@@ -58,4 +60,7 @@ public class MapaDestinosControlador {
         abrirLibro();
     }
 
+    public IObservadorAcciones getObservadorAcciones() {
+        return new ControladorAcciones(juego, mision, controlStage);
+    }
 }
