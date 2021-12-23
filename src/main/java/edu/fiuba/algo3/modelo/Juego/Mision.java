@@ -233,4 +233,8 @@ public class Mision {
     public ObservableMap<String, String> getDetallesDeOrden() {
         return computadora.getDetalles();
     }
+
+    public Calendario getCalendario() {
+        return calendario;
+    }
 }
