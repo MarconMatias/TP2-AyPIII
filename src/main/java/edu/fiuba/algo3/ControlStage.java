@@ -105,7 +105,7 @@ public class ControlStage {
 
     private boolean abrirExpediente(Juego juego, Mision mision, Ladron ladron, ExpedienteControlador controlador) {
         try {
-            Expediente nuevaVista = new Expediente(juego, mision, controlador);
+            Expediente nuevaVista = new Expediente(juego, mision, ladron, controlador);
             cambiar(nuevaVista);
             return true;
         } catch (Exception ex) {

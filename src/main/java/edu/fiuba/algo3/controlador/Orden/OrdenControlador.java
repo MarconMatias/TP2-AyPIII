@@ -26,6 +26,7 @@ public class OrdenControlador {
         this.mision = mision;
         this.controlStage = controlStage;
     }
+
     public void libritoClicked(MouseEvent ev) {
         if(ev.isConsumed()) {
             return;
