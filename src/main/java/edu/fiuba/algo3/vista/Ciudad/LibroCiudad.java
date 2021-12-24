@@ -70,23 +70,18 @@ public class LibroCiudad extends Libro {
         setRelojVisible(true);
 
         setRadio(juego.getRadio());
-        ponerTarjetas();
+        setTarjetasVisible(true);
         ponerVolver();
-    }
-
-    private void ponerVolver() {
-        volver = new IconoVolver(320);
-        agregar(volver, 0.9, 0.1);
-    }
-
-    private void ponerTarjetas() {
-        Tarjetas tarjetas = new Tarjetas(640);
-        agregar(tarjetas, 0.9, 0.9);
     }
 
     public LibroCiudad(Juego juego, Mision mision, LibroCiudadControlador controlador) {
         this(juego, mision);
         setControlador(controlador);
+    }
+
+    private void ponerVolver() {
+        volver = new IconoVolver(320);
+        agregar(volver, 0.9, 0.1);
     }
 
     private void setControlador(LibroCiudadControlador controlador) {
@@ -95,8 +90,8 @@ public class LibroCiudad extends Libro {
         }
         observadorAccionesProperty().bind(controlador.getObservadorLiberable());
         if(null != volver) {
-            volver.setOnMouseClicked(controlador::edificiosClicked);
-            volver.setOnKeyPressed(controlador::edificiosKeyPressed);
+            volver.setOnMouseClicked(controlador::volverClicked);
+            volver.setOnKeyPressed(controlador::volverKeyPressed);
         }
         if(null != mapita) {
             mapita.setOnMouseClicked(controlador::mapitaClicked);
@@ -109,6 +104,11 @@ public class LibroCiudad extends Libro {
         if(null != orden) {
             orden.setOnMouseClicked(controlador::ordenClicked);
             orden.setOnKeyPressed(controlador::ordenKeyPressed);
+        }
+        Tarjetas tarjetas = getTarjetas();
+        if(null != tarjetas) {
+            tarjetas.setOnMouseClicked(controlador::tarjetasClicked);
+            tarjetas.setOnKeyPressed(controlador::tarjetasKeyPressed);
         }
     }
 }

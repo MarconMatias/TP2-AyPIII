@@ -1,15 +1,16 @@
-package edu.fiuba.algo3.vista;
+package edu.fiuba.algo3.vista.Juego;
 
 import edu.fiuba.algo3.componentes.Libro.Libro;
-import javafx.scene.control.Label;
+import edu.fiuba.algo3.controlador.Juego.AcercaDeControlador;
+import edu.fiuba.algo3.controlador.Orden.OrdenControlador;
+import edu.fiuba.algo3.modelo.Juego.Juego;
+import edu.fiuba.algo3.modelo.Juego.Mision;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.transform.Rotate;
-import static javafx.beans.binding.Bindings.createBooleanBinding;
-import static javafx.beans.binding.Bindings.createStringBinding;
 
 public class AcercaDe extends Libro{
-    public AcercaDe(){
+    public AcercaDe(Juego juego, Mision mision, AcercaDeControlador controlador){
         Label tituloCiudad = new Label();
         tituloCiudad.setText("Ayuda");
         tituloCiudad.setAlignment(Pos.CENTER);

@@ -98,4 +98,44 @@ public class LibroCiudadControlador {
         liberadores.add(()->observable.set(null));
         return observable;
     }
+
+    public void tarjetasClicked(MouseEvent ev) {
+        if(ev.isConsumed()) {
+            return;
+        }
+        if(controlStage.abrirAcercaDe(juego, mision)) {
+            ev.consume();
+            liberar();
+        }
+    }
+
+    public void tarjetasKeyPressed(KeyEvent ev) {
+        if(ev.isConsumed() || (KeyCode.ENTER != ev.getCode())) {
+            return;
+        }
+        if(controlStage.abrirAcercaDe(juego, mision)) {
+            ev.consume();
+            liberar();
+        }
+    }
+
+    public void volverClicked(MouseEvent ev) {
+        if(ev.isConsumed()) {
+            return;
+        }
+        if(controlStage.abrirMenu(juego)) {
+            ev.consume();
+            liberar();
+        }
+    }
+
+    public void volverKeyPressed(KeyEvent ev) {
+        if(ev.isConsumed() || (KeyCode.ENTER != ev.getCode())) {
+            return;
+        }
+        if(controlStage.abrirMenu(juego)) {
+            ev.consume();
+            liberar();
+        }
+    }
 }

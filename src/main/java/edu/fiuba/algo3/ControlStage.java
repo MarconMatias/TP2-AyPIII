@@ -3,6 +3,7 @@ package edu.fiuba.algo3;
 import edu.fiuba.algo3.componentes.Imagen.Imagen;
 import edu.fiuba.algo3.controlador.Ciudad.LibroCiudadControlador;
 import edu.fiuba.algo3.controlador.Edificio.EdificiosControlador;
+import edu.fiuba.algo3.controlador.Juego.AcercaDeControlador;
 import edu.fiuba.algo3.controlador.Mapa.MapaDestinosControlador;
 import edu.fiuba.algo3.controlador.Orden.ExpedienteControlador;
 import edu.fiuba.algo3.controlador.Orden.OrdenControlador;
@@ -12,6 +13,7 @@ import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 import edu.fiuba.algo3.vista.Ciudad.LibroCiudad;
 import edu.fiuba.algo3.vista.Edificio.Edificios;
+import edu.fiuba.algo3.vista.Juego.AcercaDe;
 import edu.fiuba.algo3.vista.Juego.GrupoInterno;
 import edu.fiuba.algo3.vista.Mapa.MapaDestinos;
 import edu.fiuba.algo3.vista.Orden.Expediente;
@@ -64,6 +66,24 @@ public class ControlStage {
     }
 
     /**************************************************************************/
+    /**************************************************************************/
+
+    public boolean abrirAcercaDe(Juego juego, Mision mision, AcercaDeControlador controlador) {
+        try {
+            AcercaDe nuevaVista = new AcercaDe(juego, mision, controlador);
+            cambiar(nuevaVista);
+            return true;
+        } catch(Exception ex) {
+            ex.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Error al abrir la ayuda: " + ex, ButtonType.OK);
+            alert.showAndWait();
+            return false;
+        }
+    }
+
+    public boolean abrirAcercaDe(Juego juego, Mision mision) {
+        return abrirAcercaDe(juego, mision, new AcercaDeControlador(juego, mision, this));
+    }
     /**************************************************************************/
 
     public boolean abrirOrden(Juego juego, Mision mision, OrdenControlador controlador) {
@@ -236,5 +256,9 @@ public class ControlStage {
 
     public void cambiar(Node interno) {
         raiz.cambiar(interno);
+    }
+
+    public boolean abrirMenu(Juego juego) {
+        return false;
     }
 }
