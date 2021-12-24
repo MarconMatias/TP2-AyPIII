@@ -260,4 +260,10 @@ public class Mision implements DetallableSospechoso {
     public ObjectProperty<IOrden> getOrden() {
         return policia.getOrdenDeArresto();
     }
+
+    @Override
+    public ObservableMap<String, String> getDetallesDeSospechoso() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 }

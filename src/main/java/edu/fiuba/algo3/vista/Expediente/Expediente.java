@@ -2,7 +2,7 @@ package edu.fiuba.algo3.vista.Expediente;
 
 import edu.fiuba.algo3.componentes.Imagen.Imagen;
 import edu.fiuba.algo3.componentes.RelativoAImagen.RelativoAImagen;
-import edu.fiuba.algo3.controlador.Expediente.ExpedienteControlador;
+import edu.fiuba.algo3.controlador.Orden.ExpedienteControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
