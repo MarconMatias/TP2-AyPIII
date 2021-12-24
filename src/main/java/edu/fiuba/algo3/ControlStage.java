@@ -7,6 +7,7 @@ import edu.fiuba.algo3.controlador.Juego.AcercaDeControlador;
 import edu.fiuba.algo3.controlador.Mapa.MapaDestinosControlador;
 import edu.fiuba.algo3.controlador.Orden.ExpedienteControlador;
 import edu.fiuba.algo3.controlador.Orden.OrdenControlador;
+import edu.fiuba.algo3.controlador.Policia.PoliciaControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
@@ -18,11 +19,13 @@ import edu.fiuba.algo3.vista.Juego.GrupoInterno;
 import edu.fiuba.algo3.vista.Mapa.MapaDestinos;
 import edu.fiuba.algo3.vista.Orden.Expediente;
 import edu.fiuba.algo3.vista.Orden.Orden;
+import edu.fiuba.algo3.vista.Policia.Policias;
 import javafx.beans.binding.DoubleBinding;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.geometry.Point2D;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -202,6 +205,26 @@ public class ControlStage {
     }
 
     /**************************************************************************/
+
+    public boolean abrirMenu(Juego juego, PoliciaControlador controlador) {
+        try {
+            Group nuevaVista = new Policias(juego, controlador);
+            cambiar(nuevaVista);
+            stage.setTitle("AlgoThief — Elija el agente para iniciar una misión");
+            return true;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Error al abrir pantalla principal: " + ex, ButtonType.OK);
+            alert.showAndWait();
+            return false;
+        }
+    }
+
+    public boolean abrirMenu(Juego juego) {
+        return abrirMenu(juego, new PoliciaControlador(juego, this));
+    }
+
+    /**************************************************************************/
     /**************************************************************************/
 
     public Point2D getCentro() {
@@ -256,9 +279,5 @@ public class ControlStage {
 
     public void cambiar(Node interno) {
         raiz.cambiar(interno);
-    }
-
-    public boolean abrirMenu(Juego juego) {
-        return false;
     }
 }

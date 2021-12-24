@@ -3,15 +3,12 @@ package edu.fiuba.algo3;
 import edu.fiuba.algo3.componentes.FakeLoader.FakeService;
 import edu.fiuba.algo3.componentes.Radio.RadioSonido;
 import edu.fiuba.algo3.componentes.bindings.CargandoBinding;
-import edu.fiuba.algo3.controlador.Policia.PoliciaControlador;
 import edu.fiuba.algo3.controlador.Splash.SplashControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
-import edu.fiuba.algo3.vista.Policia.Policias;
 import edu.fiuba.algo3.vista.Juego.Splash;
 import javafx.application.Application;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.Event;
-import javafx.scene.Group;
 import javafx.stage.Stage;
 
 /**
@@ -70,14 +67,9 @@ public class App extends Application {
     }
 
     private void mostrarPolicias(Event event) {
-        PoliciaControlador policiaControlador = new PoliciaControlador(juego, controlador);
-        Group principal = new Policias(juego, policiaControlador);
-        controlador.cambiar(principal);
-        controlador.start();
-        stage.setTitle("AlgoThief — Elija el agente para iniciar una misión");
-        stage.sizeToScene();
-        stage.centerOnScreen();
+        controlador.abrirMenu(juego);
     }
+
     public static void main(String[] args) {
         launch();
     }

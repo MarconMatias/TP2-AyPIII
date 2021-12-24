@@ -7,6 +7,8 @@ import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -123,7 +125,7 @@ public class LibroCiudadControlador {
         if(ev.isConsumed()) {
             return;
         }
-        if(controlStage.abrirMenu(juego)) {
+        if(cancelarMisionConfirmando()) {
             ev.consume();
             liberar();
         }
@@ -133,9 +135,15 @@ public class LibroCiudadControlador {
         if(ev.isConsumed() || (KeyCode.ENTER != ev.getCode())) {
             return;
         }
-        if(controlStage.abrirMenu(juego)) {
+        if(cancelarMisionConfirmando()) {
             ev.consume();
             liberar();
         }
+    }
+
+    public boolean cancelarMisionConfirmando() {
+        Alert alerta = new Alert(Alert.AlertType.CONFIRMATION, "¿Desea cancelar la misión actual?", ButtonType.YES, ButtonType.NO);
+        ButtonType respuesta = alerta.showAndWait().orElse(ButtonType.NO);
+        return respuesta.equals(ButtonType.YES) && controlStage.abrirMenu(juego);
     }
 }
