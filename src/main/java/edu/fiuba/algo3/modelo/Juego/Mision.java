@@ -214,7 +214,10 @@ public class Mision implements DetallableSospechoso {
     }
 
     public String getMensajeMision() {
-        return "";
+        String texto = itemRobado.getNombre() + " ha sido robado de " + itemRobado.getNombreCiudadDelRobo() + ". ";
+        texto += ladron.getTextoMision() + " ";
+        texto += "Tenés tiempo hasta el domigno a las 17 hs., ¡éxitos!";
+        return texto;
     }
 
     public String getNombreCiudadActual() {

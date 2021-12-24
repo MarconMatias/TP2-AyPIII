@@ -5,10 +5,12 @@ import edu.fiuba.algo3.componentes.Imagen.IconoVolver;
 import edu.fiuba.algo3.componentes.Imagen.Mapita;
 import edu.fiuba.algo3.componentes.Imagen.Tarjetas;
 import edu.fiuba.algo3.componentes.Libro.Libro;
+import edu.fiuba.algo3.componentes.bindings.SimplePoint2DBinding;
 import edu.fiuba.algo3.controlador.Ciudad.LibroCiudadControlador;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
+import edu.fiuba.algo3.vista.Juego.HojaMision;
 import edu.fiuba.algo3.vista.Orden.IconoOrden;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -49,6 +51,12 @@ public class LibroCiudad extends Libro {
         textoCiudad.getStyleClass().add("etiquetaTextoLibroCiudad");
         agregar(textoCiudad, 0.368, 0.675);
 
+        HojaMision hojaMision = new HojaMision(juego, mision);
+        hojaMision.setScaleX(0.85);
+        hojaMision.setScaleY(0.85);
+        hojaMision.setRotate(15);
+        agregar(hojaMision, new SimplePoint2DBinding(0.68, 0.5));
+
         mapita = new Mapita(640);
         agregar(mapita, 0.08, 0.4);
 
@@ -62,23 +70,18 @@ public class LibroCiudad extends Libro {
         setRelojVisible(true);
 
         setRadio(juego.getRadio());
-        ponerTarjetas();
+        setTarjetasVisible(true);
         ponerVolver();
-    }
-
-    private void ponerVolver() {
-        volver = new IconoVolver(320);
-        agregar(volver, 0.9, 0.1);
-    }
-
-    private void ponerTarjetas() {
-        Tarjetas tarjetas = new Tarjetas(640);
-        agregar(tarjetas, 0.9, 0.9);
     }
 
     public LibroCiudad(Juego juego, Mision mision, LibroCiudadControlador controlador) {
         this(juego, mision);
         setControlador(controlador);
+    }
+
+    private void ponerVolver() {
+        volver = new IconoVolver(320);
+        agregar(volver, 0.9, 0.1);
     }
 
     private void setControlador(LibroCiudadControlador controlador) {
@@ -87,8 +90,8 @@ public class LibroCiudad extends Libro {
         }
         observadorAccionesProperty().bind(controlador.getObservadorLiberable());
         if(null != volver) {
-            volver.setOnMouseClicked(controlador::edificiosClicked);
-            volver.setOnKeyPressed(controlador::edificiosKeyPressed);
+            volver.setOnMouseClicked(controlador::volverClicked);
+            volver.setOnKeyPressed(controlador::volverKeyPressed);
         }
         if(null != mapita) {
             mapita.setOnMouseClicked(controlador::mapitaClicked);
@@ -101,6 +104,11 @@ public class LibroCiudad extends Libro {
         if(null != orden) {
             orden.setOnMouseClicked(controlador::ordenClicked);
             orden.setOnKeyPressed(controlador::ordenKeyPressed);
+        }
+        Tarjetas tarjetas = getTarjetas();
+        if(null != tarjetas) {
+            tarjetas.setOnMouseClicked(controlador::tarjetasClicked);
+            tarjetas.setOnKeyPressed(controlador::tarjetasKeyPressed);
         }
     }
 }
