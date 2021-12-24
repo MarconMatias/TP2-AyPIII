@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.vista.Policia;
 
 import edu.fiuba.algo3.componentes.Cuaderno.Cuaderno;
+import edu.fiuba.algo3.componentes.Imagen.Tarjetas;
 import edu.fiuba.algo3.controlador.Policia.PoliciaControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Policia.Policia;
@@ -55,10 +56,9 @@ public class Policias extends Cuaderno {
                 .setAll(new Rotate(anguloRotacion, listaPolicias.getWidth() / 2, listaPolicias.getHeight() / 2));
         agregar(listaPolicias, 0.53, 0.63);
 
+        setTarjetasVisible(true);
         setRadio(juego.getRadio());
         setControlador(controlador);
-
-        setTarjetasVisible(true);
     }
 
     public void setControlador(PoliciaControlador controlador) {
@@ -76,6 +76,11 @@ public class Policias extends Cuaderno {
             Policia policiaSeleccionado = listaPolicias.getSelectionModel().getSelectedItem();
             controlador.listaPoliciasKeyPressed(ev, policiaSeleccionado);
         });
+        Tarjetas tarjetas = getTarjetas();
+        if(null != tarjetas) {
+            tarjetas.setOnMouseClicked(controlador::tarjetasClicked);
+            tarjetas.setOnKeyPressed(controlador::tarjetasKeyPressed);
+        }
         controlador.bindNombreProperty(nombreNuevo.textProperty());
         this.controlador = controlador;
     }

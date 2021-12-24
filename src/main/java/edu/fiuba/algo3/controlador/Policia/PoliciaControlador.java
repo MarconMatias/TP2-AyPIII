@@ -94,4 +94,24 @@ public class PoliciaControlador {
     public void bindNombreProperty(StringProperty textProperty) {
         this.nombreProperty.bind(textProperty);
     }
+
+    public void tarjetasClicked(MouseEvent ev) {
+        if(ev.isConsumed()) {
+            return;
+        }
+        if(controlStage.abrirAcercaDe(juego, null)) {
+            ev.consume();
+            liberar();
+        }
+    }
+
+    public void tarjetasKeyPressed(KeyEvent ev) {
+        if(ev.isConsumed() || (KeyCode.ENTER != ev.getCode())) {
+            return;
+        }
+        if(controlStage.abrirAcercaDe(juego, null)) {
+            ev.consume();
+            liberar();
+        }
+    }
 }
