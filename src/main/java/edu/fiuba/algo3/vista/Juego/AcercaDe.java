@@ -1,10 +1,13 @@
 package edu.fiuba.algo3.vista.Juego;
 
+import edu.fiuba.algo3.componentes.Imagen.IconoEdificios;
+import edu.fiuba.algo3.componentes.Imagen.IconoVolver;
+import edu.fiuba.algo3.componentes.Imagen.Mapita;
 import edu.fiuba.algo3.componentes.Libro.Libro;
 import edu.fiuba.algo3.controlador.Juego.AcercaDeControlador;
-import edu.fiuba.algo3.controlador.Orden.OrdenControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
+import edu.fiuba.algo3.vista.Orden.IconoOrden;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.transform.Rotate;
@@ -80,6 +83,44 @@ public class AcercaDe extends Libro{
 
         /* TERMINA LA VISTA DERECHA */
 
+        // Mostrar si está en una misión, no en el menú principal:
+        if(null != mision) {
+            Mapita mapita = new Mapita(640);
+            agregar(mapita, 0.08, 0.4);
+
+            IconoEdificios edificios = new IconoEdificios(640);
+            agregar(edificios, 0.08, 0.5);
+
+            IconoOrden orden = new IconoOrden(640);
+            agregar(orden, 0.08, 0.6);
+
+            setCalendario(mision.getCalendario());
+            setRelojVisible(true);
+
+            if(null != controlador) {
+                if(null != mapita) {
+                    mapita.setOnMouseClicked(controlador::mapitaClicked);
+                    mapita.setOnKeyPressed(controlador::mapitaKeyPressed);
+                }
+                if(null != edificios) {
+                    edificios.setOnMouseClicked(controlador::edificiosClicked);
+                    edificios.setOnKeyPressed(controlador::edificiosKeyPressed);
+                }
+                if(null != orden) {
+                    orden.setOnMouseClicked(controlador::ordenClicked);
+                    orden.setOnKeyPressed(controlador::ordenKeyPressed);
+                }
+            }
+
+        } else {
+            IconoVolver volver = new IconoVolver(320);
+            agregar(volver, 0.9, 0.1);
+            if((null != volver)&&(null!=controlador)) {
+                volver.setOnMouseClicked(controlador::volverClicked);
+                volver.setOnKeyPressed(controlador::volverKeyPressed);
+            }
+        }
+        setRadio(juego.getRadio());
     }
 
 
