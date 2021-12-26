@@ -1,25 +1,19 @@
 package edu.fiuba.algo3.controlador.Juego;
 
 import edu.fiuba.algo3.ControlStage;
-import edu.fiuba.algo3.modelo.Juego.IObservadorAcciones;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.value.ObservableValue;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class AcercaDeControlador {
+public class AcercaDeControlador extends PantallaControlador {
     private final Juego juego;
     private final Mision mision;
     private final ControlStage controlStage;
-    private List<Runnable> liberadores = new ArrayList<>();
 
     public AcercaDeControlador(Juego juego, Mision mision, ControlStage controlStage) {
+        super(juego, mision, controlStage);
         this.juego = juego;
         this.mision = mision;
         this.controlStage = controlStage;
@@ -83,19 +77,6 @@ public class AcercaDeControlador {
             ev.consume();
             liberar();
         }
-    }
-
-    private void liberar() {
-        for(Runnable liberador : liberadores) {
-            liberador.run();
-        }
-    }
-
-    public ObservableValue<? extends IObservadorAcciones> getObservadorLiberable() {
-        SimpleObjectProperty<IObservadorAcciones> observable = new SimpleObjectProperty<IObservadorAcciones>(
-                new ControladorAcciones(juego, mision, controlStage));
-        liberadores.add(()->observable.set(null));
-        return observable;
     }
 
     public void volverClicked(MouseEvent ev) {
