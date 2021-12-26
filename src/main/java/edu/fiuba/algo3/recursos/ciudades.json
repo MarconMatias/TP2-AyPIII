@@ -1583,63 +1583,138 @@
       "pistas": [
         {
           "tipo": "Animales",
-          "pista": "Menciono cierto afecto por los Pandas",
+          "pista": "Menciono cierto afecto por los pandas",
           "dificultad": 2
         },
         {
           "tipo": "Arte",
-          "pista": "Me dijo que queria comprar lamparas orientales",
+          "pista": "Dijo tener interés en los jarrones de la dinastía Ming",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Me dijo que quería comprar lámparas orientales",
           "dificultad": 2
         },
         {
           "tipo": "Bandera",
-          "pista": "Dijo que la bandera era Roja",
+          "pista": "Dijo que la bandera era roja con estrellas amarillas",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Bandera",
+          "pista": "Dijo que la bandera era roja",
           "dificultad": 1
         },
         {
           "tipo": "Exportaciones",
-          "pista": "Me dijo que el pais al que se dirigia era conocido por su industria manufacturera",
+          "pista": "Habló sobre mano de obra barata para fabricar computadoras y electrónica en general",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Dijo que iba al país que más exportaba hacia Estados Unidos",
           "dificultad": 1
         },
         {
           "tipo": "Geografia",
-          "pista": "Me dijo que se dirigia a un pais que tenia como vecino a Corea del Norte",
+          "pista": "Dijo que era de los países más grandes del mundo",
           "dificultad": 0
         },
         {
+          "tipo": "Geografia",
+          "pista": "Me dijo que se dirigía a un pais que tenia como vecino a Corea del Norte",
+          "dificultad": 1
+        },
+        {
           "tipo": "Gobernante",
-          "pista": "Me dijo que el gobierno del pais al que se dirigia era uno comunista",
+          "pista": "Me dijo que el gobierno del pais al que se dirigía se consideraba comunista",
           "dificultad": 1
         },
         {
           "tipo": "Idioma",
-          "pista": "Me dijo que hablaban chino en la ciudad a la que se dirigia ",
+          "pista": "Me preguntó si conocía un intérprete para chino mandarín",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Mencionó que era interesante que sea la lengua madre más hablada pero no por extranjeros",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Mencionó cierta curiosidad sobre la Dinastía Shang y el Levantamiento de Wuchang",
           "dificultad": 0
         },
         {
           "tipo": "Miscelaneos",
-          "pista": "Menciono cierta curiosidad sobre la Dinastia Shang y el Levantamiento de Wuchang",
+          "pista": "Manifestó curiosidad por los centros oficiales contra adicción a Internet",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Le resultó gracioso que la policía, además de perros, empiece a usar gansos",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Cambio su moneda actual a yuanes",
           "dificultad": 0
         },
         {
           "tipo": "Moneda",
-          "pista": "Cambio su moneda actual a Yuan",
+          "pista": "Habló sobre una fuerte restricción a criptomonedas del país al que iba",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Dijo que el país al que iba quería implementar su propia criptomoneda",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Dijo que iba al país que compró más deuda pública de Estados Unidos",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "Se interesó sobre la historia de Mao Tse-Tung",
           "dificultad": 0
         },
         {
           "tipo": "Personajes Historicos",
-          "pista": "Me comento que una vez acaricio un panda en un zoologico de la ciudad a la que se dirigia",
+          "pista": "Dijo que quería acariciar un panda en un zoológico de la ciudad a la que se dirigía",
           "dificultad": 1
         },
         {
           "tipo": "Puntos de Interes",
-          "pista": "Queria conocer la ciudad Prohibida y el Mar Amarillo",
+          "pista": "Quería conocer la Gran Muralla",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Quería conocer la ciudad Prohibida y el Mar Amarillo",
           "dificultad": 1
         },
         {
           "tipo": "Religion",
-          "pista": "Me dijo que la gente de la ciudad a la que se dirigia era budista",
+          "pista": "Me dijo que la gente de la ciudad a la que se dirigía era budista",
           "dificultad": 0
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Le pareció curioso que haya más cristianos que taoístas en un país oficialmente ateo",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Le sorprendió que 2 o 3 de cada 4 personas no sean religiosas",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Se interesó por la persecución oficial contra religiones no registradas",
+          "dificultad": 2
         }
       ]
     },
