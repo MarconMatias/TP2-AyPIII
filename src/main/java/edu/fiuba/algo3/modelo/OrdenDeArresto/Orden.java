@@ -24,7 +24,8 @@ public class Orden implements IOrden {
         if(esElLadron(ladron)) {
             estrategia = new Ganar();
         } else {
-            estrategia = new Perder("La orden de arresto era otra persona, no pudiste ");
+            String explicacion = "La orden de arresto era para "+sospechoso+", pero encontraste a "+ladron+"; tuviste que dejar que escape.";
+            estrategia = new Perder(explicacion);
         }
         estrategia.realizar(policia, ladron);
     }
