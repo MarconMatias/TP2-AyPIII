@@ -1,19 +1,16 @@
 package edu.fiuba.algo3.modelo.Lector;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
 import edu.fiuba.algo3.modelo.Pista.NivelPista.NivelPista;
+import edu.fiuba.algo3.modelo.Pista.PistaCiudad;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import edu.fiuba.algo3.modelo.Pista.PistaCiudad;
+import java.util.ArrayList;
 
 public class InterpretePistaCiudad {
 
-  ArrayList<PistaCiudad> pistas = new ArrayList<PistaCiudad>();
-
   public ArrayList<PistaCiudad> interpretar(JSONArray listaPistas) {
+    ArrayList<PistaCiudad> pistas = new ArrayList<PistaCiudad>();
     int i=0;
     for(Object elemento:listaPistas)
     {

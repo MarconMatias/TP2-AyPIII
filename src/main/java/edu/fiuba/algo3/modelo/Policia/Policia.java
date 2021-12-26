@@ -8,7 +8,6 @@ import edu.fiuba.algo3.modelo.Evento.PoliciaFinalizaListener;
 import edu.fiuba.algo3.modelo.Evento.PoliciaGana;
 import edu.fiuba.algo3.modelo.Evento.PoliciaPierde;
 import edu.fiuba.algo3.modelo.Juego.Calendario;
-import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.ITipoEdificio;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.OrdenDeArresto.IOrden;
 import edu.fiuba.algo3.modelo.OrdenDeArresto.SinOrden;
@@ -92,10 +91,6 @@ public class Policia {
         return rango.filtrarPistas(pistas);
     }
 
-    public boolean soyElAgente(String nombreAgente) {
-        return this.nombre.equals(nombreAgente);
-    }
-
     /** Reemplazar por visitar(unEdificio)??? **/
     public void visitar(Edificio unEdificio, Ladron unLadron) {
         visitar(unEdificio);
@@ -165,23 +160,13 @@ public class Policia {
             }
         }
         if (exs.size() > 0) {
-            final String textoError = "Sucedieron varios errores al notificar la finalización de un enfrentamiento.";
-            RuntimeException error = new RuntimeException(textoError);
-            /** Hacer clase de agregración, y agregar exs. **/
-            for (Exception ex : exs) {
-                System.err.println(ex.toString());
+            System.err.println("Sucedieron "+exs.size()+" errores al notificar la finalización de un enfrentamiento.");
+            for(int i=0; i< exs.size(); i++) {
+                System.err.println("Error "+i+":");
+                exs.get(i).printStackTrace();
             }
-            throw error;
+            System.err.println("────────────────────────────────");
         }
-    }
-
-    public boolean entraAlEdificio(ITipoEdificio unEdificio, Ladron unLadron) {
-
-        boolean pistaEncontrada = false;
-
-        pistaEncontrada = unEdificio.mostrarPista(unLadron);
-
-        return pistaEncontrada;
     }
 
     public void escucharAlGanar(PoliciaFinalizaListener listener) {
