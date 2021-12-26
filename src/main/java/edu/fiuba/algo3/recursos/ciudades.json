@@ -98,12 +98,17 @@
       "pistas": [
         {
           "tipo": "Animales",
-          "pista": "Dijo que queria traficar gacelas arabicas del desierto cuando dejen de perseguirlo",
+          "pista": "Dijo que quería traficar gacelas arábicas del desierto cuando dejen de perseguirlo",
           "dificultad": 2
         },
         {
           "tipo": "Arte",
           "pista": "",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Bandera",
+          "pista": "Tenía una bandera roja, blanco y negra, y en el centro dice Allahu Akbar",
           "dificultad": 0
         },
         {
@@ -128,8 +133,13 @@
         },
         {
           "tipo": "Geografia",
-          "pista": "La ciudad a la que viaja dijo que se encuentra en el desierto",
+          "pista": "Quería ver 'la cuna de la civilización', entre el Tigris y Éufrates",
           "dificultad": 0
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "La ciudad a la que viaja dijo que se encuentra en el desierto",
+          "dificultad": 1
         },
         {
           "tipo": "Gobernante",
@@ -157,6 +167,11 @@
           "dificultad": 1
         },
         {
+          "tipo": "Personajes Historicos",
+          "pista": "Le interesaba la historia de Hammurabi y su código",
+          "dificultad": 2
+        },
+        {
           "tipo": "Puntos de Interes",
           "pista": "Menciono algo sobre los rios Tigris y Eufrates",
           "dificultad": 1
@@ -177,6 +192,11 @@
       "pistas": [
         {
           "tipo": "Animales",
+          "pista": "Dijo que quería ver una rana chillona en vivo",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Animales",
           "pista": "Me dijo que queria ver los antílopes oribí y duiker común",
           "dificultad": 2
         },
@@ -187,7 +207,12 @@
         },
         {
           "tipo": "Bandera",
-          "pista": "Tenía una bandera roja, verde y amarilla el pais al que se dirigia",
+          "pista": "Iba a un país con franjas verticales verde, ocre y roja",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Bandera",
+          "pista": "Iba a un país con bandera roja, verde y amarilla",
           "dificultad": 2
         },
         {
@@ -237,6 +262,11 @@
         },
         {
           "tipo": "Puntos de Interes",
+          "pista": "Quería visitar la Gran Mezquita de Djenné, el más antiguo edificio de barro de una pieza, dijo",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Puntos de Interes",
           "pista": "Comentaba que le gustaria hacer canotaje en el Rio Niger y luego acampar en el Sahara",
           "dificultad": 1
         },
@@ -256,7 +286,12 @@
       "pistas": [
         {
           "tipo": "Animales",
-          "pista": "Me dijo que existen animales peligrosos como la Cobra Real o la Tarantula Tailandesa en el pais al que se dirige",
+          "pista": "Dijo que quería identificar bien a las tarántula tailandesa por su peligrosidad",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Animales",
+          "pista": "Me dijo que existen animales peligrosos como la Cobra Real en el pais al que se dirige",
           "dificultad": 2
         },
         {
@@ -335,8 +370,8 @@
       "pistas": [
         {
           "tipo": "Animales",
-          "pista": "Me comento lo siguiente: En las zonas rurales de Hungría es algo normal y corriente que después de la lluvia cigüeñas caminan por el jardín, búhos ululan en el nogal, pájaros protegidos anidan en el granero y a veces una familia de erizos o ciervos pasa por delante de los visitantes, o una manada descansa en el frescor del árbol solitario del pasto. Muy extraño...",
-          "dificultad": 1
+          "pista": "Me comentó lo siguiente: En las zonas rurales de Hungría es común que después de la lluvia búhos ululan en el nogal y a veces una manada de ciervos descansa en el frescor de un árbol solitario; muy extraño…",
+          "dificultad": 0
         },
         {
           "tipo": "Arte",
@@ -409,12 +444,42 @@
       "pistas": [
         {
           "tipo": "Animales",
-          "pista": "???",
+          "pista": "Dijo que quería ver los carpinchos del nordelta",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Animales",
+          "pista": "Dijo que quería escuchar unos chajás",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Dijo que le fascinaban los escritos de Borges y Cortázar",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Expresó encanto por la voz de Gardel y del Polaco Goyeneche",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Comento que le gustaban dibujantes como Fontana Rosa y Quino",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Dijo que hace años que oía a Mercedes Sosa",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Quería ver unas obras de Marta Minujín",
           "dificultad": 2
         },
         {
           "tipo": "Arte",
-          "pista": "Comento que le gustaban dibujantes como Fontana Rosa, Liniers y Nick del pais al que se dirige",
+          "pista": "Quería ver ballet y lamentaba el retiro de Julio Boca",
           "dificultad": 2
         },
         {
@@ -423,74 +488,124 @@
           "dificultad": 0
         },
         {
+          "tipo": "Bandera",
+          "pista": "Dijo que iba a un país que la bandera de guerra se distinguía por tener un Sol",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Bandera",
+          "pista": "Dijo ir a un país cuyo escudo es celeste y blanco con un gorro frigio rojo",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Dijo que iba a un país que exportaba cortes de carne y vinos de calidad",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Dijo que iba a un gran exportador de soja, sobre todo a China",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Dijo que iba a un exportador de uranio, oro y litio",
+          "dificultad": 2
+        },
+        {
           "tipo": "Geografia",
-          "pista": "Es un pais sudamericano con todos los tipos de climas",
+          "pista": "Dijo ir a un país sudamericano con todos los tipos de climas",
           "dificultad": 1
         },
         {
           "tipo": "Gobernante",
-          "pista": "Dijo que el pais al que se dirigia lo gobernaba un presidente elegido democraticamente",
+          "pista": "Dijo que iba a un país con presidente democrático desde 1983",
           "dificultad": 0
         },
         {
           "tipo": "Idioma",
-          "pista": "Dijo que sabia español porque vivio un tiempo en la capital del pais al que se dirige",
+          "pista": "Dijo que a donde iban hablaban español con voseo y lunfardo",
           "dificultad": 0
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Dijo que sabía español porque vivió un tiempo en la capital del país al que se dirige",
+          "dificultad": 2
         },
         {
           "tipo": "Industria",
-          "pista": "Dijo que el pais al que se dirigia era un pais con cortes buenos debido a su economia agraria",
+          "pista": "Dijo que iba a un país con varios unicornios en la industria del software",
           "dificultad": 0
         },
         {
           "tipo": "Miscelaneos",
-          "pista": "Me conto que una vez probo empanadas de tofu en un frasco en Palermo",
+          "pista": "Me contó que quería volver a probar empanadas de tofu en un frasco en Palermo",
           "dificultad": 0
         },
         {
           "tipo": "Miscelaneos",
-          "pista": "Me conto que un amigo de el lo bloquearon por boby",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Miscelaneos",
-          "pista": "Dijo que una vez hablo con un supervisor de colectivos y le dijo que era boludo y no tenia huevos",
+          "pista": "Dijo amar El señor de los anillos, y quería conocer la tierra de Viggo Mortensen",
           "dificultad": 1
         },
         {
           "tipo": "Miscelaneos",
-          "pista": "Dijo que queria conocer al comandante... RICARDO FORT",
+          "pista": "Dijo que quería vengarse de un supervisor de colectivos al que le hizo una pregunta y sólo recibió insultos",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Quería probar el helado de dulce de leche que mencionó la actriz Anya Taylor-Joy",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Dijo que quería conocer la tumba del comandante… Ricardo Fort",
           "dificultad": 2
         },
         {
           "tipo": "Miscelaneos",
-          "pista": "Me dijo que en su pais el estilo mariposa refiere a dos cosas: 1. El tipo de nado y 2. El chorizo... del choripan",
+          "pista": "Iba a un país donde 'estilo mariposa' refiere tanto a un tipo de nado como a una forma de cortar chorizo",
           "dificultad": 2
         },
         {
           "tipo": "Moneda",
-          "pista": "Dijo que la moneda se devaluaba seguido y no podía comprar más de 200 dólares por mes",
+          "pista": "Dijo que no iba a cambiar los dólares porque a donde iba la moneda se devaluaba seguido y los ciudadanos no pueden comprar más de 200 dólares por mes",
           "dificultad": 0
         },
         {
           "tipo": "Personajes Historicos",
-          "pista": "Dijo que de chico imitaba a los gauchos y que querria conocer a uno",
+          "pista": "Dijo que de chico  imitaba a los gauchos, y que querría conocer a uno",
           "dificultad": 1
         },
         {
           "tipo": "Puntos de Interes",
-          "pista": "Dijo que le gustaria conocer Tierra del Fuego",
+          "pista": "Dijo que le gustaría conocer Tierra del Fuego",
           "dificultad": 1
         },
         {
           "tipo": "Puntos de Interes",
-          "pista": "Dijo que le gustaria navegar por el Rio Parana en su proximo destino",
+          "pista": "Dijo que le gustaría navegar por el Río Paraná en su próximo destino",
           "dificultad": 2
         },
         {
           "tipo": "Religion",
-          "pista": "Al viajar comento que a donde se dirigia la mayoria de sus habitantes eran catolicos",
+          "pista": "Dijo querer visitar el antiguo Convento de Santo Domingo en La Rioja",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Dijo querer visitar la mezquita 'Rey Fahd', de Palermo",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Dijo ir a un país que su constitución, aunque no tiene religión oficial, curiosamente también manda a sostener económicamente a la Iglesia Católica",
           "dificultad": 1
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Dijo ir a un país con más de la mitad de católicos, pero muy diverso religiosamente",
+          "dificultad": 2
         }
       ]
     },
@@ -909,7 +1024,12 @@
         },
         {
           "tipo": "Religion",
-          "pista": "Me comento que la gente de la zona es hindu",
+          "pista": "Dijo que quería conocer la cuna del budismo",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Me comento que la gente de la zona practica el hinduismo",
           "dificultad": 1
         }
       ]
@@ -1402,22 +1522,32 @@
       "pistas": [
         {
           "tipo": "Animales",
-          "pista": "Me dijo que la ciudad a la que se dirigia tenia un parque lleno de ardillas",
+          "pista": "Me dijo que la ciudad a la que se dirigía tenía un parque lleno de ardillas",
           "dificultad": 0
         },
         {
           "tipo": "Arte",
-          "pista": "Me dijo que queria visitar el MOMA",
+          "pista": "Me dijo que quería visitar el MOMA",
           "dificultad": 0
         },
         {
           "tipo": "Bandera",
-          "pista": "Dijo que la bandera era Roja, Blanca y Azul",
+          "pista": "Dijo que la bandera de a donde iba era roja, blanca y azul, con barras y estrellas",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Bandera",
+          "pista": "Dijo que la bandera de a donde iba era roja, blanca y azul",
           "dificultad": 2
         },
         {
           "tipo": "Exportaciones",
-          "pista": "Menciono la Moda como su principal industria",
+          "pista": "Dijo que iba a un país exportador de petróleo, automóviles y electrónica",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Menciono la moda como la principal industria de la ciudad a la que iba",
           "dificultad": 1
         },
         {
@@ -1432,8 +1562,13 @@
         },
         {
           "tipo": "Idioma",
-          "pista": "Me dijo que se dirigia a una ciudad donde la mayoria habla ingles",
+          "pista": "Dijo ir a un país con 80% de hablantes de inglés y 12% español, pero sin lengua oficial",
           "dificultad": 0
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Me dijo que se dirigía a una ciudad donde la mayoría habla inglés",
+          "dificultad": 1
         },
         {
           "tipo": "Miscelaneos",
@@ -1442,8 +1577,18 @@
         },
         {
           "tipo": "Moneda",
-          "pista": "Quiso cambiar su moneda a Dolares",
+          "pista": "Quiso cambiar su moneda a dólares",
           "dificultad": 0
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Dijo que siempre tenía un poco de moneda del país al que iba, porque es ampliamente aceptada",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Dijo que iba a un país que, por los acuerdos de Bretton Woods, tenía una moneda muy estable",
+          "dificultad": 2
         },
         {
           "tipo": "Personajes Historicos",
@@ -1457,8 +1602,13 @@
         },
         {
           "tipo": "Religion",
-          "pista": "Me dijo que la gente de la ciudad a la que se dirigia en su mayoria era cristiana",
+          "pista": "Dijo que iba a un país con más del 70% de cristianos, la mayoría protestantes",
           "dificultad": 0
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Dijo que iba a un país con amplia libertad religiosa, pero con cristianismo muy fundamentalista",
+          "dificultad": 1
         }
       ]
     },
@@ -1471,28 +1621,68 @@
       "pistas": [
         {
           "tipo": "Animales",
-          "pista": "Queria conocer de cerca la Vibora de Escamas de Sierra",
+          "pista": "Quería ver un hipnotizador de serpientes",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Animales",
+          "pista": "Quería conocer de cerca la Víbora de Escamas de Sierra",
           "dificultad": 2
         },
         {
           "tipo": "Arte",
-          "pista": "Me dijo que queria comprar arte de la India",
+          "pista": "Me dijo que quería comprar una estatuilla de Buda",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Me dijo que quería aprender a tocar el sitar",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Me dijo que quería ver el arte rupestre de Bhimbetka",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Bandera",
+          "pista": "Dijo que la bandera era naranja, blanca y verde; con una rueda azul en el centro",
           "dificultad": 0
         },
         {
           "tipo": "Bandera",
-          "pista": "Dijo que la bandera era Roja, Blanca y Verde",
+          "pista": "Dijo que la bandera era naranja, blanca y verde",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Bandera",
+          "pista": "Dijo que le gustaba el símbolo de Chakra Ashoka de la bandera a la que iba",
           "dificultad": 1
         },
         {
           "tipo": "Exportaciones",
-          "pista": "Me comento que la actividad economica del pais se basa en el turismo",
+          "pista": "Me comento que iba a un país donde el turismo era una principal fuente de ingresos",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Dijo que iba a un país miembro del BRICS, exportador de arroz y software.",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Dijo que era poco conocido que el país al que iba tiene grandes exportaciones de petróleo, diamantes y joyas",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "Me dijo que quería visitar montañas del sur de Asia, espacialmente el Himalaya",
           "dificultad": 0
         },
         {
           "tipo": "Geografia",
-          "pista": "Me dijo que queria visitar la India",
-          "dificultad": 0
+          "pista": "Me dijo que quería tomarse una foto en el Río Ganges",
+          "dificultad": 1
         },
         {
           "tipo": "Gobernante",
@@ -1501,32 +1691,42 @@
         },
         {
           "tipo": "Idioma",
-          "pista": "Me dijo que la gente de la ciudad habla Hindu",
+          "pista": "Dijo que iba a un país con 2 idiomas oficiales: hindi e inglés",
           "dificultad": 0
         },
         {
           "tipo": "Miscelaneos",
-          "pista": "Me dijo que queria conocer la zona historica de la Old Delhi",
+          "pista": "Me dijo que quería conocer la zona histórica de la Old Delhi",
           "dificultad": 0
         },
         {
           "tipo": "Moneda",
-          "pista": "Quiso convertir su moneda a Rupios",
+          "pista": "Quiso convertir su moneda a rupios",
           "dificultad": 2
         },
         {
           "tipo": "Personajes Historicos",
-          "pista": "Me dijo que Gandhi era oriundo del pais al que se dirigia",
+          "pista": "Me dijo que Gandhi era oriundo del pais al que se dirigía",
           "dificultad": 0
         },
         {
           "tipo": "Puntos de Interes",
-          "pista": "Me dijo que queria conocer la tumba de Humayun",
+          "pista": "Me dijo que quería tomarse una foto frente al Taj Majal",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Me dijo que quería conocer la tumba de Humayun",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Dijo que iba a un país donde se practicaba el hinduismo y budismo",
           "dificultad": 0
         },
         {
           "tipo": "Religion",
-          "pista": "Dijo que queria investigar el Sijismo",
+          "pista": "Dijo que quería investigar el Sijismo y otras religiones",
           "dificultad": 2
         }
       ]
@@ -1555,12 +1755,22 @@
         },
         {
           "tipo": "Exportaciones",
-          "pista": "Centrales Hidroelectricas como principal actividad",
+          "pista": "Dijo ir a un lugar exportador de petróleo y pescado, principalmente",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Mencionó que donde iba su principal actividad eran las centrales hidroeléctricas",
           "dificultad": 1
         },
         {
+          "tipo": "Exportaciones",
+          "pista": "Dijo que que a un lugar que exportaba aluminio y barcos",
+          "dificultad": 2
+        },
+        {
           "tipo": "Geografia",
-          "pista": "Me dijo que se dirigia a un pais nordico",
+          "pista": "Me dijo que se dirigía a un país nórdico",
           "dificultad": 0
         },
         {
@@ -1570,8 +1780,13 @@
         },
         {
           "tipo": "Idioma",
-          "pista": "Me dijo que hablan Noruego en la ciudad a la que se dirigia",
+          "pista": "Me dijo que hablan noruego en la ciudad a la que se dirigía",
           "dificultad": 0
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Dijo estar estudiando una lengua nórdica con dos formas de escritura",
+          "dificultad": 1
         },
         {
           "tipo": "Miscelaneos",
@@ -1595,8 +1810,18 @@
         },
         {
           "tipo": "Religion",
-          "pista": "Me dijo que la religion de la ciudad a la que se dirigia antiguamente veneraba a Thor",
+          "pista": "Me dijo que la religion de la ciudad a la que se dirigía antiguamente veneraba a Thor",
           "dificultad": 0
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Dijo ir a una ciudad principalmente luterana, incluso fue la religión oficial",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Le sorprendió que hasta hace poco la iglesia del país al que iba era dirigida por el rey",
+          "dificultad": 2
         }
       ]
     },
@@ -1618,14 +1843,24 @@
           "dificultad": 0
         },
         {
+          "tipo": "Arte",
+          "pista": "Dijo que le fascinaban las similitudes, artísticas o no, entre Monet y Manet",
+          "dificultad": 2
+        },
+        {
           "tipo": "Bandera",
           "pista": "Dijo que la bandera era Roja, Blanca y Azul",
           "dificultad": 1
         },
         {
           "tipo": "Exportaciones",
-          "pista": "Menciono a la moda como su principal Industria",
-          "dificultad": 1
+          "pista": "Dijo que a donde iba, los vinos —y sobre todo el Champagne— osn una exportación de calidad",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Dijo que iba verse con modistas de empresas internacionalmente reconocidas como Dior y Coco Chanel",
+          "dificultad": 2
         },
         {
           "tipo": "Geografia",
@@ -1837,8 +2072,13 @@
         },
         {
           "tipo": "Exportaciones",
-          "pista": "Menciono la mineria de Oro como su principal industria",
+          "pista": "Menciono la minería de oro es la principal industria de su destino",
           "dificultad": 1
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Dijo estar interesado en exportaciones de aceite de palma y madera",
+          "dificultad": 2
         },
         {
           "tipo": "Geografia",
@@ -1863,6 +2103,11 @@
         {
           "tipo": "Moneda",
           "pista": "Cambio su moneda actual a Kina",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Consultó si podía conseguir cambio en toea, para dar propinas",
           "dificultad": 1
         },
         {
@@ -2005,8 +2250,18 @@
         },
         {
           "tipo": "Exportaciones",
-          "pista": "Menciono la produccion de cafe, joyas y titanio como principales industrias",
+          "pista": "Dijo que iba a un país del BRICS con importaciones y exportaciones reguladas por el Mercosur",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Menciono la producción de café, joyas y titanio como principales industrias",
           "dificultad": 1
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Dijo que iba a un país que exportaba habas (más que nada soja) y petróleo",
+          "dificultad": 2
         },
         {
           "tipo": "Geografia",
