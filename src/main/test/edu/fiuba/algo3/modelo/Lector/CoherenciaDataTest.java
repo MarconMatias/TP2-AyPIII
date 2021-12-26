@@ -148,7 +148,7 @@ public class CoherenciaDataTest {
                 Collection<IPista> faciles = facil.filtrarPistas(filtradas);
                 Collection<IPista> medias = media.filtrarPistas(filtradas);
                 Collection<IPista> dificiles = dificil.filtrarPistas(filtradas);
-                String textoFiltro = " con filtro "+filtro.getClass().getSimpleName();
+                String textoFiltro = " con "+filtro.getClass().getSimpleName();
                 assertTrue(faciles.size() > 0, "Hay pistas fáciles en "+nombre+textoFiltro);
                 assertTrue(medias.size() > 0, "Hay pistas medias en "+nombre+textoFiltro);
                 assertTrue(dificiles.size() > 0, "Hay pistas difíciles en "+nombre+textoFiltro);
