@@ -46,6 +46,36 @@ public abstract class PantallaControlador {
         liberadores.add(liberador);
     }
 
+    /**
+     * Si el evento no fue consumido, procesa un click en el plano
+     * de edificios; y en caso de éxito lo marca como consumido.
+     * @param ev Evento que disparó la acción.
+     */
+    public void edificiosClicked(MouseEvent ev) {
+        if (ev.isConsumed()) {
+            return;
+        }
+        if(controlStage.abrirEdificios(juego, mision)) {
+            ev.consume();
+            liberar();
+        }
+    }
+
+    /**
+     * Si el evento no fue consumido, procesa una tecla presionada en el
+     * plano de edificios; y en caso de éxito lo marca como consumido.
+     * @param ev Evento que disparó la acción.
+     */
+    public void edificiosKeyPressed(KeyEvent ev) {
+        if (ev.isConsumed() || (KeyCode.ENTER != ev.getCode())) {
+            return;
+        }
+        if(controlStage.abrirEdificios(juego, mision)) {
+            ev.consume();
+            liberar();
+        }
+    }
+
     public ObservableValue<? extends IObservadorAcciones> getObservadorLiberable() {
         SimpleObjectProperty<IObservadorAcciones> observable = new SimpleObjectProperty<IObservadorAcciones>(
                 new ControladorAcciones(juego, mision, controlStage));
@@ -64,6 +94,11 @@ public abstract class PantallaControlador {
         }
     }
 
+    /**
+     * Si el evento no fue consumido, procesa un click en el libro
+     * de ciudad actual; y en caso de éxito lo marca como consumido.
+     * @param ev Evento que disparó la acción.
+     */
     public void libritoClicked(MouseEvent ev) {
         if(ev.isConsumed()) {
             return;
@@ -74,11 +109,76 @@ public abstract class PantallaControlador {
         }
     }
 
+    /**
+     * Si el evento no fue consumido, procesa una tecla presionada en el
+     * libro de ciudad actual; y en caso de éxito lo marca como consumido.
+     * @param ev Evento que disparó la acción.
+     */
     public void libritoKeyPressed(KeyEvent ev) {
         if(ev.isConsumed() || (KeyCode.ENTER != ev.getCode())) {
             return;
         }
         if(controlStage.abrirLibroCiudad(juego, mision)) {
+            ev.consume();
+            liberar();
+        }
+    }
+
+    /**
+     * Si el evento no fue consumido, procesa el click en el
+     * mapa de ciudades; y en caso de éxito lo marca como consumido.
+     * @param ev Evento que disparó la acción.
+     */
+    public void mapitaClicked(MouseEvent ev) {
+        if (ev.isConsumed()) {
+            return;
+        }
+        if(controlStage.abrirMapaCiudades(juego, mision)) {
+            ev.consume();
+            liberar();
+        }
+    }
+
+    /**
+     * Si el evento no fue consumido, procesa una tecla presionada en el
+     * mapa de ciudad; y en caso de éxito lo marca como consumido.
+     * @param ev Evento que disparó la acción.
+     */
+    public void mapitaKeyPressed(KeyEvent ev) {
+        if (ev.isConsumed() || (KeyCode.ENTER != ev.getCode())) {
+            return;
+        }
+        if(controlStage.abrirMapaCiudades(juego, mision)) {
+            ev.consume();
+            liberar();
+        }
+    }
+
+    /**
+     * Si el evento no fue consumido, procesa el click en la orden de arresto;
+     * y en caso de éxito lo marca como consumido.
+     * @param ev Evento que disparó la acción.
+     */
+    public void ordenClicked(MouseEvent ev) {
+        if(ev.isConsumed()) {
+            return;
+        }
+        if(controlStage.abrirOrden(juego, mision)) {
+            ev.consume();
+            liberar();
+        }
+    }
+
+    /**
+     * Si el evento no fue consumido, procesa una tecla presionada en la orden de arresto;
+     * y en caso de éxito lo marca como consumido.
+     * @param ev Evento que disparó la acción.
+     */
+    public void ordenKeyPressed(KeyEvent ev) {
+        if(ev.isConsumed() || (KeyCode.ENTER != ev.getCode())) {
+            return;
+        }
+        if(controlStage.abrirOrden(juego, mision)) {
             ev.consume();
             liberar();
         }

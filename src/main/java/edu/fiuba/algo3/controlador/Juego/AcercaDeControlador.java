@@ -19,66 +19,6 @@ public class AcercaDeControlador extends PantallaControlador {
         this.controlStage = controlStage;
     }
 
-    public void mapitaClicked(MouseEvent ev) {
-        if (ev.isConsumed()) {
-            return;
-        }
-        if(controlStage.abrirMapaCiudades(juego, mision)) {
-            ev.consume();
-            liberar();
-        }
-    }
-
-    public void mapitaKeyPressed(KeyEvent ev) {
-        if (ev.isConsumed() || (KeyCode.ENTER != ev.getCode())) {
-            return;
-        }
-        if(controlStage.abrirMapaCiudades(juego, mision)) {
-            ev.consume();
-            liberar();
-        }
-    }
-
-    public void edificiosClicked(MouseEvent ev) {
-        if (ev.isConsumed()) {
-            return;
-        }
-        if(controlStage.abrirEdificios(juego, mision)) {
-            ev.consume();
-            liberar();
-        }
-    }
-
-    public void edificiosKeyPressed(KeyEvent ev) {
-        if (ev.isConsumed() || (KeyCode.ENTER != ev.getCode())) {
-            return;
-        }
-        if(controlStage.abrirEdificios(juego, mision)) {
-            ev.consume();
-            liberar();
-        }
-    }
-
-    public void ordenClicked(MouseEvent ev) {
-        if(ev.isConsumed()) {
-            return;
-        }
-        if(controlStage.abrirOrden(juego, mision)) {
-            ev.consume();
-            liberar();
-        }
-    }
-
-    public void ordenKeyPressed(KeyEvent ev) {
-        if(ev.isConsumed() || (KeyCode.ENTER != ev.getCode())) {
-            return;
-        }
-        if(controlStage.abrirOrden(juego, mision)) {
-            ev.consume();
-            liberar();
-        }
-    }
-
     public void volverClicked(MouseEvent ev) {
         if(ev.isConsumed()) {
             return;
