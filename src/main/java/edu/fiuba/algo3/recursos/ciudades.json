@@ -1851,47 +1851,67 @@
       "pistas": [
         {
           "tipo": "Animales",
-          "pista": "Me dijo que queria ver un zorro artico, un frailecillo, una ballena jorobada y un oso polar.",
+          "pista": "Me dijo que quería ver un zorro ártico y un frailecillo.",
           "dificultad": 0
         },
         {
+          "tipo": "Animales",
+          "pista": "Me dijo que quería ver una ballena jorobada y un oso polar.",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Animales",
+          "pista": "Me dijo que quería ver una ballena jorobada y un frailecillo.",
+          "dificultad": 1
+        },
+        {
           "tipo": "Arte",
-          "pista": "Me dijo que queria ver las sagas Vikingas",
+          "pista": "Me dijo que quería ver las sagas Vikingas",
           "dificultad": 0
         },
         {
           "tipo": "Bandera",
-          "pista": "Dijo que la bandera era Roja y Azul",
+          "pista": "Dijo que la bandera del país al que se dirigía era roja y azul",
           "dificultad": 1
         },
         {
           "tipo": "Exportaciones",
-          "pista": "Menciono la pesca como su principal industria",
+          "pista": "Mencionó la pesca como la principal industria del país al que iba",
           "dificultad": 0
         },
         {
           "tipo": "Exportaciones",
-          "pista": "Menciono la actividad primaria como su principal industria",
+          "pista": "Mencionó la actividad primaria como su principal exportación",
           "dificultad": 2
         },
         {
           "tipo": "Geografia",
-          "pista": "Menciono dirigirse hacia un terreno Volcanoso y con mucha presencia de Aguas Termales",
+          "pista": "Menciono dirigirse hacia un terreno volcanoso y con mucha presencia de aguas termales",
           "dificultad": 1
         },
         {
           "tipo": "Gobernante",
-          "pista": "Me dijo que se dirigia a un pais donde hay una republica parlamentaria",
+          "pista": "Me dijo que se dirigía a un país donde hay una república parlamentaria",
           "dificultad": 2
         },
         {
           "tipo": "Idioma",
-          "pista": "Me dijo que queria aprender Islandes",
+          "pista": "Me dijo que quería aprender islandés",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Dijo estar interesado en las lenguas germánicas",
           "dificultad": 1
         },
         {
+          "tipo": "Idioma",
+          "pista": "Le parecía curioso cómo el aislamiento disminuía los cambios en los idiomas",
+          "dificultad": 2
+        },
+        {
           "tipo": "Miscelaneos",
-          "pista": "Menciono cierta apego a las Naciones Insulares",
+          "pista": "Mencionó cierta apego a las Naciones Insulares",
           "dificultad": 2
         },
         {
@@ -1901,17 +1921,22 @@
         },
         {
           "tipo": "Personajes Historicos",
-          "pista": "Me dijo que le interesaban los Vikingos",
+          "pista": "Me dijo que le interesaban los vikingos",
           "dificultad": 0
         },
         {
+          "tipo": "Personajes Historicos",
+          "pista": "Me dijo que le interesaba la historia de Hrafna-Flóki",
+          "dificultad": 1
+        },
+        {
           "tipo": "Puntos de Interes",
-          "pista": "Uno de los puntos de interes que tenia fue el balneario geotermal de la laguna Azul, cerca de la villa de Grindavik.",
+          "pista": "Quería ver el balneario geotermal de la laguna Azul, cerca de la villa de Grindavik",
           "dificultad": 0
         },
         {
           "tipo": "Religion",
-          "pista": "Me comento que se dirigia a una ciudad donde su Iglesia Nacional profesa el cristianismo de tipo luterano y es de carácter nacional",
+          "pista": "Me comentó que se dirigía a una ciudad donde su Iglesia Nacional profesa el cristianismo de tipo luterano",
           "dificultad": 0
         }
       ]
