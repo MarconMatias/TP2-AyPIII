@@ -2019,68 +2019,113 @@
       "pistas": [
         {
           "tipo": "Animales",
-          "pista": "Me explico que se dirigia a una ciudad donde traian animales exoticos de todas partes del mundo para los juegos en las arenas",
+          "pista": "Dijo que quería ver búfalas y probar su queso mozzarella di bufala",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Animales",
+          "pista": "Me explicó que se dirigia a una ciudad donde traían animales exóticos de todo el mundo para los juegos en las arenas",
           "dificultad": 1
+        },
+        {
+          "tipo": "Animales",
+          "pista": "Dijo que quería ver las cabras montesas escalando una represa",
+          "dificultad": 2
         },
         {
           "tipo": "Arte",
-          "pista": "Demostro interes por pinturas renacentistas",
+          "pista": "Dijo que la pizza en sí misma era arte y quería conocer recetas originales",
           "dificultad": 0
         },
         {
+          "tipo": "Arte",
+          "pista": "Demostró interés por pinturas renacentistas",
+          "dificultad": 1
+        },
+        {
           "tipo": "Bandera",
-          "pista": "Dijo que la bandera era Verde, Blanca y Roja",
+          "pista": "Dijo que la bandera era verde, blanca y roja",
           "dificultad": 1
         },
         {
           "tipo": "Exportaciones",
-          "pista": "Menciono la industria textil como su principal actividad economica en Italia",
-          "dificultad": 0
+          "pista": "Quería conocer la cultura que originó las marcas más prestigiosas de ropa en el mundo",
+          "dificultad": 1
         },
         {
           "tipo": "Exportaciones",
-          "pista": "Menciono la industria textil como su principal actividad",
+          "pista": "Mencionó la industria textil como una de las principal actividades económica del país",
           "dificultad": 2
         },
         {
           "tipo": "Geografia",
-          "pista": "Me dijo que queria navegar por el Rio Tiber",
+          "pista": "Me dijo que quería navegar por el Río Tíber",
           "dificultad": 2
         },
         {
           "tipo": "Gobernante",
-          "pista": "Dijo ir a un pais cuyo gobernado por un Presidente elegido democraticamente",
+          "pista": "Dijo que quería tomar una foto del Presidente del Consejo de Ministros electo democráticamente",
           "dificultad": 2
         },
         {
           "tipo": "Idioma",
-          "pista": "Menciono querer aprender Italiano",
+          "pista": "Mencionó querer aprender italiano",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Quería escuchar el lenguaje más parecido al latín que se hable actualmente",
           "dificultad": 1
         },
         {
           "tipo": "Miscelaneos",
-          "pista": "Me dijo que queria visitar la ciudad porque le gustaba la pelicula Gladiador",
+          "pista": "Me dijo que quería visitar la ciudad porque le gustaba la película Gladiador",
           "dificultad": 0
         },
         {
           "tipo": "Moneda",
-          "pista": "Cambio su moneda actual a Euros",
+          "pista": "Me mostró unas monedas de 2 euros con grabados de la cara de Dante Alighieri",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Se entristeció de que los euros no sean tan lindos como la lira",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Cambió su moneda actual a Euros",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "Dijo haber leído 3 veces la Divina Comedia de Dante Alighieri",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "Preguntó si era ilegal viajar con textos de Benito Mussolini",
           "dificultad": 1
         },
         {
           "tipo": "Personajes Historicos",
-          "pista": "Menciono una curiosidad por los Etruscos",
+          "pista": "Mencionó una curiosidad por los etruscos",
           "dificultad": 2
         },
         {
           "tipo": "Puntos de Interes",
-          "pista": "Dijo que queria ver el Coliseo, El Foro, el Monte Etna y el Mar Tirreno",
+          "pista": "Dijo que quería ver el Coliseo y el Monte Etna",
           "dificultad": 0
         },
         {
-          "tipo": "Religion",
-          "pista": "Me comento que se dirigia a una ciudad cerca de la Santa Sede",
+          "tipo": "Puntos de Interes",
+          "pista": "Dijo que quería ver el El Foro y el Mar Tirreno",
           "dificultad": 1
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Me comento que se dirigía a una ciudad cerca de la Santa Sede",
+          "dificultad": 0
         }
       ]
     },
