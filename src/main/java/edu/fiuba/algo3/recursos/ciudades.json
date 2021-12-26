@@ -651,43 +651,78 @@
       "pistas": [
         {
           "tipo": "Animales",
-          "pista": "Me dijo que en el pais abundan los dromedarios y adoran a los gatos",
+          "pista": "Me dijo que en el país abundan los dromedarios y adoran a los gatos",
           "dificultad": 1
         },
         {
           "tipo": "Arte",
-          "pista": "Me dijo que le gustaban los jeroglificos tallados en piedra que tenian algunas estructuras del pais al que se dirige",
+          "pista": "Me dijo que quería ver unos jeroglíficos tallados en piedra",
           "dificultad": 0
         },
         {
           "tipo": "Bandera",
-          "pista": "Me dijo que la bandera del pais al que se dirigia era roja, blanca y negra",
+          "pista": "Me dijo que la bandera del país al que se dirigía es roja, blanca y negra",
           "dificultad": 0
         },
         {
           "tipo": "Exportaciones",
-          "pista": "Me dijo que el pais al que se dirige es productor de piedra caliza",
+          "pista": "Dijo que iba a un país exportador de derivados de petróleo, pero no forma parte de la OPEP",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Me dijo que el país al que se dirige es productor de piedra caliza",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "Dijo que quería visitar el delta del Río Nilo",
           "dificultad": 0
         },
         {
           "tipo": "Geografia",
-          "pista": "Dijo que queria visitar el desierto",
+          "pista": "Dijo que quería visitar el desierto",
           "dificultad": 1
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "Dijo que quería estudiar cómo la hidrografía impactó en las civilizaciones antiguas más grandes",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "Dijo que iba a un país con el parlamento más longevo del mundo árabe, pero de poder limitado en comparación al presidente",
+          "dificultad": 0
         },
         {
           "tipo": "Gobernante",
           "pista": "Me dijo que un presidente gobernaba el pais",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "Dijo que los partidos políticos religiosos estaban prohibidos en el país al que iba porque dividían al país",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Me dijo que muchos hablaban árabe en la ciudad a la que se dirigía",
           "dificultad": 0
         },
         {
           "tipo": "Idioma",
-          "pista": "Me dijo que muchos hablaban arabe en la ciudad a la que se dirigia",
-          "dificultad": 1
+          "pista": "Me habló de la importancia de la piedra Rosetta para descifrar un antiguo idioma",
+          "dificultad": 2
         },
         {
           "tipo": "Miscelaneos",
-          "pista": "Antiguamente existio una biblioteca considerada la mas grande del mundo pero fue incendiada",
+          "pista": "Habló de buscar los restos del incendio de la antigua biblioteca más grande del mundo",
           "dificultad": 1
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Me mostró unos billetes con dibujos de esfinges",
+          "dificultad": 0
         },
         {
           "tipo": "Moneda",
@@ -695,18 +730,38 @@
           "dificultad": 1
         },
         {
-          "tipo": "Personajes Historicos",
-          "pista": "Me dijo que una vez goberno un faraon en las tierras a las que viaja",
+          "tipo": "Moneda",
+          "pista": "Me dijo que quería cambio en piastrás para dar propinas",
           "dificultad": 2
         },
         {
+          "tipo": "Personajes Historicos",
+          "pista": "Me dijo antes gobernaban faraones en las tierras a las que viaja",
+          "dificultad": 0
+        },
+        {
           "tipo": "Puntos de Interes",
-          "pista": "Me dijo que queria visitar las piramides",
+          "pista": "Me dijo que quería visitar las pirámides",
           "dificultad": 0
         },
         {
           "tipo": "Religion",
-          "pista": "Me dijo que los habitantes de la region en gran parte eran musulmanes o catolicos",
+          "pista": "Dijo que iba a un país donde antes se adoraba a Amon-Ra, Isis, Osiris y otros más",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Dijo que iba a ver figuras de antiguos dioses con cuerpo humano y cabeza de animal",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Habló de una antigua religión donde veneraban gatos",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Me dijo que los habitantes de la region en gran parte eran musulmanes o católicos",
           "dificultad": 2
         }
       ]
