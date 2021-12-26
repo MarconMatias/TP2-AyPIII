@@ -45,11 +45,11 @@ public class Pantalla extends RelativoAImagen {
         reloj.bind(new ConstructorLazyConVisible<Reloj>(this::crearReloj, relojVisible));
 
         calendario.addListener(this::alCambiarCalendario);
-        observadorAcciones.addListener(this::cambiarObservador);
+        observadorAcciones.addListener(this::cambiarObservadorAcciones);
     }
 
-    private void cambiarObservador(ObservableValue<? extends IObservadorAcciones> obs,
-                                   IObservadorAcciones obsViejo, IObservadorAcciones obsNuevo) {
+    private void cambiarObservadorAcciones(ObservableValue<? extends IObservadorAcciones> obs,
+                                           IObservadorAcciones obsViejo, IObservadorAcciones obsNuevo) {
         Calendario cal = calendario.get();
         if(null != cal) {
             if(null != obsViejo) {

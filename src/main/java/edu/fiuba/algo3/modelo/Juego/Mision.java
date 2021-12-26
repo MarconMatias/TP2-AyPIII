@@ -16,6 +16,7 @@ import javafx.beans.property.ObjectProperty;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableMap;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
@@ -30,7 +31,8 @@ public class Mision implements DetallableSospechoso {
     private final Random random;
     private Ciudad ciudadActual;
     private Computadora computadora;
-    private EstadoMision estadoMision = new EstadoMision();
+    private EstadoMision estadoMision;
+    private List<IObservadorMision> observadores = new ArrayList<IObservadorMision>();
 
     /**
      * Inicia una misión con todos los parámetros dados.
@@ -48,7 +50,7 @@ public class Mision implements DetallableSospechoso {
     public Mision(Policia policia, Item itemRobado, Ladron ladron, List<Ciudad> rutaLadron, String ciudadInicial,
             Computadora computadora, Mapa mapa,
             Calendario calendario, Random random) {
-        this.estadoMision = new EstadoMision();
+        this.estadoMision = new EstadoMision(itemRobado, ladron);
         this.policia = policia;
         policia.iniciarMision(calendario);
         policia.escucharAlPerder(this::alPerderPolicia);
@@ -67,10 +69,12 @@ public class Mision implements DetallableSospechoso {
 
     private void alGanarPolicia(PoliciaFinaliza evento) {
         estadoMision.hacerVictoria(evento.getExplicacion());
+        notificarObservadores();
     }
 
     private void alPerderPolicia(PoliciaFinaliza evento) {
         estadoMision.hacerDerrota(evento.getExplicacion());
+        notificarObservadores();
     }
 
     /**
@@ -213,10 +217,7 @@ public class Mision implements DetallableSospechoso {
     }
 
     public String getMensajeMision() {
-        String texto = itemRobado.getNombre() + " ha sido robado de " + itemRobado.getNombreCiudadDelRobo() + ". ";
-        texto += ladron.getTextoMision() + " ";
-        texto += "Tenés tiempo hasta el domigno a las 17 hs., ¡éxitos!";
-        return texto;
+        return estadoMision.getMensaje();
     }
 
     public String getNombreCiudadActual() {
@@ -257,5 +258,21 @@ public class Mision implements DetallableSospechoso {
 
     public ObjectProperty<IOrden> getOrden() {
         return policia.getOrdenDeArresto();
+    }
+
+    public void observarMision(IObservadorMision observadorMision) {
+        observadores.add(observadorMision);
+    }
+    public void desobservarMision(IObservadorMision observadorMision) {
+        observadores.remove(observadorMision);
+    }
+    public void notificarObservadores() {
+        for(IObservadorMision observador : observadores) {
+            try {
+                observador.misionCambia(this);
+            } catch(Exception ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 }

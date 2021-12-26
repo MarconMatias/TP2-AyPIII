@@ -2,10 +2,13 @@ package edu.fiuba.algo3.controlador.Juego;
 
 import edu.fiuba.algo3.ControlStage;
 import edu.fiuba.algo3.modelo.Juego.IObservadorAcciones;
+import edu.fiuba.algo3.modelo.Juego.IObservadorMision;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.input.InputEvent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -25,6 +28,30 @@ public abstract class PantallaControlador {
         this.juego = juego;
         this.mision = mision;
         this.controlStage = controlStage;
+        if(null != mision) {
+            IObservadorMision observador = this::alCambiarMision;
+            this.mision.observarMision(observador);
+            agregarLiberador(()-> this.mision.desobservarMision(observador));
+        }
+    }
+
+    protected void alCambiarMision(Mision mision) {
+        if(!mision.fueFinalizada()) {
+            return;
+        }
+        try {
+            if (mision.fueVictoria()) {
+                controlStage.abrirVictoria(juego, mision);
+            } else {
+                controlStage.abrirDerrota(juego, mision);
+            }
+            liberar();
+        } catch(Exception ex) {
+            Alert alert = new Alert(Alert.AlertType.ERROR,
+                    "La misión finalizó pero se produjo un error: "+ex,
+                    ButtonType.OK);
+            alert.showAndWait();
+        }
     }
 
     /**

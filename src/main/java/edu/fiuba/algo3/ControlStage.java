@@ -225,6 +225,17 @@ public class ControlStage {
     }
 
     /**************************************************************************/
+    public void abrirDerrota(Juego juego, Mision mision) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, mision.getMensajeMision(), ButtonType.OK);
+        alert.showAndWait();
+        abrirMenu(juego);
+    }
+    public void abrirVictoria(Juego juego, Mision mision) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, mision.getMensajeMision(), ButtonType.OK);
+        alert.showAndWait();
+        abrirMenu(juego);
+    }
+    /**************************************************************************/
     /**************************************************************************/
 
     public Point2D getCentro() {
@@ -280,4 +291,5 @@ public class ControlStage {
     public void cambiar(Node interno) {
         raiz.cambiar(interno);
     }
+
 }

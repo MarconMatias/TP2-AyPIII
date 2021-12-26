@@ -46,4 +46,17 @@ public class Item {
         rango.ampliarRuta(ruta, mapa, random);
         return ruta;
     }
+
+    public String getTextoDerrota() {
+        return getNombre() + " no pudo ser devuelto a " + getNombreCiudadDelRobo() + ". ";
+    }
+
+    public String getTextoEnJuego() {
+        return getNombre() + " ha sido robado de " + getNombreCiudadDelRobo() + ". ";
+    }
+
+    public String getTextoVictoria() {
+        return getNombre() + " fue devuelto a " + getNombreCiudadDelRobo() + ". ";
+    }
+
 }
