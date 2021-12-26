@@ -61,7 +61,7 @@ public class Ciudad implements IDestino, Comparable<Ciudad> {
      */
     public List<Edificio> edificiosAlAzar(int max) {
         Collections.shuffle(factories);
-        return factories.stream().limit(max).map(factory -> factory.get()).collect(Collectors.toList());
+        return factories.stream().limit(max).map(Supplier::get).collect(Collectors.toList());
     }
 
     /**
