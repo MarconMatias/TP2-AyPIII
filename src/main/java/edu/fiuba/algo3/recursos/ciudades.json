@@ -1293,63 +1293,103 @@
       "pistas": [
         {
           "tipo": "Animales",
-          "pista": "Me dijo que una vez queria ver un oso en los bosques de las afueras de la ciudad a la que se dirige",
+          "pista": "Quería ver un oso en los bosques de las afueras de la ciudad a la que se dirigía",
           "dificultad": 0
         },
         {
           "tipo": "Arte",
-          "pista": "Me dijo que queria ver cuadros pintados de la familia Romanov",
+          "pista": "Me dijo que quería ver cuadros pintados de la familia Romanov",
           "dificultad": 0
         },
         {
           "tipo": "Bandera",
-          "pista": "Tenía una bandera roja",
+          "pista": "Iba a un país con una bandera blanca, azul y rojo",
           "dificultad": 0
         },
         {
+          "tipo": "Bandera",
+          "pista": "Dijo que añoraba la antigua bandera soviética ondeando en la ciudad a la que viajaba",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Bandera",
+          "pista": "Dijo que le gustaba más ver la antigua bandera roja ondeando en la ciudad a la que viajaba",
+          "dificultad": 2
+        },
+        {
           "tipo": "Exportaciones",
-          "pista": "Me dijo que el pais es un gran productor de gas, petroleo y bebidas alcoholicas",
+          "pista": "Me dijo que iba a un país gran productor de gas, petróleo y bebidas alcohólicas",
           "dificultad": 0
         },
         {
           "tipo": "Geografia",
-          "pista": "Me dijo que queria conocer el Rio Moskva",
+          "pista": "Me dijo que quería conocer el Río Moskva",
           "dificultad": 0
         },
         {
           "tipo": "Gobernante",
-          "pista": "Me dijo que queria alguna vez conocer a Putin",
+          "pista": "Me dijo que quería alguna vez conocer a Putin",
           "dificultad": 0
         },
         {
           "tipo": "Idioma",
-          "pista": "Menciono que se hablaba en Ruso y Uraliano",
+          "pista": "Mencionó que estaba aprendiendo Ruso y Ucraniano",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Mencionó que estaba aprendiendo a leer alfabeto cirílico",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Dijo que quería tomar el mejor vodka",
           "dificultad": 0
         },
         {
           "tipo": "Miscelaneos",
-          "pista": "Dijo que queria tomar vodka",
+          "pista": "Dijo que quería conocer la plaza roja",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Dijo que quería comer unos varéniques ucranianos",
           "dificultad": 2
         },
         {
           "tipo": "Moneda",
-          "pista": "Quiso comprar Rublos",
+          "pista": "Quiso comprar rublos",
           "dificultad": 1
         },
         {
+          "tipo": "Moneda",
+          "pista": "Preguntó si podía comprar unos kopeks para dar propina",
+          "dificultad": 2
+        },
+        {
           "tipo": "Personajes Historicos",
-          "pista": "Menciono estar interesado en Ivan el Terrible",
+          "pista": "Mencionó estar leyendo sobre Vladimir El Grande y Catalina La Grande",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "Mencionó estar interesado en Iván el Terrible",
           "dificultad": 1
         },
         {
           "tipo": "Puntos de Interes",
-          "pista": "Dijo que queria conocer el Lago Ladoga y las Montanias Ural",
+          "pista": "Dijo que quería conocer el Lago Ladoga y las Montañas Ural",
           "dificultad": 2
         },
         {
           "tipo": "Religion",
-          "pista": "Me dijo que los habitantes de la ciudad a la que se dirigia eran catolicos ortodoxos",
+          "pista": "Me dijo que los habitantes de la ciudad a la que se dirigía eran católicos ortodoxos",
           "dificultad": 0
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Dijo que los antiguos paganos adoraban a Svarog e iba a conocer unos neopaganos",
+          "dificultad": 2
         }
       ]
     },
