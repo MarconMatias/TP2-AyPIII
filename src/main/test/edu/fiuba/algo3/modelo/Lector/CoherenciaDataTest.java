@@ -3,6 +3,10 @@ package edu.fiuba.algo3.modelo.Lector;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Item.Item;
 import edu.fiuba.algo3.modelo.Juego.Mapa;
+import edu.fiuba.algo3.modelo.Pista.Filtro.FiltroEconomia;
+import edu.fiuba.algo3.modelo.Pista.Filtro.FiltroHistoria;
+import edu.fiuba.algo3.modelo.Pista.Filtro.FiltroPais;
+import edu.fiuba.algo3.modelo.Pista.Filtro.IFiltroCiudad;
 import edu.fiuba.algo3.modelo.Pista.IPista;
 import edu.fiuba.algo3.modelo.Pista.NivelPista.NivelPista;
 import edu.fiuba.algo3.modelo.Pista.NivelPista.PistaDificil;
@@ -86,7 +90,7 @@ public class CoherenciaDataTest {
     }
 
     @Test
-    public void cadaCiudadTieneUnaPistaDeCadaDificultad() throws org.json.simple.parser.ParseException {
+    public void cadaCiudadTieneUnaPistaDeCadaDificultad() {
         final String fuente = "src/main/java/edu/fiuba/algo3/recursos/ciudades.json";
         final NivelPista facil = new PistaFacil();
         final NivelPista media = new PistaMedia();
@@ -113,6 +117,44 @@ public class CoherenciaDataTest {
             assertTrue(medias.size() > 0, "Hay pistas medias en "+nombre);
             assertTrue(dificiles.size() > 0, "Hay pistas difíciles en "+nombre);
         }
+        assertEquals(ciudades.size(), llamadas.size());
+    }
+
+    @Test
+    public void cadaCiudadConCadaFiltroTieneUnaPistaDeCadaDificultad() {
+        final String fuente = "src/main/java/edu/fiuba/algo3/recursos/ciudades.json";
+        final List<IFiltroCiudad> filtros = List.of(
+                new FiltroEconomia(), new FiltroPais(), new FiltroHistoria());
+        final NivelPista facil = new PistaFacil();
+        final NivelPista media = new PistaMedia();
+        final NivelPista dificil = new PistaDificil();
+
+        BiFunction<String,Collection<PistaCiudad>,Ciudad> constructor = Mockito.mock(BiFunction.class);
+        Map<String, Collection<PistaCiudad>> llamadas = new HashMap<>();
+
+        when(constructor.apply(anyString(),anyCollection())).then(invocacion -> {
+            String nombre = invocacion.getArgument(0,String.class);
+            Collection<PistaCiudad> pistas = invocacion.getArgument(1, Collection.class);
+            llamadas.put(nombre,pistas);
+            return new Ciudad(nombre, pistas);
+        });
+
+        LectorCiudad lector = new LectorCiudad(constructor);
+        List<Ciudad> ciudades =  lector.leerCiudades(fuente);
+        for(String nombre : llamadas.keySet()) {
+            Collection pistas = (Collection<IPista>)(Collection<?>) llamadas.get(nombre);
+            for(IFiltroCiudad filtro : filtros) {
+                List filtradas = filtro.filtrarPistas(pistas);
+                Collection<IPista> faciles = facil.filtrarPistas(filtradas);
+                Collection<IPista> medias = media.filtrarPistas(filtradas);
+                Collection<IPista> dificiles = dificil.filtrarPistas(filtradas);
+                String textoFiltro = " con filtro "+filtro.getClass().getSimpleName();
+                assertTrue(faciles.size() > 0, "Hay pistas fáciles en "+nombre+textoFiltro);
+                assertTrue(medias.size() > 0, "Hay pistas medias en "+nombre+textoFiltro);
+                assertTrue(dificiles.size() > 0, "Hay pistas difíciles en "+nombre+textoFiltro);
+            }
+        }
+        assertEquals(ciudades.size(), llamadas.size());
     }
 
 }
