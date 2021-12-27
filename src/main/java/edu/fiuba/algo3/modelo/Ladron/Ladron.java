@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Pista.IPista;
 import edu.fiuba.algo3.modelo.Pista.NivelPista.PistaDificil;
 import edu.fiuba.algo3.modelo.Pista.NivelPista.PistaFacil;
 import edu.fiuba.algo3.modelo.Pista.NivelPista.PistaMedia;
+import edu.fiuba.algo3.modelo.Pista.PistaCiudad;
 import edu.fiuba.algo3.modelo.Pista.PistaLadron;
 import edu.fiuba.algo3.modelo.Pista.PistaLadronNoFacil;
 import edu.fiuba.algo3.modelo.Policia.Policia;
@@ -89,9 +90,9 @@ public class Ladron implements ISospechoso, DetallableSospechoso {
 
   @Override
   public String testimonioAlAzar(Policia policia, IDestino destino, IFiltroCiudad filtroCiudad) {
-    IPista pistaCiudad = destino.pistaAlAzar(policia, filtroCiudad);
+    PistaCiudad pistaCiudad = (PistaCiudad) destino.pistaAlAzar(policia, filtroCiudad);
     String pistaDetalle = detalleAlAzar(policia, new Random());
-    return pistaCiudad + ".\n" + pistaDetalle;
+    return pistaCiudad.getValor() + ".\n" + pistaDetalle;
   }
 
     public String getNombre() {
