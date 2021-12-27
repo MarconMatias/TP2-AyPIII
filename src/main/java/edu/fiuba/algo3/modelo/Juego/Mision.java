@@ -275,4 +275,8 @@ public class Mision implements DetallableSospechoso {
             }
         }
     }
+
+    public String getRangoYNombrePolicia() {
+        return policia.getRangoYNombre();
+    }
 }

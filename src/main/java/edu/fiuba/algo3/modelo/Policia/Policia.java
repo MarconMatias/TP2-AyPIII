@@ -23,7 +23,7 @@ import java.util.List;
 
 public class Policia {
 
-    private final String nombre;
+    private String nombre;
     private int arrestos;
     private RangoPolicia rango;
     private Calendario calendario;
@@ -177,18 +177,24 @@ public class Policia {
         oyentesAlPerder.add(listener);
     }
 
+    private String getNombre() {
+        if((null==nombre)||(nombre.trim().equals(""))) {
+            return nombre = "#"+Integer.toString(hashCode());
+        } else {
+            return nombre;
+        }
+    }
     @Override
     public String toString() {
-        String valor;
-        if((null==nombre)||(nombre.trim().equals(""))) {
-            valor = Integer.toString(hashCode());
-        } else {
-            valor = nombre;
-        }
+        String valor = getNombre();
         return rango.getInsignia()+" "+valor;
     }
 
     public ObjectProperty<IOrden> getOrdenDeArresto() {
         return ordenDeArresto;
+    }
+
+    public String getRangoYNombre() {
+        return rango.getNombreRango() + " " + getNombre();
     }
 }

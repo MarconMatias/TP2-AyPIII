@@ -20,7 +20,7 @@ public class HojaMision extends RelativoAImagen {
 
         Label textoCiudad = new Label();
         textoCiudad.setAlignment(Pos.CENTER);
-        textoCiudad.setText(mision.getMensajeMision());
+        textoCiudad.setText(getTextoMision(mision));
         textoCiudad.setMaxWidth(960);
         textoCiudad.setMaxHeight(960);
         textoCiudad.setWrapText(true);
@@ -28,5 +28,12 @@ public class HojaMision extends RelativoAImagen {
         textoCiudad.getStyleClass().add("etiquetaTextoLibroCiudad");
         agregar(textoCiudad, 0.5, 0.5);
 
+    }
+
+    private String getTextoMision(Mision mision) {
+        String texto = mision.getMensajeMision();
+        texto = mision.getRangoYNombrePolicia()+":\n\n" + texto+"\n\n";
+        texto +="AlgoThief — Agencia de investigación";
+        return texto;
     }
 }

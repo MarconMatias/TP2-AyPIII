@@ -40,8 +40,8 @@ public class MisionEnJuego implements IEstadoMision {
     @Override
     public String getMensaje() {
         String texto = itemRobado.getTextoEnJuego();
-        texto += ladron.getTextoMision() + " ";
-        texto += "Tenés tiempo hasta el domingo a las 17 hs., ¡éxitos!";
+        texto += ladron.getTextoMision() + "\n";
+        texto += "Tenés tiempo hasta el domingo a las 17 hs.,\n¡éxitos!";
         return texto;
     }
 }
