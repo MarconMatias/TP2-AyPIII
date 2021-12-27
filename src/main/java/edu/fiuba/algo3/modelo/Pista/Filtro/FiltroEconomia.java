@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 public class FiltroEconomia implements IFiltroCiudad {
     private static final ArrayList<String> tipos = new ArrayList<>(List.of(
-            "Moneda","Exportaciones"
+            "Exportaciones","Industria","Moneda"
     ));
 
     @Override
