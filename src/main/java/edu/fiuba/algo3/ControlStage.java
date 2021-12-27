@@ -38,6 +38,7 @@ import javafx.stage.Stage;
 import java.util.List;
 
 public class ControlStage {
+    private final static String tituloApp = "AlgoThief";
     private final Stage stage;
     private final GrupoInterno raiz;
     private final Scene scene;
@@ -74,7 +75,7 @@ public class ControlStage {
     public boolean abrirAcercaDe(Juego juego, Mision mision, AcercaDeControlador controlador) {
         try {
             AcercaDe nuevaVista = new AcercaDe(juego, mision, controlador);
-            cambiar(nuevaVista);
+            cambiar(nuevaVista, "Acerca de…");
             return true;
         } catch(Exception ex) {
             ex.printStackTrace();
@@ -92,7 +93,7 @@ public class ControlStage {
     public boolean abrirOrden(Juego juego, Mision mision, OrdenControlador controlador) {
         try {
             Orden nuevaVista = new Orden(juego, mision, controlador);
-            cambiar(nuevaVista);
+            cambiar(nuevaVista, "Complete detalles para obtener Orden de arresto");
             return true;
         } catch(Exception ex) {
             ex.printStackTrace();
@@ -110,7 +111,7 @@ public class ControlStage {
     public boolean abrirEdificios(Juego juego, Mision mision, EdificiosControlador controlador) {
         try {
             Edificios nuevaVista = new Edificios(juego, mision, controlador);
-            cambiar(nuevaVista);
+            cambiar(nuevaVista, "Elija edificios para obtener testimonios");
             return true;
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -129,7 +130,7 @@ public class ControlStage {
     private boolean abrirExpediente(Juego juego, Mision mision, Ladron ladron, ExpedienteControlador controlador) {
         try {
             Expediente nuevaVista = new Expediente(juego, mision, ladron, controlador);
-            cambiar(nuevaVista);
+            cambiar(nuevaVista, "Elija un sospechoso para ver sus detalles");
             return true;
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -148,7 +149,7 @@ public class ControlStage {
     public boolean abrirLibroCiudad(Juego juego, Mision mision, LibroCiudadControlador controlador) {
         try {
             LibroCiudad libro = new LibroCiudad(juego, mision, controlador);
-            cambiar(libro);
+            cambiar(libro, "Elija mapa de ciudades, plano de edificios u orden de arresto");
             return true;
         } catch(Exception ex) {
             ex.printStackTrace();
@@ -167,7 +168,7 @@ public class ControlStage {
     public boolean abrirMapaCiudades(Juego juego, Mision mision, MapaDestinosControlador controlador) {
         try {
             MapaDestinos nuevaVista = new MapaDestinos(juego, mision, controlador);
-            cambiar(nuevaVista);
+            cambiar(nuevaVista, "Elija una ciudad de destino para viajar a ella");
             return true;
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -209,8 +210,7 @@ public class ControlStage {
     public boolean abrirMenu(Juego juego, PoliciaControlador controlador) {
         try {
             Group nuevaVista = new Policias(juego, controlador);
-            cambiar(nuevaVista);
-            stage.setTitle("AlgoThief — Elija el agente para iniciar una misión");
+            cambiar(nuevaVista, "Elija el agente para iniciar una misión");
             return true;
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -288,8 +288,9 @@ public class ControlStage {
         return scene;
     }
 
-    public void cambiar(Node interno) {
+    public void cambiar(Node interno, String titulo) {
         raiz.cambiar(interno);
+        stage.setTitle( (null==titulo) ? tituloApp : (tituloApp+" — "+titulo) );
     }
 
 }
