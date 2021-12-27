@@ -19,31 +19,6 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 public class Ciudad implements IDestino, Comparable<Ciudad> {
-
-    private final String nombre;
-    private final Collection<PistaCiudad> pistas;
-    private double coordenadaX=0.5, coordenadaY=0.5;
-    private ISospechoso sospechoso = new SinSospechoso();
-    private ICiudadVisitada visitada = new CiudadNoVisitada();
-    private IDestino destinoSospechoso = new SinDestino();
-    private IEstrategiaAcciones estrategiaAcciones = new SinEstrategiaAcciones();
-
-    public Ciudad(String nombre, Collection<PistaCiudad> pistas) {
-        this.nombre = nombre;
-        this.pistas = pistas;
-    }
-
-    public boolean esLaCiudad(String nombre) {
-        return this.nombre.equals(nombre);
-    }
-    public boolean esLaCiudad(Ciudad otraCiudad) {
-        return otraCiudad.esLaCiudad(this.nombre);
-    }
-
-    public String getNombre() {
-        return this.nombre;
-    }
-
     private final static ArrayList<Supplier<Edificio>> factories = new ArrayList<>(
             List.of(
                     () -> new Edificio(new Aeropuerto()),
@@ -54,6 +29,48 @@ public class Ciudad implements IDestino, Comparable<Ciudad> {
             )
     );
 
+    private final String nombre;
+    private final Collection<PistaCiudad> pistas;
+    private String descripcion;
+    private double coordenadaX=0.5, coordenadaY=0.5;
+    private ISospechoso sospechoso;
+    private ICiudadVisitada visitada;
+    private IDestino destinoSospechoso;
+    private IEstrategiaAcciones estrategiaAcciones;
+
+    public Ciudad(String nombre, Collection<PistaCiudad> pistas) {
+        this.nombre = nombre;
+        this.pistas = pistas;
+        reiniciar();
+    }
+
+    public void reiniciar() {
+        sospechoso = new SinSospechoso();
+        visitada = new CiudadNoVisitada();
+        destinoSospechoso = new SinDestino();
+        estrategiaAcciones = new SinEstrategiaAcciones();
+    }
+
+    public void actualizarRutaLadron(Ruta rutaLadron, Ladron ladron)
+    {
+        sospechoso = (null==ladron)?new SinSospechoso():ladron;
+        destinoSospechoso = rutaLadron.getDestinoSospechosoDesde(this);
+        estrategiaAcciones = rutaLadron.getEstrategiaAccionesPara(this, ladron);
+    }
+
+    @Override
+    public int compareTo(Ciudad otra) {
+        return otra.compareTo(this.getNombre());
+    }
+
+    public int compareTo(String nombreOtraCiudad) {
+        return this.getNombre().compareTo(nombreOtraCiudad);
+    }
+
+    public void desvisitar() {
+        this.visitada = new CiudadNoVisitada();
+    }
+
     /**
      * Crea una lista de como máximo `max` edificios válidos para la ciudad, sin repetirlos.
      * @param max
@@ -62,6 +79,26 @@ public class Ciudad implements IDestino, Comparable<Ciudad> {
     public List<Edificio> edificiosAlAzar(int max) {
         Collections.shuffle(factories);
         return factories.stream().limit(max).map(Supplier::get).collect(Collectors.toList());
+    }
+
+    public double getCoordenadaX() {
+        return coordenadaX;
+    }
+
+    public double getCoordenadaY() {
+        return coordenadaY;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public String getNombre() {
+        return this.nombre;
+    }
+
+    public List<Edificio> obtenerEdificios() {
+        return visitada.obtenerEdificios();
     }
 
     /**
@@ -81,44 +118,17 @@ public class Ciudad implements IDestino, Comparable<Ciudad> {
         return filtrada.get(posicion);
     }
 
-    public void visitadaPorPolicia(Policia policia) {
-        visitada = new CiudadVisitada(this, policia, sospechoso, destinoSospechoso, estrategiaAcciones);
-    }
-
-    public void actualizarRutaLadron(Ruta rutaLadron, Ladron ladron)
-    {
-        sospechoso = (null==ladron)?new SinSospechoso():ladron;
-        destinoSospechoso = rutaLadron.getDestinoSospechosoDesde(this);
-        estrategiaAcciones = rutaLadron.getEstrategiaAccionesPara(this, ladron);
-    }
-
-    public void desvisitar() {
-        this.visitada = new CiudadNoVisitada();
-    }
-
-    public List<Edificio> obtenerEdificios() {
-        return visitada.obtenerEdificios();
-    }
-
-    @Override
-    public int compareTo(Ciudad otra) {
-        return otra.compareTo(this.getNombre());
-    }
-
-    public int compareTo(String nombreOtraCiudad) {
-        return this.getNombre().compareTo(nombreOtraCiudad);
-    }
-
     public void setCoordenadas(double x, double y) {
         coordenadaX = x;
         coordenadaY = y;
     }
-    public double getCoordenadaX() {
-        return coordenadaX;
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
-    public double getCoordenadaY() {
-        return coordenadaY;
+    public void visitadaPorPolicia(Policia policia) {
+        visitada = new CiudadVisitada(this, policia, sospechoso, destinoSospechoso, estrategiaAcciones);
     }
 
     /**

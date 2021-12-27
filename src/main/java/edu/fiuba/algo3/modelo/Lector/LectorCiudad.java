@@ -59,11 +59,12 @@ public class LectorCiudad {
     ArrayList<PistaCiudad> pistas = interprete.interpretar((JSONArray) jsonCiudad.get("pistas"));
     Ciudad ciudad = constructor.apply(nombre, pistas);
     agregarCoordenadas(jsonCiudad, ciudad);
+    agregarDescripcion(jsonCiudad, ciudad);
     return ciudad;
   }
 
   private void agregarCoordenadas(Map jsonCiudad, Ciudad ciudad) {
-    List coords = lector.leerPropiedadComo(List.class, jsonCiudad, "coordenadas");
+    List coords = lector.leerPropiedadComo(List.class, jsonCiudad, "coordenadas", null);
     if( (null != coords) && (2 == coords.size()) ) {
       try {
         Number x = (Number) coords.get(0);
@@ -74,6 +75,15 @@ public class LectorCiudad {
       }
     } else {
       System.err.println("Advertencia: La ciudad "+ciudad.getNombre()+" no tiene coordenadas.");
+    }
+  }
+
+  public void agregarDescripcion(Map jsonCiudad, Ciudad ciudad) {
+    String desc = lector.leerPropiedadComo(String.class, jsonCiudad, "descripcion", null);
+    if((null==desc) || ("".equals(desc.trim()))) {
+      System.err.println("Advertencia: La ciudad "+ciudad.getNombre()+" no tiene descripcion.");
+    } else {
+      ciudad.setDescripcion(desc);
     }
   }
 
