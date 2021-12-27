@@ -157,4 +157,25 @@ public class CoherenciaDataTest {
         assertEquals(ciudades.size(), llamadas.size());
     }
 
+    @Test
+    public void alLeerCiudadesNingunaPistaEstaVacia() {
+        final String fuente = "src/main/java/edu/fiuba/algo3/recursos/ciudades.json";
+
+        BiFunction<String,Collection<PistaCiudad>,Ciudad> constructor = Mockito.mock(BiFunction.class);
+        Map<String, Collection<PistaCiudad>> llamadas = new HashMap<>();
+
+        when(constructor.apply(anyString(),anyCollection())).then(invocacion -> {
+            String nombre = invocacion.getArgument(0,String.class);
+            Collection<PistaCiudad> pistas = invocacion.getArgument(1, Collection.class);
+            llamadas.put(nombre,pistas);
+            return new Ciudad(nombre, pistas);
+        });
+        LectorCiudad lector = new LectorCiudad(constructor);
+        List<Ciudad> ciudades =  lector.leerCiudades(fuente);
+        for(String nombre : llamadas.keySet()) {
+            for(PistaCiudad pista : llamadas.get(nombre)) {
+                assertNotEquals("", pista.getValor(), "No hay pistas vacías en "+nombre + "("+pista+")");
+            }
+        }
+    }
 }
