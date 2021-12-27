@@ -9,13 +9,38 @@
       "pistas": [
         {
           "tipo": "Animales",
-          "pista": "",
+          "pista": "Dijo querer ver un búfalo de agua del Lago Kerkini",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Animales",
+          "pista": "Dijo querer ver un chacal dorado",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Animales",
+          "pista": "Dijo querer ver una foca monje sin orejas",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Animales",
+          "pista": "Dijo querer ver un lince euroasiático",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Dijo querer visitar el Partenón",
           "dificultad": 0
         },
         {
           "tipo": "Arte",
-          "pista": "",
-          "dificultad": 0
+          "pista": "Dijo tener fascinación por el arte helenístico",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Dijo querer comprar una estatuilla del Discóbolo",
+          "dificultad": 2
         },
         {
           "tipo": "Bandera",
@@ -34,12 +59,12 @@
         },
         {
           "tipo": "Exportaciones",
-          "pista": "El pais exporta muchos figs",
+          "pista": "El pais exporta muchos higos",
           "dificultad": 2
         },
         {
           "tipo": "Geografia",
-          "pista": "",
+          "pista": "Dijo que le interesaba navegar el Mar de Creta",
           "dificultad": 1
         },
         {
@@ -84,7 +109,7 @@
         },
         {
           "tipo": "Religion",
-          "pista": "",
+          "pista": "Dijo que estaba interesado en los dioses olímpicos",
           "dificultad": 0
         }
       ]
