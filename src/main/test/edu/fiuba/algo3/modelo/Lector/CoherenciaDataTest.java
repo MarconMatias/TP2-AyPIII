@@ -178,4 +178,49 @@ public class CoherenciaDataTest {
             }
         }
     }
+
+    @Test
+    public void alFiltrarPorNivelYFiltroNoQuedaPistaSinUsar() {
+        final String fuente = "src/main/java/edu/fiuba/algo3/recursos/ciudades.json";
+        final List<IFiltroCiudad> filtros = List.of(
+                new FiltroEconomia(), new FiltroPais(), new FiltroHistoria());
+        final NivelPista facil = new PistaFacil();
+        final NivelPista media = new PistaMedia();
+        final NivelPista dificil = new PistaDificil();
+
+        BiFunction<String,Collection<PistaCiudad>,Ciudad> constructor = Mockito.mock(BiFunction.class);
+        Map<String, Collection<PistaCiudad>> llamadas = new HashMap<>();
+
+        when(constructor.apply(anyString(),anyCollection())).then(invocacion -> {
+            String nombre = invocacion.getArgument(0,String.class);
+            Collection<PistaCiudad> pistas = invocacion.getArgument(1, Collection.class);
+            llamadas.put(nombre,pistas);
+            return new Ciudad(nombre, pistas);
+        });
+
+        LectorCiudad lector = new LectorCiudad(constructor);
+        lector.leerCiudades(fuente);
+        for(String nombre : llamadas.keySet()) {
+            Collection pistas = (Collection<IPista>)(Collection<?>) llamadas.get(nombre);
+            for(IFiltroCiudad filtro : filtros) {
+                List filtradas = filtro.filtrarPistas(pistas);
+                Collection<IPista> faciles = facil.filtrarPistas(filtradas);
+                filtradas.removeAll(faciles);
+                pistas.removeAll(faciles);
+                Collection<IPista> medias = media.filtrarPistas(filtradas);
+                filtradas.removeAll(medias);
+                pistas.removeAll(medias);
+                Collection<IPista> dificiles = dificil.filtrarPistas(filtradas);
+                filtradas.removeAll(dificiles);
+                pistas.removeAll(dificiles);
+                String textoFiltro = " con "+filtro.getClass().getSimpleName();
+                assertEquals(0,filtradas.size(),
+                        "No hay pistas sin nivel en "+nombre+textoFiltro
+                                +", ej.:"+filtradas.stream().findAny().orElse(null));
+            }
+            assertEquals(0,pistas.size(),
+                    "No hay pistas sin nivel ni filtro en "+nombre
+                            +", ej.:"+pistas.stream().findAny().orElse(null));
+        }
+    }
 }
