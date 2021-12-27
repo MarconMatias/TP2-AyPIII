@@ -179,10 +179,13 @@ public class Policia {
 
     @Override
     public String toString() {
+        String valor;
         if((null==nombre)||(nombre.trim().equals(""))) {
-            return Integer.toString(hashCode());
+            valor = Integer.toString(hashCode());
+        } else {
+            valor = nombre;
         }
-        return nombre;
+        return rango.getInsignia()+" "+valor;
     }
 
     public ObjectProperty<IOrden> getOrdenDeArresto() {

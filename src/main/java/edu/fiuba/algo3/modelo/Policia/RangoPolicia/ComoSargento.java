@@ -35,4 +35,9 @@ public class ComoSargento implements IComportamientoRango{
         return "Sargento";
     }
 
+    @Override
+    public String getInsignia() {
+        return "\uD83D\uDE93";
+    }
+
 }
