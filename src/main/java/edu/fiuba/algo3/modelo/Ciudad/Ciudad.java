@@ -8,10 +8,10 @@ import edu.fiuba.algo3.modelo.Ladron.ISospechoso;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Ladron.SinSospechoso;
 import edu.fiuba.algo3.modelo.Pista.Filtro.IFiltroCiudad;
+import edu.fiuba.algo3.modelo.Policia.Policia;
 import edu.fiuba.algo3.modelo.Pista.IPista;
 import edu.fiuba.algo3.modelo.Pista.PistaCiudad;
 import edu.fiuba.algo3.modelo.Pista.SinPistaCiudad;
-import edu.fiuba.algo3.modelo.Policia.Policia;
 import edu.fiuba.algo3.modelo.Ruta.Ruta;
 
 import java.util.*;
@@ -141,4 +141,5 @@ public class Ciudad implements IDestino, Comparable<Ciudad> {
     public String visitar(Edificio edificio) {
         return visitada.visitar(edificio);
     }
+
 }
