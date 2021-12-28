@@ -130,7 +130,7 @@
         },
         {
           "tipo": "Arte",
-          "pista": "",
+          "pista": "Quería ver la Dama de Uruk, dijo que era la 'Monalisa sumeria'",
           "dificultad": 0
         },
         {
@@ -170,12 +170,22 @@
         },
         {
           "tipo": "Gobernante",
-          "pista": "",
+          "pista": "Dijo que Saddam Hussein gobernó el país al que iba por 24 años",
           "dificultad": 0
         },
         {
+          "tipo": "Gobernante",
+          "pista": "Habló sobre la OTAN había derrocando a un presidente que gobernó por 24 años",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "Dijo que iba a un país con presidente y primer ministro",
+          "dificultad": 2
+        },
+        {
           "tipo": "Idioma",
-          "pista": "",
+          "pista": "Dijo que iba a un país donde hablaban árabe y kurdos",
           "dificultad": 1
         },
         {
@@ -205,7 +215,7 @@
         },
         {
           "tipo": "Religion",
-          "pista": "",
+          "pista": "Dijo que iba un país de mayoría musulmana, pero con conflictos entre sunníes y chiítas",
           "dificultad": 0
         }
       ]
