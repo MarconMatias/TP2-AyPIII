@@ -60,6 +60,7 @@ public class Mision implements DetallableSospechoso {
         this.rutaLadron = new Ruta(rutaLadron);
         this.computadora = computadora;
         this.mapa = mapa;
+        mapa.reiniciar();
         this.calendario = calendario;
         this.random = random;
         this.rutaLadron.visitadaPorLadron(ladron);

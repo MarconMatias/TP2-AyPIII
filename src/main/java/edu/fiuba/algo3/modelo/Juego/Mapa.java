@@ -92,4 +92,9 @@ public class Mapa {
         ruta.add(siguiente);
     }
 
+    public void reiniciar() {
+        for(Ciudad ciudad : ciudadesPorNombre.values()) {
+            ciudad.reiniciar();
+        }
+    }
 }
