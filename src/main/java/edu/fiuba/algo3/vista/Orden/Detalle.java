@@ -14,7 +14,13 @@ import java.util.Map;
 import java.util.function.UnaryOperator;
 
 public class Detalle extends HBox implements InvalidationListener {
-    private final static Map<String, String> textosTipos = Map.of("vehiculo", "Vehículo");
+    private final static Map<String, String> textosTipos = Map.of(
+            "deporte", "Deporte",
+            "distincion","Distinción",
+            "vehiculo", "Vehículo",
+            "sexo","Sexo",
+            "cabello","Cabello"
+            );
     private final static Map<String, String> textosValores = Map.of("Macho", "Masculino", "Hembra", "Femenino");
 
     private final String tipo;
