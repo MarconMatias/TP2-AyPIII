@@ -17,7 +17,7 @@
 
 .listaSospechosos {
     -fx-background-color:transparent;
-    -fx-border-color: black;
+    -fx-border-color: blue;
     -fx-border-insets: 0;
     -fx-border-width: 0;
     -fx-padding: 0;
@@ -25,6 +25,12 @@
 
 .listaSospechosos .list-cell {
     -fx-background-color: transparent;
+}
+
+.listaSospechosos:focused {
+    -fx-border-color: blue;
+    -fx-text-fill: blue;
+    -fx-border-width: 5;
 }
 
 .vistaDetallesOrden {

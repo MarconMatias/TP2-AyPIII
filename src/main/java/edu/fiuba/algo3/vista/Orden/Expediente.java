@@ -12,7 +12,10 @@ import edu.fiuba.algo3.vista.Juego.Pantalla;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
 import javafx.scene.transform.Rotate;
+
+import static javafx.beans.binding.Bindings.createObjectBinding;
 
 public class Expediente extends Pantalla {
   private final static Image fondo = new Image(Imagen.urlDesdeRecursos("Orden/Orden_3840.jpeg"));
@@ -23,6 +26,7 @@ public class Expediente extends Pantalla {
   private final Librito librito;
   private final ImagenSeleccionable orden;
   private final Detalles detallesPane;
+  private final Label tituloHoja;
 
   public Expediente(Juego juego, Mision mision, Ladron ladron, ExpedienteControlador controlador) {
     super(fondo);
@@ -31,19 +35,20 @@ public class Expediente extends Pantalla {
     this.mision = mision;
     this.controlador = controlador;
 
-    Label tituloExpediente = new Label();
-    tituloExpediente.setText(ladron.getNombre());
-    tituloExpediente.setAlignment(Pos.CENTER);
-    tituloExpediente.setMaxWidth(960);
-    tituloExpediente.setStyle("-fx-font: 100 Impact");
-    tituloExpediente.getStyleClass().add("etiquetaTituloOrden");
-    agregar(tituloExpediente, 0.400, 0.12);
+    tituloHoja = crearTituloHoja(ladron.getNombre());
+
+    Sospechosos sospechosos = new Sospechosos(juego, mision, controlador.crearControladorSospechosos());
+    agregar(sospechosos, 0.81, 0.535);
 
     Label tituloSospechosos = new Label();
     tituloSospechosos.setText("Sospechosos:");
     tituloSospechosos.setAlignment(Pos.CENTER);
     tituloSospechosos.setMaxWidth(960);
     tituloSospechosos.setStyle("-fx-font: 90 \"Comic Sans\"");
+    tituloSospechosos.textFillProperty().bind(
+            createObjectBinding(
+                    ()->sospechosos.isFocused()? Color.BLUE:Color.BLACK,
+                    sospechosos.focusedProperty()));
     tituloSospechosos.getStyleClass().add("etiquetaTituloSospechosos");
     tituloSospechosos.getTransforms().setAll(new Rotate(5d, 0, 0));
     agregar(tituloSospechosos, 0.805, 0.330);
@@ -52,8 +57,6 @@ public class Expediente extends Pantalla {
     detallesPane.setTitulo("Expediente:");
     agregar(detallesPane, 0.4, 0.4);
 
-    Sospechosos sospechosos = new Sospechosos(juego, mision, controlador.crearControladorSospechosos());
-    agregar(sospechosos, 0.81, 0.535);
 
     librito = new Librito(640);
     agregar(librito, 0.08, 0.4);
@@ -66,6 +69,16 @@ public class Expediente extends Pantalla {
     setRelojVisible(true);
     setRadio(juego.getRadio());
     setControlador(controlador);
+  }
+
+  private Label crearTituloHoja(String titulo) {
+    Label tituloHoja = new Label();
+    tituloHoja.setText(titulo);
+    tituloHoja.setAlignment(Pos.CENTER);
+    tituloHoja.setMaxWidth(960);
+    tituloHoja.setStyle("-fx-font: 100 Impact");
+    tituloHoja.getStyleClass().add("etiquetaTituloOrden");
+    return (Label) agregar(tituloHoja, 0.400, 0.12);
   }
 
   private void setControlador(ExpedienteControlador controlador) {

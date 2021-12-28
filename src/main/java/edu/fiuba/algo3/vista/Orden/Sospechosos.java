@@ -4,7 +4,6 @@ import edu.fiuba.algo3.controlador.Orden.SospechososControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
-import edu.fiuba.algo3.modelo.Policia.Policia;
 import javafx.scene.control.ListView;
 import javafx.scene.transform.Rotate;
 
@@ -21,6 +20,7 @@ public class Sospechosos extends ListView<Ladron> {
     this.getStyleClass().add("listaSospechosos");
     this.getTransforms()
         .setAll(new Rotate(anguloRotacion, this.getWidth() / 2, this.getHeight() / 2));
+    setFocusTraversable(true);
     setControlador(controlador);
   }
 

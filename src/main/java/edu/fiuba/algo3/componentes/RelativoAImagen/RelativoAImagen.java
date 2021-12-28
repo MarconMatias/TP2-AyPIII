@@ -175,8 +175,8 @@ public class RelativoAImagen extends Group {
      * @param centroY Coordenadas relativas, entre 0.0 y 1.0 del componente Y del centro de la imagen.
      * @return
      */
-    public void agregar(Region nodo, double centroX, double centroY) {
-        agregar(nodo, new ReadOnlyDoubleWrapper(centroX), new ReadOnlyDoubleWrapper(centroY));
+    public Region agregar(Region nodo, double centroX, double centroY) {
+        return agregar(nodo, new ReadOnlyDoubleWrapper(centroX), new ReadOnlyDoubleWrapper(centroY));
     }
 
     public Trayecto agregarTrayecto(Point2DBindingXY desdeRelativo, Point2DBindingXY hastaRelativo) {
