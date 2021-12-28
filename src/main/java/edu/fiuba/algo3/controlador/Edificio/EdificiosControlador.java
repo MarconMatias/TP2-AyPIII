@@ -6,7 +6,6 @@ import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.vista.Edificio.DestinoEdificio;
-import javafx.scene.control.Alert;
 
 public class EdificiosControlador extends PantallaControlador {
     private final Juego juego;
@@ -25,8 +24,11 @@ public class EdificiosControlador extends PantallaControlador {
         System.out.println("Visitando edificio "+edificio.getNombre());
         String testimonio = mision.visitarEdificio(edificio);
         String testigo = mision.getTestigo(edificio);
-        Alert alerta = new Alert(Alert.AlertType.INFORMATION, testigo+" dice:\n" + testimonio);
-        alerta.showAndWait();
+        System.out.println(testigo + " dice: "+testimonio);
+        if(controlStage.abrirTestigo(juego,mision,testigo,testimonio))
+        {
+            liberar();
+        }
     }
 
 }

@@ -3,6 +3,7 @@ package edu.fiuba.algo3;
 import edu.fiuba.algo3.componentes.Imagen.Imagen;
 import edu.fiuba.algo3.controlador.Ciudad.LibroCiudadControlador;
 import edu.fiuba.algo3.controlador.Edificio.EdificiosControlador;
+import edu.fiuba.algo3.controlador.Edificio.Testigo.TestigoControlador;
 import edu.fiuba.algo3.controlador.Juego.AcercaDeControlador;
 import edu.fiuba.algo3.controlador.Mapa.MapaDestinosControlador;
 import edu.fiuba.algo3.controlador.Orden.ExpedienteControlador;
@@ -14,6 +15,7 @@ import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 import edu.fiuba.algo3.vista.Ciudad.LibroCiudad;
 import edu.fiuba.algo3.vista.Edificio.Edificios;
+import edu.fiuba.algo3.vista.Edificio.Testigo.Testigo;
 import edu.fiuba.algo3.vista.Juego.AcercaDe;
 import edu.fiuba.algo3.vista.Juego.GrupoInterno;
 import edu.fiuba.algo3.vista.Mapa.MapaDestinos;
@@ -235,6 +237,27 @@ public class ControlStage {
         alert.showAndWait();
         abrirMenu(juego);
     }
+
+    /**************************************************************************/
+    public boolean abrirTestigo(Juego juego, Mision mision,
+                             String testigo, String testimonio,
+                             TestigoControlador controlador) {
+        try {
+            cambiar(new Testigo(juego, mision, testigo, testimonio, controlador), "Testimonio de "+testigo);
+            return true;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Error al abrir testimonio: " + ex, ButtonType.OK);
+            alert.showAndWait();
+            alert = new Alert(Alert.AlertType.INFORMATION, testigo + " dice:\n"+testimonio, ButtonType.OK);
+            alert.showAndWait();
+            return false;
+        }
+    }
+    public boolean abrirTestigo(Juego juego, Mision mision, String testigo, String testimonio) {
+        return abrirTestigo(juego,mision,testigo,testimonio,
+                new TestigoControlador(juego, mision, this));
+    }
     /**************************************************************************/
     /**************************************************************************/
 
@@ -293,5 +316,4 @@ public class ControlStage {
         raiz.cambiar(interno);
         stage.setTitle( (null==titulo) ? tituloApp : (tituloApp+" — "+titulo) );
     }
-
 }
