@@ -212,8 +212,9 @@ public class ControlStage {
 
     /**************************************************************************/
 
-    public boolean abrirMenu(Juego juego, PoliciaControlador controlador) {
+    public boolean abrirMenu() {
         try {
+            PoliciaControlador controlador = new PoliciaControlador(juego, this);
             Pantalla nuevaVista = new Policias(juego, controlador);
             ponerSiguiente(nuevaVista);
             return true;
@@ -223,10 +224,6 @@ public class ControlStage {
             alert.showAndWait();
             return false;
         }
-    }
-
-    public boolean abrirMenu() {
-        return abrirMenu(juego, new PoliciaControlador(juego, this));
     }
 
     /**************************************************************************/
