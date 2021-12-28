@@ -1,6 +1,7 @@
 package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.componentes.Imagen.Imagen;
+import edu.fiuba.algo3.controlador.Accion.PantallaAccionControlador;
 import edu.fiuba.algo3.controlador.Ciudad.LibroCiudadControlador;
 import edu.fiuba.algo3.controlador.Edificio.EdificiosControlador;
 import edu.fiuba.algo3.controlador.Edificio.Testigo.TestigoControlador;
@@ -9,15 +10,18 @@ import edu.fiuba.algo3.controlador.Mapa.MapaDestinosControlador;
 import edu.fiuba.algo3.controlador.Orden.ExpedienteControlador;
 import edu.fiuba.algo3.controlador.Orden.OrdenControlador;
 import edu.fiuba.algo3.controlador.Policia.PoliciaControlador;
+import edu.fiuba.algo3.modelo.Acciones.IAccion;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Policia.Policia;
+import edu.fiuba.algo3.vista.Accion.PantallaAccion;
 import edu.fiuba.algo3.vista.Ciudad.LibroCiudad;
 import edu.fiuba.algo3.vista.Edificio.Edificios;
 import edu.fiuba.algo3.vista.Edificio.Testigo.Testigo;
 import edu.fiuba.algo3.vista.Juego.AcercaDe;
 import edu.fiuba.algo3.vista.Juego.GrupoInterno;
+import edu.fiuba.algo3.vista.Juego.Pantalla;
 import edu.fiuba.algo3.vista.Mapa.MapaDestinos;
 import edu.fiuba.algo3.vista.Orden.Expediente;
 import edu.fiuba.algo3.vista.Orden.Orden;
@@ -27,9 +31,6 @@ import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.geometry.Point2D;
 import javafx.geometry.Rectangle2D;
-import javafx.scene.Group;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -48,7 +49,7 @@ public class ControlStage {
     private final DoubleProperty escala = new SimpleDoubleProperty(1.0);
     private final DoubleProperty ancho = new SimpleDoubleProperty(1024);
 
-    public ControlStage(Stage stage, Parent interno) {
+    public ControlStage(Stage stage, Pantalla interno) {
         this.stage = stage;
         this.raiz = new GrupoInterno(interno);
         this.scene = new Scene(raiz);
@@ -77,7 +78,7 @@ public class ControlStage {
     public boolean abrirAcercaDe(Juego juego, Mision mision, AcercaDeControlador controlador) {
         try {
             AcercaDe nuevaVista = new AcercaDe(juego, mision, controlador);
-            cambiar(nuevaVista, "Acerca de…");
+            ponerSiguiente(nuevaVista);
             return true;
         } catch(Exception ex) {
             ex.printStackTrace();
@@ -95,7 +96,7 @@ public class ControlStage {
     public boolean abrirOrden(Juego juego, Mision mision, OrdenControlador controlador) {
         try {
             Orden nuevaVista = new Orden(juego, mision, controlador);
-            cambiar(nuevaVista, "Complete detalles para obtener Orden de arresto");
+            ponerSiguiente(nuevaVista);
             return true;
         } catch(Exception ex) {
             ex.printStackTrace();
@@ -113,7 +114,7 @@ public class ControlStage {
     public boolean abrirEdificios(Juego juego, Mision mision, EdificiosControlador controlador) {
         try {
             Edificios nuevaVista = new Edificios(juego, mision, controlador);
-            cambiar(nuevaVista, "Elija edificios para obtener testimonios");
+            ponerSiguiente(nuevaVista);
             return true;
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -132,7 +133,7 @@ public class ControlStage {
     private boolean abrirExpediente(Juego juego, Mision mision, Ladron ladron, ExpedienteControlador controlador) {
         try {
             Expediente nuevaVista = new Expediente(juego, mision, ladron, controlador);
-            cambiar(nuevaVista, "Elija un sospechoso para ver sus detalles");
+            ponerSiguiente(nuevaVista);
             return true;
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -151,7 +152,7 @@ public class ControlStage {
     public boolean abrirLibroCiudad(Juego juego, Mision mision, LibroCiudadControlador controlador) {
         try {
             LibroCiudad libro = new LibroCiudad(juego, mision, controlador);
-            cambiar(libro, "Elija mapa de ciudades, plano de edificios u orden de arresto");
+            ponerSiguiente(libro);
             return true;
         } catch(Exception ex) {
             ex.printStackTrace();
@@ -170,7 +171,7 @@ public class ControlStage {
     public boolean abrirMapaCiudades(Juego juego, Mision mision, MapaDestinosControlador controlador) {
         try {
             MapaDestinos nuevaVista = new MapaDestinos(juego, mision, controlador);
-            cambiar(nuevaVista, "Elija una ciudad de destino para viajar a ella");
+            ponerSiguiente(nuevaVista);
             return true;
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -211,8 +212,8 @@ public class ControlStage {
 
     public boolean abrirMenu(Juego juego, PoliciaControlador controlador) {
         try {
-            Group nuevaVista = new Policias(juego, controlador);
-            cambiar(nuevaVista, "Elija el agente para iniciar una misión");
+            Pantalla nuevaVista = new Policias(juego, controlador);
+            ponerSiguiente(nuevaVista);
             return true;
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -243,7 +244,8 @@ public class ControlStage {
                              String testigo, String testimonio,
                              TestigoControlador controlador) {
         try {
-            cambiar(new Testigo(juego, mision, testigo, testimonio, controlador), "Testimonio de "+testigo);
+            Pantalla nuevaVista = new Testigo(juego, mision, testigo, testimonio, controlador);
+            ponerSiguiente(nuevaVista);
             return true;
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -257,6 +259,28 @@ public class ControlStage {
     public boolean abrirTestigo(Juego juego, Mision mision, String testigo, String testimonio) {
         return abrirTestigo(juego,mision,testigo,testimonio,
                 new TestigoControlador(juego, mision, this));
+    }
+    /**************************************************************************/
+    public void mostrarAccion(Juego juego, Mision mision, IAccion accion, PantallaAccionControlador controlador) {
+        try {
+            Pantalla pantalla = new PantallaAccion(juego, mision, accion, controlador);
+            raiz.ponerArriba(pantalla);
+            setTituloPantalla(pantalla.getTitulo());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Error al accion: " + ex, ButtonType.OK);
+            alert.showAndWait();
+            alert = new Alert(Alert.AlertType.INFORMATION, accion.getNombreAccion(), ButtonType.OK);
+            alert.showAndWait();
+        }
+    }
+
+    private void setTituloPantalla(String titulo) {
+        stage.setTitle( (null==titulo) ? tituloApp : tituloApp + " — " + titulo );
+    }
+
+    public void mostrarAccion(Juego juego, Mision mision, IAccion accion) {
+        mostrarAccion(juego,mision,accion,new PantallaAccionControlador(juego,mision,this));
     }
     /**************************************************************************/
     /**************************************************************************/
@@ -312,8 +336,56 @@ public class ControlStage {
         return scene;
     }
 
-    public void cambiar(Node interno, String titulo) {
-        raiz.cambiar(interno);
-        stage.setTitle( (null==titulo) ? tituloApp : (tituloApp+" — "+titulo) );
+    /**
+     * Agrega una pantalla a ser vista luego de que se cierren las actuales.
+     * @param siguiente Pantalla nueva a agregar.
+     * @return
+     */
+    private boolean ponerSiguiente(Pantalla siguiente) {
+        return ponerAbajo(siguiente, null);
+    }
+
+    /**
+     * Agrega una pantalla abajo de la referencia.
+     * @param nueva Pantalla a agregar.
+     * @param referencia Pantalla que queda encima de la nueva.
+     * @return
+     */
+    private boolean ponerAbajo(Pantalla nueva, Pantalla referencia) {
+        Pantalla actual = raiz.ponerAbajo(nueva, referencia);
+        if(null != actual) {
+            actualizar();
+        }
+        return null != actual;
+    }
+
+    /**
+     * Sacá la pantalla actual, es decir la que está arriba.
+     * @return Si había una pantalla efectivamente.
+     */
+    public boolean sacarPantallaActual() {
+        Pantalla anterior = raiz.sacarActual();
+        if(null != anterior) {
+            actualizar();
+        }
+        return null != anterior;
+    }
+
+    /**
+     * Saca una pantalla, independientemente de la posición, si es que existe.
+     * @param pantalla Pantalla a remover.
+     */
+    public void sacar(Pantalla pantalla) {
+        if(raiz.sacar(pantalla)) {
+            actualizar();
+        };
+    }
+
+    private void actualizar() {
+        Pantalla actual = raiz.getActual();
+        if(null == actual) {
+            return;
+        }
+        setTituloPantalla(actual.getTitulo());
     }
 }

@@ -267,9 +267,14 @@ public class Mision implements DetallableSospechoso {
         observadores.remove(observadorMision);
     }
     public void notificarObservadores() {
-        for(IObservadorMision observador : observadores) {
+        // Hace una copia porque a veces modificado durante la llamada a los observadores:
+        IObservadorMision[] observadoresAntes = observadores.toArray(new IObservadorMision[0]);
+        for(IObservadorMision observador : observadoresAntes) {
             try {
-                observador.misionCambia(this);
+                // Debe verificar si sigue estando (ya que usa una copia):
+                if(observadores.contains(observador)) {
+                    observador.misionCambia(this);
+                }
             } catch(Exception ex) {
                 ex.printStackTrace();
             }

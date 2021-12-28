@@ -4,6 +4,7 @@ import edu.fiuba.algo3.componentes.Imagen.IconoVolver;
 import edu.fiuba.algo3.componentes.Imagen.Imagen;
 import edu.fiuba.algo3.componentes.Imagen.ImagenSeleccionable;
 import edu.fiuba.algo3.componentes.Libro.Librito;
+import edu.fiuba.algo3.controlador.Juego.PantallaControlador;
 import edu.fiuba.algo3.controlador.Orden.ExpedienteControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
@@ -68,7 +69,7 @@ public class Expediente extends Pantalla {
     setCalendario(mision.getCalendario());
     setRelojVisible(true);
     setRadio(juego.getRadio());
-    setControlador(controlador);
+    iniciarControlador(controlador);
   }
 
   private Label crearTituloHoja(String titulo) {
@@ -81,8 +82,10 @@ public class Expediente extends Pantalla {
     return (Label) agregar(tituloHoja, 0.400, 0.12);
   }
 
-  private void setControlador(ExpedienteControlador controlador) {
-    if (null == controlador) {
+  @Override
+  protected void iniciarControlador(PantallaControlador controlador) {
+    super.iniciarControlador(controlador);
+    if(null == controlador) {
       return;
     }
     observadorAccionesProperty().bind(controlador.getObservadorLiberable());
@@ -94,5 +97,10 @@ public class Expediente extends Pantalla {
       orden.setOnMouseClicked(controlador::ordenClicked);
       orden.setOnKeyPressed(controlador::ordenKeyPressed);
     }
+  }
+
+  @Override
+  public String getTitulo() {
+    return "Elija un sospechoso para ver sus detalles";
   }
 }

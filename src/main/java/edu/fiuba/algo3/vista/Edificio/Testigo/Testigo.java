@@ -4,6 +4,7 @@ import edu.fiuba.algo3.componentes.Imagen.IconoEdificios;
 import edu.fiuba.algo3.componentes.Imagen.Imagen;
 import edu.fiuba.algo3.componentes.Libro.Librito;
 import edu.fiuba.algo3.controlador.Edificio.Testigo.TestigoControlador;
+import edu.fiuba.algo3.controlador.Juego.PantallaControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.vista.Juego.Pantalla;
@@ -28,11 +29,13 @@ public class Testigo extends Pantalla {
     private final Librito librito;
     private final IconoEdificios edificios;
     private final IconoOrden orden;
+    private final String testigo;
 
     public Testigo(Juego juego, Mision mision,
                    String testigo, String testimonio,
                    TestigoControlador controlador) {
         super(getFondo(testigo));
+        this.testigo = testigo;
 
         Label nombreTestigo = new Label(testigo);
         nombreTestigo.setAlignment(Pos.CENTER);
@@ -62,11 +65,13 @@ public class Testigo extends Pantalla {
         setCalendario(mision.getCalendario());
         setRadio(juego.getRadio());
         setRelojVisible(true);
-        setControlador(controlador);
+        iniciarControlador(controlador);
     }
 
-    private void setControlador(TestigoControlador controlador) {
-        if (null == controlador) {
+    @Override
+    protected void iniciarControlador(PantallaControlador controlador) {
+        super.iniciarControlador(controlador);
+        if(null == controlador) {
             return;
         }
         observadorAccionesProperty().bind(controlador.getObservadorLiberable());
@@ -79,6 +84,12 @@ public class Testigo extends Pantalla {
     }
 
     private static Image getFondo(String testigo) {
-        return fondos[testigo.hashCode()% fondos.length];
+        int numero = Math.abs(testigo.hashCode());
+        return fondos[numero % fondos.length];
+    }
+
+    @Override
+    public String getTitulo() {
+        return "Testimonio de "+testigo;
     }
 }

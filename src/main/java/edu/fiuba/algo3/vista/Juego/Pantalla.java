@@ -6,6 +6,7 @@ import edu.fiuba.algo3.componentes.RelativoAImagen.RelativoAImagen;
 import edu.fiuba.algo3.componentes.bindings.ConstructorLazyConVisible;
 import edu.fiuba.algo3.componentes.bindings.Point2DBindingXY;
 import edu.fiuba.algo3.componentes.bindings.SimplePoint2DBinding;
+import edu.fiuba.algo3.controlador.Juego.PantallaControlador;
 import edu.fiuba.algo3.controlador.Radio.RadioControlador;
 import edu.fiuba.algo3.modelo.Juego.Calendario;
 import edu.fiuba.algo3.modelo.Juego.IObservadorAcciones;
@@ -38,6 +39,10 @@ public class Pantalla extends RelativoAImagen {
     public Pantalla(String path) {
         super(path);
         inicializar();
+    }
+
+    protected void iniciarControlador(PantallaControlador controlador) {
+        controlador.agregarLiberador(this);
     }
 
     private void inicializar() {
@@ -202,5 +207,13 @@ public class Pantalla extends RelativoAImagen {
             Alert alert = new Alert(Alert.AlertType.WARNING, "Error al crear la radio, es posible que la escuche pero no pueda controlarla.", ButtonType.OK);
             alert.showAndWait();
         }
+    }
+
+    /**
+     * Obtiene el título de la pantalla.
+     * @return Un texto válido de la pantalla, o null si no fue definido.
+     */
+    public String getTitulo() {
+        return null;
     }
 }

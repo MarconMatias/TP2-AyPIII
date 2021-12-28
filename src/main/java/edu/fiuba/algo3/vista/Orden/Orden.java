@@ -2,6 +2,7 @@ package edu.fiuba.algo3.vista.Orden;
 
 import edu.fiuba.algo3.componentes.Imagen.Imagen;
 import edu.fiuba.algo3.componentes.Libro.Librito;
+import edu.fiuba.algo3.controlador.Juego.PantallaControlador;
 import edu.fiuba.algo3.controlador.Orden.DetallesControlador;
 import edu.fiuba.algo3.controlador.Orden.OrdenControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
@@ -90,7 +91,7 @@ public class Orden extends Pantalla {
         setCalendario(mision.getCalendario());
         setRelojVisible(true);
         setRadio(juego.getRadio());
-        setControlador(controlador);
+        iniciarControlador(controlador);
     }
 
     private Label crearTituloHoja(String titulo) {
@@ -111,13 +112,22 @@ public class Orden extends Pantalla {
         return "Emitida para\n"+emitidaPara;
     }
 
-    private void setControlador(OrdenControlador controlador) {
-        if (null == controlador) {
+    @Override
+    protected void iniciarControlador(PantallaControlador controlador) {
+        super.iniciarControlador(controlador);
+        if(null == controlador) {
             return;
         }
         observadorAccionesProperty().bind(controlador.getObservadorLiberable());
         librito.setOnMouseClicked(controlador::libritoClicked);
         librito.setOnKeyPressed(controlador::libritoKeyPressed);
-        botonEmitir.setOnAction(controlador::emitir);
+        if(controlador instanceof OrdenControlador) {
+            botonEmitir.setOnAction(((OrdenControlador) controlador)::emitir);
+        }
+    }
+
+    @Override
+    public String getTitulo() {
+        return "Complete detalles para obtener Orden de arresto";
     }
 }

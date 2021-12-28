@@ -2,6 +2,7 @@ package edu.fiuba.algo3.vista.Policia;
 
 import edu.fiuba.algo3.componentes.Cuaderno.Cuaderno;
 import edu.fiuba.algo3.componentes.Imagen.Tarjetas;
+import edu.fiuba.algo3.controlador.Juego.PantallaControlador;
 import edu.fiuba.algo3.controlador.Policia.PoliciaControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Policia.Policia;
@@ -58,31 +59,42 @@ public class Policias extends Cuaderno {
 
         setTarjetasVisible(true);
         setRadio(juego.getRadio());
-        setControlador(controlador);
+        iniciarControlador(controlador);
     }
 
-    public void setControlador(PoliciaControlador controlador) {
-        if (null == controlador) {
+    @Override
+    protected void iniciarControlador(PantallaControlador controlador) {
+        super.iniciarControlador(controlador);
+        if(null == controlador) {
             return;
         }
 
-        botonNuevo.setOnMouseClicked(controlador::botonNuevoClicked);
-        botonNuevo.setOnKeyPressed(controlador::botonNuevoKeyPressed);
-        listaPolicias.setOnMouseClicked(ev -> {
-            Policia policiaSeleccionado = listaPolicias.getSelectionModel().getSelectedItem();
-            controlador.listaPoliciasClicked(ev, policiaSeleccionado);
-        });
-        listaPolicias.setOnKeyPressed(ev -> {
-            Policia policiaSeleccionado = listaPolicias.getSelectionModel().getSelectedItem();
-            controlador.listaPoliciasKeyPressed(ev, policiaSeleccionado);
-        });
         Tarjetas tarjetas = getTarjetas();
         if(null != tarjetas) {
             tarjetas.setOnMouseClicked(controlador::tarjetasClicked);
             tarjetas.setOnKeyPressed(controlador::tarjetasKeyPressed);
         }
-        controlador.bindNombreProperty(nombreNuevo.textProperty());
-        this.controlador = controlador;
+
+        if(!(controlador instanceof PoliciaControlador)) {
+            return;
+        }
+        PoliciaControlador policiaControlador = (PoliciaControlador) controlador;
+        botonNuevo.setOnMouseClicked(policiaControlador::botonNuevoClicked);
+        botonNuevo.setOnKeyPressed(policiaControlador::botonNuevoKeyPressed);
+        listaPolicias.setOnMouseClicked(ev -> {
+            Policia policiaSeleccionado = listaPolicias.getSelectionModel().getSelectedItem();
+            policiaControlador.listaPoliciasClicked(ev, policiaSeleccionado);
+        });
+        listaPolicias.setOnKeyPressed(ev -> {
+            Policia policiaSeleccionado = listaPolicias.getSelectionModel().getSelectedItem();
+            policiaControlador.listaPoliciasKeyPressed(ev, policiaSeleccionado);
+        });
+        policiaControlador.bindNombreProperty(nombreNuevo.textProperty());
+        this.controlador = policiaControlador;
     }
 
+    @Override
+    public String getTitulo() {
+        return "Elija el agente para iniciar una misión";
+    }
 }

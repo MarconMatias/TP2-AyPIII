@@ -19,6 +19,7 @@ public class App extends Application {
     Juego juego = new Juego();
     Stage stage;
     RadioSonido radio;
+    private Splash splash;
 
     @Override
     public void start(Stage stage) {
@@ -37,7 +38,7 @@ public class App extends Application {
         stage.titleProperty().bind(tituloBinding);
 
         SplashControlador splashControlador = new SplashControlador(juego);
-        Splash splash = new Splash(juego, splashControlador);
+        splash = new Splash(juego, splashControlador);
         controlador = new ControlStage(stage, splash);
         splash.requestFocus();
         splash.setFocusTraversable(false);
@@ -67,7 +68,9 @@ public class App extends Application {
     }
 
     private void mostrarPolicias(Event event) {
-        controlador.abrirMenu(juego);
+        if(controlador.abrirMenu(juego)) {
+            controlador.sacar(splash);
+        }
     }
 
     public static void main(String[] args) {

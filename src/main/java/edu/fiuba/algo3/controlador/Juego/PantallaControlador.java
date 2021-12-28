@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.Juego.IObservadorAcciones;
 import edu.fiuba.algo3.modelo.Juego.IObservadorMision;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
+import edu.fiuba.algo3.vista.Juego.Pantalla;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Alert;
@@ -66,11 +67,19 @@ public abstract class PantallaControlador {
     }
 
     /**
-     * Agrega un método a invocar cuando cambia de pantalla.
+     * Agrega un método a invocar cuando libera de pantalla.
      * @param liberador Método a invocar.
      */
-    protected void agregarLiberador(Runnable liberador) {
+    public void agregarLiberador(Runnable liberador) {
         liberadores.add(liberador);
+    }
+
+    /**
+     * Agrega un método a invocar cuando cambia de pantalla que libera la pantalla dada.
+     * @param pantalla Pantalla al liberar cuando se libere el controlador.
+     */
+    public void agregarLiberador(Pantalla pantalla) {
+        agregarLiberador(()->controlStage.sacar(pantalla));
     }
 
     /**
@@ -241,5 +250,21 @@ public abstract class PantallaControlador {
             ev.consume();
             liberar();
         }
+    }
+
+    public void fondoClicked(MouseEvent event) {
+        /** No hacer nada, sobrecargable. */
+    }
+
+    public void fondoKeyPressed(KeyEvent event) {
+        /** No hacer nada, sobrecargable. */
+    }
+
+    public void volverClicked(MouseEvent event) {
+        /** No hacer nada, sobrecargable. */
+    }
+
+    public void volverKeyPressed(KeyEvent event) {
+        /** No hacer nada, sobrecargable. */
     }
 }

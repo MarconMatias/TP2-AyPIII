@@ -5,6 +5,7 @@ import edu.fiuba.algo3.componentes.Libro.Librito;
 import edu.fiuba.algo3.componentes.Mapamundi.Mapamundi;
 import edu.fiuba.algo3.componentes.Trayecto.Trayecto;
 import edu.fiuba.algo3.componentes.bindings.AnguloDeDestinoBinding;
+import edu.fiuba.algo3.controlador.Juego.PantallaControlador;
 import edu.fiuba.algo3.controlador.Mapa.MapaDestinosControlador;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Juego.Juego;
@@ -63,7 +64,7 @@ public class MapaDestinos extends Mapamundi {
         setCalendario(mision.getCalendario());
         setRelojVisible(true);
         setRadio(juego.getRadio());
-        setControlador(controlador);
+        iniciarControlador(controlador);
         destinos.get(0).requestFocus();
     }
 
@@ -105,15 +106,24 @@ public class MapaDestinos extends Mapamundi {
         }
     }
 
-    private void setControlador(MapaDestinosControlador controlador) {
+    @Override
+    protected void iniciarControlador(PantallaControlador controlador) {
+        super.iniciarControlador(controlador);
         if(null == controlador) {
             return;
         }
         observadorAccionesProperty().bind(controlador.getObservadorLiberable());
         librito.setOnMouseClicked(controlador::libritoClicked);
         librito.setOnKeyPressed(controlador::libritoKeyPressed);
-        destinoElegido.addListener(ev->controlador.destinoElegido(destinoElegido.get()));
+        if(controlador instanceof MapaDestinosControlador) {
+            destinoElegido.addListener(
+                    ev -> ((MapaDestinosControlador) controlador)
+                            .destinoElegido(destinoElegido.get()));
+        }
     }
 
-
+    @Override
+    public String getTitulo() {
+        return "Elija una ciudad de destino para viajar a ella";
+    }
 }

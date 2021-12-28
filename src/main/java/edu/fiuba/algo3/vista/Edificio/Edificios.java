@@ -4,6 +4,7 @@ import edu.fiuba.algo3.componentes.Imagen.Destino;
 import edu.fiuba.algo3.componentes.Libro.Librito;
 import edu.fiuba.algo3.componentes.Trayecto.Trayecto;
 import edu.fiuba.algo3.controlador.Edificio.EdificiosControlador;
+import edu.fiuba.algo3.controlador.Juego.PantallaControlador;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
@@ -30,7 +31,6 @@ public class Edificios extends Pantalla {
     private final DoubleProperty progreso = new SimpleDoubleProperty(0d);
 
     public Edificios(Juego juego, Mision mision, EdificiosControlador controlador) {
-        /** \todo Poner nombres de imágenes correctas cuando estén disponibles. **/
         super("src/main/java/edu/fiuba/algo3/recursos/Edificio/PlanoEdificios.jpeg");
 
         librito = new Librito(640);
@@ -50,9 +50,8 @@ public class Edificios extends Pantalla {
         setCalendario(mision.getCalendario());
         setRelojVisible(true);
         setRadio(juego.getRadio());
-        setControlador(controlador);
+        iniciarControlador(controlador);
         destinos.get(0).requestFocus();
-
     }
 
     private String getNombreDestino() {
@@ -93,13 +92,24 @@ public class Edificios extends Pantalla {
         }
     }
 
-    private void setControlador(EdificiosControlador controlador) {
+    @Override
+    protected void iniciarControlador(PantallaControlador controlador) {
+        super.iniciarControlador(controlador);
         if(null == controlador) {
             return;
         }
         observadorAccionesProperty().bind(controlador.getObservadorLiberable());
         librito.setOnMouseClicked(controlador::libritoClicked);
         librito.setOnKeyPressed(controlador::libritoKeyPressed);
-        destinoElegido.addListener(ev->controlador.destinoElegido(destinoElegido.get()));
+        if(controlador instanceof EdificiosControlador) {
+            destinoElegido.addListener(
+                    ev -> ((EdificiosControlador) controlador)
+                            .destinoElegido(destinoElegido.get()));
+        }
+    }
+
+    @Override
+    public String getTitulo() {
+        return "Elija edificios para obtener testimonios";
     }
 }

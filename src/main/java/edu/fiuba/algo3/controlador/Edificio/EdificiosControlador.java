@@ -25,7 +25,7 @@ public class EdificiosControlador extends PantallaControlador {
         String testimonio = mision.visitarEdificio(edificio);
         String testigo = mision.getTestigo(edificio);
         System.out.println(testigo + " dice: "+testimonio);
-        if(controlStage.abrirTestigo(juego,mision,testigo,testimonio))
+        if(mision.fueFinalizada() || controlStage.abrirTestigo(juego,mision,testigo,testimonio))
         {
             liberar();
         }

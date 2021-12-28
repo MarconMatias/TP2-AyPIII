@@ -7,6 +7,7 @@ import edu.fiuba.algo3.componentes.Imagen.Tarjetas;
 import edu.fiuba.algo3.componentes.Libro.Libro;
 import edu.fiuba.algo3.componentes.bindings.SimplePoint2DBinding;
 import edu.fiuba.algo3.controlador.Ciudad.LibroCiudadControlador;
+import edu.fiuba.algo3.controlador.Juego.PantallaControlador;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
@@ -78,7 +79,7 @@ public class LibroCiudad extends Libro {
 
     public LibroCiudad(Juego juego, Mision mision, LibroCiudadControlador controlador) {
         this(juego, mision);
-        setControlador(controlador);
+        iniciarControlador(controlador);
     }
 
     private void ponerVolver() {
@@ -86,7 +87,9 @@ public class LibroCiudad extends Libro {
         agregar(volver, 0.9, 0.1);
     }
 
-    private void setControlador(LibroCiudadControlador controlador) {
+    @Override
+    protected void iniciarControlador(PantallaControlador controlador) {
+        super.iniciarControlador(controlador);
         if(null == controlador) {
             return;
         }
@@ -112,5 +115,10 @@ public class LibroCiudad extends Libro {
             tarjetas.setOnMouseClicked(controlador::tarjetasClicked);
             tarjetas.setOnKeyPressed(controlador::tarjetasKeyPressed);
         }
+    }
+
+    @Override
+    public String getTitulo() {
+        return "Elija mapa de ciudades, plano de edificios u orden de arresto";
     }
 }
