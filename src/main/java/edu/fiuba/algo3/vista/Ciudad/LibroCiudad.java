@@ -65,7 +65,7 @@ public class LibroCiudad extends Libro {
         edificios = new IconoEdificios(640);
         agregar(edificios, 0.08, 0.5);
 
-        orden = new IconoOrden(640);
+        orden = new IconoOrden(480);
         agregar(orden, 0.08, 0.6);
 
         setCalendario(mision.getCalendario());
