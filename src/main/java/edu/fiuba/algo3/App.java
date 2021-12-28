@@ -20,6 +20,7 @@ public class App extends Application {
     Stage stage;
     RadioSonido radio;
     private Splash splash;
+    ControlStage controlador;
 
     @Override
     public void start(Stage stage) {
@@ -28,7 +29,6 @@ public class App extends Application {
         startSplash(stage);
     }
 
-    ControlStage controlador;
 
     private void startSplash(Stage stage) {
         FakeService lector = new FakeService(5);
@@ -39,7 +39,7 @@ public class App extends Application {
 
         SplashControlador splashControlador = new SplashControlador(juego);
         splash = new Splash(juego, splashControlador);
-        controlador = new ControlStage(stage, splash);
+        controlador = new ControlStage(stage, juego, splash);
         splash.requestFocus();
         splash.setFocusTraversable(false);
         //root.setFocusTraversable(false);
@@ -68,7 +68,7 @@ public class App extends Application {
     }
 
     private void mostrarPolicias(Event event) {
-        if(controlador.abrirMenu(juego)) {
+        if(controlador.abrirMenu()) {
             controlador.sacar(splash);
         }
     }

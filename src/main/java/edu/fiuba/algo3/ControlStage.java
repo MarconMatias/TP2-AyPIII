@@ -47,10 +47,12 @@ public class ControlStage {
     private final Scene scene;
     private final Scale escalado = new Scale();
     private final DoubleProperty escala = new SimpleDoubleProperty(1.0);
-    private final DoubleProperty ancho = new SimpleDoubleProperty(1024);
+    private final Juego juego;
+    private Mision mision;
 
-    public ControlStage(Stage stage, Pantalla interno) {
+    public ControlStage(Stage stage, Juego juego, Pantalla interno) {
         this.stage = stage;
+        this.juego = juego;
         this.raiz = new GrupoInterno(interno);
         this.scene = new Scene(raiz);
         final String pathEstilo = "src/main/java/edu/fiuba/algo3/recursos/estilos.css";
@@ -223,7 +225,7 @@ public class ControlStage {
         }
     }
 
-    public boolean abrirMenu(Juego juego) {
+    public boolean abrirMenu() {
         return abrirMenu(juego, new PoliciaControlador(juego, this));
     }
 
@@ -231,12 +233,14 @@ public class ControlStage {
     public void abrirDerrota(Juego juego, Mision mision) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION, mision.getMensajeMision(), ButtonType.OK);
         alert.showAndWait();
-        abrirMenu(juego);
+        this.mision = null;
+        abrirMenu();
     }
     public void abrirVictoria(Juego juego, Mision mision) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION, mision.getMensajeMision(), ButtonType.OK);
         alert.showAndWait();
-        abrirMenu(juego);
+        this.mision = null;
+        abrirMenu();
     }
 
     /**************************************************************************/

@@ -45,6 +45,6 @@ public class LibroCiudadControlador extends PantallaControlador {
     public boolean cancelarMisionConfirmando() {
         Alert alerta = new Alert(Alert.AlertType.CONFIRMATION, "¿Desea cancelar la misión actual?", ButtonType.YES, ButtonType.NO);
         ButtonType respuesta = alerta.showAndWait().orElse(ButtonType.NO);
-        return respuesta.equals(ButtonType.YES) && controlStage.abrirMenu(juego);
+        return respuesta.equals(ButtonType.YES) && controlStage.abrirMenu();
     }
 }

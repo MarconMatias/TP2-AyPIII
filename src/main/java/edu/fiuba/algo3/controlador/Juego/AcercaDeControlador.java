@@ -23,7 +23,7 @@ public class AcercaDeControlador extends PantallaControlador {
         if(ev.isConsumed()) {
             return;
         }
-        if(controlStage.abrirMenu(juego)) {
+        if(controlStage.abrirMenu()) {
             ev.consume();
             liberar();
         }
@@ -33,7 +33,7 @@ public class AcercaDeControlador extends PantallaControlador {
         if(ev.isConsumed() || (KeyCode.ENTER != ev.getCode())) {
             return;
         }
-        if(controlStage.abrirMenu(juego)) {
+        if(controlStage.abrirMenu()) {
             ev.consume();
             liberar();
         }
