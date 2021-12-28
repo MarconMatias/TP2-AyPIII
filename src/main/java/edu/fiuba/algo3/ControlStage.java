@@ -282,6 +282,7 @@ public class ControlStage {
         stage.show();
         stage.sizeToScene();
         setCentro(getCentroPantalla());
+        stage.setResizable(false);
     }
 
     public Scene getScene() {
