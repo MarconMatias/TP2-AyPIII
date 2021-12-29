@@ -11,4 +11,8 @@ public class DetallesControlador {
         this.juego = juego;
         this.mision = mision;
     }
+
+    public DetalleControlador crearDetalleControlador(String tipo, Mision mision) {
+        return new DetalleControlador(tipo, mision);
+    }
 }
