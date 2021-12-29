@@ -43,8 +43,6 @@ public class App extends Application {
         controlador = new ControlStage(stage, juego, splash);
         splash.requestFocus();
         splash.setFocusTraversable(false);
-        //root.setFocusTraversable(false);
-        //Rectangle2D scr = controlador.getDimensionPantalla();
         controlador.start();
         stage.sizeToScene();
         stage.centerOnScreen();
