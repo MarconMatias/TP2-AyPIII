@@ -139,7 +139,7 @@ public abstract class PantallaControlador {
         if(ev.isConsumed()) {
             return;
         }
-        if(controlStage.abrirLibroCiudad(juego, mision)) {
+        if(controlStage.abrirLibroCiudad()) {
             ev.consume();
             liberar();
         }
@@ -154,7 +154,7 @@ public abstract class PantallaControlador {
         if(ev.isConsumed() || (KeyCode.ENTER != ev.getCode())) {
             return;
         }
-        if(controlStage.abrirLibroCiudad(juego, mision)) {
+        if(controlStage.abrirLibroCiudad()) {
             ev.consume();
             liberar();
         }

@@ -151,8 +151,9 @@ public class ControlStage {
 
     /**************************************************************************/
 
-    public boolean abrirLibroCiudad(Juego juego, Mision mision, LibroCiudadControlador controlador) {
+    public boolean abrirLibroCiudad() {
         try {
+            LibroCiudadControlador controlador = new LibroCiudadControlador(juego, mision, this);
             LibroCiudad libro = new LibroCiudad(juego, mision, controlador);
             ponerSiguiente(libro);
             return true;
@@ -162,10 +163,6 @@ public class ControlStage {
             alert.showAndWait();
             return false;
         }
-    }
-
-    public boolean abrirLibroCiudad(Juego juego, Mision mision) {
-        return abrirLibroCiudad(juego, mision, new LibroCiudadControlador(juego, mision, this));
     }
 
     /**************************************************************************/
@@ -197,7 +194,7 @@ public class ControlStage {
     public boolean abrirMisionNueva(Policia policia) {
         try {
             mision = juego.nuevaMision(policia);
-            return abrirLibroCiudad(juego, mision);
+            return abrirLibroCiudad();
         } catch (Exception ex) {
             ex.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR,
