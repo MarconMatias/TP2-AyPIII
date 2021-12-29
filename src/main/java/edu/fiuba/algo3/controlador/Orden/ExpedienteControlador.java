@@ -30,7 +30,7 @@ public class ExpedienteControlador extends PantallaControlador {
     if(ev.isConsumed()) {
       return;
     }
-    if(controlStage.abrirOrden(juego, mision)) {
+    if(controlStage.abrirOrden()) {
       ev.consume();
       liberar();
     }
@@ -40,14 +40,14 @@ public class ExpedienteControlador extends PantallaControlador {
     if(ev.isConsumed() || (KeyCode.ENTER != ev.getCode())) {
       return;
     }
-    if(controlStage.abrirOrden(juego, mision)) {
+    if(controlStage.abrirOrden()) {
       ev.consume();
       liberar();
     }
   }
 
   public void sospechosoElegido(Ladron elegido) {
-    if(controlStage.abrirExpediente(juego, mision, elegido))
+    if(controlStage.abrirExpediente(elegido))
     {
       liberar();
     }

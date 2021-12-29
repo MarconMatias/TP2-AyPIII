@@ -24,6 +24,6 @@ public class ControladorAcciones implements IObservadorAcciones {
         if(mision.fueFinalizada()) {
             return;
         }
-        controlStage.mostrarAccion(juego, mision, accion);
+        controlStage.mostrarAccion(mision, accion);
     }
 }

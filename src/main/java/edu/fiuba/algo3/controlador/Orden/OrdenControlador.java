@@ -29,7 +29,7 @@ public class OrdenControlador extends PantallaControlador {
     }
 
     public void sospechosoElegido(Ladron elegido) {
-        if(controlStage.abrirExpediente(juego, mision, elegido))
+        if(controlStage.abrirExpediente(elegido))
         {
             liberar();
         }

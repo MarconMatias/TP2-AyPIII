@@ -63,7 +63,7 @@ public abstract class PantallaControlador {
      * @return Si cambió la pantalla exitosamente.
      */
     protected boolean abrirAcercaDe(InputEvent ev) {
-        return controlStage.abrirAcercaDe(juego, mision);
+        return controlStage.abrirAcercaDe();
     }
 
     /**
@@ -91,7 +91,7 @@ public abstract class PantallaControlador {
         if (ev.isConsumed()) {
             return;
         }
-        if(controlStage.abrirEdificios(juego, mision)) {
+        if(controlStage.abrirEdificios()) {
             ev.consume();
             liberar();
         }
@@ -106,7 +106,7 @@ public abstract class PantallaControlador {
         if (ev.isConsumed() || (KeyCode.ENTER != ev.getCode())) {
             return;
         }
-        if(controlStage.abrirEdificios(juego, mision)) {
+        if(controlStage.abrirEdificios()) {
             ev.consume();
             liberar();
         }
@@ -169,7 +169,7 @@ public abstract class PantallaControlador {
         if (ev.isConsumed()) {
             return;
         }
-        if(controlStage.abrirMapaCiudades(juego, mision)) {
+        if(controlStage.abrirMapaCiudades()) {
             ev.consume();
             liberar();
         }
@@ -184,7 +184,7 @@ public abstract class PantallaControlador {
         if (ev.isConsumed() || (KeyCode.ENTER != ev.getCode())) {
             return;
         }
-        if(controlStage.abrirMapaCiudades(juego, mision)) {
+        if(controlStage.abrirMapaCiudades()) {
             ev.consume();
             liberar();
         }
@@ -199,7 +199,7 @@ public abstract class PantallaControlador {
         if(ev.isConsumed()) {
             return;
         }
-        if(controlStage.abrirOrden(juego, mision)) {
+        if(controlStage.abrirOrden()) {
             ev.consume();
             liberar();
         }
@@ -214,7 +214,7 @@ public abstract class PantallaControlador {
         if(ev.isConsumed() || (KeyCode.ENTER != ev.getCode())) {
             return;
         }
-        if(controlStage.abrirOrden(juego, mision)) {
+        if(controlStage.abrirOrden()) {
             ev.consume();
             liberar();
         }

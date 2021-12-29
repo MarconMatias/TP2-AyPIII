@@ -77,8 +77,9 @@ public class ControlStage {
     /**************************************************************************/
     /**************************************************************************/
 
-    public boolean abrirAcercaDe(Juego juego, Mision mision, AcercaDeControlador controlador) {
+    public boolean abrirAcercaDe() {
         try {
+            AcercaDeControlador controlador = new AcercaDeControlador(juego, mision, this);
             AcercaDe nuevaVista = new AcercaDe(juego, mision, controlador);
             ponerSiguiente(nuevaVista);
             return true;
@@ -89,14 +90,11 @@ public class ControlStage {
             return false;
         }
     }
-
-    public boolean abrirAcercaDe(Juego juego, Mision mision) {
-        return abrirAcercaDe(juego, mision, new AcercaDeControlador(juego, mision, this));
-    }
     /**************************************************************************/
 
-    public boolean abrirOrden(Juego juego, Mision mision, OrdenControlador controlador) {
+    public boolean abrirOrden() {
         try {
+            OrdenControlador controlador = new OrdenControlador(juego, mision, this);
             Orden nuevaVista = new Orden(juego, mision, controlador);
             ponerSiguiente(nuevaVista);
             return true;
@@ -107,14 +105,12 @@ public class ControlStage {
             return false;
         }
     }
-    public boolean abrirOrden(Juego juego, Mision mision) {
-        return abrirOrden(juego,mision,new OrdenControlador(juego, mision, this));
-    }
 
     /**************************************************************************/
 
-    public boolean abrirEdificios(Juego juego, Mision mision, EdificiosControlador controlador) {
+    public boolean abrirEdificios() {
         try {
+            EdificiosControlador controlador = new EdificiosControlador(juego, mision, this);
             Edificios nuevaVista = new Edificios(juego, mision, controlador);
             ponerSiguiente(nuevaVista);
             return true;
@@ -126,14 +122,11 @@ public class ControlStage {
         }
     }
 
-    public boolean abrirEdificios(Juego juego, Mision mision) {
-        return abrirEdificios(juego, mision, new EdificiosControlador(juego, mision, this));
-    }
-
     /**************************************************************************/
 
-    private boolean abrirExpediente(Juego juego, Mision mision, Ladron ladron, ExpedienteControlador controlador) {
+    public boolean abrirExpediente(Ladron ladron) {
         try {
+            ExpedienteControlador controlador = new ExpedienteControlador(juego, mision, this);
             Expediente nuevaVista = new Expediente(juego, mision, ladron, controlador);
             ponerSiguiente(nuevaVista);
             return true;
@@ -143,10 +136,6 @@ public class ControlStage {
             alert.showAndWait();
             return false;
         }
-    }
-
-    public boolean abrirExpediente(Juego juego, Mision mision, Ladron ladron) {
-        return abrirExpediente(juego, mision, ladron, new ExpedienteControlador(juego, mision, this));
     }
 
     /**************************************************************************/
@@ -167,8 +156,9 @@ public class ControlStage {
 
     /**************************************************************************/
 
-    public boolean abrirMapaCiudades(Juego juego, Mision mision, MapaDestinosControlador controlador) {
+    public boolean abrirMapaCiudades() {
         try {
+            MapaDestinosControlador controlador = new MapaDestinosControlador(juego, mision, this);
             MapaDestinos nuevaVista = new MapaDestinos(juego, mision, controlador);
             ponerSiguiente(nuevaVista);
             return true;
@@ -178,10 +168,6 @@ public class ControlStage {
             alert.showAndWait();
             return false;
         }
-    }
-    public boolean abrirMapaCiudades(Juego juego, Mision mision) {
-        MapaDestinosControlador controlador = new MapaDestinosControlador(juego, mision, this);
-        return abrirMapaCiudades(juego, mision, controlador);
     }
 
     /**************************************************************************/
@@ -241,10 +227,10 @@ public class ControlStage {
     }
 
     /**************************************************************************/
-    public boolean abrirTestigo(Juego juego, Mision mision,
-                             String testigo, String testimonio,
-                             TestigoControlador controlador) {
+
+    public boolean abrirTestigo(String testigo, String testimonio) {
         try {
+            TestigoControlador controlador = new TestigoControlador(juego, mision, this);
             Pantalla nuevaVista = new Testigo(juego, mision, testigo, testimonio, controlador);
             ponerSiguiente(nuevaVista);
             return true;
@@ -257,31 +243,24 @@ public class ControlStage {
             return false;
         }
     }
-    public boolean abrirTestigo(Juego juego, Mision mision, String testigo, String testimonio) {
-        return abrirTestigo(juego,mision,testigo,testimonio,
-                new TestigoControlador(juego, mision, this));
-    }
     /**************************************************************************/
-    public void mostrarAccion(Juego juego, Mision mision, IAccion accion, PantallaAccionControlador controlador) {
+
+    public void mostrarAccion(Mision mision, IAccion accion) {
         try {
+            if(mision != this.mision) {
+                return;
+            }
+            PantallaAccionControlador controlador = new PantallaAccionControlador(juego,mision,this);
             Pantalla pantalla = new PantallaAccion(juego, mision, accion, controlador);
             raiz.ponerArriba(pantalla);
             setTituloPantalla(pantalla.getTitulo());
         } catch (Exception ex) {
             ex.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Error al accion: " + ex, ButtonType.OK);
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Error al mostrar acción: " + ex, ButtonType.OK);
             alert.showAndWait();
             alert = new Alert(Alert.AlertType.INFORMATION, accion.getNombreAccion(), ButtonType.OK);
             alert.showAndWait();
         }
-    }
-
-    private void setTituloPantalla(String titulo) {
-        stage.setTitle( (null==titulo) ? tituloApp : tituloApp + " — " + titulo );
-    }
-
-    public void mostrarAccion(Juego juego, Mision mision, IAccion accion) {
-        mostrarAccion(juego,mision,accion,new PantallaAccionControlador(juego,mision,this));
     }
     /**************************************************************************/
     /**************************************************************************/
@@ -355,7 +334,7 @@ public class ControlStage {
     private boolean ponerAbajo(Pantalla nueva, Pantalla referencia) {
         Pantalla actual = raiz.ponerAbajo(nueva, referencia);
         if(null != actual) {
-            actualizar();
+            actualizarPantalla();
         }
         return null != actual;
     }
@@ -367,7 +346,7 @@ public class ControlStage {
     public boolean sacarPantallaActual() {
         Pantalla anterior = raiz.sacarActual();
         if(null != anterior) {
-            actualizar();
+            actualizarPantalla();
         }
         return null != anterior;
     }
@@ -378,11 +357,15 @@ public class ControlStage {
      */
     public void sacar(Pantalla pantalla) {
         if(raiz.sacar(pantalla)) {
-            actualizar();
+            actualizarPantalla();
         };
     }
 
-    private void actualizar() {
+    private void setTituloPantalla(String titulo) {
+        stage.setTitle( (null==titulo) ? tituloApp : tituloApp + " — " + titulo );
+    }
+
+    private void actualizarPantalla() {
         Pantalla actual = raiz.getActual();
         if(null == actual) {
             return;
