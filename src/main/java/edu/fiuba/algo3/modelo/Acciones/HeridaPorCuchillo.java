@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo.Acciones;
 
-import edu.fiuba.algo3.modelo.Ciudad.EstadoVisitas.IEstado;
 import edu.fiuba.algo3.modelo.Juego.Calendario;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 
@@ -12,6 +11,12 @@ public class HeridaPorCuchillo implements IAccion {
     @Override
     public String getNombreAccion() {
         return "Herido por cuchillo";
+    }
+
+    @Override
+    public String getTextoAccion()
+    {
+        return "Te achuchillaron, necesitás recuperarte…";
     }
 
     @Override

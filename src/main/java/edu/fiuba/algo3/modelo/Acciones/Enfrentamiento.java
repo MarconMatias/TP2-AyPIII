@@ -18,6 +18,12 @@ public class Enfrentamiento implements IAccion {
     }
 
     @Override
+    public String getTextoAccion()
+    {
+        return "Te enfrentás a alguien…";
+    }
+
+    @Override
     public void avanzarCalendario(Calendario calendario) {
         // No avanza el calendario
     }

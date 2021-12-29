@@ -11,6 +11,12 @@ public class HeridaPorDisparo implements IAccion {
     }
 
     @Override
+    public String getTextoAccion()
+    {
+        return "Te dispararon, necesitás recuperarte…";
+    }
+
+    @Override
     public void avanzarCalendario(Calendario calendario) {
         calendario.avanzarHoras(4);
     }

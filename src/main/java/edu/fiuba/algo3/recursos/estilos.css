@@ -14,6 +14,15 @@
     -fx-wrap-text: true;
 }
 
+.etiquetaNombreAccion .text {
+    -fx-effect: dropshadow(gaussian, #000, 10, 0.5, 8,8);
+    -fx-fill: #fff;
+    -fx-stroke: #40202060;
+    -fx-stroke-width: 16;
+    -fx-font: 120 Arial;
+    -fx-wrap-text: true;
+}
+
 .etiquetaNombreTestigo .text {
     -fx-effect: dropshadow(gaussian, #000, 10, 0.5, 8,8);
     -fx-fill: #fff;
@@ -46,6 +55,15 @@
 .listaSospechosos:focused {
     -fx-border-color: blue;
     -fx-text-fill: blue;
+}
+
+.textoContinuarAccion .text {
+    -fx-effect: dropshadow(gaussian, #000, 10, 0.5, 8,8);
+    -fx-fill: #fff;
+    -fx-stroke: #40202060;
+    -fx-stroke-width: 16;
+    -fx-font: 100 Arial;
+    -fx-wrap-text: true;
 }
 
 .vistaDetallesOrden {

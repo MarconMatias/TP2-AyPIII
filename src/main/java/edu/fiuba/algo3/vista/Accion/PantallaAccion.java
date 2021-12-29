@@ -7,6 +7,8 @@ import edu.fiuba.algo3.modelo.Acciones.*;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.vista.Juego.Pantalla;
+import javafx.geometry.Pos;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 
 import java.util.Map;
@@ -24,6 +26,21 @@ public class PantallaAccion extends Pantalla {
     public PantallaAccion(Juego juego, Mision mision, IAccion accion, PantallaAccionControlador controlador) {
         super(fondoDeAccion(accion));
         this.accion = accion;
+
+        Label etiquetaNombre = new Label(accion.getTextoAccion());
+        etiquetaNombre.prefWidthProperty().bind(nuevoXRelativo(0.9));
+        etiquetaNombre.setAlignment(Pos.CENTER);
+        etiquetaNombre.setStyle("-fx-font: 120 Arial");
+        etiquetaNombre.getStyleClass().add("etiquetaNombreAccion");
+        agregar(etiquetaNombre, 0.5, 0.1);
+
+        Label textoContinuar = new Label("Hacé click o presioná una tecla para continuar…");
+        textoContinuar.prefWidthProperty().bind(nuevoXRelativo(0.9));
+        textoContinuar.setAlignment(Pos.CENTER);
+        textoContinuar.setStyle("-fx-font: 100 Arial");
+        textoContinuar.getStyleClass().add("textoContinuarAccion");
+        agregar(textoContinuar, 0.5, 0.9);
+
         setCalendario(mision.getCalendario());
         iniciarControlador(controlador);
     }

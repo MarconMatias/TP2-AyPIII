@@ -19,6 +19,12 @@ public class EmitirOrden implements IAccion {
     }
 
     @Override
+    public String getTextoAccion()
+    {
+        return "Su orden de arresto está emitiéndose…";
+    }
+
+    @Override
     public void avanzarCalendario(Calendario calendario) {
         calendario.avanzarHoras(orden.getHorasDemora());
     }

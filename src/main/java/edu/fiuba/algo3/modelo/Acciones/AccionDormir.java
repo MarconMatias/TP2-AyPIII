@@ -6,7 +6,13 @@ import edu.fiuba.algo3.modelo.Policia.Policia;
 public class AccionDormir implements IAccion {
     @Override
     public String getNombreAccion() {
-        return "Durmiendo";
+        return "Dormir";
+    }
+
+    @Override
+    public String getTextoAccion()
+    {
+        return "Estás durmiendo…";
     }
 
     @Override
