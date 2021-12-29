@@ -78,6 +78,7 @@ public class Policia {
      */
     public void iniciarMision(Calendario calendario) {
         this.calendario = calendario;
+        this.ordenDeArresto.set(new SinOrden("No se emitió nunca una orden de arresto."));
     }
 
     public int viajar(int distancia) {
