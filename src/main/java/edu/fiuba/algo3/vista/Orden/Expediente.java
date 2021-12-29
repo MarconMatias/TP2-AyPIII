@@ -14,23 +14,16 @@ public class Expediente extends Documentos {
   private final Mision mision;
   private final ExpedienteControlador controlador;
   private final ImagenSeleccionable orden;
-  private final Detalles detallesPane;
 
   public Expediente(Juego juego, Mision mision, Ladron ladron, ExpedienteControlador controlador) {
-    super(juego, mision, controlador);
+    super(juego, mision, ladron, controlador);
 
     this.juego = juego;
     this.mision = mision;
     this.controlador = controlador;
 
     tituloHoja.setText(ladron.getNombre());
-
-    Sospechosos sospechosos = new Sospechosos(juego, mision, controlador.crearControladorSospechosos());
-    agregar(sospechosos, 0.81, 0.535);
-
-    detallesPane = new Detalles(juego, mision, ladron, null);
     detallesPane.setTitulo("Expediente:");
-    agregar(detallesPane, 0.4, 0.4);
 
     orden = new IconoVolver(640);
     agregar(orden, 0.75, 0.9);

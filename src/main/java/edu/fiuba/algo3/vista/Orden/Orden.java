@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.vista.Orden;
 
 import edu.fiuba.algo3.controlador.Juego.PantallaControlador;
-import edu.fiuba.algo3.controlador.Orden.DetallesControlador;
 import edu.fiuba.algo3.controlador.Orden.OrdenControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
@@ -20,13 +19,14 @@ public class Orden extends Documentos {
     private final Mision mision;
     private final OrdenControlador controlador;
     private final Button botonEmitir;
-    private final Detalles detallesPane;
 
     public Orden(Juego juego, Mision mision, OrdenControlador controlador) {
-        super(juego, mision, controlador);
+        super(juego, mision, mision, controlador);
         this.juego = juego;
         this.mision = mision;
         this.controlador = controlador;
+
+        detallesPane.setTitulo("Información recolectada:");
 
         Label labelEstado = new Label();
         StringBinding bindingEstado = createStringBinding(this::textoEstado, mision.getOrden());
@@ -54,10 +54,6 @@ public class Orden extends Documentos {
                 mision.getSospechososObservables());
         botonEmitir.visibleProperty().bind(bindingEmitirVisible);
         agregar(botonEmitir, 0.81, 0.5);
-
-        detallesPane = new Detalles(juego, mision, mision, new DetallesControlador(juego, mision));
-        detallesPane.setTitulo("Información recolectada:");
-        agregar(detallesPane, 0.4, 0.4);
 
         setCalendario(mision.getCalendario());
         setRelojVisible(true);

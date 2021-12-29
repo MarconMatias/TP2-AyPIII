@@ -22,6 +22,10 @@ public class DocumentosControlador extends PantallaControlador {
         this.controlStage = controlStage;
     }
 
+    public DetallesControlador crearControladorDetalles() {
+        return new DetallesControlador(juego, mision);
+    }
+
     public SospechososControlador crearControladorSospechosos() {
         return new SospechososControlador(juego,mision, this::sospechosoElegido);
     }
