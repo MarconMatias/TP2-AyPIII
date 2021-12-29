@@ -34,7 +34,10 @@ public class Detalles extends ScrollPane {
         vBox.getChildren().add(titulo);
 
         for(String tipo : mision.obtenerTiposDeDetalles()) {
-            Detalle detalle = new Detalle(tipo, mision, detallable, new DetalleControlador(tipo, mision));
+            DetalleControlador detalleControlador = (null == controlador) ?
+                    null
+                    : controlador.crearDetalleControlador(tipo, mision);
+            Detalle detalle = new Detalle(tipo, mision, detallable, detalleControlador);
             vBox.getChildren().add(detalle);
             detalles.add(detalle);
         }
