@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.vista.Orden;
 
-import edu.fiuba.algo3.componentes.Libro.Librito;
 import edu.fiuba.algo3.controlador.Juego.PantallaControlador;
 import edu.fiuba.algo3.controlador.Orden.DetallesControlador;
 import edu.fiuba.algo3.controlador.Orden.OrdenControlador;
@@ -11,44 +10,23 @@ import javafx.beans.binding.StringBinding;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.paint.Color;
 import javafx.scene.transform.Rotate;
 
-import static javafx.beans.binding.Bindings.*;
+import static javafx.beans.binding.Bindings.createBooleanBinding;
+import static javafx.beans.binding.Bindings.createStringBinding;
 
 public class Orden extends Documentos {
     private final Juego juego;
     private final Mision mision;
     private final OrdenControlador controlador;
-    private final Librito librito;
     private final Button botonEmitir;
     private final Detalles detallesPane;
-    protected final Label tituloHoja;
-    protected final Sospechosos sospechosos;
 
     public Orden(Juego juego, Mision mision, OrdenControlador controlador) {
         super(juego, mision, controlador);
         this.juego = juego;
         this.mision = mision;
         this.controlador = controlador;
-
-        tituloHoja = crearTituloHoja("Orden de arresto");
-
-        sospechosos = new Sospechosos(juego, mision, controlador.crearControladorSospechosos());
-        agregar(sospechosos, 0.81, 0.535);
-
-        Label tituloSospechosos = new Label();
-        tituloSospechosos.setText("Sospechosos:");
-        tituloSospechosos.setAlignment(Pos.CENTER);
-        tituloSospechosos.setMaxWidth(960);
-        tituloSospechosos.setStyle("-fx-font: 90 \"Comic Sans\"");
-        tituloSospechosos.textFillProperty().bind(
-                createObjectBinding(
-                        ()->sospechosos.isFocused()?Color.BLUE:Color.BLACK,
-                        sospechosos.focusedProperty()));
-        tituloSospechosos.getStyleClass().add("etiquetaTituloSospechosos");
-        tituloSospechosos.getTransforms().setAll(new Rotate(5d, 0, 0));
-        agregar(tituloSospechosos, 0.805, 0.330);
 
         Label labelEstado = new Label();
         StringBinding bindingEstado = createStringBinding(this::textoEstado, mision.getOrden());
@@ -81,23 +59,10 @@ public class Orden extends Documentos {
         detallesPane.setTitulo("Información recolectada:");
         agregar(detallesPane, 0.4, 0.4);
 
-        librito = new Librito(640);
-        agregar(librito, 0.08, 0.4);
-
         setCalendario(mision.getCalendario());
         setRelojVisible(true);
         setRadio(juego.getRadio());
         iniciarControlador(controlador);
-    }
-
-    private Label crearTituloHoja(String titulo) {
-        Label tituloHoja = new Label();
-        tituloHoja.setText(titulo);
-        tituloHoja.setAlignment(Pos.CENTER);
-        tituloHoja.setMaxWidth(960);
-        tituloHoja.setStyle("-fx-font: 100 Impact");
-        tituloHoja.getStyleClass().add("etiquetaTituloOrden");
-        return (Label) agregar(tituloHoja, 0.400, 0.12);
     }
 
     private String textoEstado() {
@@ -114,9 +79,6 @@ public class Orden extends Documentos {
         if(null == controlador) {
             return;
         }
-        observadorAccionesProperty().bind(controlador.getObservadorLiberable());
-        librito.setOnMouseClicked(controlador::libritoClicked);
-        librito.setOnKeyPressed(controlador::libritoKeyPressed);
         if(controlador instanceof OrdenControlador) {
             botonEmitir.setOnAction(((OrdenControlador) controlador)::emitir);
         }

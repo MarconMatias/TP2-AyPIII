@@ -1,17 +1,73 @@
 package edu.fiuba.algo3.vista.Orden;
 
 import edu.fiuba.algo3.componentes.Imagen.Imagen;
+import edu.fiuba.algo3.componentes.Libro.Librito;
+import edu.fiuba.algo3.controlador.Juego.PantallaControlador;
 import edu.fiuba.algo3.controlador.Orden.DocumentosControlador;
+import edu.fiuba.algo3.controlador.Orden.SospechososControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.vista.Juego.Pantalla;
+import javafx.geometry.Pos;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
+import javafx.scene.transform.Rotate;
+
+import static javafx.beans.binding.Bindings.createObjectBinding;
 
 public class Documentos extends Pantalla {
     private final static Image fondo = new Image(Imagen.urlDesdeRecursos("Orden/Orden_3840.jpeg"));
+    protected final Label tituloHoja = new Label();
+    protected final Sospechosos sospechosos;
+    private final Librito librito;
 
     public Documentos(Juego juego, Mision mision, DocumentosControlador controlador) {
         super(fondo);
+
+        SospechososControlador controladorSospechosos = (null == controlador)
+                ? null
+                : controlador.crearControladorSospechosos();
+        sospechosos = new Sospechosos(juego, mision, controladorSospechosos);
+        agregar(sospechosos, 0.81, 0.535);
+
+        estilarTituloHoja("Orden de arresto");
+        agregar(tituloHoja, 0.400, 0.12);
+
+        Label tituloSospechosos = new Label();
+        tituloSospechosos.setText("Sospechosos:");
+        tituloSospechosos.setAlignment(Pos.CENTER);
+        tituloSospechosos.setMaxWidth(960);
+        tituloSospechosos.setStyle("-fx-font: 90 \"Comic Sans\"");
+        tituloSospechosos.textFillProperty().bind(
+                createObjectBinding(
+                        ()->sospechosos.isFocused()? Color.BLUE:Color.BLACK,
+                        sospechosos.focusedProperty()));
+        tituloSospechosos.getStyleClass().add("etiquetaTituloSospechosos");
+        tituloSospechosos.getTransforms().setAll(new Rotate(5d, 0, 0));
+        agregar(tituloSospechosos, 0.805, 0.330);
+
+        librito = new Librito(640);
+        agregar(librito, 0.08, 0.4);
+    }
+
+    private void estilarTituloHoja(String titulo) {
+        tituloHoja.setText(titulo);
+        tituloHoja.setAlignment(Pos.CENTER);
+        tituloHoja.setMaxWidth(960);
+        tituloHoja.setStyle("-fx-font: 100 Impact");
+        tituloHoja.getStyleClass().add("etiquetaTituloOrden");
+    }
+
+    @Override
+    protected void iniciarControlador(PantallaControlador controlador) {
+        super.iniciarControlador(controlador);
+        if(null == controlador) {
+            return;
+        }
+        observadorAccionesProperty().bind(controlador.getObservadorLiberable());
+        librito.setOnMouseClicked(controlador::libritoClicked);
+        librito.setOnKeyPressed(controlador::libritoKeyPressed);
     }
 
     public static void precargar() {
