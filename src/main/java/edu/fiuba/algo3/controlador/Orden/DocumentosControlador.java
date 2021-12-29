@@ -47,7 +47,7 @@ public class DocumentosControlador extends PantallaControlador {
     }
 
     public void sospechosoElegido(Ladron elegido) {
-        if(controlStage.abrirExpediente(elegido))
+        if((null!=elegido) && controlStage.abrirExpediente(elegido))
         {
             liberar();
         }
