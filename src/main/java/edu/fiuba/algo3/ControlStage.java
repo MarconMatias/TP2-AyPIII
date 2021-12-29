@@ -125,6 +125,9 @@ public class ControlStage {
     /**************************************************************************/
 
     public boolean abrirExpediente(Ladron ladron) {
+        if(null == ladron) {
+            return false;
+        }
         try {
             ExpedienteControlador controlador = new ExpedienteControlador(juego, mision, this);
             Expediente nuevaVista = new Expediente(juego, mision, ladron, controlador);
