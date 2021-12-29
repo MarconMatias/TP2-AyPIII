@@ -7,8 +7,9 @@ import edu.fiuba.algo3.controlador.Splash.SplashControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.vista.Juego.Splash;
 import javafx.application.Application;
-import javafx.concurrent.WorkerStateEvent;
 import javafx.event.Event;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
 /**
@@ -55,16 +56,12 @@ public class App extends Application {
             splashControlador.enlazarIniciar(this::mostrarPolicias);
             splash.requestFocus();
         });
-        lector.setOnFailed(this::onSplashFailed);
-    }
-
-    private void onSplashExitoso(SplashControlador splashControlador) {
-
-    }
-
-    private void onSplashFailed(WorkerStateEvent workerStateEvent) {
-        /** \todo Mínimo, mostrar un mensaje de error. **/
-        /** \todo Mejorar: reintentar (vuelve a llamar a startSplash). **/
+        lector.setOnFailed(ev -> {
+            Throwable ex = lector.getException();
+            Alert alerta = new Alert(Alert.AlertType.ERROR, "Se produjo un error al iniciar: "+ex, ButtonType.OK);
+            alerta.showAndWait();
+            /** \todo Mejorar: reintentar (vuelve a llamar a startSplash). **/
+        });
     }
 
     private void mostrarPolicias(Event event) {
