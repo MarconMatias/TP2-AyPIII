@@ -44,7 +44,7 @@ public class PoliciaControlador extends PantallaControlador {
     private boolean hacerNuevo() {
         Policia policia = crearPolicia();
         if(null != policia) {
-            return controlStage.abrirMisionNueva(juego, policia);
+            return controlStage.abrirMisionNueva(policia);
         } else {
             return false;
         }
@@ -68,7 +68,7 @@ public class PoliciaControlador extends PantallaControlador {
         if(event.isConsumed() || (null == policiaSeleccionado)) {
             return;
         }
-        if(controlStage.abrirMisionNueva(juego, policiaSeleccionado)) {
+        if(controlStage.abrirMisionNueva(policiaSeleccionado)) {
             event.consume();
             liberar();
         }
@@ -80,7 +80,7 @@ public class PoliciaControlador extends PantallaControlador {
         }
         switch(event.getCode()) {
             case ENTER: case SPACE:
-                if(controlStage.abrirMisionNueva(juego, policiaSeleccionado)) {
+                if(controlStage.abrirMisionNueva(policiaSeleccionado)) {
                     event.consume();
                     liberar();
                 }

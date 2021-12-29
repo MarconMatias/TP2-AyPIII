@@ -42,9 +42,9 @@ public abstract class PantallaControlador {
         }
         try {
             if (mision.fueVictoria()) {
-                controlStage.abrirVictoria(juego, mision);
+                controlStage.abrirVictoria(mision);
             } else {
-                controlStage.abrirDerrota(juego, mision);
+                controlStage.abrirDerrota(mision);
             }
             liberar();
         } catch(Exception ex) {

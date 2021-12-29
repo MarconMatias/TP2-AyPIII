@@ -189,14 +189,15 @@ public class ControlStage {
 
     /**************************************************************************/
 
-    public boolean abrirMisionNueva(Juego juego, Policia policia, LibroCiudadControlador controlador) {
+    /**
+     * Crea y abre una nueva misión, que quedará como misión actual.
+     * @param policia Policía de la misión
+     * @return Si pudo crearla, o falso en caso de producirse (y mostrar) un error.
+     */
+    public boolean abrirMisionNueva(Policia policia) {
         try {
-            Mision mision = juego.nuevaMision(policia);
-            if(null==controlador) {
-                return abrirLibroCiudad(juego, mision);
-            } else {
-                return abrirLibroCiudad(juego, mision, controlador);
-            }
+            mision = juego.nuevaMision(policia);
+            return abrirLibroCiudad(juego, mision);
         } catch (Exception ex) {
             ex.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR,
@@ -204,10 +205,6 @@ public class ControlStage {
             alert.showAndWait();
             return false;
         }
-    }
-
-    public boolean abrirMisionNueva(Juego juego, Policia policia) {
-        return abrirMisionNueva(juego, policia, null);
     }
 
     /**************************************************************************/
@@ -227,13 +224,19 @@ public class ControlStage {
     }
 
     /**************************************************************************/
-    public void abrirDerrota(Juego juego, Mision mision) {
+    public void abrirDerrota(Mision mision) {
+        if(mision != this.mision) {
+            return;
+        }
         Alert alert = new Alert(Alert.AlertType.INFORMATION, mision.getMensajeMision(), ButtonType.OK);
         alert.showAndWait();
         this.mision = null;
         abrirMenu();
     }
-    public void abrirVictoria(Juego juego, Mision mision) {
+    public void abrirVictoria(Mision mision) {
+        if(mision != this.mision) {
+            return;
+        }
         Alert alert = new Alert(Alert.AlertType.INFORMATION, mision.getMensajeMision(), ButtonType.OK);
         alert.showAndWait();
         this.mision = null;
