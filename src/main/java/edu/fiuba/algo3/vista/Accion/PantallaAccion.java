@@ -45,4 +45,8 @@ public class PantallaAccion extends Pantalla {
     public String getTitulo() {
         return accion.getNombreAccion();
     }
+
+    public static void precargar() {
+        /** No necesita cuerpo. La sola invocación de este método precargará los static. **/
+    }
 }

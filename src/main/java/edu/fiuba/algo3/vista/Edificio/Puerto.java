@@ -16,4 +16,8 @@ public class Puerto extends DestinoEdificio {
     public Point2D getCoordenadas() {
         return new Point2D(0.636,0.690);
     }
+
+    public static void precargar() {
+        /** No necesita cuerpo. La sola invocación de este método precargará los static. **/
+    }
 }

@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.vista.Edificio;
 
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
-import edu.fiuba.algo3.vista.Edificio.DestinoEdificio;
 import javafx.geometry.Point2D;
 import javafx.scene.image.Image;
 
@@ -16,5 +15,9 @@ public class Aeropuerto extends DestinoEdificio {
     @Override
     public Point2D getCoordenadas() {
         return new Point2D(0.635,0.386);
+    }
+
+    public static void precargar() {
+        /** No necesita cuerpo. La sola invocación de este método precargará los static. **/
     }
 }

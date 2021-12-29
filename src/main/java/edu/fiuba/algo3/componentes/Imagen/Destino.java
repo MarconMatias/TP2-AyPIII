@@ -84,4 +84,7 @@ public class Destino extends ImagenSeleccionable {
         this.trayecto = trayecto;
     }
 
+    public static void precargar() {
+        /** No necesita cuerpo. La sola invocación de este método precargará los static. **/
+    }
 }

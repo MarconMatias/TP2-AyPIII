@@ -1,6 +1,6 @@
 package edu.fiuba.algo3;
 
-import edu.fiuba.algo3.componentes.FakeLoader.FakeService;
+import edu.fiuba.algo3.componentes.Cargador.CargarVistaServicio;
 import edu.fiuba.algo3.componentes.Radio.RadioSonido;
 import edu.fiuba.algo3.componentes.bindings.CargandoBinding;
 import edu.fiuba.algo3.controlador.Splash.SplashControlador;
@@ -32,7 +32,7 @@ public class App extends Application {
 
 
     private void startSplash(Stage stage) {
-        FakeService lector = new FakeService(5);
+        CargarVistaServicio lector = new CargarVistaServicio(5);
         CargandoBinding tituloBinding = new CargandoBinding(lector.progressProperty(),
                 "AlgoThief — ¡Listo!",
                 "AlgoThief — Cargando… %.2f%%");

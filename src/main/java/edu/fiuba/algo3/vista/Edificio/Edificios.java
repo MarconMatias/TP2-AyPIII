@@ -112,4 +112,8 @@ public class Edificios extends Pantalla {
     public String getTitulo() {
         return "Elija edificios para obtener testimonios";
     }
+
+    public static void precargar() {
+        /** No necesita cuerpo. La sola invocación de este método precargará los static. **/
+    }
 }

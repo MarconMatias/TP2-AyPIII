@@ -27,4 +27,8 @@ public class FotoCiudad extends Imagen {
         url = urlDesdeRecursos("Ciudad/Ciudad_generica_1024.png");
         return url;
     }
+
+    public static void precargar() {
+        /** No necesita cuerpo. La sola invocación de este método precargará los static. **/
+    }
 }

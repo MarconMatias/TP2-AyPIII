@@ -97,4 +97,8 @@ public class Policias extends Cuaderno {
     public String getTitulo() {
         return "Elija el agente para iniciar una misión";
     }
+
+    public static void precargar() {
+        /** No necesita cuerpo. La sola invocación de este método precargará los static. **/
+    }
 }

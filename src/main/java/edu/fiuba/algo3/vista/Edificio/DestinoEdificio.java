@@ -53,4 +53,8 @@ public class DestinoEdificio extends Destino {
     protected int getIndice(int cantidad) {
         return edificio.hashCode() % cantidad;
     }
+
+    public static void precargar() {
+        /** No necesita cuerpo. La sola invocación de este método precargará los static. **/
+    }
 }

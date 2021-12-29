@@ -68,6 +68,10 @@ public class Walkman extends Imagen {
         controlador.enlazar(this);
     }
 
+    public static void precargar() {
+        /** No necesita cuerpo. La sola invocación de este método precargará los static. **/
+    }
+
     private void mouseClicked(MouseEvent mouseEvent) {
         if(!isFocused()) {
             requestFocus();

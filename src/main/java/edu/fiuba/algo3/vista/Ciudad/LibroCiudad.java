@@ -121,4 +121,8 @@ public class LibroCiudad extends Libro {
     public String getTitulo() {
         return "Elija mapa de ciudades, plano de edificios u orden de arresto";
     }
+
+    public static void precargar() {
+        /** No necesita cuerpo. La sola invocación de este método precargará los static. **/
+    }
 }

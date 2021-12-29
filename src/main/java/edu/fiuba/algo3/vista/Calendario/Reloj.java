@@ -38,6 +38,10 @@ public class Reloj extends RelativoAImagen {
         agregar(new Imagen(imgVidrio), 0.5, 0.5);
     }
 
+    public static void precargar() {
+        /** No necesita cuerpo. La sola invocación de este método precargará los static. **/
+    }
+
     private Integer anguloHora(IntegerExpression hora) {
         final int corrimientoAgujaHora = 10;
         final int ajustada = (hora.get() + corrimientoAgujaHora)%12;

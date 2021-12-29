@@ -103,4 +103,8 @@ public class Expediente extends Pantalla {
   public String getTitulo() {
     return "Elija un sospechoso para ver sus detalles";
   }
+
+  public static void precargar() {
+    /** No necesita cuerpo. La sola invocación de este método precargará los static. **/
+  }
 }

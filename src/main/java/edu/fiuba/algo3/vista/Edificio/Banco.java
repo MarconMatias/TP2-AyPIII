@@ -20,4 +20,8 @@ public class Banco extends DestinoEdificio {
     public Point2D getCoordenadas() {
         return posiblesCoordenadas.get(getIndice(posiblesCoordenadas.size()));
     }
+
+    public static void precargar() {
+        /** No necesita cuerpo. La sola invocación de este método precargará los static. **/
+    }
 }

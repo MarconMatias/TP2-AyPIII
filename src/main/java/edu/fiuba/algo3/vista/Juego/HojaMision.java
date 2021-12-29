@@ -10,13 +10,9 @@ import javafx.scene.image.Image;
 
 public class HojaMision extends RelativoAImagen {
     private final static Image fondo = new Image(Imagen.urlDesdeRecursos("Juego/Mision_fondo.jpeg"));
-    //private final Juego juego;
-    //private final Mision mision;
 
     public HojaMision(Juego juego, Mision mision) {
         super(fondo);
-        //this.juego = juego;
-        //this.mision = mision;
 
         Label textoCiudad = new Label();
         textoCiudad.setAlignment(Pos.CENTER);
@@ -35,5 +31,9 @@ public class HojaMision extends RelativoAImagen {
         texto = mision.getRangoYNombrePolicia()+":\n\n" + texto+"\n\n";
         texto +="AlgoThief — Agencia de investigación";
         return texto;
+    }
+
+    public static void precargar() {
+        /** No necesita cuerpo. La sola invocación de este método precargará los static. **/
     }
 }

@@ -216,4 +216,9 @@ public class Pantalla extends RelativoAImagen {
     public String getTitulo() {
         return null;
     }
+
+
+    public static void precargar() {
+        /** No necesita cuerpo. La sola invocación de este método precargará los static. **/
+    }
 }
