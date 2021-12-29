@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.vista.Orden;
 
 import edu.fiuba.algo3.componentes.Imagen.IconoVolver;
-import edu.fiuba.algo3.componentes.Imagen.Imagen;
 import edu.fiuba.algo3.componentes.Imagen.ImagenSeleccionable;
 import edu.fiuba.algo3.componentes.Libro.Librito;
 import edu.fiuba.algo3.controlador.Juego.PantallaControlador;
@@ -9,17 +8,14 @@ import edu.fiuba.algo3.controlador.Orden.ExpedienteControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
-import edu.fiuba.algo3.vista.Juego.Pantalla;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.transform.Rotate;
 
 import static javafx.beans.binding.Bindings.createObjectBinding;
 
-public class Expediente extends Pantalla {
-  private final static Image fondo = new Image(Imagen.urlDesdeRecursos("Orden/Orden_3840.jpeg"));
+public class Expediente extends Documentos {
   private final double anguloRotacion = -9;
   private final Juego juego;
   private final Mision mision;
@@ -30,7 +26,7 @@ public class Expediente extends Pantalla {
   private final Label tituloHoja;
 
   public Expediente(Juego juego, Mision mision, Ladron ladron, ExpedienteControlador controlador) {
-    super(fondo);
+    super(juego, mision, controlador);
 
     this.juego = juego;
     this.mision = mision;
@@ -102,9 +98,5 @@ public class Expediente extends Pantalla {
   @Override
   public String getTitulo() {
     return "Elija un sospechoso para ver sus detalles";
-  }
-
-  public static void precargar() {
-    /** No necesita cuerpo. La sola invocación de este método precargará los static. **/
   }
 }

@@ -10,7 +10,7 @@ import edu.fiuba.algo3.vista.Ciudad.LibroCiudad;
 import edu.fiuba.algo3.vista.Edificio.*;
 import edu.fiuba.algo3.vista.Juego.HojaMision;
 import edu.fiuba.algo3.vista.Juego.Pantalla;
-import edu.fiuba.algo3.vista.Orden.Expediente;
+import edu.fiuba.algo3.vista.Orden.Documentos;
 import edu.fiuba.algo3.vista.Orden.IconoOrden;
 import edu.fiuba.algo3.vista.Policia.Policias;
 import edu.fiuba.algo3.vista.Radio.Walkman;
@@ -31,13 +31,13 @@ public class CargarVistasTarea extends Task<Void> {
         List<Class<? extends Object>> vistas = List.of(
                 Walkman.class, Tarjetas.class, Reloj.class,
                 Destino.class, FotoCiudad.class,
-                Pantalla.class, Cuaderno.class,
-                Libro.class, LibroCiudad.class,
+                Pantalla.class, Cuaderno.class, Libro.class, Documentos.class,
+                LibroCiudad.class,
                 IconoEdificios.class, IconoVolver.class, IconoOrden.class,
                 Mapita.class,
                 Edificios.class, DestinoEdificio.class, Aeropuerto.class,
                 Banco.class, Biblioteca.class, Bolsa.class, Puerto.class,
-                PantallaAccion.class, HojaMision.class, Expediente.class, Policias.class);
+                PantallaAccion.class, HojaMision.class, Policias.class);
         int progreso = 0;
         int maximo = 300 + 10*vistas.size();
 

@@ -1,26 +1,22 @@
 package edu.fiuba.algo3.vista.Orden;
 
-import edu.fiuba.algo3.componentes.Imagen.Imagen;
 import edu.fiuba.algo3.componentes.Libro.Librito;
 import edu.fiuba.algo3.controlador.Juego.PantallaControlador;
 import edu.fiuba.algo3.controlador.Orden.DetallesControlador;
 import edu.fiuba.algo3.controlador.Orden.OrdenControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
-import edu.fiuba.algo3.vista.Juego.Pantalla;
 import javafx.beans.binding.BooleanBinding;
 import javafx.beans.binding.StringBinding;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.transform.Rotate;
 
 import static javafx.beans.binding.Bindings.*;
 
-public class Orden extends Pantalla {
-    private final static Image fondo = new Image(Imagen.urlDesdeRecursos("Orden/Orden_3840.jpeg"));
+public class Orden extends Documentos {
     private final Juego juego;
     private final Mision mision;
     private final OrdenControlador controlador;
@@ -31,7 +27,7 @@ public class Orden extends Pantalla {
     protected final Sospechosos sospechosos;
 
     public Orden(Juego juego, Mision mision, OrdenControlador controlador) {
-        super(fondo);
+        super(juego, mision, controlador);
         this.juego = juego;
         this.mision = mision;
         this.controlador = controlador;

@@ -1,13 +1,11 @@
 package edu.fiuba.algo3.controlador.Orden;
 
 import edu.fiuba.algo3.ControlStage;
-import edu.fiuba.algo3.controlador.Juego.PantallaControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
-import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import javafx.event.ActionEvent;
 
-public class OrdenControlador extends PantallaControlador {
+public class OrdenControlador extends DocumentosControlador {
     private final Juego juego;
     private final Mision mision;
     private final ControlStage controlStage;
@@ -23,15 +21,4 @@ public class OrdenControlador extends PantallaControlador {
         mision.generarOrdenDeArresto();
         ev.consume();
    }
-
-    public SospechososControlador crearControladorSospechosos() {
-        return new SospechososControlador(juego,mision, this::sospechosoElegido);
-    }
-
-    public void sospechosoElegido(Ladron elegido) {
-        if(controlStage.abrirExpediente(elegido))
-        {
-            liberar();
-        }
-    }
 }
