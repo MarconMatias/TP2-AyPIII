@@ -228,6 +228,7 @@ public class Mision implements DetallableSospechoso {
      * En la misión, el policía vista un edificio de la ciudad actual.
      * * Avanza el calendario por la visita misma.
      * * Puede disparar acciones que avancen a su vez el calendario.
+     * 
      * @param edificio Un edificio de la ciudad actual.
      * @return El testimonio obtenido en el edificio de la ciudad actual.
      */
@@ -250,6 +251,11 @@ public class Mision implements DetallableSospechoso {
 
     public List<Ciudad> getCiudadesVecinas() {
         return mapa.getCiudadesVecinas(ciudadActual);
+    }
+
+    @Override
+    public ObservableMap<String, String> getDetallesDeSospechoso() {
+        return computadora.getDetalles();
     }
 
     public String getDetalle(String tipo) {
@@ -284,7 +290,11 @@ public class Mision implements DetallableSospechoso {
         return computadora.getSospechososObservables();
     }
 
-    public ObservableMap<String, String> getDetallesDeSospechoso() {
+    public ObservableList<Ladron> getSospechososRegistradosObservables() {
+        return computadora.getSospechososRegistradosObservables();
+    }
+
+    public ObservableMap<String, String> getDetallesDeOrden() {
         return computadora.getDetalles();
     }
 

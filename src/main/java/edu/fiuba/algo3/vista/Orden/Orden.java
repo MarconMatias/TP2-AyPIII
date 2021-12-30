@@ -37,7 +37,7 @@ public class Orden extends Documentos {
         labelEstado.setWrapText(true);
         labelEstado.setStyle("-fx-font: 90 \"Comic Sans\"");
         labelEstado.getStyleClass().add("etiquetaEstadoOrden");
-        labelEstado.getTransforms().setAll(new Rotate(5d, 0,0));
+        labelEstado.getTransforms().setAll(new Rotate(5d, 0, 0));
         agregar(labelEstado, 0.4, 0.70);
 
         botonEmitir = new Button("SOLICITAR ORDEN");
@@ -48,9 +48,9 @@ public class Orden extends Documentos {
         botonEmitir.setMaxWidth(widthBotonEmitir);
         botonEmitir.setStyle("-fx-font: 60 \"Comic Sans\"");
         botonEmitir.getStyleClass().add("botonEmitirOrden");
-        botonEmitir.getTransforms().setAll(new Rotate(5d, 0,0));
+        botonEmitir.getTransforms().setAll(new Rotate(5d, 0, 0));
         BooleanBinding bindingEmitirVisible = createBooleanBinding(
-                ()->(1 == mision.getSospechososObservables().size()),
+                () -> (1 == mision.getSospechososObservables().size()),
                 mision.getSospechososObservables());
         botonEmitir.visibleProperty().bind(bindingEmitirVisible);
         agregar(botonEmitir, 0.81, 0.5);
@@ -63,10 +63,10 @@ public class Orden extends Documentos {
 
     private String textoEstado() {
         String emitidaPara = mision.getOrden().get().getEmitidaPara();
-        if(null == emitidaPara) {
+        if (null == emitidaPara) {
             return "Sin emitir";
         }
-        return "Emitida para\n"+emitidaPara;
+        return "Emitida para\n" + emitidaPara;
     }
 
     @Override

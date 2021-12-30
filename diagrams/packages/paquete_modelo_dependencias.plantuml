@@ -1,17 +1,10 @@
 @startuml
 
-!include ../classes/herencia.plantuml!WITHOUTNOTES
+title Packages - Component Diagram
 
-package JUnit {
-        class Test
+
+package "FrontEnd" {
+
 }
-
-package java.lang {
-        class String
-}
-
-Test --> Localize: "<<instantiate>>"
-Localize -> String: " # esContent"
-Localize -> String: " # usContent"
 
 @enduml
