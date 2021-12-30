@@ -1,7 +1,10 @@
 package edu.fiuba.algo3.modelo.Juego;
 
 import edu.fiuba.algo3.modelo.Acciones.AccionDormir;
+import edu.fiuba.algo3.modelo.Acciones.ExcepcionesAccion.AccionException;
+import edu.fiuba.algo3.modelo.Acciones.ExcepcionesAccion.NoSePudoRealizarAccionException;
 import edu.fiuba.algo3.modelo.Acciones.IAccion;
+import edu.fiuba.algo3.modelo.Juego.ExcepcionesCalendario.CalendarioException;
 import javafx.beans.binding.DoubleExpression;
 import javafx.beans.binding.IntegerExpression;
 import javafx.beans.property.IntegerProperty;
@@ -65,14 +68,19 @@ public class Calendario {
      * Avanza el calendario al menos `horas`, durmiendo varias horas adicionales si es necesario.
      * @param horas Cantidad de horas que dura la acción que avanza el calendario.
      */
-    public void avanzarHoras(int horas)
-    {
+    public void avanzarHoras(int horas) throws CalendarioException, AccionException {
         int siguiente = horasActuales.get() + horas;
         boolean debeDormir = this.deberiaDormirSiAvanzaHasta(siguiente);
         this.avanzarSolamente(horas);
         if(debeDormir) {
-            aplicarAccion(new AccionDormir());
+            try{
+                aplicarAccion(new AccionDormir());
+            }
+            catch (AccionException | CalendarioException e){
+                System.err.println(e.getMessage() + ". No se pudo aplicar la accion");
+            }
         }
+
     }
 
     /**
@@ -103,10 +111,22 @@ public class Calendario {
        return !esHoraDeDormir(getHoraDelDia()) && esHoraDeDormir(hsSiguiente);
     }
 
-    public void aplicarAccion(IAccion accion) {
-        notificarObservadores(accion);
-        accion.avanzarCalendario(this);
-        accion.realizar();
+    public void aplicarAccion(IAccion accion) throws AccionException, CalendarioException {
+
+        try{
+            notificarObservadores(accion);
+            accion.avanzarCalendario(this);
+        }
+        catch (RuntimeException e){
+            throw new AccionException("No se pudo notificar a los oberservadores ni avanzar el calendario");
+        }
+
+        try {
+            accion.realizar();
+        }
+        catch(AccionException e){
+            throw new AccionException("No se pudo realizar la accion");
+        }
     }
 
     private void notificarObservadores(IAccion accion) {

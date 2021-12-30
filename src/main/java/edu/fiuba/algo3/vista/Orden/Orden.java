@@ -4,9 +4,11 @@ import edu.fiuba.algo3.componentes.Imagen.Imagen;
 import edu.fiuba.algo3.componentes.Libro.Librito;
 import edu.fiuba.algo3.controlador.Orden.DetallesControlador;
 import edu.fiuba.algo3.controlador.Orden.OrdenControlador;
+import edu.fiuba.algo3.modelo.Acciones.ExcepcionesAccion.AccionException;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.vista.Juego.Pantalla;
+import edu.fiuba.algo3.vista.Orden.OrdenException.OrdenException;
 import javafx.beans.binding.BooleanBinding;
 import javafx.beans.binding.StringBinding;
 import javafx.geometry.Pos;
@@ -51,7 +53,7 @@ public class Orden extends Pantalla {
         agregar(tituloSospechosos, 0.805, 0.330);
 
         Label labelEstado = new Label();
-        StringBinding bindingEstado = createStringBinding(this::textoEstado, mision.getOrden());
+        StringBinding bindingEstado = createStringBinding(() -> textoEstado(), mision.getOrden());
         labelEstado.textProperty().bind(bindingEstado);
         labelEstado.setAlignment(Pos.CENTER);
         labelEstado.setMinWidth(720);

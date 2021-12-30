@@ -27,7 +27,9 @@ public class ComoDetective implements IComportamientoRango{
 
     @Override
     public int estimarTiempoDeViajePara(int distancia) {
-        return distancia/velocidad;
+        if(distancia < 0)
+            throw new IllegalArgumentException("Error. La distancia pasada por parametro es invalida");
+        return distancia / velocidad;
     }
 
     @Override

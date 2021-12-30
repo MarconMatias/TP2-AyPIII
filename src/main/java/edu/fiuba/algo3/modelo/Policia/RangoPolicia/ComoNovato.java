@@ -27,6 +27,8 @@ public class ComoNovato implements IComportamientoRango {
 
     @Override
     public int estimarTiempoDeViajePara(int distancia) {
+        if(distancia < 0)
+            throw new IllegalArgumentException("Error. La distancia pasada por parametro es invalida");
         return distancia / velocidad;
     }
 

@@ -1,12 +1,14 @@
 package edu.fiuba.algo3.modelo.Juego;
 
 import edu.fiuba.algo3.modelo.Acciones.EmitirOrden;
+import edu.fiuba.algo3.modelo.Acciones.ExcepcionesAccion.AccionException;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Computadora.Computadora;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Evento.PoliciaFinaliza;
 import edu.fiuba.algo3.modelo.Item.Item;
 import edu.fiuba.algo3.modelo.Juego.EstadoMision.EstadoMision;
+import edu.fiuba.algo3.modelo.Juego.ExcepcionesCalendario.CalendarioException;
 import edu.fiuba.algo3.modelo.Ladron.DetallableSospechoso;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.OrdenDeArresto.IOrden;
@@ -191,9 +193,14 @@ public class Mision implements DetallableSospechoso {
         return ciudadActual.visitar(edificio);
     }
 
-    public void generarOrdenDeArresto() {
+    public void generarOrdenDeArresto() throws AccionException {
         IOrden orden = computadora.generarOrdenDeArresto();
-        calendario.aplicarAccion(new EmitirOrden(orden, policia));
+        try {
+            calendario.aplicarAccion(new EmitirOrden(orden, policia));
+        }
+        catch (AccionException | CalendarioException e) {
+            throw new AccionException("No se pudo generar la orden de arresto");
+        }
     }
 
     public boolean fueFinalizada() {

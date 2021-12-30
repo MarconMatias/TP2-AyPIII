@@ -45,6 +45,7 @@ public class Edificio{
         testigo.setTestimonio(ladron,destino);
     }
 
+
     public String visitar(Policia policia)
     {
         accionador.visitar(this,policia);

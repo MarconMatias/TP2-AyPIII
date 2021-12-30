@@ -131,4 +131,11 @@ public class Ciudad implements IDestino, Comparable<Ciudad> {
     public String visitar(Edificio edificio) {
         return visitada.visitar(edificio);
     }
+
+    public Integer verificarTieneTodasLasPistas() {
+
+        Integer errores = 0;
+
+        return errores;
+    }
 }

@@ -21,6 +21,7 @@ import java.util.Map;
 import com.thoughtworks.qdox.parser.ParseException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.isNull;
 import static org.mockito.Mockito.framework;
 
@@ -93,23 +94,17 @@ public class CoherenciaDataTest {
 
     @Test
     public void cadaCiudadTieneUnaPistaDeCadaDificultad() throws org.json.simple.parser.ParseException {
-        InterpretePistaCiudad interprete = new InterpretePistaCiudad();
-        ArrayList<IPista> faciles = new ArrayList<IPista>();
-        ArrayList<IPista> medias = new ArrayList<IPista>();
-        ArrayList<IPista> dificiles = new ArrayList<IPista>();
-        NivelPista facil = new PistaFacil();
-        NivelPista media = new PistaMedia();
-        NivelPista dificil = new PistaDificil();
-        JSONArray entrada = null;
+
         Collection<PistaCiudad> pistas;
         String fuente = "src/main/java/edu/fiuba/algo3/recursos/ciudades.json";
         LectorCiudad lector = new LectorCiudad();
         List<Ciudad> ciudades =  lector.leerCiudades(fuente);
+        Integer errores = 0;
         for(Ciudad ciudad : ciudades){
-            pistas = ciudad.getPistas();
-            pistas.toString();
-            assertEquals(12, pistas.size());
+            //Ver si en cada ciudad hay pistas de todas las dificultades de todos los filtros
+            errores = errores + ciudad.verificarTieneTodasLasPistas();
         }
+        assertTrue(errores == 0);
     }
 
 }

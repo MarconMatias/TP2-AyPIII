@@ -2,6 +2,7 @@ package edu.fiuba.algo3.controlador.Orden;
 
 import edu.fiuba.algo3.ControlStage;
 import edu.fiuba.algo3.controlador.Juego.ControladorAcciones;
+import edu.fiuba.algo3.modelo.Acciones.ExcepcionesAccion.AccionException;
 import edu.fiuba.algo3.modelo.Juego.IObservadorAcciones;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
@@ -48,8 +49,14 @@ public class OrdenControlador {
         }
     }
 
-    public void emitir(ActionEvent ev) {
-        mision.generarOrdenDeArresto();
+    public void emitir(ActionEvent ev) throws AccionException {
+
+        try{
+            mision.generarOrdenDeArresto();
+        }
+        catch (AccionException e){
+            ev.consume();
+        }
         ev.consume();
    }
 

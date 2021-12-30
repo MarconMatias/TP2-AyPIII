@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Acciones.*;
+import edu.fiuba.algo3.modelo.Acciones.ExcepcionesAccion.AccionException;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Computadora.Computadora;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
@@ -163,8 +164,7 @@ public class TestsCasosDeUsoEntrega2 {
      * Atrapa al sospechoso
      */
     @Test
-    public void casoDeUso05()
-    {
+    public void casoDeUso05() throws AccionException {
         // Carga de mapa
         LectorCiudad lectorCiudad = new LectorCiudad();
         Map<String, Ciudad> ciudades = lectorCiudad.leerCiudades();
