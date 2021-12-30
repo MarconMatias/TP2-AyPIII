@@ -1,0 +1,41 @@
+@startuml
+
+title Diagrama de paquetes
+
+package "Vista" {
+    component [Graphic User\nInterface] as GUI
+}
+ 
+node "Controlador" {
+    [Juego] 
+    [Mapa] 
+    [Ciudad]
+    [Edificio]  
+    [Policia]
+    [Orden]
+    [Radio]
+    [Splash] 
+} 
+
+node "Modelo" {
+    [Acciones]
+    [Ciudad]
+    [Computadora]
+    [Edificio]
+    [Evento]
+    [Item]
+    [Juego]
+    [Ladron]
+    [Lector]
+    [OrdenDeArresto]
+    [Pista]
+    [Policia]
+    [Radio]
+    [Ruta]
+    
+} 
+
+GUI -down-> Controlador
+Controlador -right-> Modelo
+
+@enduml
