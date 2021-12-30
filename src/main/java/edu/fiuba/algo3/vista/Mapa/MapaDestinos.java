@@ -6,9 +6,12 @@ import edu.fiuba.algo3.componentes.Mapamundi.Mapamundi;
 import edu.fiuba.algo3.componentes.Trayecto.Trayecto;
 import edu.fiuba.algo3.componentes.bindings.AnguloDeDestinoBinding;
 import edu.fiuba.algo3.controlador.Mapa.MapaDestinosControlador;
+import edu.fiuba.algo3.modelo.Acciones.ExcepcionesAccion.AccionException;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
+import edu.fiuba.algo3.modelo.Juego.ExcepcionesCalendario.CalendarioException;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
+import edu.fiuba.algo3.modelo.Policia.ExcepcionesPolicia.PoliciaException;
 import edu.fiuba.algo3.vista.Ciudad.DestinoCiudad;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.ObjectProperty;
@@ -112,7 +115,17 @@ public class MapaDestinos extends Mapamundi {
         observadorAccionesProperty().bind(controlador.getObservadorLiberable());
         librito.setOnMouseClicked(controlador::libritoClicked);
         librito.setOnKeyPressed(controlador::libritoKeyPressed);
-        destinoElegido.addListener(ev->controlador.destinoElegido(destinoElegido.get()));
+        destinoElegido.addListener(ev-> {
+            try {
+                controlador.destinoElegido(destinoElegido.get());
+            } catch (AccionException e) {
+                e.printStackTrace();
+            } catch (CalendarioException e) {
+                e.printStackTrace();
+            } catch (PoliciaException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
 

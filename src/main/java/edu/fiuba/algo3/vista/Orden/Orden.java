@@ -110,6 +110,12 @@ public class Orden extends Pantalla {
         observadorAccionesProperty().bind(controlador.getObservadorLiberable());
         librito.setOnMouseClicked(controlador::libritoClicked);
         librito.setOnKeyPressed(controlador::libritoKeyPressed);
-        botonEmitir.setOnAction(controlador::emitir);
+        botonEmitir.setOnAction(ev -> {
+            try {
+                controlador.emitir(ev);
+            } catch (AccionException e) {
+                e.printStackTrace();
+            }
+        });
     }
 }

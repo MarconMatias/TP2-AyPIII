@@ -21,6 +21,10 @@ public class Orden implements IOrden {
 
     @Override
     public void enfrentar(Policia policia, Ladron ladron) {
+
+        if(ladron == null)
+            throw new IllegalArgumentException("Error. El Ladron pasado por parametro no es valido");
+
         if(esElLadron(ladron)) {
             estrategia = new Ganar();
         } else {

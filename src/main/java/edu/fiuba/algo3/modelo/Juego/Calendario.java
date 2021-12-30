@@ -2,7 +2,6 @@ package edu.fiuba.algo3.modelo.Juego;
 
 import edu.fiuba.algo3.modelo.Acciones.AccionDormir;
 import edu.fiuba.algo3.modelo.Acciones.ExcepcionesAccion.AccionException;
-import edu.fiuba.algo3.modelo.Acciones.ExcepcionesAccion.NoSePudoRealizarAccionException;
 import edu.fiuba.algo3.modelo.Acciones.IAccion;
 import edu.fiuba.algo3.modelo.Juego.ExcepcionesCalendario.CalendarioException;
 import javafx.beans.binding.DoubleExpression;
@@ -69,6 +68,9 @@ public class Calendario {
      * @param horas Cantidad de horas que dura la acción que avanza el calendario.
      */
     public void avanzarHoras(int horas) throws CalendarioException, AccionException {
+        if(horas < 0)
+            throw new IllegalArgumentException();
+
         int siguiente = horasActuales.get() + horas;
         boolean debeDormir = this.deberiaDormirSiAvanzaHasta(siguiente);
         this.avanzarSolamente(horas);

@@ -1,14 +1,17 @@
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Acciones.AccionCuchilloUnica;
+import edu.fiuba.algo3.modelo.Acciones.ExcepcionesAccion.AccionException;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Computadora.Computadora;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Item.Item;
 import edu.fiuba.algo3.modelo.Juego.Calendario;
+import edu.fiuba.algo3.modelo.Juego.ExcepcionesCalendario.CalendarioException;
 import edu.fiuba.algo3.modelo.Juego.Mapa;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
+import edu.fiuba.algo3.modelo.Policia.ExcepcionesPolicia.PoliciaException;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 import org.junit.jupiter.api.Test;
 
@@ -23,7 +26,7 @@ public class TestsCasosDeUsos {
     // Casos de usos
     @Test
 
-    public void test01CasoDeUso1() throws IOException {
+    public void test01CasoDeUso1() throws IOException, AccionException, CalendarioException {
 
         Ladron mockLadronFemenino = mock(Ladron.class);
         Policia mockPolicia = mock(Policia.class);
@@ -43,7 +46,7 @@ public class TestsCasosDeUsos {
     }
 
     @Test
-    public void test02CasoDeUso2() {
+    public void test02CasoDeUso2() throws AccionException, CalendarioException {
 
         Policia mockPolicia = mock(Policia.class);
         Edificio mockBanco = mock(Edificio.class);
@@ -68,7 +71,7 @@ public class TestsCasosDeUsos {
      * Detective viaja de Montreal a México
      */
     @Test
-    public void test03CasoDeUso3() {
+    public void test03CasoDeUso3() throws AccionException, CalendarioException, PoliciaException {
         // Dependencias (reales y mock)
         Policia policia = mock(Policia.class);
         Item item = new Item("Algo robado en Montreal", "Montreal");
@@ -99,7 +102,7 @@ public class TestsCasosDeUsos {
     }
 
     @Test
-    public void test04CasoDeUso4() {
+    public void test04CasoDeUso4() throws AccionException, CalendarioException {
 
         Policia mockPolicia = mock(Policia.class);
         Edificio mockAeropuerto = mock(Edificio.class);

@@ -7,8 +7,10 @@ import edu.fiuba.algo3.modelo.Computadora.Computadora;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Item.Item;
 import edu.fiuba.algo3.modelo.Juego.*;
+import edu.fiuba.algo3.modelo.Juego.ExcepcionesCalendario.CalendarioException;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Lector.*;
+import edu.fiuba.algo3.modelo.Policia.ExcepcionesPolicia.PoliciaException;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
@@ -27,7 +29,7 @@ public class TestsCasosDeUsoEntrega2 {
      * Detective duerme.
      */
     @Test
-    public void casoDeUso01() {
+    public void casoDeUso01() throws AccionException, CalendarioException {
         // Poner calendario en 21 hs para que al recibir herida deba dormir:
         Calendario calendario = new Calendario();
         int horaInicial = 7;
@@ -51,7 +53,7 @@ public class TestsCasosDeUsoEntrega2 {
      * Detective con rango Investigador toma caso de un robo viaja de Montreal a México.
      */
     @Test
-    public void casoDeUso02() {
+    public void casoDeUso02() throws AccionException, CalendarioException, PoliciaException {
         // Dependencias (reales y mocks)
         Calendario calendario = mock(Calendario.class);
         Item item = mock(Item.class);
@@ -113,7 +115,7 @@ public class TestsCasosDeUsoEntrega2 {
      * Intentas atrapar al sospechoso sin la orden de arresto emitida.
      */
     @Test
-    public void casoDeUso04() {
+    public void casoDeUso04() throws AccionException, CalendarioException, PoliciaException {
         // Dependencias (reales y mocks)
         Calendario calendario = new Calendario();
         Item item = mock(Item.class);
@@ -164,7 +166,7 @@ public class TestsCasosDeUsoEntrega2 {
      * Atrapa al sospechoso
      */
     @Test
-    public void casoDeUso05() throws AccionException {
+    public void casoDeUso05() throws AccionException, CalendarioException, PoliciaException {
         // Carga de mapa
         LectorCiudad lectorCiudad = new LectorCiudad();
         Map<String, Ciudad> ciudades = lectorCiudad.leerCiudades();

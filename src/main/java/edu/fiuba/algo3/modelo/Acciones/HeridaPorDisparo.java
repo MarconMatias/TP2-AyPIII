@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.modelo.Acciones;
 
+import edu.fiuba.algo3.modelo.Acciones.ExcepcionesAccion.AccionException;
 import edu.fiuba.algo3.modelo.Juego.Calendario;
+import edu.fiuba.algo3.modelo.Juego.ExcepcionesCalendario.CalendarioException;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 
 public class HeridaPorDisparo implements IAccion {
@@ -11,8 +13,18 @@ public class HeridaPorDisparo implements IAccion {
     }
 
     @Override
-    public void avanzarCalendario(Calendario calendario) {
-        calendario.avanzarHoras(4);
+    public void avanzarCalendario(Calendario calendario) throws AccionException, CalendarioException {
+
+        try{
+            calendario.avanzarHoras(4);
+        }
+        catch (AccionException | CalendarioException e){
+            e.printStackTrace();
+        }
+        catch(IllegalArgumentException e){
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+        }
     }
 
     @Override

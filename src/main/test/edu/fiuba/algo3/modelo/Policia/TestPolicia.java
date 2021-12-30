@@ -1,7 +1,9 @@
 package edu.fiuba.algo3.modelo.Policia;
 
+import edu.fiuba.algo3.modelo.Acciones.ExcepcionesAccion.AccionException;
 import edu.fiuba.algo3.modelo.Juego.Calendario;
 import edu.fiuba.algo3.modelo.Juego.ExcepcionesCalendario.CalendarioException;
+import edu.fiuba.algo3.modelo.Policia.ExcepcionesPolicia.PoliciaException;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
@@ -10,48 +12,50 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class TestPolicia {
 
     @Test
-    public void policiaNovatoViaja1800KmsYTarda2Horas() throws CalendarioException {
+    public void policiaNovatoViaja1800KmsYTarda2Horas() throws AccionException, CalendarioException, PoliciaException {
 
         Policia policia = new Policia("Agus",0, new Calendario());
         Assert.assertTrue(policia.viajar(1800) == 2);
-
     }
 
     @Test
-    public void noSePuedeSetearUnaOrdenDeArrestoNulaYDevuelveNull(){
+    public void policiaNoPuedeViajarDistanciasNegativasElevaExcepcion(){
+
+        Policia policia = new Policia("Agustin",0,new Calendario());
+        assertThrows(IllegalArgumentException.class, () -> policia.viajar(-10));
+    }
+    @Test
+    public void noSePuedeSetearUnaOrdenDeArrestoNulaYElevaUnaExcepcion(){
 
         Policia policia = new Policia("Agus",0,new Calendario());
+        assertThrows(IllegalArgumentException.class ,() -> policia.setOrdenDeArresto(null));
     }
 
     @Test
     public void noSePuedeIniciarMisionConUnCalendarioNull(){
 
         Policia policia = new Policia("Agus",0, new Calendario());
+        assertThrows(IllegalArgumentException.class, () -> policia.iniciarMision(null));
     }
 
     @Test
-    public void noSePuedeViajarDistanciasMenoresOIgualesA0YDevuelve0ElMensajeViajarSinHacerNada(){
+    public void noSePuedeViajarDistanciasMenoresOIgualesA0YDevuelve0ElMensajeViajarSinHacerNada() throws AccionException, CalendarioException, PoliciaException {
         Policia policia = new Policia("Agus",0,new Calendario());
         Assert.assertTrue(policia.viajar(0) == 0);
-        Assert.assertTrue(policia.viajar(-1) == 0);
+        assertThrows(IllegalArgumentException.class, () -> policia.viajar(-1));
     }
 
     @Test
-    public void noSePuedeFiltrarPistasDeUnaCollectionDeIPistaYDevuelveEsasPistasSinHacerNadaElMensaje(){
+    public void noSePuedeVisitarUnEdificioNull() throws AccionException, CalendarioException {
         Policia policia = new Policia("Agus",0,new Calendario());
-        Assert.assertTrue(policia.filtrarPistas(null) == null);
+        assertThrows(IllegalArgumentException.class, () -> policia.visitar(null));
     }
 
     @Test
-    public void noSePuedeVisitarUnEdificioNull(){
-        Policia policia = new Policia("Agus",0,new Calendario());
-        Assert.assertTrue(policia.visitar(null) == null);
-    }
-
-    @Test
-    public void policiaNoPuedeRealizarUnaAccion(){
+    public void policiaNoPuedeRealizarUnaAccionNull(){
 
         Policia policia = new Policia("Agus",0,new Calendario());
+        assertThrows(IllegalArgumentException.class, () -> policia.realizarAccion(null));
     }
 
     @Test
@@ -71,10 +75,30 @@ public class TestPolicia {
     }
 
     @Test
-    public void noSePuedeSetearUnaOrdenDeArrestoNull(){
+    public void noSePuedeSetearUnaOrdenDeArrestoNullYElevaExcepcion(){
 
         Policia policia = new Policia("Agus", 0, new Calendario());
         assertThrows(Exception.class, () -> policia.setOrdenDeArresto(null));
+    }
 
+    @Test
+    public void noSePuedeFiltrarUnArrayDePistasNullYElevaExcepcion(){
+
+        Policia policia = new Policia("Agus", 0, new Calendario());
+        assertThrows(IllegalArgumentException.class, () -> policia.filtrarPistas(null));
+    }
+
+    @Test
+    public void noPuedeAvanzarHorasConUnCalendarioNuloAlSerAcuchilladoYElevaExcepcion(){
+
+        Policia policia = new Policia("Agus", 0, new Calendario());
+        assertThrows(IllegalArgumentException.class, () -> policia.avanzarHorasCuchillada(null));
+    }
+
+    @Test
+    public void noSePuedeEnfrentarUnLadronNulo(){
+
+        Policia policia = new Policia("Agus", 0, new Calendario());
+        assertThrows(IllegalArgumentException.class, () -> policia.enfrentar(null));
     }
 }

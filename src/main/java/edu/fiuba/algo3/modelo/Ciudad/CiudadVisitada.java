@@ -1,9 +1,11 @@
 package edu.fiuba.algo3.modelo.Ciudad;
 
+import edu.fiuba.algo3.modelo.Acciones.ExcepcionesAccion.AccionException;
 import edu.fiuba.algo3.modelo.Ciudad.EstadoVisitas.EstadoVisitasCiudad;
 import edu.fiuba.algo3.modelo.Ciudad.EstrategiaAcciones.IEstrategiaAcciones;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Edificio.IAccionador;
+import edu.fiuba.algo3.modelo.Juego.ExcepcionesCalendario.CalendarioException;
 import edu.fiuba.algo3.modelo.Ladron.ISospechoso;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 
@@ -35,13 +37,18 @@ public class CiudadVisitada implements ICiudadVisitada {
     }
 
     @Override
-    public String visitar(Edificio edificio)
-    {
-        if(!edificios.contains(edificio)) {
+    public String visitar(Edificio edificio) throws AccionException, CalendarioException {
+        if (!edificios.contains(edificio)) {
             return "¡Epa! No tenés permiso para entrar a este edificio.";
         }
-        int demora = visitas.demoraEdificio();
-        visitas.siguiente();
+        int demora = 0;
+        try {
+            demora = visitas.demoraEdificio();
+            visitas.siguiente();
+        }
+        catch (RuntimeException e){
+            e.printStackTrace();
+        }
         policia.avanzarHoras(demora);
         return edificio.visitar(policia);
     }

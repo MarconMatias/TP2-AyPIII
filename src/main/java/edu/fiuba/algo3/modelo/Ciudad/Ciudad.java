@@ -1,9 +1,11 @@
 package edu.fiuba.algo3.modelo.Ciudad;
 
+import edu.fiuba.algo3.modelo.Acciones.ExcepcionesAccion.AccionException;
 import edu.fiuba.algo3.modelo.Ciudad.EstrategiaAcciones.IEstrategiaAcciones;
 import edu.fiuba.algo3.modelo.Ciudad.EstrategiaAcciones.SinEstrategiaAcciones;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.*;
+import edu.fiuba.algo3.modelo.Juego.ExcepcionesCalendario.CalendarioException;
 import edu.fiuba.algo3.modelo.Ladron.ISospechoso;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Ladron.SinSospechoso;
@@ -128,8 +130,18 @@ public class Ciudad implements IDestino, Comparable<Ciudad> {
      * @param edificio Un edificio de la ciudad actual.
      * @return El testimonio obtenido en el edificio de la ciudad actual.
      */
-    public String visitar(Edificio edificio) {
-        return visitada.visitar(edificio);
+    public String visitar(Edificio edificio) throws AccionException, CalendarioException {
+
+        String testimonio = null;
+        try{
+            visitada.visitar(edificio);
+        }
+        catch (AccionException | CalendarioException e){
+            e.printStackTrace();
+            return "No sabría decirte...";
+        }
+        return testimonio;
+
     }
 
     public Integer verificarTieneTodasLasPistas() {

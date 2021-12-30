@@ -12,6 +12,7 @@ import edu.fiuba.algo3.modelo.Juego.ExcepcionesCalendario.CalendarioException;
 import edu.fiuba.algo3.modelo.Ladron.DetallableSospechoso;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.OrdenDeArresto.IOrden;
+import edu.fiuba.algo3.modelo.Policia.ExcepcionesPolicia.PoliciaException;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 import edu.fiuba.algo3.modelo.Ruta.Ruta;
 import javafx.beans.property.ObjectProperty;
@@ -168,9 +169,15 @@ public class Mision implements DetallableSospechoso {
         return unItem.getRuta(unMapa, random);
     }
 
-    public Ciudad viajarACiudad(Ciudad destino) {
+    public Ciudad viajarACiudad(Ciudad destino) throws AccionException, CalendarioException, PoliciaException {
         ciudadActual.desvisitar();
-        ciudadActual = mapa.viajar(policia, ciudadActual, destino);
+
+        try{
+            ciudadActual = mapa.viajar(policia, ciudadActual, destino);
+        }
+        catch (AccionException | CalendarioException | PoliciaException e ){
+            System.err.println(e.getStackTrace() + e.getMessage() + "Error. No se pudo viajar al destino");
+        }
         return ciudadActual;
     }
 
@@ -189,7 +196,7 @@ public class Mision implements DetallableSospechoso {
      * @param edificio Un edificio de la ciudad actual.
      * @return El testimonio obtenido en el edificio de la ciudad actual.
      */
-    public String visitarEdificio(Edificio edificio) {
+    public String visitarEdificio(Edificio edificio) throws AccionException, CalendarioException {
         return ciudadActual.visitar(edificio);
     }
 

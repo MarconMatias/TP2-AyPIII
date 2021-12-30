@@ -1,6 +1,9 @@
 package edu.fiuba.algo3.modelo.Juego;
 
+import edu.fiuba.algo3.modelo.Acciones.ExcepcionesAccion.AccionException;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
+import edu.fiuba.algo3.modelo.Juego.ExcepcionesCalendario.CalendarioException;
+import edu.fiuba.algo3.modelo.Policia.ExcepcionesPolicia.PoliciaException;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 import org.junit.Assert;
 import org.junit.Test;
@@ -13,8 +16,7 @@ import static org.mockito.Mockito.*;
 public class MapaTest {
 
     @Test
-    public void irDeCiudadACiudadConMapaVacioFalla()
-    {
+    public void irDeCiudadACiudadConMapaVacioFalla() throws AccionException, CalendarioException, PoliciaException {
         Mapa mapa = new Mapa(new HashMap<String, Ciudad>());
         Ciudad eregion = new Ciudad("Eregion", Collections.emptyList());
         Ciudad rivendel = new Ciudad("Rivendel", Collections.emptyList());
@@ -29,8 +31,7 @@ public class MapaTest {
     }
 
     @Test
-    public void irDeCiudadExistenteADestinoExistentePasa()
-    {
+    public void irDeCiudadExistenteADestinoExistentePasa() throws AccionException, CalendarioException, PoliciaException {
         Ciudad atenas = new Ciudad("Atenas", Collections.emptyList());
         Ciudad bangkok = new Ciudad("Bangkok", Collections.emptyList());
         Mapa mapa = new Mapa(List.of(atenas,bangkok));
@@ -41,8 +42,7 @@ public class MapaTest {
     }
 
     @Test
-    public void irDeCiudadExistenteACiudadExistenteNoDestinoFalla()
-    {
+    public void irDeCiudadExistenteACiudadExistenteNoDestinoFalla() throws AccionException, CalendarioException, PoliciaException {
         Ciudad atenas = new Ciudad("Atenas", Collections.emptyList());
         Ciudad bagdad = new Ciudad("Bagdad", Collections.emptyList());
         Ciudad bangkok = new Ciudad("Bangkok", Collections.emptyList());
@@ -61,8 +61,7 @@ public class MapaTest {
     }
 
     @Test
-    public void viajarDeBamakoAMoroniEntre3DestinosLleva6270Km()
-    {
+    public void viajarDeBamakoAMoroniEntre3DestinosLleva6270Km() throws AccionException, CalendarioException, PoliciaException {
         Ciudad bamako = new Ciudad("Bamako", Collections.emptyList());
         Ciudad montreal = new Ciudad("Montreal", Collections.emptyList());
         Ciudad moroni = new Ciudad("Moroni", Collections.emptyList());

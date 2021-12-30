@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo.Acciones;
 
 import edu.fiuba.algo3.modelo.Acciones.ExcepcionesAccion.AccionException;
-import edu.fiuba.algo3.modelo.Acciones.ExcepcionesAccion.NoSePudoRealizarAccionException;
 import edu.fiuba.algo3.modelo.Juego.Calendario;
 import edu.fiuba.algo3.modelo.Juego.ExcepcionesCalendario.CalendarioException;
 import edu.fiuba.algo3.modelo.OrdenDeArresto.IOrden;
@@ -25,7 +24,7 @@ public class EmitirOrden implements IAccion {
     }
 
     @Override
-    public void avanzarCalendario(Calendario calendario) throws CalendarioException {
+    public void avanzarCalendario(Calendario calendario) throws CalendarioException, AccionException {
 
         try{
             calendario.avanzarHoras(orden.getHorasDemora());

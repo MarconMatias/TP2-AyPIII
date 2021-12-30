@@ -2,9 +2,12 @@ package edu.fiuba.algo3.controlador.Mapa;
 
 import edu.fiuba.algo3.ControlStage;
 import edu.fiuba.algo3.controlador.Juego.ControladorAcciones;
+import edu.fiuba.algo3.modelo.Acciones.ExcepcionesAccion.AccionException;
+import edu.fiuba.algo3.modelo.Juego.ExcepcionesCalendario.CalendarioException;
 import edu.fiuba.algo3.modelo.Juego.IObservadorAcciones;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
+import edu.fiuba.algo3.modelo.Policia.ExcepcionesPolicia.PoliciaException;
 import edu.fiuba.algo3.vista.Ciudad.DestinoCiudad;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
@@ -47,7 +50,7 @@ public class MapaDestinosControlador {
         }
     }
 
-    public void destinoElegido(DestinoCiudad destino) {
+    public void destinoElegido(DestinoCiudad destino) throws AccionException, CalendarioException, PoliciaException {
         System.out.println("Viajando a "+destino.getNombre());
         mision.viajarACiudad(destino.getCiudad());
         if(controlStage.abrirLibroCiudad(juego, mision)) {

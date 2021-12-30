@@ -93,6 +93,8 @@ public class Policia {
      */
     public void iniciarMision(Calendario calendario) {
 
+        if(calendario == null)
+            throw new IllegalArgumentException("Error. El Calendario pasado por parametro no es valido");
         this.calendario = calendario;
     }
 
@@ -104,8 +106,6 @@ public class Policia {
     }
 
     public ArrayList<IPista> filtrarPistas(Collection<IPista> pistas) {
-        if(pistas == null)
-            return (ArrayList<IPista>) pistas;
         return rango.filtrarPistas(pistas);
     }
 
@@ -117,7 +117,7 @@ public class Policia {
      * @param edificio Un edificio de la ciudad actual.
      * @return El testimonio recibido en el edificio.
      */
-    public String visitar(Edificio edificio) {
+    public String visitar(Edificio edificio) throws AccionException, CalendarioException {
         if(edificio == null)
             throw new IllegalArgumentException("El edificio pasado por parametro es invalido: es de tipo NULL");
         return edificio.visitar(this);
@@ -126,8 +126,14 @@ public class Policia {
         return this.arrestos;
     }
 
-    public void avanzarHoras(int demora) {
-        calendario.avanzarHoras(demora);
+    public void avanzarHoras(int demora) throws AccionException, CalendarioException {
+
+        try{
+            calendario.avanzarHoras(demora);
+        }
+        catch(IllegalArgumentException e){
+            System.err.println(e.getMessage());
+        }
     }
 
     public void realizarAccion(IAccion accion) throws AccionException, CalendarioException {
@@ -140,7 +146,8 @@ public class Policia {
             calendario.aplicarAccion(accion);
         }
         catch (CalendarioException e){
-
+            e.printStackTrace();
+            System.err.println(e.getMessage());
         }
     }
 
@@ -150,11 +157,25 @@ public class Policia {
     }
 
     public void enfrentar(Ladron ladron) {
-        ordenDeArresto.get().enfrentar(this, ladron);
+        try{
+            ordenDeArresto.get().enfrentar(this, ladron);
+        }
+        catch(IllegalArgumentException e){
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+        }
     }
 
-    public void avanzarHorasCuchillada(Calendario calendario) {
-        estadoCuchilladas.avanzarHoras(calendario);
+    public void avanzarHorasCuchillada(Calendario calendario) throws AccionException, CalendarioException {
+
+        if(calendario == null)
+            throw new IllegalArgumentException("Error. El calendario pasado por parametro es invalido");
+        try{
+            estadoCuchilladas.avanzarHoras(calendario);
+        }
+        catch (IllegalArgumentException e){
+            e.printStackTrace();
+        }
     }
 
     public void recibirCuchillada() {

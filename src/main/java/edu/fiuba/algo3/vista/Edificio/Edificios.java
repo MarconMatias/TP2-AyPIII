@@ -4,7 +4,9 @@ import edu.fiuba.algo3.componentes.Imagen.Destino;
 import edu.fiuba.algo3.componentes.Libro.Librito;
 import edu.fiuba.algo3.componentes.Trayecto.Trayecto;
 import edu.fiuba.algo3.controlador.Edificio.EdificiosControlador;
+import edu.fiuba.algo3.modelo.Acciones.ExcepcionesAccion.AccionException;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
+import edu.fiuba.algo3.modelo.Juego.ExcepcionesCalendario.CalendarioException;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.vista.Juego.Pantalla;
@@ -100,6 +102,14 @@ public class Edificios extends Pantalla {
         observadorAccionesProperty().bind(controlador.getObservadorLiberable());
         librito.setOnMouseClicked(controlador::libritoClicked);
         librito.setOnKeyPressed(controlador::libritoKeyPressed);
-        destinoElegido.addListener(ev->controlador.destinoElegido(destinoElegido.get()));
+        destinoElegido.addListener(ev-> {
+            try {
+                controlador.destinoElegido(destinoElegido.get());
+            } catch (AccionException e) {
+                e.printStackTrace();
+            } catch (CalendarioException e) {
+                e.printStackTrace();
+            }
+        });
     }
 }
