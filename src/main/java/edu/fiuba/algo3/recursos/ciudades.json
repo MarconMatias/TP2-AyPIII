@@ -1601,8 +1601,13 @@
         },
         {
           "tipo": "Gobernante",
-          "pista": "Me dijo que el pais al que se dirige eligio un presidente recientemente",
+          "pista": "Me dijo que el pais al que se dirige eligio un presidente recientemente por medio de colegio electoral",
           "dificultad": 0
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "Me dijo que el pais al que se dirige eligio un presidente recientemente",
+          "dificultad": 1
         },
         {
           "tipo": "Idioma",
