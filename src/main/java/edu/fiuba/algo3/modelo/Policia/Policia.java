@@ -174,8 +174,16 @@ public class Policia {
         oyentesAlGanar.add(listener);
     }
 
+    public void desescucharAlGanar(PoliciaFinalizaListener oyenteGanar) {
+        oyentesAlGanar.remove(oyenteGanar);
+    }
+
     public void escucharAlPerder(PoliciaFinalizaListener listener) {
         oyentesAlPerder.add(listener);
+    }
+
+    public void desescucharAlPerder(PoliciaFinalizaListener oyentePerder) {
+        oyentesAlPerder.remove(oyentePerder);
     }
 
     private String getNombre() {
@@ -199,4 +207,5 @@ public class Policia {
     public String getRangoYNombre() {
         return rango.getNombreRango() + " " + getNombre();
     }
+
 }

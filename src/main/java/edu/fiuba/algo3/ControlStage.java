@@ -149,6 +149,9 @@ public class ControlStage {
 
     public boolean abrirLibroCiudad() {
         try {
+            if(null == mision) {
+                return false;
+            }
             LibroCiudadControlador controlador = new LibroCiudadControlador(juego, mision, this);
             LibroCiudad libro = new LibroCiudad(juego, mision, controlador);
             ponerSiguiente(libro);

@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Computadora.Computadora;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Evento.PoliciaFinaliza;
+import edu.fiuba.algo3.modelo.Evento.PoliciaFinalizaListener;
 import edu.fiuba.algo3.modelo.Item.Item;
 import edu.fiuba.algo3.modelo.Juego.EstadoMision.EstadoMision;
 import edu.fiuba.algo3.modelo.Ladron.DetallableSospechoso;
@@ -12,6 +13,8 @@ import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.OrdenDeArresto.IOrden;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 import edu.fiuba.algo3.modelo.Ruta.Ruta;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.beans.property.ObjectProperty;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableMap;
@@ -29,10 +32,15 @@ public class Mision implements DetallableSospechoso {
     private final Mapa mapa;
     private final Calendario calendario;
     private final Random random;
+    private final PoliciaFinalizaListener oyentePerder;
+    private final PoliciaFinalizaListener oyenteGanar;
+    private final InvalidationListener observadorCalendario;
     private Ciudad ciudadActual;
     private Computadora computadora;
     private EstadoMision estadoMision;
     private List<IObservadorMision> observadores = new ArrayList<IObservadorMision>();
+    final List<String> tipsTiempo = List.of("Asegurarse viajar a la ciudad correcta evita perder tiempo de ida y de vuelta.",
+            "Visitar un edificio por ciudad suele ser necesario para llegar a la orden en la 4ª ciudad.");
 
     /**
      * Inicia una misión con todos los parámetros dados.
@@ -53,8 +61,6 @@ public class Mision implements DetallableSospechoso {
         this.estadoMision = new EstadoMision(itemRobado, ladron);
         this.policia = policia;
         policia.iniciarMision(calendario);
-        policia.escucharAlPerder(this::alPerderPolicia);
-        policia.escucharAlGanar(this::alGanarPolicia);
         this.itemRobado = itemRobado;
         this.ladron = ladron;
         this.rutaLadron = new Ruta(rutaLadron);
@@ -66,18 +72,51 @@ public class Mision implements DetallableSospechoso {
         this.rutaLadron.visitadaPorLadron(ladron);
         this.ciudadActual = mapa.getCiudadPorNombre(ciudadInicial);
         ciudadActual.visitadaPorPolicia(policia);
+        // Observadores y oyentes
+        oyentePerder = this::alPerderPolicia;
+        oyenteGanar = this::alGanarPolicia;
+        observadorCalendario = this::comprobarExpiracionDeMision;
+        policia.escucharAlPerder(oyentePerder);
+        policia.escucharAlGanar(oyenteGanar);
+        calendario.getDiaObservable().addListener(observadorCalendario);
+        calendario.getHoraObservable().addListener(observadorCalendario);
     }
 
     private void alGanarPolicia(PoliciaFinaliza evento) {
         estadoMision.hacerVictoria(evento.getExplicacion());
-        notificarObservadores();
+        finalizarMision();
     }
 
     private void alPerderPolicia(PoliciaFinaliza evento) {
         estadoMision.hacerDerrota(evento.getExplicacion());
-        notificarObservadores();
+        finalizarMision();
     }
 
+    private void comprobarExpiracionDeMision(Observable observable) {
+        // 0 lunes comienza
+        // 1 martes, 2 miércoles, 3 jueves, 4 viernes, 5 sábado,
+        if(calendario.getCantidadDeDias() < 6) {
+            return;
+        }
+        if( (calendario.getCantidadDeDias() > 7)
+                || (calendario.getHoraDelDia() >= 17) ) {
+            alExpirarMision();
+        }
+    }
+
+    private void alExpirarMision() {
+        String tip = tipsTiempo.get(random.nextInt(tipsTiempo.size()));
+        estadoMision.hacerDerrota("Se terminó el tiempo designado para la misión.\nTip:" + tip);
+        finalizarMision();
+    }
+
+    private void finalizarMision() {
+        policia.desescucharAlPerder(oyentePerder);
+        policia.desescucharAlGanar(oyenteGanar);
+        calendario.getDiaObservable().removeListener(observadorCalendario);
+        calendario.getHoraObservable().removeListener(observadorCalendario);
+        notificarObservadores();
+    }
     /**
      * Crea una misión para un policía, con un item y ladrón al azar, ruta al azar y
      * ciudad según el ítem.

@@ -38,7 +38,6 @@ public class PantallaFinal extends Pantalla {
     @Override
     protected void iniciarControlador(PantallaControlador controlador) {
         super.iniciarControlador(controlador);
-        setRelojVisible(true);
         setOnMouseClicked(controlador::fondoClicked);
         setOnKeyPressed(controlador::fondoKeyPressed);
     }
