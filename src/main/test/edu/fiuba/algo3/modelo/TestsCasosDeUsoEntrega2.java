@@ -1,19 +1,24 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.Acciones.*;
+import edu.fiuba.algo3.modelo.Acciones.AccionDormir;
+import edu.fiuba.algo3.modelo.Acciones.HeridaPorCuchillo;
+import edu.fiuba.algo3.modelo.Acciones.IAccion;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Computadora.Computadora;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Item.Item;
-import edu.fiuba.algo3.modelo.Juego.*;
+import edu.fiuba.algo3.modelo.Juego.Calendario;
+import edu.fiuba.algo3.modelo.Juego.IObservadorAcciones;
+import edu.fiuba.algo3.modelo.Juego.Mapa;
+import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
-import edu.fiuba.algo3.modelo.Lector.*;
+import edu.fiuba.algo3.modelo.Lector.LectorCiudad;
+import edu.fiuba.algo3.modelo.Lector.LectorMapa;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -52,7 +57,7 @@ public class TestsCasosDeUsoEntrega2 {
     @Test
     public void casoDeUso02() {
         // Dependencias (reales y mocks)
-        Calendario calendario = mock(Calendario.class);
+        Calendario calendario = new Calendario();
         Item item = mock(Item.class);
         Ladron ladron = mock(Ladron.class);
         Computadora computadora = mock(Computadora.class);
@@ -77,13 +82,13 @@ public class TestsCasosDeUsoEntrega2 {
         // VERIFICAR que se hayan actualizado las ciudades:
         verify(Montreal).actualizarRutaLadron(any(),eq(ladron));
         verify(Mexico).actualizarRutaLadron(any(),eq(ladron));
-        verify(Montreal).visitadaPorPolicia(policia);
+        verify(Montreal).visitadaPorPolicia(policia, random);
 
         // Viaja de Montreal a México
         mision.viajarACiudad(Mexico);
 
         // VERIFICAR que se haya hecho el viaje:
-        verify(mapa).viajar(policia,Montreal,Mexico);
+        verify(mapa).viajar(policia,Montreal,Mexico,random);
         //verify(Mexico).visitadaPorPolicia(policia); // No funciona porque mapa es un mock
     }
 
