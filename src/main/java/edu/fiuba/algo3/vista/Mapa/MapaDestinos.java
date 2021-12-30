@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.vista.Mapa;
 
 import edu.fiuba.algo3.componentes.Imagen.Destino;
+import edu.fiuba.algo3.componentes.Imagen.Imagen;
 import edu.fiuba.algo3.componentes.Libro.Librito;
 import edu.fiuba.algo3.componentes.Mapamundi.Mapamundi;
 import edu.fiuba.algo3.componentes.Trayecto.Trayecto;
@@ -53,13 +54,50 @@ public class MapaDestinos extends Mapamundi {
         agregarDestinos(mision.getCiudadesVecinas());
         agregarTrayectos();
 
+        Imagen ticket = new Imagen(Imagen.urlDesdeRecursos("Mapa/ticket.png"));
+        agregar(ticket, 0.6, 0.85);
+
+        double ticketColumna1X = 0.48;
+        double ticketColumna2X = 0.58;
+        double ticketFila1Y = 0.83;
+        double ticketFila2Y = 0.88;
+
+        Label etiquetaTituloOrigen = new Label("Origen:");
+        etiquetaTituloOrigen.setAlignment(Pos.CENTER_LEFT);
+        etiquetaTituloOrigen.setMaxWidth(480);
+        etiquetaTituloOrigen.setStyle("-fx-font: 60 Arial");
+        etiquetaTituloOrigen.getStyleClass().add("etiquetaTituloCampo");
+        agregar(etiquetaTituloOrigen, ticketColumna1X, ticketFila1Y);
+
+        Label etiquetaOrigen = new Label(mision.getCiudadActual().getNombre());
+        etiquetaOrigen.setAlignment(Pos.CENTER);
+        etiquetaOrigen.setMaxWidth(512);
+        etiquetaOrigen.setStyle("-fx-font: 60 Impact");
+        etiquetaOrigen.getStyleClass().add("etiquetaDestinoSeleccionado");
+        agregar(etiquetaOrigen, ticketColumna2X, ticketFila1Y);
+
+        Label etiquetaTituloDestino = new Label("Destino:");
+        etiquetaTituloDestino.setAlignment(Pos.CENTER_LEFT);
+        etiquetaTituloDestino.setMaxWidth(480);
+        etiquetaTituloDestino.setStyle("-fx-font: 60 Arial");
+        etiquetaTituloDestino.getStyleClass().add("etiquetaTituloCampo");
+        agregar(etiquetaTituloDestino, ticketColumna1X, ticketFila2Y);
+
         Label etiquetaDestino = new Label();
         etiquetaDestino.textProperty().bind(createStringBinding(this::getNombreDestino, destinoSeleccionado));
         etiquetaDestino.setAlignment(Pos.CENTER);
-        etiquetaDestino.setMaxWidth(960);
+        etiquetaDestino.setMaxWidth(512);
         etiquetaDestino.setStyle("-fx-font: 60 Impact");
         etiquetaDestino.getStyleClass().add("etiquetaDestinoSeleccionado");
-        agregar(etiquetaDestino, 0.500, 0.8);
+        agregar(etiquetaDestino, ticketColumna2X, ticketFila2Y);
+
+        Label etiquetaAyuda = new Label("Seleccione un destino para ver el nombre.\nHaga click o presione ENTER para viajar.");
+        etiquetaAyuda.setAlignment(Pos.CENTER);
+        etiquetaAyuda.setMaxWidth(512);
+        etiquetaAyuda.setWrapText(true);
+        etiquetaAyuda.setStyle("-fx-font: 48 \"Times New Roman\"");
+        etiquetaAyuda.getStyleClass().add("etiquetaDestinoSeleccionado");
+        agregar(etiquetaAyuda, 0.725, 0.88);
 
         setCalendario(mision.getCalendario());
         setRelojVisible(true);
