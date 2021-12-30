@@ -64,11 +64,6 @@ public class Ladron implements ISospechoso, DetallableSospechoso {
     pistas.addAll(dificiles);
   }
 
-  public boolean meLlamo(String string) {
-
-    return string.equals(nombre);
-  }
-
   public String getDetalle(String tipo, String porDefecto)
   {
     return this.detalles.getOrDefault(tipo,porDefecto);
@@ -89,7 +84,8 @@ public class Ladron implements ISospechoso, DetallableSospechoso {
   }
 
   @Override
-  public String testimonioAlAzar(Policia policia, IDestino destino, IFiltroCiudad filtroCiudad) {
+  public String testimonioAlAzar(Policia policia, IDestino destino,
+                                 IFiltroCiudad filtroCiudad) {
     PistaCiudad pistaCiudad = (PistaCiudad) destino.pistaAlAzar(policia, filtroCiudad);
     String pistaDetalle = detalleAlAzar(policia, new Random());
     return pistaCiudad.getValor() + ".\n" + pistaDetalle;
