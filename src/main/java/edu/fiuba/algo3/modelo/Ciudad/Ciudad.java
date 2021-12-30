@@ -15,17 +15,17 @@ import edu.fiuba.algo3.modelo.Policia.Policia;
 import edu.fiuba.algo3.modelo.Ruta.Ruta;
 
 import java.util.*;
-import java.util.function.Supplier;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Ciudad implements IDestino, Comparable<Ciudad> {
-    private final static ArrayList<Supplier<Edificio>> factories = new ArrayList<>(
+    private final static ArrayList<Function<Random, Edificio>> factories = new ArrayList<>(
             List.of(
-                    () -> new Edificio(new Aeropuerto()),
-                    () -> new Edificio(new Banco()),
-                    () -> new Edificio(new Biblioteca()),
-                    () -> new Edificio(new Bolsa()),
-                    () -> new Edificio(new Puerto())
+                    (Random random) -> new Edificio(new Aeropuerto(), random),
+                    (Random random) -> new Edificio(new Banco(), random),
+                    (Random random) -> new Edificio(new Biblioteca(), random),
+                    (Random random) -> new Edificio(new Bolsa(), random),
+                    (Random random) -> new Edificio(new Puerto(), random)
             )
     );
 
@@ -76,9 +76,12 @@ public class Ciudad implements IDestino, Comparable<Ciudad> {
      * @param max
      * @return Lista de Edificios sin que haya pasado el ladrón.
      */
-    public List<Edificio> edificiosAlAzar(int max) {
-        Collections.shuffle(factories);
-        return factories.stream().limit(max).map(Supplier::get).collect(Collectors.toList());
+    public List<Edificio> edificiosAlAzar(int max, Random random) {
+        List<Function<Random,Edificio>> aleatorizadas = factories.stream().collect(Collectors.toList());
+        Collections.shuffle(aleatorizadas, random);
+        return factories.stream().limit(max).map(
+                factory -> factory.apply(random)
+        ).collect(Collectors.toList());
     }
 
     public double getCoordenadaX() {
@@ -127,10 +130,14 @@ public class Ciudad implements IDestino, Comparable<Ciudad> {
         this.descripcion = descripcion;
     }
 
-    public void visitadaPorPolicia(Policia policia) {
-        visitada = new CiudadVisitada(this, policia, sospechoso, destinoSospechoso, estrategiaAcciones);
+    public void visitadaPorPolicia(Policia policia, Random random) {
+        visitada = new CiudadVisitada(this, policia, sospechoso,
+                destinoSospechoso, estrategiaAcciones, random);
     }
 
+    public void visitadaPorPolicia(Policia policia) {
+        visitadaPorPolicia(policia, new Random());
+    }
     /**
      * El policía que está visitando esta ciudad, vista al edificio dado.
      * * Avanza el calendario por la visita misma.

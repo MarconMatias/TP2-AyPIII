@@ -71,7 +71,7 @@ public class Mision implements DetallableSospechoso {
         this.random = random;
         this.rutaLadron.visitadaPorLadron(ladron);
         this.ciudadActual = mapa.getCiudadPorNombre(ciudadInicial);
-        ciudadActual.visitadaPorPolicia(policia);
+        ciudadActual.visitadaPorPolicia(policia, random);
         // Observadores y oyentes
         oyentePerder = this::alPerderPolicia;
         oyenteGanar = this::alGanarPolicia;
@@ -212,7 +212,7 @@ public class Mision implements DetallableSospechoso {
 
     public Ciudad viajarACiudad(Ciudad destino) {
         ciudadActual.desvisitar();
-        ciudadActual = mapa.viajar(policia, ciudadActual, destino);
+        ciudadActual = mapa.viajar(policia, ciudadActual, destino, random);
         return ciudadActual;
     }
 

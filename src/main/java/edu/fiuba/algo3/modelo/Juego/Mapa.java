@@ -36,7 +36,7 @@ public class Mapa {
         return new ArrayList<>(destinos.keySet());
     }
 
-    public Ciudad viajar(Policia policia, Ciudad origen, Ciudad destino) {
+    public Ciudad viajar(Policia policia, Ciudad origen, Ciudad destino, Random random) {
         if (!origenes.containsKey(origen)) {
             throw new RuntimeException("El origen no existe en el mapa.");
         }
@@ -46,8 +46,12 @@ public class Mapa {
         }
         Integer distancia = destinos.get(destino);
         policia.viajar(distancia);
-        destino.visitadaPorPolicia(policia);
+        destino.visitadaPorPolicia(policia, random);
         return destino;
+    }
+
+    public Ciudad viajar(Policia policia, Ciudad origen, Ciudad destino) {
+        return viajar(policia, origen, destino, new Random());
     }
 
     public void agregarConexion(Ciudad origen, Ciudad destino, int distanciaKm) {

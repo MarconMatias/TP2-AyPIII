@@ -7,20 +7,24 @@ import edu.fiuba.algo3.modelo.Ladron.ISospechoso;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 
+import java.util.Random;
+
 public class Edificio{
     private final ITipoEdificio tipo;
+    private final Random random;
     private IAccionador accionador;
     private final Testigo testigo;
 
-    public Edificio(ITipoEdificio tipo, IAccionador comportamiento) {
+    public Edificio(ITipoEdificio tipo, IAccionador comportamiento, Random random) {
         this.accionador = comportamiento;
         this.tipo = tipo;
         this.testigo = tipo.getTestigo();
+        this.random = random;
     }
 
-    public Edificio(ITipoEdificio tipo)
+    public Edificio(ITipoEdificio tipo, Random random)
     {
-        this(tipo, new SinAccionador());
+        this(tipo, new SinAccionador(), random);
     }
 
     public String getNombre()
