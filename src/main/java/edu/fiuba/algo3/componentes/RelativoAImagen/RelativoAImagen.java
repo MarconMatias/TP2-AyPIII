@@ -102,6 +102,16 @@ public class RelativoAImagen extends Group {
     /**
      * Genera un binding para las coordenadas absolutas del valor relativo dado.
      *
+     * @param posicion Coordenadas relativas, entre 0.0 y 1.0, del centro del punto.
+     * @return Un binding para las coordenadas ABSOLUTAS del punto relativo dado.
+     */
+    public DoubleBinding nuevoYRelativo(double posicion) {
+        return nuevoYRelativo(new ReadOnlyDoubleWrapper(posicion), new ReadOnlyDoubleWrapper(0.0));
+    }
+
+    /**
+     * Genera un binding para las coordenadas absolutas del valor relativo dado.
+     *
      * @param relativo Coordenadas relativas, entre 0.0 y 1.0 cada componente, del centro del punto.
      * @return Un binding para las coordenadas ABSOLUTAS del punto relativo dado.
      */
