@@ -41,6 +41,7 @@ public class PantallaAccion extends Pantalla {
         textoContinuar.getStyleClass().add("textoContinuarAccion");
         agregar(textoContinuar, 0.5, 0.9);
 
+        this.setFocusTraversable(true);
         setCalendario(mision.getCalendario());
         iniciarControlador(controlador);
     }
