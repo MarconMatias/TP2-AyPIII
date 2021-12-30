@@ -4,6 +4,8 @@ import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Pista.PistaCiudad;
 import org.json.simple.JSONArray;
 
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -81,7 +83,9 @@ public class LectorCiudad {
   public void agregarDescripcion(Map jsonCiudad, Ciudad ciudad) {
     String desc = lector.leerPropiedadComo(String.class, jsonCiudad, "descripcion", null);
     if((null==desc) || ("".equals(desc.trim()))) {
-      System.err.println("Advertencia: La ciudad "+ciudad.getNombre()+" no tiene descripcion.");
+      String ciudadURL = ciudad.getNombre().replace(" ","_");
+      String wiki = "https://es.wikipedia.org/wiki/"+URLEncoder.encode(ciudadURL, StandardCharsets.UTF_8);
+      System.err.println("Advertencia: La ciudad "+ciudad.getNombre()+" no tiene descripcion. Véase "+wiki);
     } else {
       ciudad.setDescripcion(desc);
     }
