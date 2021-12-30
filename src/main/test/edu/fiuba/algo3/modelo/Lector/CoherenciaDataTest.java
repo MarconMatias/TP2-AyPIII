@@ -223,4 +223,15 @@ public class CoherenciaDataTest {
                             +", ej.:"+pistas.stream().findAny().orElse(null));
         }
     }
+
+    @Test
+    public void cadaCiudadTieneDetalles() {
+        final String fuente = "src/main/java/edu/fiuba/algo3/recursos/ciudades.json";
+        LectorCiudad lectorCiudad = new LectorCiudad();
+        List<Ciudad> ciudades = lectorCiudad.leerCiudades(fuente);
+        for(Ciudad ciudad : ciudades) {
+            assertNotNull(ciudad.getDescripcion(), ciudad.getNombre());
+            assertNotEquals("",ciudad.getDescripcion().trim(), ciudad.getNombre());
+        }
+    }
 }
