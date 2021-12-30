@@ -147,10 +147,4 @@ public class TestsCasosDeUsos {
         verify(observador).accionRealizada(any(AccionDormir.class));
         verify(observador).accionRealizada(any(HeridaPorCuchillo.class));
     }
-
-    @Test
-    public void test08CasoDeUso8() {
-
-    }
-
 }
