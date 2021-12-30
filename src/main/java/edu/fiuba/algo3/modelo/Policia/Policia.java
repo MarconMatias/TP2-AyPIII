@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo.Policia;
 
-import edu.fiuba.algo3.modelo.Acciones.AccionCuchilloUnica;
 import edu.fiuba.algo3.modelo.Acciones.IAccion;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Evento.PoliciaFinaliza;
@@ -105,9 +104,6 @@ public class Policia {
      */
     public String visitar(Edificio edificio) {
         return edificio.visitar(this);
-    }
-
-    public void hacerAccion(AccionCuchilloUnica mockAccion) {
     }
 
     public Integer getArrestos() {

@@ -4,8 +4,6 @@ import edu.fiuba.algo3.modelo.Juego.Calendario;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 
 public class HeridaPorCuchillo implements IAccion {
-    private int demoraAccion;
-    private AccionCuchilloUnica estado;
     private Policia policia;
 
     @Override
