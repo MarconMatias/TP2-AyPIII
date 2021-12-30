@@ -6,6 +6,7 @@ import edu.fiuba.algo3.controlador.Ciudad.LibroCiudadControlador;
 import edu.fiuba.algo3.controlador.Edificio.EdificiosControlador;
 import edu.fiuba.algo3.controlador.Edificio.Testigo.TestigoControlador;
 import edu.fiuba.algo3.controlador.Juego.AcercaDeControlador;
+import edu.fiuba.algo3.controlador.Juego.Final.PantallaFinalControlador;
 import edu.fiuba.algo3.controlador.Mapa.MapaDestinosControlador;
 import edu.fiuba.algo3.controlador.Orden.ExpedienteControlador;
 import edu.fiuba.algo3.controlador.Orden.OrdenControlador;
@@ -20,6 +21,9 @@ import edu.fiuba.algo3.vista.Ciudad.LibroCiudad;
 import edu.fiuba.algo3.vista.Edificio.Edificios;
 import edu.fiuba.algo3.vista.Edificio.Testigo.Testigo;
 import edu.fiuba.algo3.vista.Juego.AcercaDe;
+import edu.fiuba.algo3.vista.Juego.Final.Derrota;
+import edu.fiuba.algo3.vista.Juego.Final.PantallaFinal;
+import edu.fiuba.algo3.vista.Juego.Final.Victoria;
 import edu.fiuba.algo3.vista.Juego.GrupoInterno;
 import edu.fiuba.algo3.vista.Juego.Pantalla;
 import edu.fiuba.algo3.vista.Mapa.MapaDestinos;
@@ -214,19 +218,33 @@ public class ControlStage {
         if(mision != this.mision) {
             return;
         }
-        Alert alert = new Alert(Alert.AlertType.INFORMATION, mision.getMensajeMision(), ButtonType.OK);
-        alert.showAndWait();
         this.mision = null;
-        abrirMenu();
+        try {
+            PantallaFinalControlador controlador = new PantallaFinalControlador(juego, mision, this);
+            PantallaFinal pantalla = new Derrota(juego, mision, controlador);
+            ponerSiguiente(pantalla);
+        } catch(Exception ex) {
+            ex.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, mision.getMensajeMision(), ButtonType.OK);
+            alert.showAndWait();
+        }
+        //abrirMenu();
     }
     public void abrirVictoria(Mision mision) {
         if(mision != this.mision) {
             return;
         }
-        Alert alert = new Alert(Alert.AlertType.INFORMATION, mision.getMensajeMision(), ButtonType.OK);
-        alert.showAndWait();
         this.mision = null;
-        abrirMenu();
+        try {
+            PantallaFinalControlador controlador = new PantallaFinalControlador(juego, mision, this);
+            PantallaFinal pantalla = new Victoria(juego, mision, controlador);
+            ponerSiguiente(pantalla);
+        } catch(Exception ex) {
+            ex.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, mision.getMensajeMision(), ButtonType.OK);
+            alert.showAndWait();
+        }
+        //abrirMenu();
     }
 
     /**************************************************************************/

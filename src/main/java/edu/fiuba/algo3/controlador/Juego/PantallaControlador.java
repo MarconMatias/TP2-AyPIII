@@ -22,7 +22,7 @@ public abstract class PantallaControlador {
 
     private final Juego juego;
     private final Mision mision;
-    private final ControlStage controlStage;
+    protected final ControlStage controlStage;
     private List<Runnable> liberadores = new ArrayList<>();
 
     public PantallaControlador(Juego juego, Mision mision, ControlStage controlStage) {

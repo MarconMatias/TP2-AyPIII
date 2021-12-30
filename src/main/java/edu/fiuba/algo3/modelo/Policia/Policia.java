@@ -185,6 +185,7 @@ public class Policia {
             return nombre;
         }
     }
+
     @Override
     public String toString() {
         String valor = getNombre();
