@@ -152,10 +152,14 @@ public class Policia {
     }
 
     private void notificarListeners(List<PoliciaFinalizaListener> listeners, PoliciaFinaliza evento) {
+        // Hace una copia porque a veces modificado durante la llamada a los observadores:
+        PoliciaFinalizaListener[] observadoresAntes = listeners.toArray(new PoliciaFinalizaListener[0]);
         List<Exception> exs = new ArrayList<>();
-        for (PoliciaFinalizaListener listener : listeners) {
+        for (PoliciaFinalizaListener listener : observadoresAntes) {
             try {
-                listener.handle(evento);
+                if(listeners.contains(listener)) {
+                    listener.handle(evento);
+                }
             } catch (RuntimeException ex) {
                 exs.add(ex);
             }
