@@ -30,6 +30,11 @@ public class PistaLadron implements IPista {
     }
 
     @Override
+    public boolean conDificultad(Object pista) {
+        return false;
+    }
+
+    @Override
     public String toString()
     {
         if( (null == tipo) || ("".equals(tipo.trim()))

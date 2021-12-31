@@ -9,8 +9,15 @@ import edu.fiuba.algo3.modelo.Juego.ExcepcionesCalendario.CalendarioException;
 import edu.fiuba.algo3.modelo.Ladron.ISospechoso;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Ladron.SinSospechoso;
+import edu.fiuba.algo3.modelo.Pista.ExcepcionesPista.PistaException;
+import edu.fiuba.algo3.modelo.Pista.Filtro.FiltroEconomia;
+import edu.fiuba.algo3.modelo.Pista.Filtro.FiltroHistoria;
+import edu.fiuba.algo3.modelo.Pista.Filtro.FiltroPais;
 import edu.fiuba.algo3.modelo.Pista.Filtro.IFiltroCiudad;
 import edu.fiuba.algo3.modelo.Pista.IPista;
+import edu.fiuba.algo3.modelo.Pista.NivelPista.PistaDificil;
+import edu.fiuba.algo3.modelo.Pista.NivelPista.PistaFacil;
+import edu.fiuba.algo3.modelo.Pista.NivelPista.PistaMedia;
 import edu.fiuba.algo3.modelo.Pista.PistaCiudad;
 import edu.fiuba.algo3.modelo.Pista.SinPistaCiudad;
 import edu.fiuba.algo3.modelo.Policia.Policia;
@@ -144,10 +151,23 @@ public class Ciudad implements IDestino, Comparable<Ciudad> {
 
     }
 
-    public Integer verificarTieneTodasLasPistas() {
+    public Integer verificarTieneTodasLasPistas() throws PistaException {
 
-        Integer errores = 0;
+        boolean tieneTodasLasPistas = false;
+        FiltroEconomia fe = new FiltroEconomia();
+        FiltroHistoria fh = new FiltroHistoria();
+        FiltroPais fp = new FiltroPais();
 
-        return errores;
+
+        tieneTodasLasPistas = (fe.filtrarPistas(pistas).stream().filter( p -> p.conDificultad( (Object) new PistaFacil())).count() > 2);
+        if(!tieneTodasLasPistas)
+            throw new PistaException("Error. No tiene todas las pistas faciles requeridas la ciudad");
+        tieneTodasLasPistas = (fh.filtrarPistas(pistas).stream().filter( p -> p.conDificultad( (Object) new PistaMedia() )).count() > 2);
+        if(!tieneTodasLasPistas)
+            throw new PistaException("Error. No tiene todas las pistas medias requeridas la ciudad");
+        tieneTodasLasPistas = (fp.filtrarPistas(pistas).stream().filter( p -> p.conDificultad( (Object) new PistaDificil() )).count() > 2);
+        if(!tieneTodasLasPistas)
+            throw new PistaException("Error. No tiene todas las pistas dificiles requeridas la ciudad");
+        return 0;
     }
 }

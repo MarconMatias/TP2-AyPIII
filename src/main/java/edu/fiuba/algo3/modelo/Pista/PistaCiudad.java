@@ -26,6 +26,11 @@ public class PistaCiudad implements IPista {
 
     }
 
+    @Override
+    public boolean conDificultad(Object pista) {
+        return (this.nivel.getClass() == pista.getClass());
+    }
+
     public boolean esDeUnTipoDe(Collection<String> tipos) {
         boolean algunaCoincidencia = tipos.stream().anyMatch(buscado -> buscado.equals(tipo));
         return algunaCoincidencia;

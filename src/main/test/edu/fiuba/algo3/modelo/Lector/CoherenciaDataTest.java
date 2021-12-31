@@ -3,14 +3,9 @@ package edu.fiuba.algo3.modelo.Lector;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Item.Item;
 import edu.fiuba.algo3.modelo.Juego.Mapa;
-import edu.fiuba.algo3.modelo.Pista.IPista;
 import edu.fiuba.algo3.modelo.Pista.PistaCiudad;
-import edu.fiuba.algo3.modelo.Pista.NivelPista.NivelPista;
-import edu.fiuba.algo3.vista.Ciudad.FotoCiudad;
-import edu.fiuba.algo3.modelo.Pista.NivelPista.*;
+import edu.fiuba.algo3.modelo.Pista.ExcepcionesPista.PistaException;
 
-import org.json.simple.JSONArray;
-import org.json.simple.parser.JSONParser;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -18,12 +13,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
-import com.thoughtworks.qdox.parser.ParseException;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.ArgumentMatchers.isNull;
-import static org.mockito.Mockito.framework;
 
 public class CoherenciaDataTest {
     @Test
@@ -102,7 +93,12 @@ public class CoherenciaDataTest {
         Integer errores = 0;
         for(Ciudad ciudad : ciudades){
             //Ver si en cada ciudad hay pistas de todas las dificultades de todos los filtros
-            errores = errores + ciudad.verificarTieneTodasLasPistas();
+            try{
+                ciudad.verificarTieneTodasLasPistas();
+            }
+            catch (PistaException e){
+                errores = errores + 1;
+            }
         }
         assertTrue(errores == 0);
     }

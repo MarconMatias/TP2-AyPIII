@@ -6,4 +6,6 @@ import java.util.ArrayList;
 
 public interface IPista {
     public void agregarAListaSiEsNivel(ArrayList<IPista> pistas, NivelPista nivel);
+
+    boolean conDificultad(Object pista);
 }

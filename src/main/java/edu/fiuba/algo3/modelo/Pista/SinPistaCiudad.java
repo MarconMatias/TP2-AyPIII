@@ -10,6 +10,11 @@ public class SinPistaCiudad implements IPista {
     }
 
     @Override
+    public boolean conDificultad(Object pista) {
+        return false;
+    }
+
+    @Override
     public String toString() {
         return "No sabría darte ningún dato útil.";
     }
