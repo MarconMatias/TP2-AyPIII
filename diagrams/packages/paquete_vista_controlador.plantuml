@@ -1,0 +1,39 @@
+@startuml
+title Diagrama de paquetes de acomplamiento vista-Controlador
+
+package "Vista" as GUI {
+    together {
+        package Calendario as VCalendario {}
+        package Ciudad as VCiudad {}
+        package Computadora as VComputadora {}
+        package Edificio as VEdificio {}
+        package Juego as VJuego {}
+        package Policia as VPolicia {}
+    }
+}
+ 
+package "Controlador" {
+    package Calendario as CCalendario {} 
+    package Ciudad as CCiudad {}
+    package Computadora as CComputadora {}
+    package Edificio as CEdificio {}
+    package Juego as CJuego {}
+    package Policia as CPolicia {}
+    class ControlStage
+} 
+
+VCalendario .down.> CCalendario
+VCiudad .down.> CCiudad
+VComputadora .down.> CComputadora
+VEdificio .down.> CEdificio
+VJuego .down.> CJuego
+VPolicia .down.> CPolicia
+
+ControlStage ..> VCalendario
+ControlStage ..> VCiudad
+ControlStage ..> VComputadora
+ControlStage ..> VEdificio
+ControlStage ..> VJuego
+ControlStage ..> VPolicia
+
+@enduml
