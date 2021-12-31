@@ -9,7 +9,7 @@ import edu.fiuba.algo3.modelo.Policia.Policia;
 
 import java.util.Random;
 
-public class Edificio{
+public class Edificio {
     private final ITipoEdificio tipo;
     private final Random random;
     private IAccionador accionador;
@@ -22,18 +22,17 @@ public class Edificio{
         this.random = random;
     }
 
-    public Edificio(ITipoEdificio tipo, Random random)
-    {
+    public Edificio(ITipoEdificio tipo, Random random) {
         this(tipo, new SinAccionador(), random);
     }
 
-    public String getNombre()
-    {
+    public String getNombre() {
         return tipo.getNombreTipo();
     }
+
     public boolean generarEvento(Ladron unLadron) {
 
-        this.accionador = this.accionador.lanzarEvento( unLadron );
+        this.accionador = this.accionador.lanzarEvento(unLadron);
         return true;
     }
 
@@ -46,12 +45,11 @@ public class Edificio{
     }
 
     public void visitadoPorLadron(ISospechoso ladron, IDestino destino) {
-        testigo.setTestimonio(ladron,destino);
+        testigo.setTestimonio(ladron, destino);
     }
 
-    public String visitar(Policia policia)
-    {
-        accionador.visitar(this,policia);
+    public String visitar(Policia policia) {
+        accionador.visitar(this, policia);
         return testigo.getTestimonio(policia);
     }
 

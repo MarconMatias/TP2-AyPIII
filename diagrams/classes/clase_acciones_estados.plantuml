@@ -1,0 +1,44 @@
+@startuml
+
+title Classes - Acciones y estados
+
+interface IAccion {
+  + void avanzarCalendario();
+  + String getNombreAccion();
+  + String getTextoAccion();
+  + void realizar();
+  + void setPolicia(Policia policia);
+}
+class HeridaPorDisparo
+class HeridaPorCuchillo
+class Enfrentamiento
+class EmitirOrden
+class Dormir
+
+IAccion <|-- HeridaPorDisparo 
+IAccion <|-- HeridaPorCuchillo
+IAccion <|-- Enfrentamiento 
+IAccion <|-- EmitirOrden 
+IAccion <|-- Dormir 
+
+interface IEstado {
+  + int demoraEdificio()
+  + IEstado siguiente()
+}
+
+class EstadoVisitasCiudad
+class SinVisitas
+class Visito1Edificio
+class VisitoMuchosEdificios
+class CuchilloUnica
+class CuchilloRepetida
+
+IEstado <|-- CuchilloUnica 
+IEstado <|-- CuchilloRepetida
+IEstado <|-- EstadoVisitasCiudad 
+IEstado <|-- SinVisitas
+IEstado <|-- Visito1Edificio 
+IEstado <|-- VisitoMuchosEdificios
+
+
+@enduml

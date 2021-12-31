@@ -1,0 +1,34 @@
+@startuml
+
+title Diagrama de paquetes modelo
+      
+  package [Juego] {
+    node [Mision] {
+      [Computadora]
+      [Ruta]
+      [Ladron]
+      [Item]
+    }
+    [Evento]
+  }
+  package [Policia] {
+    [Acciones]
+    [OrdenDeArresto]
+  }
+  
+  package [Ciudad]{
+  }
+  package [Edificio] {
+    [Pista]
+  }
+  
+
+Juego -down-> Policia
+Policia -down-> Acciones
+Policia -right-> OrdenDeArresto
+
+Juego -right-> Ciudad
+Ciudad -right-> Edificio
+
+
+@enduml
