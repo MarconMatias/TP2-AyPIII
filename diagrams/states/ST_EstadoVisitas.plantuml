@@ -1,0 +1,8 @@
+@startuml ST_EstadoVisitas
+title Estados de EstadoVisitasCiudad
+
+[*] -r-> SinVisitas
+SinVisitas -r-> Visito1Edificio
+Visito1Edificio -r-> VisitoMuchosEdificios
+VisitoMuchosEdificios -r-> VisitoMuchosEdificios
+@enduml
