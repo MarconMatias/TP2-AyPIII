@@ -1,7 +1,7 @@
-package edu.fiuba.algo3.vista.Orden;
+package edu.fiuba.algo3.vista.Computadora;
 
 import edu.fiuba.algo3.controlador.Juego.PantallaControlador;
-import edu.fiuba.algo3.controlador.Orden.OrdenControlador;
+import edu.fiuba.algo3.controlador.Computadora.OrdenControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import javafx.beans.binding.BooleanBinding;

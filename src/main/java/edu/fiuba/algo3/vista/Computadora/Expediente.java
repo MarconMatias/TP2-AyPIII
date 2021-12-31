@@ -1,9 +1,9 @@
-package edu.fiuba.algo3.vista.Orden;
+package edu.fiuba.algo3.vista.Computadora;
 
 import edu.fiuba.algo3.componentes.Imagen.IconoVolver;
 import edu.fiuba.algo3.componentes.Imagen.ImagenSeleccionable;
 import edu.fiuba.algo3.controlador.Juego.PantallaControlador;
-import edu.fiuba.algo3.controlador.Orden.ExpedienteControlador;
+import edu.fiuba.algo3.controlador.Computadora.ExpedienteControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;

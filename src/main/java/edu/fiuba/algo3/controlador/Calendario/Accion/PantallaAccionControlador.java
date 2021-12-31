@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.controlador.Accion;
+package edu.fiuba.algo3.controlador.Calendario.Accion;
 
 import edu.fiuba.algo3.ControlStage;
 import edu.fiuba.algo3.controlador.Juego.PantallaControlador;

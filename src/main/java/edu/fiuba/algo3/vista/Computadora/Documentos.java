@@ -1,11 +1,11 @@
-package edu.fiuba.algo3.vista.Orden;
+package edu.fiuba.algo3.vista.Computadora;
 
 import edu.fiuba.algo3.componentes.Imagen.Imagen;
 import edu.fiuba.algo3.componentes.Libro.Librito;
 import edu.fiuba.algo3.controlador.Juego.PantallaControlador;
-import edu.fiuba.algo3.controlador.Orden.DetallesControlador;
-import edu.fiuba.algo3.controlador.Orden.DocumentosControlador;
-import edu.fiuba.algo3.controlador.Orden.SospechososControlador;
+import edu.fiuba.algo3.controlador.Computadora.DetallesControlador;
+import edu.fiuba.algo3.controlador.Computadora.DocumentosControlador;
+import edu.fiuba.algo3.controlador.Computadora.SospechososControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.modelo.Ladron.DetallableSospechoso;

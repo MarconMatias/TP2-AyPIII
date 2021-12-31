@@ -1,7 +1,7 @@
-package edu.fiuba.algo3.vista.Radio;
+package edu.fiuba.algo3.vista.Juego.Radio;
 
 import edu.fiuba.algo3.componentes.Imagen.Imagen;
-import edu.fiuba.algo3.controlador.Radio.RadioControlador;
+import edu.fiuba.algo3.controlador.Juego.Radio.RadioControlador;
 import javafx.beans.binding.DoubleBinding;
 import javafx.beans.binding.ObjectBinding;
 import javafx.beans.property.BooleanProperty;

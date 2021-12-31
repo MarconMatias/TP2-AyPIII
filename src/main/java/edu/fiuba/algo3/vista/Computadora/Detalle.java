@@ -1,6 +1,6 @@
-package edu.fiuba.algo3.vista.Orden;
+package edu.fiuba.algo3.vista.Computadora;
 
-import edu.fiuba.algo3.controlador.Orden.DetalleControlador;
+import edu.fiuba.algo3.controlador.Computadora.DetalleControlador;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.modelo.Ladron.DetallableSospechoso;
 import javafx.beans.InvalidationListener;

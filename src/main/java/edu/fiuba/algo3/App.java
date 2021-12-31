@@ -3,7 +3,7 @@ package edu.fiuba.algo3;
 import edu.fiuba.algo3.componentes.Cargador.CargarVistaServicio;
 import edu.fiuba.algo3.componentes.Radio.RadioSonido;
 import edu.fiuba.algo3.componentes.bindings.CargandoBinding;
-import edu.fiuba.algo3.controlador.Splash.SplashControlador;
+import edu.fiuba.algo3.controlador.Juego.Splash.SplashControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.vista.Juego.Splash;
 import javafx.application.Application;

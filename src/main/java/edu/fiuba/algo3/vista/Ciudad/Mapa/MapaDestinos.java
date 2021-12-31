@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.vista.Mapa;
+package edu.fiuba.algo3.vista.Ciudad.Mapa;
 
 import edu.fiuba.algo3.componentes.Imagen.Destino;
 import edu.fiuba.algo3.componentes.Imagen.Imagen;
@@ -7,7 +7,7 @@ import edu.fiuba.algo3.componentes.Mapamundi.Mapamundi;
 import edu.fiuba.algo3.componentes.Trayecto.Trayecto;
 import edu.fiuba.algo3.componentes.bindings.AnguloDeDestinoBinding;
 import edu.fiuba.algo3.controlador.Juego.PantallaControlador;
-import edu.fiuba.algo3.controlador.Mapa.MapaDestinosControlador;
+import edu.fiuba.algo3.controlador.Ciudad.Mapa.MapaDestinosControlador;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;

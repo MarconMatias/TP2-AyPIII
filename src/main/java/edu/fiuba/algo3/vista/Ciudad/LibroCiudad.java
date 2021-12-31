@@ -12,7 +12,7 @@ import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.vista.Juego.HojaMision;
-import edu.fiuba.algo3.vista.Orden.IconoOrden;
+import edu.fiuba.algo3.vista.Computadora.IconoOrden;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.transform.Rotate;

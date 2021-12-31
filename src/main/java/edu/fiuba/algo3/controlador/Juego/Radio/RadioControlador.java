@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.controlador.Radio;
+package edu.fiuba.algo3.controlador.Juego.Radio;
 
 import edu.fiuba.algo3.modelo.Juego.Radio.Radio;
 import javafx.scene.Node;

@@ -7,7 +7,7 @@ import edu.fiuba.algo3.componentes.Trayecto.Trayecto;
 import edu.fiuba.algo3.componentes.bindings.CargandoBinding;
 import edu.fiuba.algo3.componentes.bindings.Point2DBindingXY;
 import edu.fiuba.algo3.componentes.bindings.SimplePoint2DBinding;
-import edu.fiuba.algo3.controlador.Splash.SplashControlador;
+import edu.fiuba.algo3.controlador.Juego.Splash.SplashControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;

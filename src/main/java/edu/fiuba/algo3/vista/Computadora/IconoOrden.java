@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.vista.Orden;
+package edu.fiuba.algo3.vista.Computadora;
 
 import edu.fiuba.algo3.componentes.Imagen.ImagenSeleccionable;
 import javafx.scene.image.Image;

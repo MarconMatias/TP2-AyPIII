@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.controlador.Orden;
+package edu.fiuba.algo3.controlador.Computadora;
 
 import edu.fiuba.algo3.ControlStage;
 import edu.fiuba.algo3.controlador.Juego.PantallaControlador;

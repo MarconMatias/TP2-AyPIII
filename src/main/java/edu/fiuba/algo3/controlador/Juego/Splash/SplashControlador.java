@@ -1,6 +1,6 @@
-package edu.fiuba.algo3.controlador.Splash;
+package edu.fiuba.algo3.controlador.Juego.Splash;
 
-import edu.fiuba.algo3.controlador.Radio.RadioControlador;
+import edu.fiuba.algo3.controlador.Juego.Radio.RadioControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.vista.Juego.Splash;
 import javafx.event.Event;

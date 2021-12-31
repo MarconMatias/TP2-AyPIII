@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.controlador.Mapa;
+package edu.fiuba.algo3.controlador.Ciudad.Mapa;
 
 import edu.fiuba.algo3.ControlStage;
 import edu.fiuba.algo3.controlador.Juego.PantallaControlador;

@@ -1,7 +1,7 @@
-package edu.fiuba.algo3.vista.Accion;
+package edu.fiuba.algo3.vista.Calendario.Accion;
 
 import edu.fiuba.algo3.componentes.Imagen.Imagen;
-import edu.fiuba.algo3.controlador.Accion.PantallaAccionControlador;
+import edu.fiuba.algo3.controlador.Calendario.Accion.PantallaAccionControlador;
 import edu.fiuba.algo3.controlador.Juego.PantallaControlador;
 import edu.fiuba.algo3.modelo.Calendario.Acciones.*;
 import edu.fiuba.algo3.modelo.Juego.Juego;

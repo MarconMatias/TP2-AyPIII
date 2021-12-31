@@ -8,7 +8,7 @@ import edu.fiuba.algo3.controlador.Juego.PantallaControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.vista.Juego.Pantalla;
-import edu.fiuba.algo3.vista.Orden.IconoOrden;
+import edu.fiuba.algo3.vista.Computadora.IconoOrden;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
