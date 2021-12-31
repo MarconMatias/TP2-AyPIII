@@ -1,28 +1,75 @@
-@startuml CiudadVisitadaConPistas_es_creada
+@startuml Mision_viajarACiudad
 hide footbox
 !pragma teoz true
 skinparam maxMessageSize 200
-title Se crea una CiudadVisitadaConPistas
+title Se visita una ciudad
 
-actor "Mision" as m
-participant "visitada:CiudadVisitadaConPistas" as v
-participant "ciudad:Ciudad" as c
-participant "edificio:EdificioConPistas" as e
+actor "Mision" as xx
+participant "Mapa" as m
+participant "policia:Policia" as p
+participant "destino:Ciudad" as d
 
-m->v**: CiudadVisitada(ciudad,\nagente,ladron,siguiente)
-activate v
-    v->c++: edificiosAlAzarConPistas(3)
-    note over c: Devuelve las clases de los edificios
-    return edificios[]
-    loop por cada edificio en edificios
-        v->e**: EdificioConPista(ciudad,agente,ladron,siguiente)
-        activate e
-        ref over e
-            DS_EdificioConPista_es_
-            creado_y_crea_Testimonio
+xx->m++: viajar(policia, origen, destino, random)
+    m->m++: origenes.get(origen)
+    return destinos
+    m->m++: destino.get(destino)
+    return distancia
+    m->p++: viajar(distancia)
+        ref over p
+        DS_Po03
         end ref
-        return edificio
-        v->v: agregarEdificio(edificio)
-    end loop
-return visitada
+    return
+    m->d++: visitadaPorPolicia(policia)
+        ref over d
+            CiudadVisitadaPorPolicia
+        end ref
+    return
+return
+
+@enduml
+
+@startuml CiudadVisitadaPorPolicia
+hide footbox
+!pragma teoz true
+skinparam maxMessageSize 200
+title Se crea una CiudadVisitada
+
+actor "Mapa" as m
+participant "destino:\nCiudad" as d
+participant "visitada\n:CiudadVisitada\n" as v
+participant "tipo:ITipoEdificio" as tp
+participant "testigo:Testigo" as t
+participant "edificio:\nEdificio" as ed
+participant "estrategiaAcciones\n:IEstrategiaAcciones" as ea
+
+note left of ea
+    Es un atributo de la ciudad
+end note
+m->d++: visitadaPorPolicia(policia)
+    d->v**: CiudadVisitada(destino, policia, sospechoso, destinoSospechoso, estrategiaAcciones, random)
+    activate v
+        v->d++: edificiosAlAzar(3, random)
+            loop 3 veces
+                d->tp**: tipo=tipoAlAzar()
+                d->ed**: Edificio(tipo, new SinAccionador(), random)
+                activate ed
+                    ed->tp++: getTestigo()
+                        tp->t**
+                    return testigo
+                return edificio
+            end loop
+        return edificios
+        v->ea++: getAccionadores(3, random)
+        return accionadores
+        loop por cada edificio,accionador en edificios,accionadores
+            v->ed++: visitadoPorLadron(sospechoso, ciudadSiguiente)
+                ed->t++: setTestimonio(ladron, ciudadSiguiente)
+                return
+            return
+            v->ed++: setAccionador(accionador)
+            return
+        end loop
+    return nuevaVisitada
+    d->d: visitada = nuevaVisitada
+return
 @enduml
