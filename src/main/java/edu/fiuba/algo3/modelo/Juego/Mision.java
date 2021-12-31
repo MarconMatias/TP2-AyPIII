@@ -284,20 +284,8 @@ public class Mision implements DetallableSospechoso {
         return computadora.getValoresDeDetalleTipo(tipo);
     }
 
-    public List<Ladron> getSospechosos() {
-        return computadora.buscarSospechosos();
-    }
-
     public ObservableList<Ladron> getSospechososObservables() {
         return computadora.getSospechososObservables();
-    }
-
-    public ObservableList<Ladron> getSospechososRegistradosObservables() {
-        return computadora.getSospechososRegistradosObservables();
-    }
-
-    public ObservableMap<String, String> getDetallesDeOrden() {
-        return computadora.getDetalles();
     }
 
     public Calendario getCalendario() {

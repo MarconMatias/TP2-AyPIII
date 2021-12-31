@@ -13,7 +13,6 @@ import java.util.*;
 public class Computadora {
 
     private final List<Ladron> sospechososRegistrados;
-    private ObservableList<Ladron> sospechososRegistradosObservables;
     private final Map<String, Set<String>> tiposDeDetalles = new HashMap<>();
 
     private final Map<String, String> detalles = new HashMap<String, String>();
@@ -32,7 +31,6 @@ public class Computadora {
         for (Ladron ladron : ladrones) {
             ladron.agregarDetallesAMap(tiposDeDetalles);
         }
-        sospechososRegistradosObservables = FXCollections.observableList(sospechososRegistrados);
     }
 
     /**
@@ -139,9 +137,4 @@ public class Computadora {
     public ObservableList<Ladron> getSospechososObservables() {
         return sospechososObservables;
     }
-
-    public ObservableList<Ladron> getSospechososRegistradosObservables() {
-        return sospechososRegistradosObservables;
-    }
-
 }
