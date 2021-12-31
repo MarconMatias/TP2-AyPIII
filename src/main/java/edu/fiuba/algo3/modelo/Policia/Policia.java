@@ -1,21 +1,17 @@
 package edu.fiuba.algo3.modelo.Policia;
 
-import edu.fiuba.algo3.modelo.Acciones.ExcepcionesAccion.AccionException;
-import edu.fiuba.algo3.modelo.Acciones.IAccion;
+import edu.fiuba.algo3.modelo.Calendario.Acciones.IAccion;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
-import edu.fiuba.algo3.modelo.Evento.PoliciaFinaliza;
-import edu.fiuba.algo3.modelo.Evento.PoliciaFinalizaListener;
-import edu.fiuba.algo3.modelo.Evento.PoliciaGana;
-import edu.fiuba.algo3.modelo.Evento.PoliciaPierde;
-import edu.fiuba.algo3.modelo.Juego.Calendario;
-import edu.fiuba.algo3.modelo.Juego.ExcepcionesCalendario.CalendarioException;
+import edu.fiuba.algo3.modelo.Calendario.Evento.PoliciaFinaliza;
+import edu.fiuba.algo3.modelo.Calendario.Evento.PoliciaFinalizaListener;
+import edu.fiuba.algo3.modelo.Calendario.Evento.PoliciaGana;
+import edu.fiuba.algo3.modelo.Calendario.Evento.PoliciaPierde;
+import edu.fiuba.algo3.modelo.Calendario.Calendario;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
-import edu.fiuba.algo3.modelo.OrdenDeArresto.IOrden;
-import edu.fiuba.algo3.modelo.OrdenDeArresto.SinOrden;
+import edu.fiuba.algo3.modelo.Computadora.OrdenDeArresto.IOrden;
+import edu.fiuba.algo3.modelo.Computadora.OrdenDeArresto.SinOrden;
 import edu.fiuba.algo3.modelo.Pista.IPista;
 import edu.fiuba.algo3.modelo.Policia.EstadoCuchillada.EstadoCuchillada;
-import edu.fiuba.algo3.modelo.Policia.EstadoCuchillada.UnaChuchillada;
-import edu.fiuba.algo3.modelo.Policia.ExcepcionesPolicia.PoliciaException;
 import edu.fiuba.algo3.modelo.Policia.RangoPolicia.RangoPolicia;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -26,7 +22,7 @@ import java.util.List;
 
 public class Policia {
 
-    private final String nombre;
+    private String nombre;
     private int arrestos;
     private RangoPolicia rango;
     private Calendario calendario;
@@ -45,10 +41,6 @@ public class Policia {
      *                           acciones del policía.
      */
     public Policia(String nombre, int cantidadDeArrestos, Calendario calendario) {
-
-        if(nombre == null || cantidadDeArrestos < 0 || calendario == null)
-            throw new IllegalArgumentException("Los parametros pasados por el constructor de la clase Policia son invalidos");
-
         this.nombre = nombre;
         this.arrestos = cantidadDeArrestos;
         this.calendario = calendario;
@@ -61,10 +53,6 @@ public class Policia {
      * @param nombre Nombre elegido por el policía.
      */
     public Policia(String nombre) {
-
-        //if(nombre == null)
-        //    throw new IllegalArgumentException("El nombre del policia pasado por el constructor es invalido: es de tipo NULL");
-
         this(nombre, 0);
     }
 
@@ -79,9 +67,6 @@ public class Policia {
     }
 
     public void setOrdenDeArresto(IOrden ordenDeArresto) {
-
-        if(ordenDeArresto == null)
-            throw new IllegalArgumentException("La ordenDeArresto pasado por parametro es invalida: es de tipo NULL");
         this.ordenDeArresto.set(ordenDeArresto);
     }
 
@@ -91,14 +76,11 @@ public class Policia {
      * @param calendario Calendario de tiempo del juego durante la misión.
      */
     public void iniciarMision(Calendario calendario) {
-
-        if(calendario == null)
-            throw new IllegalArgumentException("Error. El Calendario pasado por parametro no es valido");
         this.calendario = calendario;
+        this.ordenDeArresto.set(new SinOrden("No se emitió nunca una orden de arresto."));
     }
 
-    public int viajar(int distancia) throws CalendarioException, PoliciaException, AccionException {
-
+    public int viajar(int distancia) {
         int tiempoDeViaje = rango.devolverTiempoDeViaje(distancia);
         calendario.avanzarHoras(tiempoDeViaje);
         return tiempoDeViaje;
@@ -108,7 +90,6 @@ public class Policia {
         return rango.filtrarPistas(pistas);
     }
 
-
     /**
      * El policía vista al edificio dado. Puede disparar acciones que avancen el calendario,
      * pero ya debe haber avanzado el calendario por la visita misma (a través de Ciudad).
@@ -116,38 +97,21 @@ public class Policia {
      * @param edificio Un edificio de la ciudad actual.
      * @return El testimonio recibido en el edificio.
      */
-    public String visitar(Edificio edificio) throws AccionException, CalendarioException {
-        if(edificio == null)
-            throw new IllegalArgumentException("El edificio pasado por parametro es invalido: es de tipo NULL");
+    public String visitar(Edificio edificio) {
         return edificio.visitar(this);
     }
+
     public Integer getArrestos() {
         return this.arrestos;
     }
 
-    public void avanzarHoras(int demora) throws AccionException, CalendarioException {
-
-        try{
-            calendario.avanzarHoras(demora);
-        }
-        catch(IllegalArgumentException e){
-            System.err.println(e.getMessage());
-        }
+    public void avanzarHoras(int demora) {
+        calendario.avanzarHoras(demora);
     }
 
-    public void realizarAccion(IAccion accion) throws AccionException, CalendarioException {
-
-        if(accion == null)
-            throw new IllegalArgumentException("La accion pasada por el metodo realizarAccion es invalida: es de tipo NULL");
-
+    public void realizarAccion(IAccion accion) {
         accion.setPolicia(this);
-        try{
-            calendario.aplicarAccion(accion);
-        }
-        catch (CalendarioException e){
-            e.printStackTrace();
-            System.err.println(e.getMessage());
-        }
+        calendario.aplicarAccion(accion);
     }
 
     public void agregarArresto() {
@@ -156,29 +120,15 @@ public class Policia {
     }
 
     public void enfrentar(Ladron ladron) {
-
         ordenDeArresto.get().enfrentar(this, ladron);
-
     }
 
-    public void avanzarHorasCuchillada(Calendario calendario) throws AccionException, CalendarioException {
-
-        if(calendario == null)
-            throw new IllegalArgumentException("Error. El calendario pasado por parametro es invalido");
-        try{
-            estadoCuchilladas.avanzarHoras(calendario);
-        }
-        catch (IllegalArgumentException e){
-            e.printStackTrace();
-        }
+    public void avanzarHorasCuchillada(Calendario calendario) {
+        estadoCuchilladas.avanzarHoras(calendario);
     }
 
     public void recibirCuchillada() {
         estadoCuchilladas.siguienteEstado();
-    }
-
-    public boolean fuiAcuchillado(){
-        return (estadoCuchilladas.fuiAcuchillado());
     }
 
     public void ganar(String explicacion) {
@@ -192,22 +142,25 @@ public class Policia {
     }
 
     private void notificarListeners(List<PoliciaFinalizaListener> listeners, PoliciaFinaliza evento) {
+        // Hace una copia porque a veces modificado durante la llamada a los observadores:
+        PoliciaFinalizaListener[] observadoresAntes = listeners.toArray(new PoliciaFinalizaListener[0]);
         List<Exception> exs = new ArrayList<>();
-        for (PoliciaFinalizaListener listener : listeners) {
+        for (PoliciaFinalizaListener listener : observadoresAntes) {
             try {
-                listener.handle(evento);
+                if(listeners.contains(listener)) {
+                    listener.handle(evento);
+                }
             } catch (RuntimeException ex) {
                 exs.add(ex);
             }
         }
         if (exs.size() > 0) {
-            final String textoError = "Sucedieron varios errores al notificar la finalización de un enfrentamiento.";
-            RuntimeException error = new RuntimeException(textoError);
-            /** Hacer clase de agregración, y agregar exs. **/
-            for (Exception ex : exs) {
-                System.err.println(ex.toString());
+            System.err.println("Sucedieron "+exs.size()+" errores al notificar la finalización de un enfrentamiento.");
+            for(int i=0; i< exs.size(); i++) {
+                System.err.println("Error "+i+":");
+                exs.get(i).printStackTrace();
             }
-            throw error;
+            System.err.println("────────────────────────────────");
         }
     }
 
@@ -215,19 +168,38 @@ public class Policia {
         oyentesAlGanar.add(listener);
     }
 
+    public void desescucharAlGanar(PoliciaFinalizaListener oyenteGanar) {
+        oyentesAlGanar.remove(oyenteGanar);
+    }
+
     public void escucharAlPerder(PoliciaFinalizaListener listener) {
         oyentesAlPerder.add(listener);
     }
 
+    public void desescucharAlPerder(PoliciaFinalizaListener oyentePerder) {
+        oyentesAlPerder.remove(oyentePerder);
+    }
+
+    private String getNombre() {
+        if((null==nombre)||(nombre.trim().equals(""))) {
+            return nombre = "#"+Integer.toString(hashCode());
+        } else {
+            return nombre;
+        }
+    }
+
     @Override
     public String toString() {
-        if((null==nombre)||(nombre.trim().equals(""))) {
-            return Integer.toString(hashCode());
-        }
-        return nombre;
+        String valor = getNombre();
+        return rango.getInsignia()+" "+valor;
     }
 
     public ObjectProperty<IOrden> getOrdenDeArresto() {
         return ordenDeArresto;
     }
+
+    public String getRangoYNombre() {
+        return rango.getNombreRango() + " " + getNombre();
+    }
+
 }

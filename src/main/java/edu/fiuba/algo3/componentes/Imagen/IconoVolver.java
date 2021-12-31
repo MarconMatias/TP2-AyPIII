@@ -16,5 +16,7 @@ public class IconoVolver extends ImagenSeleccionable {
         setWidth(ancho);
     }
 
-
+    public static void precargar() {
+        /** No necesita cuerpo. La sola invocación de este método precargará los static. **/
+    }
 }

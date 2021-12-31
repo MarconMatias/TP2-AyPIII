@@ -47,4 +47,8 @@ public class RangoPolicia {
     public String getNombreRango() {
         return comportamientoRango.getNombreRango();
     }
+
+    public String getInsignia() {
+        return comportamientoRango.getInsignia();
+    }
 }

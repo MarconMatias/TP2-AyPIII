@@ -1,0 +1,28 @@
+@startuml
+
+title Classes - Mision
+
+
+class Juego 
+class Mision
+class Mapa
+class Policia
+class Item
+class Ladron
+class Ruta
+class Calendario
+class Ciudad
+class Computadora
+
+Juego -down-> Mision
+Mision --> Mapa
+Mision --> Policia
+Mision --> Item
+Mision --> Ladron
+Mision --> Ruta
+Mision --> Calendario
+Mision --> Ciudad
+Mision --> Computadora
+
+
+@enduml

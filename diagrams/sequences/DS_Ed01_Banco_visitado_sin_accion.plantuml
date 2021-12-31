@@ -19,7 +19,6 @@ M->C++:visitar\n(edificio)
     C->V++:visitar(edificio)
         V->N++:demoraEdificio()
             note right
-                Patrón state:
                 Delega en estado
             end note
             N->i0++:demoraEdificio()
@@ -28,7 +27,6 @@ M->C++:visitar\n(edificio)
 
         V->N++:siguiente()
             note right
-                Patrón state:
                 Siguiente estado
             end note
             N->i0++:siguiente()

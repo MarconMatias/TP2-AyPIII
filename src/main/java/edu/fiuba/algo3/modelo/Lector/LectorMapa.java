@@ -1,10 +1,7 @@
 package edu.fiuba.algo3.modelo.Lector;
 
-import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
-import edu.fiuba.algo3.modelo.Juego.Mapa;
-import org.json.simple.JSONObject;
+import edu.fiuba.algo3.modelo.Ciudad.Mapa;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class LectorMapa {

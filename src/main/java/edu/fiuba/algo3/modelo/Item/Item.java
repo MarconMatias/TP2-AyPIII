@@ -3,7 +3,7 @@ package edu.fiuba.algo3.modelo.Item;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Item.RangoItem.ItemComun;
 import edu.fiuba.algo3.modelo.Item.RangoItem.RangoItem;
-import edu.fiuba.algo3.modelo.Juego.Mapa;
+import edu.fiuba.algo3.modelo.Ciudad.Mapa;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,4 +46,17 @@ public class Item {
         rango.ampliarRuta(ruta, mapa, random);
         return ruta;
     }
+
+    public String getTextoDerrota() {
+        return getNombre() + " no pudo ser devuelto a " + getNombreCiudadDelRobo() + ". ";
+    }
+
+    public String getTextoEnJuego() {
+        return getNombre() + " ha sido robado de " + getNombreCiudadDelRobo() + ". ";
+    }
+
+    public String getTextoVictoria() {
+        return getNombre() + " fue devuelto a " + getNombreCiudadDelRobo() + ". ";
+    }
+
 }

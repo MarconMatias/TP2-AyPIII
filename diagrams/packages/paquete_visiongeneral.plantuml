@@ -1,0 +1,69 @@
+@startuml
+
+title Diagrama de paquetes general
+
+package "Vista" as GUI {
+    package Calendario as VCalendario {}
+    package Ciudad as VCiudad {}
+    package Edificio as VEdificio {}
+    package Computadora as VComputadora {}
+    package Juego as VJuego {}
+    package Policia as VPolicia {}
+}
+ 
+package "Controlador" {
+    package Calendario as CCalendario {} 
+    package Ciudad as CCiudad {}
+    package Computadora as CComputadora {}
+    package Edificio as CEdificio {}
+    package Juego as CJuego {}
+    package Policia as CPolicia {}
+} 
+
+package Modelo {
+    together {
+        package Calendario {}
+        package Ciudad {}
+        package Computadora {}
+        package Edificio {}
+        package Item {}
+    }
+    together {
+        package Juego {}
+        package Ladron {}
+        package Lector {}
+        package Pista {}
+        package Policia {}
+    }
+} 
+Calendario .[hidden]. Juego
+
+package "Componentes" {
+    together {
+        package Binding {}
+        package Cargador {}
+        package Cuaderno {}
+    }
+    together {
+        package Imagen {}
+        package Libro {}
+        package Mapamundi {}
+    }
+    together {
+        package Radio {}
+        package RelativoAImagen {}
+        package Trayecto {}
+    }
+}
+Binding .[hidden]down. Imagen
+Imagen .[hidden]down. Radio
+
+GUI .down.> Controlador
+GUI .down.> Modelo
+GUI .right.> Componentes
+Controlador .down.> Modelo
+Controlador .right.> Componentes
+
+Componentes .[hidden]down.> Modelo
+
+@enduml

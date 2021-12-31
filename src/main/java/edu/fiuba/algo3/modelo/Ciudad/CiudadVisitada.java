@@ -10,6 +10,7 @@ import edu.fiuba.algo3.modelo.Ladron.ISospechoso;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 
 import java.util.List;
+import java.util.Random;
 
 public class CiudadVisitada implements ICiudadVisitada {
     private final int cantidadEdificios = 3;
@@ -17,16 +18,17 @@ public class CiudadVisitada implements ICiudadVisitada {
     private final List<Edificio> edificios;
     private final Policia policia;
 
-    public CiudadVisitada(Ciudad estaCiudad, Policia policia, ISospechoso sospechoso, IDestino ciudadSiguiente, IEstrategiaAcciones estrategiaAcciones)
+    public CiudadVisitada(Ciudad estaCiudad, Policia policia, ISospechoso sospechoso,
+                          IDestino ciudadSiguiente, IEstrategiaAcciones estrategiaAcciones, Random random)
     {
-        this.edificios = estaCiudad.edificiosAlAzar(cantidadEdificios);
+        this.edificios = estaCiudad.edificiosAlAzar(cantidadEdificios, random);
         this.policia = policia;
-        List<IAccionador> accionadores = estrategiaAcciones.getAccionadores(cantidadEdificios);
+        List<IAccionador> accionadores = estrategiaAcciones.getAccionadores(cantidadEdificios, random);
 
         for(int i = 0; i<edificios.size(); i++) {
             Edificio edificio = edificios.get(i);
             IAccionador accionador = accionadores.get(i);
-            edificio.visitadoPorLadron(sospechoso,ciudadSiguiente);
+            edificio.visitadoPorLadron(sospechoso, ciudadSiguiente);
             edificio.setAccionador(accionador);
         }
     }

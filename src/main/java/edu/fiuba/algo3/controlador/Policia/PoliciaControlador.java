@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.controlador.Policia;
 
-import edu.fiuba.algo3.ControlStage;
+import edu.fiuba.algo3.controlador.ControlStage;
+import edu.fiuba.algo3.controlador.Juego.PantallaControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 import javafx.beans.property.SimpleStringProperty;
@@ -11,12 +12,13 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
-public class PoliciaControlador {
+public class PoliciaControlador extends PantallaControlador {
     private final Juego juego;
     private final ControlStage controlStage;
     private StringProperty nombreProperty = new SimpleStringProperty("");
 
     public PoliciaControlador(Juego juego, ControlStage controlStage) {
+        super(juego, null, controlStage);
         this.juego = juego;
         this.controlStage = controlStage;
     }
@@ -42,14 +44,13 @@ public class PoliciaControlador {
     private boolean hacerNuevo() {
         Policia policia = crearPolicia();
         if(null != policia) {
-            return controlStage.abrirMisionNueva(juego, policia);
+            return controlStage.abrirMisionNueva(policia);
         } else {
             return false;
         }
     }
 
     private Policia crearPolicia() {
-        Policia policia;
         try {
             return juego.nuevoPolicia(nombreProperty.get());
         } catch (Exception ex) {
@@ -67,7 +68,7 @@ public class PoliciaControlador {
         if(event.isConsumed() || (null == policiaSeleccionado)) {
             return;
         }
-        if(controlStage.abrirMisionNueva(juego, policiaSeleccionado)) {
+        if(controlStage.abrirMisionNueva(policiaSeleccionado)) {
             event.consume();
             liberar();
         }
@@ -79,7 +80,7 @@ public class PoliciaControlador {
         }
         switch(event.getCode()) {
             case ENTER: case SPACE:
-                if(controlStage.abrirMisionNueva(juego, policiaSeleccionado)) {
+                if(controlStage.abrirMisionNueva(policiaSeleccionado)) {
                     event.consume();
                     liberar();
                 }
@@ -87,11 +88,8 @@ public class PoliciaControlador {
         }
     }
 
-    private void liberar() {
-        /** Si hubo suscripciones o recursos que liberar, debe hacerse acá. **/
-    }
-
     public void bindNombreProperty(StringProperty textProperty) {
         this.nombreProperty.bind(textProperty);
     }
+
 }

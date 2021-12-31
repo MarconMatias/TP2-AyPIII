@@ -2,7 +2,7 @@ package edu.fiuba.algo3.vista.Calendario;
 
 import edu.fiuba.algo3.componentes.Imagen.Imagen;
 import edu.fiuba.algo3.componentes.RelativoAImagen.RelativoAImagen;
-import edu.fiuba.algo3.modelo.Juego.Calendario;
+import edu.fiuba.algo3.modelo.Calendario.Calendario;
 import javafx.beans.binding.IntegerExpression;
 import javafx.beans.binding.ObjectExpression;
 import javafx.scene.image.Image;
@@ -36,6 +36,10 @@ public class Reloj extends RelativoAImagen {
         aguja.anguloProperty().bind(createIntegerBinding(()->anguloHora(hora), hora));
 
         agregar(new Imagen(imgVidrio), 0.5, 0.5);
+    }
+
+    public static void precargar() {
+        /** No necesita cuerpo. La sola invocación de este método precargará los static. **/
     }
 
     private Integer anguloHora(IntegerExpression hora) {

@@ -2,8 +2,8 @@ package edu.fiuba.algo3.componentes.RelativoAImagen;
 
 import edu.fiuba.algo3.componentes.Imagen.Imagen;
 import edu.fiuba.algo3.componentes.Trayecto.Trayecto;
-import edu.fiuba.algo3.componentes.bindings.Point2DBindingXY;
-import edu.fiuba.algo3.componentes.bindings.SimplePoint2DBinding;
+import edu.fiuba.algo3.componentes.Binding.Point2DBindingXY;
+import edu.fiuba.algo3.componentes.Binding.SimplePoint2DBinding;
 import javafx.beans.binding.DoubleBinding;
 import javafx.beans.binding.DoubleExpression;
 import javafx.beans.property.ReadOnlyDoubleWrapper;
@@ -102,6 +102,16 @@ public class RelativoAImagen extends Group {
     /**
      * Genera un binding para las coordenadas absolutas del valor relativo dado.
      *
+     * @param posicion Coordenadas relativas, entre 0.0 y 1.0, del centro del punto.
+     * @return Un binding para las coordenadas ABSOLUTAS del punto relativo dado.
+     */
+    public DoubleBinding nuevoYRelativo(double posicion) {
+        return nuevoYRelativo(new ReadOnlyDoubleWrapper(posicion), new ReadOnlyDoubleWrapper(0.0));
+    }
+
+    /**
+     * Genera un binding para las coordenadas absolutas del valor relativo dado.
+     *
      * @param relativo Coordenadas relativas, entre 0.0 y 1.0 cada componente, del centro del punto.
      * @return Un binding para las coordenadas ABSOLUTAS del punto relativo dado.
      */
@@ -175,8 +185,8 @@ public class RelativoAImagen extends Group {
      * @param centroY Coordenadas relativas, entre 0.0 y 1.0 del componente Y del centro de la imagen.
      * @return
      */
-    public void agregar(Region nodo, double centroX, double centroY) {
-        agregar(nodo, new ReadOnlyDoubleWrapper(centroX), new ReadOnlyDoubleWrapper(centroY));
+    public Region agregar(Region nodo, double centroX, double centroY) {
+        return agregar(nodo, new ReadOnlyDoubleWrapper(centroX), new ReadOnlyDoubleWrapper(centroY));
     }
 
     public Trayecto agregarTrayecto(Point2DBindingXY desdeRelativo, Point2DBindingXY hastaRelativo) {

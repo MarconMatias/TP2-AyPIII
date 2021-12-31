@@ -1,0 +1,61 @@
+@startuml
+
+title Clases - Edificio 
+
+class Edificio
+class Testigo
+
+interface IAccionador {
+  + IAccionador lanzarEvento(Ladron unLadron);
+  + void visitar(Edificio edificio, Policia policia);
+}
+class SinAccionador
+class AccionadorUnaVez 
+
+IAccionador <|-- SinAccionador
+IAccionador <|-- AccionadorUnaVez
+Edificio -- IAccionador
+
+interface ITipoEdificio {
+  + public String getNombreTipo();
+  + Testigo getTestigo();
+  + boolean mostrarPista(Ladron unLadron);
+  + void visitadoPorLadron(Ladron ladron, Ciudad destino);
+  + void visitar(Policia policia, Calendario cal);
+}
+
+abstract class EdificioAbstracto {}
+
+class Aeropuerto
+class Banco
+class Biblioteca
+class Bolsa
+class Puerto
+
+EdificioAbstracto <|-- Aeropuerto
+EdificioAbstracto <|-- Banco
+EdificioAbstracto <|-- Biblioteca
+EdificioAbstracto <|-- Bolsa
+EdificioAbstracto <|-- Puerto
+ITipoEdificio <|-- EdificioAbstracto
+Edificio -- ITipoEdificio
+Edificio -- Testigo
+
+interface IEstadoVisitado {
+  + public void visitar(Edificio edificio, Policia policia);
+  + IEstadoVisitado siguiente();
+}
+
+interface IAccion
+
+class Visitado
+class NoVisitado
+
+IEstadoVisitado <|-- Visitado
+IEstadoVisitado <|-- NoVisitado
+
+
+AccionadorUnaVez -- IEstadoVisitado
+AccionadorUnaVez -- IAccion
+
+@enduml

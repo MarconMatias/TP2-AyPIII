@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.Edificio.TipoEdificio;
 
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
-import edu.fiuba.algo3.modelo.Juego.Calendario;
+import edu.fiuba.algo3.modelo.Calendario.Calendario;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Pista.Filtro.*;
 import edu.fiuba.algo3.modelo.Policia.Policia;
