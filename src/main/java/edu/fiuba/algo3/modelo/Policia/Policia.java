@@ -90,11 +90,6 @@ public class Policia {
         return rango.filtrarPistas(pistas);
     }
 
-    /** Reemplazar por visitar(unEdificio)??? **/
-    public void visitar(Edificio unEdificio, Ladron unLadron) {
-        visitar(unEdificio);
-    }
-
     /**
      * El policía vista al edificio dado. Puede disparar acciones que avancen el calendario,
      * pero ya debe haber avanzado el calendario por la visita misma (a través de Ciudad).

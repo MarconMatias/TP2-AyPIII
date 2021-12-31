@@ -34,12 +34,12 @@ public class TestsCasosDeUsos {
         Ciudad mockCiudadDeMontreal = mock(Ciudad.class);
         Calendario mockCalendario = mock(Calendario.class);
 
-        mockPolicia.visitar(mockBancoDeMontreal, mockLadronFemenino);
+        mockPolicia.visitar(mockBancoDeMontreal);
         mockBancoDeMontreal.visitadoPorLadron(mockLadronFemenino, mockCiudadDeMontreal);
         mockBancoDeMontreal.visitar(mockPolicia);
         mockCalendario.avanzarHoras(2);
 
-        verify(mockPolicia).visitar(mockBancoDeMontreal, mockLadronFemenino);
+        verify(mockPolicia).visitar(mockBancoDeMontreal);
         verify(mockBancoDeMontreal).visitadoPorLadron(mockLadronFemenino, mockCiudadDeMontreal);
         verify(mockBancoDeMontreal).visitar(mockPolicia);
         verify(mockCalendario).avanzarHoras(2);
@@ -54,16 +54,16 @@ public class TestsCasosDeUsos {
         Ladron mockLadron = mock(Ladron.class);
         Calendario mockCalendario = mock(Calendario.class);
 
-        mockPolicia.visitar(mockBanco, mockLadron);
+        mockPolicia.visitar(mockBanco);
         mockBanco.visitar(mockPolicia);
 
-        verify(mockPolicia).visitar(mockBanco, mockLadron);
+        verify(mockPolicia).visitar(mockBanco);
         verify(mockBanco).visitar(mockPolicia);
 
-        mockPolicia.visitar(mockBiblioteca, mockLadron);
+        mockPolicia.visitar(mockBiblioteca);
         mockBiblioteca.visitar(mockPolicia);
 
-        verify(mockPolicia).visitar(mockBiblioteca, mockLadron);
+        verify(mockPolicia).visitar(mockBiblioteca);
         verify(mockBiblioteca).visitar(mockPolicia);
     }
 
@@ -111,16 +111,16 @@ public class TestsCasosDeUsos {
         Calendario mockCalendario = mock(Calendario.class);
 
         for (int i = 0; i < 3; i++) {
-            mockPolicia.visitar(mockAeropuerto, mockLadron);
+            mockPolicia.visitar(mockAeropuerto);
             mockAeropuerto.visitar(mockPolicia);
         }
-        verify(mockPolicia, times(3)).visitar(mockAeropuerto, mockLadron);
+        verify(mockPolicia, times(3)).visitar(mockAeropuerto);
         verify(mockAeropuerto, times(3)).visitar(mockPolicia);
         for (int i = 0; i < 55; i++) {
-            mockPolicia.visitar(mockPuerto, mockLadron);
+            mockPolicia.visitar(mockPuerto);
             mockPuerto.visitar(mockPolicia);
         }
-        verify(mockPolicia, times(55)).visitar(mockPuerto, mockLadron);
+        verify(mockPolicia, times(55)).visitar(mockPuerto);
         verify(mockPuerto, times(55)).visitar(mockPolicia);
     }
 
