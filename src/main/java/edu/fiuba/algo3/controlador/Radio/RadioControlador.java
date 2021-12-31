@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.controlador.Radio;
 
-import edu.fiuba.algo3.modelo.Radio.Radio;
+import edu.fiuba.algo3.modelo.Juego.Radio.Radio;
 import javafx.scene.Node;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;

@@ -3,7 +3,7 @@ package edu.fiuba.algo3.modelo.Item;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Item.RangoItem.ItemComun;
 import edu.fiuba.algo3.modelo.Item.RangoItem.RangoItem;
-import edu.fiuba.algo3.modelo.Juego.Mapa;
+import edu.fiuba.algo3.modelo.Ciudad.Mapa;
 
 import java.util.ArrayList;
 import java.util.List;

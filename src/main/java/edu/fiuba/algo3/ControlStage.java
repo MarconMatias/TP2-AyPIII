@@ -11,7 +11,7 @@ import edu.fiuba.algo3.controlador.Mapa.MapaDestinosControlador;
 import edu.fiuba.algo3.controlador.Orden.ExpedienteControlador;
 import edu.fiuba.algo3.controlador.Orden.OrdenControlador;
 import edu.fiuba.algo3.controlador.Policia.PoliciaControlador;
-import edu.fiuba.algo3.modelo.Acciones.IAccion;
+import edu.fiuba.algo3.modelo.Calendario.Acciones.IAccion;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;

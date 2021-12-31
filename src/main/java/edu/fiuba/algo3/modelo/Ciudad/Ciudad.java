@@ -12,7 +12,7 @@ import edu.fiuba.algo3.modelo.Policia.Policia;
 import edu.fiuba.algo3.modelo.Pista.IPista;
 import edu.fiuba.algo3.modelo.Pista.PistaCiudad;
 import edu.fiuba.algo3.modelo.Pista.SinPistaCiudad;
-import edu.fiuba.algo3.modelo.Ruta.Ruta;
+import edu.fiuba.algo3.modelo.Ciudad.Ruta.Ruta;
 
 import java.util.*;
 import java.util.function.Function;

@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.Ciudad.EstrategiaAcciones;
 
-import edu.fiuba.algo3.modelo.Acciones.HeridaPorCuchillo;
+import edu.fiuba.algo3.modelo.Calendario.Acciones.HeridaPorCuchillo;
 import edu.fiuba.algo3.modelo.Edificio.AccionadorUnaVez.AccionadorUnaVez;
 import edu.fiuba.algo3.modelo.Edificio.IAccionador;
 import edu.fiuba.algo3.modelo.Edificio.SinAccionador;

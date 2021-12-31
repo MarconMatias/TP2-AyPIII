@@ -1,9 +1,9 @@
 package edu.fiuba.algo3.modelo.Computadora;
 
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
-import edu.fiuba.algo3.modelo.OrdenDeArresto.IOrden;
-import edu.fiuba.algo3.modelo.OrdenDeArresto.Orden;
-import edu.fiuba.algo3.modelo.OrdenDeArresto.SinOrden;
+import edu.fiuba.algo3.modelo.Computadora.OrdenDeArresto.IOrden;
+import edu.fiuba.algo3.modelo.Computadora.OrdenDeArresto.Orden;
+import edu.fiuba.algo3.modelo.Computadora.OrdenDeArresto.SinOrden;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableMap;

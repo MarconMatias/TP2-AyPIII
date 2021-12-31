@@ -1,18 +1,20 @@
 package edu.fiuba.algo3.modelo.Juego;
 
-import edu.fiuba.algo3.modelo.Acciones.EmitirOrden;
+import edu.fiuba.algo3.modelo.Calendario.Acciones.EmitirOrden;
+import edu.fiuba.algo3.modelo.Calendario.Calendario;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
+import edu.fiuba.algo3.modelo.Ciudad.Mapa;
 import edu.fiuba.algo3.modelo.Computadora.Computadora;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
-import edu.fiuba.algo3.modelo.Evento.PoliciaFinaliza;
-import edu.fiuba.algo3.modelo.Evento.PoliciaFinalizaListener;
+import edu.fiuba.algo3.modelo.Calendario.Evento.PoliciaFinaliza;
+import edu.fiuba.algo3.modelo.Calendario.Evento.PoliciaFinalizaListener;
 import edu.fiuba.algo3.modelo.Item.Item;
 import edu.fiuba.algo3.modelo.Juego.EstadoMision.EstadoMision;
 import edu.fiuba.algo3.modelo.Ladron.DetallableSospechoso;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
-import edu.fiuba.algo3.modelo.OrdenDeArresto.IOrden;
+import edu.fiuba.algo3.modelo.Computadora.OrdenDeArresto.IOrden;
 import edu.fiuba.algo3.modelo.Policia.Policia;
-import edu.fiuba.algo3.modelo.Ruta.Ruta;
+import edu.fiuba.algo3.modelo.Ciudad.Ruta.Ruta;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.beans.property.ObjectProperty;

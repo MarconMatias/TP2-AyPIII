@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.Lector;
 
-import edu.fiuba.algo3.modelo.Juego.Mapa;
+import edu.fiuba.algo3.modelo.Ciudad.Mapa;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;

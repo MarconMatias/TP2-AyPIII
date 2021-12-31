@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.controlador.Juego;
 
 import edu.fiuba.algo3.ControlStage;
-import edu.fiuba.algo3.modelo.Acciones.IAccion;
+import edu.fiuba.algo3.modelo.Calendario.Acciones.IAccion;
 import edu.fiuba.algo3.modelo.Juego.IObservadorAcciones;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;

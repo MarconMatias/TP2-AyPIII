@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.Policia;
 
-import edu.fiuba.algo3.modelo.Juego.Calendario;
+import edu.fiuba.algo3.modelo.Calendario.Calendario;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 

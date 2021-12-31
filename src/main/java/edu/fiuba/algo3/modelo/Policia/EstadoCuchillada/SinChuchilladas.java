@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo.Policia.EstadoCuchillada;
 
-import edu.fiuba.algo3.modelo.Juego.Calendario;
-import edu.fiuba.algo3.modelo.Policia.EstadoCuchillada.IEstadoCuchilladas;
+import edu.fiuba.algo3.modelo.Calendario.Calendario;
 
 public class SinChuchilladas implements IEstadoCuchilladas {
     @Override

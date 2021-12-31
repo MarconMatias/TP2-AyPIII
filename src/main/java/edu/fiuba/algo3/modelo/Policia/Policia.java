@@ -1,15 +1,15 @@
 package edu.fiuba.algo3.modelo.Policia;
 
-import edu.fiuba.algo3.modelo.Acciones.IAccion;
+import edu.fiuba.algo3.modelo.Calendario.Acciones.IAccion;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
-import edu.fiuba.algo3.modelo.Evento.PoliciaFinaliza;
-import edu.fiuba.algo3.modelo.Evento.PoliciaFinalizaListener;
-import edu.fiuba.algo3.modelo.Evento.PoliciaGana;
-import edu.fiuba.algo3.modelo.Evento.PoliciaPierde;
-import edu.fiuba.algo3.modelo.Juego.Calendario;
+import edu.fiuba.algo3.modelo.Calendario.Evento.PoliciaFinaliza;
+import edu.fiuba.algo3.modelo.Calendario.Evento.PoliciaFinalizaListener;
+import edu.fiuba.algo3.modelo.Calendario.Evento.PoliciaGana;
+import edu.fiuba.algo3.modelo.Calendario.Evento.PoliciaPierde;
+import edu.fiuba.algo3.modelo.Calendario.Calendario;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
-import edu.fiuba.algo3.modelo.OrdenDeArresto.IOrden;
-import edu.fiuba.algo3.modelo.OrdenDeArresto.SinOrden;
+import edu.fiuba.algo3.modelo.Computadora.OrdenDeArresto.IOrden;
+import edu.fiuba.algo3.modelo.Computadora.OrdenDeArresto.SinOrden;
 import edu.fiuba.algo3.modelo.Pista.IPista;
 import edu.fiuba.algo3.modelo.Policia.EstadoCuchillada.EstadoCuchillada;
 import edu.fiuba.algo3.modelo.Policia.RangoPolicia.RangoPolicia;

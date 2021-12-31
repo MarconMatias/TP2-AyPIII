@@ -1,15 +1,15 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.Acciones.AccionDormir;
-import edu.fiuba.algo3.modelo.Acciones.HeridaPorCuchillo;
-import edu.fiuba.algo3.modelo.Acciones.IAccion;
+import edu.fiuba.algo3.modelo.Calendario.Acciones.AccionDormir;
+import edu.fiuba.algo3.modelo.Calendario.Acciones.HeridaPorCuchillo;
+import edu.fiuba.algo3.modelo.Calendario.Acciones.IAccion;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Computadora.Computadora;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Item.Item;
-import edu.fiuba.algo3.modelo.Juego.Calendario;
+import edu.fiuba.algo3.modelo.Calendario.Calendario;
 import edu.fiuba.algo3.modelo.Juego.IObservadorAcciones;
-import edu.fiuba.algo3.modelo.Juego.Mapa;
+import edu.fiuba.algo3.modelo.Ciudad.Mapa;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Lector.LectorCiudad;

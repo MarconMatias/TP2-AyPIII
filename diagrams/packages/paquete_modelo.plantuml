@@ -1,34 +1,53 @@
 @startuml
-
-title Diagrama de paquetes modelo
+title Diagrama general de paquetes modelo\n<size:13>Excepto relaciones adicionales de Lector y paquetes internos</size>
       
-  package [Juego] {
-    node [Mision] {
-      [Computadora]
-      [Ruta]
-      [Ladron]
-      [Item]
-    }
-    [Evento]
-  }
-  package [Policia] {
-    [Acciones]
-    [OrdenDeArresto]
-  }
-  
-  package [Ciudad]{
-  }
-  package [Edificio] {
-    [Pista]
-  }
-  
+package Computadora {
+  package OrdenDeArresto
+}
 
-Juego -down-> Policia
-Policia -down-> Acciones
-Policia -right-> OrdenDeArresto
+together {
+  package Ciudad
+  package Edificio
+  package Pista
+}
 
-Juego -right-> Ciudad
-Ciudad -right-> Edificio
+package Item
+package Calendario
+package Juego
+package Ladron
+package Policia
 
+Ciudad ..> Calendario
+Ciudad .. Edificio
+Ciudad .. Ladron
+Ciudad ..> Pista
+Ciudad .. Policia
+
+Computadora ..> Ladron
+
+Edificio ..> Calendario
+Edificio ..> Ladron
+Edificio ..> Pista
+Edificio .. Policia
+
+Item ..> Ciudad
+
+Ladron ..> Pista
+Ladron ..> Policia
+
+' En Misión se instancian clases de estos paquetes
+Juego ..> Calendario
+Juego ..> Ciudad
+Juego ..> Computadora
+Juego ..> Item
+Juego ..> Policia
+Juego ..> Ladron
+
+Policia ..> Calendario
+Policia ..> OrdenDeArresto
+
+
+Calendario -[hidden]right- Pista
+Pista -[hidden]right- Policia
 
 @enduml

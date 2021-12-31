@@ -2,7 +2,7 @@ package edu.fiuba.algo3.vista.Calendario;
 
 import edu.fiuba.algo3.componentes.Imagen.Imagen;
 import edu.fiuba.algo3.componentes.RelativoAImagen.RelativoAImagen;
-import edu.fiuba.algo3.modelo.Juego.Calendario;
+import edu.fiuba.algo3.modelo.Calendario.Calendario;
 import javafx.beans.binding.IntegerExpression;
 import javafx.beans.binding.ObjectExpression;
 import javafx.scene.image.Image;

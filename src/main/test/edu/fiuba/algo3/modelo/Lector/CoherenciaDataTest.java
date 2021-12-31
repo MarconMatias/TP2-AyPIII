@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo.Lector;
 
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Item.Item;
-import edu.fiuba.algo3.modelo.Juego.Mapa;
+import edu.fiuba.algo3.modelo.Ciudad.Mapa;
 import edu.fiuba.algo3.modelo.Pista.Filtro.FiltroEconomia;
 import edu.fiuba.algo3.modelo.Pista.Filtro.FiltroHistoria;
 import edu.fiuba.algo3.modelo.Pista.Filtro.FiltroPais;
