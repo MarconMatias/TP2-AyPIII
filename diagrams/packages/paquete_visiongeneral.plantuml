@@ -21,34 +21,48 @@ package "Controlador" {
 } 
 
 package Modelo {
-    package Calendario {}
-    package Ciudad {}
-    package Computadora {}
-    package Edificio {}
-    package Item {}
-    package Juego {}
-    package Ladron {}
-    package Lector {}
-    package Pista {}
-    package Policia {}
+    together {
+        package Calendario {}
+        package Ciudad {}
+        package Computadora {}
+        package Edificio {}
+        package Item {}
+    }
+    together {
+        package Juego {}
+        package Ladron {}
+        package Lector {}
+        package Pista {}
+        package Policia {}
+    }
 } 
+Calendario .[hidden]. Juego
 
 package "Componentes" {
-    package Binding {}
-    package Cargador {}
-    package Cuaderno {}
-    package Imagen {}
-    package Libro {}
-    package Mapamundi {}
-    package Radio {}
-    package RelativoAImagen {}
-    package Trayecto {}
+    together {
+        package Binding {}
+        package Cargador {}
+        package Cuaderno {}
+    }
+    together {
+        package Imagen {}
+        package Libro {}
+        package Mapamundi {}
+    }
+    together {
+        package Radio {}
+        package RelativoAImagen {}
+        package Trayecto {}
+    }
 }
+Binding .[hidden]down. Imagen
+Imagen .[hidden]down. Radio
+
 GUI .down.> Controlador
 GUI .down.> Modelo
-GUI .down.> Componentes
+GUI .right.> Componentes
 Controlador .down.> Modelo
-Controlador .down.> Componentes
+Controlador .right.> Componentes
 
 Componentes .[hidden]down.> Modelo
 
