@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo.Policia;
 
-import edu.fiuba.algo3.modelo.Acciones.AccionCuchilloUnica;
 import edu.fiuba.algo3.modelo.Acciones.ExcepcionesAccion.AccionException;
 import edu.fiuba.algo3.modelo.Acciones.IAccion;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
@@ -9,13 +8,13 @@ import edu.fiuba.algo3.modelo.Evento.PoliciaFinalizaListener;
 import edu.fiuba.algo3.modelo.Evento.PoliciaGana;
 import edu.fiuba.algo3.modelo.Evento.PoliciaPierde;
 import edu.fiuba.algo3.modelo.Juego.Calendario;
-import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.ITipoEdificio;
 import edu.fiuba.algo3.modelo.Juego.ExcepcionesCalendario.CalendarioException;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.OrdenDeArresto.IOrden;
 import edu.fiuba.algo3.modelo.OrdenDeArresto.SinOrden;
 import edu.fiuba.algo3.modelo.Pista.IPista;
 import edu.fiuba.algo3.modelo.Policia.EstadoCuchillada.EstadoCuchillada;
+import edu.fiuba.algo3.modelo.Policia.EstadoCuchillada.UnaChuchillada;
 import edu.fiuba.algo3.modelo.Policia.ExcepcionesPolicia.PoliciaException;
 import edu.fiuba.algo3.modelo.Policia.RangoPolicia.RangoPolicia;
 import javafx.beans.property.ObjectProperty;
@@ -178,6 +177,10 @@ public class Policia {
         estadoCuchilladas.siguienteEstado();
     }
 
+    public boolean fuiAcuchillado(){
+        return (estadoCuchilladas.fuiAcuchillado());
+    }
+
     public void ganar(String explicacion) {
         PoliciaGana evento = new PoliciaGana(this, explicacion);
         notificarListeners(oyentesAlGanar, evento);
@@ -206,15 +209,6 @@ public class Policia {
             }
             throw error;
         }
-    }
-
-    public boolean entraAlEdificio(ITipoEdificio unEdificio, Ladron unLadron) {
-
-        boolean pistaEncontrada = false;
-
-        pistaEncontrada = unEdificio.mostrarPista(unLadron);
-
-        return pistaEncontrada;
     }
 
     public void escucharAlGanar(PoliciaFinalizaListener listener) {

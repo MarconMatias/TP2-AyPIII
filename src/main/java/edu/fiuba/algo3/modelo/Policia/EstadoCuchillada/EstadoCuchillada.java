@@ -22,4 +22,8 @@ public class EstadoCuchillada {
     public void siguienteEstado() {
         estado = estado.siguienteEstado();
     }
+
+    public boolean fuiAcuchillado() {
+        return estado.getClass().equals(UnaChuchillada.class);
+    }
 }

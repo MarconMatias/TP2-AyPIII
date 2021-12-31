@@ -8,6 +8,8 @@ import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 public class TestPolicia {
 
@@ -100,5 +102,13 @@ public class TestPolicia {
 
         Policia policia = new Policia("Agus", 0, new Calendario());
         assertThrows(IllegalArgumentException.class, () -> policia.enfrentar(null));
+    }
+
+    @Test
+    public void recibirUnaAcuchilladaCambiaElEstadoAAcuchillado(){
+
+        Policia policia = new Policia("Agus", 0, new Calendario());
+        policia.recibirCuchillada();
+        Assert.assertTrue(policia.fuiAcuchillado());
     }
 }
