@@ -157,13 +157,9 @@ public class Policia {
     }
 
     public void enfrentar(Ladron ladron) {
-        try{
-            ordenDeArresto.get().enfrentar(this, ladron);
-        }
-        catch(IllegalArgumentException e){
-            e.printStackTrace();
-            System.err.println(e.getMessage());
-        }
+
+        ordenDeArresto.get().enfrentar(this, ladron);
+
     }
 
     public void avanzarHorasCuchillada(Calendario calendario) throws AccionException, CalendarioException {

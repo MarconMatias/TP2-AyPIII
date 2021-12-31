@@ -13,7 +13,7 @@ public class Perder implements IEstrategiaOrden {
 
     @Override
     public void realizar(Policia policia, Ladron ladron) {
-        if(policia == null)
+        if(policia == null || ladron == null)
             throw new IllegalArgumentException("Error. El Policia pasado por parametro no es valido");
         policia.perder(explicacion);
     }
