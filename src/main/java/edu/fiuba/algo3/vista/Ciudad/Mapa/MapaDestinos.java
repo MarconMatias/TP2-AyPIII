@@ -5,7 +5,7 @@ import edu.fiuba.algo3.componentes.Imagen.Imagen;
 import edu.fiuba.algo3.componentes.Libro.Librito;
 import edu.fiuba.algo3.componentes.Mapamundi.Mapamundi;
 import edu.fiuba.algo3.componentes.Trayecto.Trayecto;
-import edu.fiuba.algo3.componentes.bindings.AnguloDeDestinoBinding;
+import edu.fiuba.algo3.componentes.Binding.AnguloDeDestinoBinding;
 import edu.fiuba.algo3.controlador.Juego.PantallaControlador;
 import edu.fiuba.algo3.controlador.Ciudad.Mapa.MapaDestinosControlador;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;

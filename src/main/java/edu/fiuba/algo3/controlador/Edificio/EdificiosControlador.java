@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.controlador.Edificio;
 
-import edu.fiuba.algo3.ControlStage;
+import edu.fiuba.algo3.controlador.ControlStage;
 import edu.fiuba.algo3.controlador.Juego.PantallaControlador;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Juego.Juego;

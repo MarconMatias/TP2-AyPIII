@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.componentes.bindings;
+package edu.fiuba.algo3.componentes.Binding;
 
 import edu.fiuba.algo3.vista.Ciudad.DestinoCiudad;
 import javafx.beans.binding.DoubleBinding;

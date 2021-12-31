@@ -5,7 +5,7 @@ import edu.fiuba.algo3.componentes.Imagen.IconoVolver;
 import edu.fiuba.algo3.componentes.Imagen.Mapita;
 import edu.fiuba.algo3.componentes.Imagen.Tarjetas;
 import edu.fiuba.algo3.componentes.Libro.Libro;
-import edu.fiuba.algo3.componentes.bindings.SimplePoint2DBinding;
+import edu.fiuba.algo3.componentes.Binding.SimplePoint2DBinding;
 import edu.fiuba.algo3.controlador.Ciudad.LibroCiudadControlador;
 import edu.fiuba.algo3.controlador.Juego.PantallaControlador;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;

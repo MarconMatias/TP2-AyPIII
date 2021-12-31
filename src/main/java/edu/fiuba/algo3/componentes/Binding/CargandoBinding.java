@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.componentes.bindings;
+package edu.fiuba.algo3.componentes.Binding;
 
 import javafx.beans.binding.StringBinding;
 import javafx.beans.property.DoubleProperty;
