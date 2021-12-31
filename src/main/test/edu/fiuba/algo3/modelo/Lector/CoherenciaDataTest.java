@@ -86,7 +86,6 @@ public class CoherenciaDataTest {
     @Test
     public void cadaCiudadTieneUnaPistaDeCadaDificultad() throws org.json.simple.parser.ParseException {
 
-        Collection<PistaCiudad> pistas;
         String fuente = "src/main/java/edu/fiuba/algo3/recursos/ciudades.json";
         LectorCiudad lector = new LectorCiudad();
         List<Ciudad> ciudades =  lector.leerCiudades(fuente);

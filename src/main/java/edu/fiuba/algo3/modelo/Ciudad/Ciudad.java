@@ -158,7 +158,6 @@ public class Ciudad implements IDestino, Comparable<Ciudad> {
         FiltroHistoria fh = new FiltroHistoria();
         FiltroPais fp = new FiltroPais();
 
-
         tieneTodasLasPistas = (fe.filtrarPistas(pistas).stream().filter( p -> p.conDificultad( (Object) new PistaFacil())).count() > 2);
         if(!tieneTodasLasPistas)
             throw new PistaException("Error. No tiene todas las pistas faciles requeridas la ciudad");
