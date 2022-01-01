@@ -21,10 +21,10 @@ public class Reloj extends RelativoAImagen {
         this.calendario = calendario;
 
         IntegerExpression hora = calendario.get().getHoraObservable();
-        hora.addListener(ob->System.out.println("Hora: "+hora.get()));
+        //hora.addListener(ob->System.out.println("Hora: "+hora.get()));
 
         IntegerExpression diaSemana = calendario.get().getDiaObservable();
-        diaSemana.addListener(obs -> System.out.println("Dia: "+diaSemana.get()));
+        //diaSemana.addListener(obs -> System.out.println("Dia: "+diaSemana.get()));
 
         TextoReloj inicialesDia = new TextoRelojDia(diaSemana);
         agregar(inicialesDia, 0.5, 0.45);

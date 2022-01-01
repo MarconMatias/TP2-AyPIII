@@ -9,13 +9,13 @@ public class CiudadNoVisitada implements ICiudadVisitada {
     final String advertencia = "La ciudad no está visitada, no tiene edificios disponibles.";
     @Override
     public List<Edificio> obtenerEdificios() {
-        System.err.println(advertencia);
+        //System.err.println(advertencia);
         return Collections.emptyList();
     }
 
     @Override
     public String visitar(Edificio edificio) {
-        System.err.println(advertencia);
+        //System.err.println(advertencia);
         return "No estás acá, no puedo darte pistas.";
     }
 }

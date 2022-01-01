@@ -23,7 +23,7 @@ public class FotoCiudad extends Imagen {
                 url = file.toURI().toURL().toString();
                 return url;
             } catch (Exception ex) {
-                System.err.println(ex.toString());
+                //System.err.println(ex.toString());
             }
         }
         return null;
@@ -33,7 +33,7 @@ public class FotoCiudad extends Imagen {
         String pathTeorico = pathDeCiudadTeorico(ciudad);
         String url = urlDeRelativo(pathTeorico);
         if(null == url) {
-            System.out.println("No pudo usarse foto: " + pathTeorico);
+            //System.out.println("No pudo usarse foto: " + pathTeorico);
             url = urlDesdeRecursos("Ciudad/Ciudad_generica_1024.png");
         }
         return url;

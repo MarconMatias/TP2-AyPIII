@@ -48,7 +48,7 @@ public class CargarVistasTarea extends Task<Void> {
                 Method precargar = clase.getMethod("precargar");
                 precargar.invoke(null);
             } catch (Exception ex) {
-                System.err.println("Error al precargar "+clase.getName());
+                //System.err.println("Error al precargar "+clase.getName());
                 ex.printStackTrace();
             }
             progreso+=10;

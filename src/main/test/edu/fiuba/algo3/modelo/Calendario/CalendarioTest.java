@@ -73,10 +73,10 @@ public class CalendarioTest {
     }
 
     @Test
-    public void test(){
+    public void alAvanzar62horasEsMiercoles() {
         Calendario cal = new Calendario();
         cal.avanzarHoras(62);
-        System.out.println(cal.getDiaDeLaSemana());
+        assertEquals(3, cal.getDiaDeLaSemana());
     }
 
 }
