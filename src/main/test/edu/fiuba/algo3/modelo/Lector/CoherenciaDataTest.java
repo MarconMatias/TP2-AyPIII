@@ -91,7 +91,6 @@ public class CoherenciaDataTest {
 
     @Test
     public void cadaCiudadTieneUnaPistaDeCadaDificultad() {
-        final String fuente = "src/main/java/edu/fiuba/algo3/recursos/ciudades.json";
         final NivelPista facil = new PistaFacil();
         final NivelPista media = new PistaMedia();
         final NivelPista dificil = new PistaDificil();
@@ -107,7 +106,7 @@ public class CoherenciaDataTest {
         });
 
         LectorCiudad lector = new LectorCiudad(constructor);
-        List<Ciudad> ciudades =  lector.leerCiudades(fuente);
+        Collection<Ciudad> ciudades =  lector.leerCiudades().values();
         for(String nombre : llamadas.keySet()) {
             Collection<IPista> pistas = (Collection<IPista>)(Collection<?>) llamadas.get(nombre);
             Collection<IPista> faciles = facil.filtrarPistas(pistas);
@@ -122,7 +121,6 @@ public class CoherenciaDataTest {
 
     @Test
     public void cadaCiudadConCadaFiltroTieneUnaPistaDeCadaDificultad() {
-        final String fuente = "src/main/java/edu/fiuba/algo3/recursos/ciudades.json";
         final List<IFiltroCiudad> filtros = List.of(
                 new FiltroEconomia(), new FiltroPais(), new FiltroHistoria());
         final NivelPista facil = new PistaFacil();
@@ -140,7 +138,7 @@ public class CoherenciaDataTest {
         });
 
         LectorCiudad lector = new LectorCiudad(constructor);
-        List<Ciudad> ciudades =  lector.leerCiudades(fuente);
+        Collection<Ciudad> ciudades =  lector.leerCiudades().values();
         for(String nombre : llamadas.keySet()) {
             Collection pistas = (Collection<IPista>)(Collection<?>) llamadas.get(nombre);
             for(IFiltroCiudad filtro : filtros) {
@@ -159,8 +157,6 @@ public class CoherenciaDataTest {
 
     @Test
     public void alLeerCiudadesNingunaPistaEstaVacia() {
-        final String fuente = "src/main/java/edu/fiuba/algo3/recursos/ciudades.json";
-
         BiFunction<String,Collection<PistaCiudad>,Ciudad> constructor = Mockito.mock(BiFunction.class);
         Map<String, Collection<PistaCiudad>> llamadas = new HashMap<>();
 
@@ -171,7 +167,7 @@ public class CoherenciaDataTest {
             return new Ciudad(nombre, pistas);
         });
         LectorCiudad lector = new LectorCiudad(constructor);
-        List<Ciudad> ciudades =  lector.leerCiudades(fuente);
+        Collection<Ciudad> ciudades =  lector.leerCiudades().values();
         for(String nombre : llamadas.keySet()) {
             for(PistaCiudad pista : llamadas.get(nombre)) {
                 assertNotEquals("", pista.getValor(), "No hay pistas vacías en "+nombre + "("+pista+")");
@@ -181,7 +177,6 @@ public class CoherenciaDataTest {
 
     @Test
     public void alFiltrarPorNivelYFiltroNoQuedaPistaSinUsar() {
-        final String fuente = "src/main/java/edu/fiuba/algo3/recursos/ciudades.json";
         final List<IFiltroCiudad> filtros = List.of(
                 new FiltroEconomia(), new FiltroPais(), new FiltroHistoria());
         final NivelPista facil = new PistaFacil();
@@ -199,7 +194,7 @@ public class CoherenciaDataTest {
         });
 
         LectorCiudad lector = new LectorCiudad(constructor);
-        lector.leerCiudades(fuente);
+        lector.leerCiudades();
         for(String nombre : llamadas.keySet()) {
             Collection pistas = (Collection<IPista>)(Collection<?>) llamadas.get(nombre);
             for(IFiltroCiudad filtro : filtros) {
@@ -226,10 +221,9 @@ public class CoherenciaDataTest {
 
     @Test
     public void cadaCiudadTieneDetalles() {
-        final String fuente = "src/main/java/edu/fiuba/algo3/recursos/ciudades.json";
         LectorCiudad lectorCiudad = new LectorCiudad();
-        List<Ciudad> ciudades = lectorCiudad.leerCiudades(fuente);
-        for(Ciudad ciudad : ciudades) {
+        Map<String,Ciudad> ciudades = lectorCiudad.leerCiudades();
+        for(Ciudad ciudad : ciudades.values()) {
             assertNotNull(ciudad.getDescripcion(), ciudad.getNombre());
             assertNotEquals("",ciudad.getDescripcion().trim(), ciudad.getNombre());
         }
