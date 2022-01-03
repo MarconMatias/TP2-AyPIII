@@ -2,7 +2,9 @@ package edu.fiuba.algo3.controlador.Edificio;
 
 import edu.fiuba.algo3.controlador.ControlStage;
 import edu.fiuba.algo3.controlador.Juego.PantallaControlador;
+import edu.fiuba.algo3.modelo.Acciones.ExcepcionesAccion.AccionException;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
+import edu.fiuba.algo3.modelo.Juego.ExcepcionesCalendario.CalendarioException;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.vista.Edificio.DestinoEdificio;
@@ -19,7 +21,7 @@ public class EdificiosControlador extends PantallaControlador {
         this.controlStage = controlStage;
     }
 
-    public void destinoElegido(DestinoEdificio destino) {
+    public void destinoElegido(DestinoEdificio destino) throws AccionException, CalendarioException {
         Edificio edificio = destino.getEdificio();
         //System.out.println("Visitando edificio "+edificio.getNombre());
         String testimonio = mision.visitarEdificio(edificio);

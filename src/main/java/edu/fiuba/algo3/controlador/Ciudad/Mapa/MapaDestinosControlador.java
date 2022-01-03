@@ -4,6 +4,7 @@ import edu.fiuba.algo3.controlador.ControlStage;
 import edu.fiuba.algo3.controlador.Juego.PantallaControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
+import edu.fiuba.algo3.modelo.Policia.ExcepcionesPolicia.PoliciaException;
 import edu.fiuba.algo3.vista.Ciudad.DestinoCiudad;
 
 public class MapaDestinosControlador extends PantallaControlador {
@@ -18,7 +19,7 @@ public class MapaDestinosControlador extends PantallaControlador {
         this.controlStage = controlStage;
     }
 
-    public void destinoElegido(DestinoCiudad destino) {
+    public void destinoElegido(DestinoCiudad destino) throws PoliciaException {
         //System.out.println("Viajando a "+destino.getNombre());
         mision.viajarACiudad(destino.getCiudad());
         if(controlStage.abrirLibroCiudad()) {

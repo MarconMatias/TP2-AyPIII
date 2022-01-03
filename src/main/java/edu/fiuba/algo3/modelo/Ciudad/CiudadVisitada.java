@@ -7,6 +7,7 @@ import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Edificio.IAccionador;
 import edu.fiuba.algo3.modelo.Juego.ExcepcionesCalendario.CalendarioException;
 import edu.fiuba.algo3.modelo.Ladron.ISospechoso;
+import edu.fiuba.algo3.modelo.Policia.ExcepcionesPolicia.PoliciaException;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 
 import java.util.List;
@@ -39,7 +40,7 @@ public class CiudadVisitada implements ICiudadVisitada {
     }
 
     @Override
-    public String visitar(Edificio edificio) throws AccionException, CalendarioException {
+    public String visitar(Edificio edificio) throws AccionException, CalendarioException, PoliciaException {
         if (!edificios.contains(edificio)) {
             return "¡Epa! No tenés permiso para entrar a este edificio.";
         }

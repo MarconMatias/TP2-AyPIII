@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Juego;
 
+import edu.fiuba.algo3.modelo.Acciones.ExcepcionesAccion.AccionException;
 import edu.fiuba.algo3.modelo.Calendario.Acciones.EmitirOrden;
 import edu.fiuba.algo3.modelo.Calendario.Calendario;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
@@ -10,9 +11,11 @@ import edu.fiuba.algo3.modelo.Calendario.Evento.PoliciaFinaliza;
 import edu.fiuba.algo3.modelo.Calendario.Evento.PoliciaFinalizaListener;
 import edu.fiuba.algo3.modelo.Item.Item;
 import edu.fiuba.algo3.modelo.Juego.EstadoMision.EstadoMision;
+import edu.fiuba.algo3.modelo.Juego.ExcepcionesCalendario.CalendarioException;
 import edu.fiuba.algo3.modelo.Ladron.DetallableSospechoso;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Computadora.OrdenDeArresto.IOrden;
+import edu.fiuba.algo3.modelo.Policia.ExcepcionesPolicia.PoliciaException;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 import edu.fiuba.algo3.modelo.Ciudad.Ruta.Ruta;
 import javafx.beans.InvalidationListener;
@@ -212,7 +215,7 @@ public class Mision implements DetallableSospechoso {
         return unItem.getRuta(unMapa, random);
     }
 
-    public Ciudad viajarACiudad(Ciudad destino) {
+    public Ciudad viajarACiudad(Ciudad destino) throws PoliciaException {
         ciudadActual.desvisitar();
         ciudadActual = mapa.viajar(policia, ciudadActual, destino, random);
         return ciudadActual;
@@ -234,11 +237,11 @@ public class Mision implements DetallableSospechoso {
      * @param edificio Un edificio de la ciudad actual.
      * @return El testimonio obtenido en el edificio de la ciudad actual.
      */
-    public String visitarEdificio(Edificio edificio) {
+    public String visitarEdificio(Edificio edificio) throws AccionException, CalendarioException {
         return ciudadActual.visitar(edificio);
     }
 
-    public void generarOrdenDeArresto() {
+    public void generarOrdenDeArresto() throws PoliciaException {
         IOrden orden = computadora.generarOrdenDeArresto();
         calendario.aplicarAccion(new EmitirOrden(orden, policia));
     }

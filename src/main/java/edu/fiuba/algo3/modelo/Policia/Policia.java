@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Policia;
 
+import edu.fiuba.algo3.modelo.Acciones.ExcepcionesAccion.AccionException;
 import edu.fiuba.algo3.modelo.Calendario.Acciones.IAccion;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Calendario.Evento.PoliciaFinaliza;
@@ -7,11 +8,14 @@ import edu.fiuba.algo3.modelo.Calendario.Evento.PoliciaFinalizaListener;
 import edu.fiuba.algo3.modelo.Calendario.Evento.PoliciaGana;
 import edu.fiuba.algo3.modelo.Calendario.Evento.PoliciaPierde;
 import edu.fiuba.algo3.modelo.Calendario.Calendario;
+import edu.fiuba.algo3.modelo.Juego.ExcepcionesCalendario.CalendarioException;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Computadora.OrdenDeArresto.IOrden;
 import edu.fiuba.algo3.modelo.Computadora.OrdenDeArresto.SinOrden;
 import edu.fiuba.algo3.modelo.Pista.IPista;
 import edu.fiuba.algo3.modelo.Policia.EstadoCuchillada.EstadoCuchillada;
+import edu.fiuba.algo3.modelo.Policia.EstadoCuchillada.UnaChuchillada;
+import edu.fiuba.algo3.modelo.Policia.ExcepcionesPolicia.PoliciaException;
 import edu.fiuba.algo3.modelo.Policia.RangoPolicia.RangoPolicia;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -41,6 +45,9 @@ public class Policia {
      *                           acciones del policía.
      */
     public Policia(String nombre, int cantidadDeArrestos, Calendario calendario) {
+
+        if(nombre == null || cantidadDeArrestos < 0 || calendario == null)
+            throw new IllegalArgumentException("Error. Alguno de los parametros pasados al constructor de policia no es valido.");
         this.nombre = nombre;
         this.arrestos = cantidadDeArrestos;
         this.calendario = calendario;
@@ -66,7 +73,10 @@ public class Policia {
         this(nombre, cantidadDeArrestos, new Calendario());
     }
 
-    public void setOrdenDeArresto(IOrden ordenDeArresto) {
+    public void setOrdenDeArresto(IOrden ordenDeArresto) throws PoliciaException {
+
+        if(ordenDeArresto == null)
+            throw new PoliciaException("Error. No se pudo setear la orden de arresto porque no es una orden valida.");
         this.ordenDeArresto.set(ordenDeArresto);
     }
 
@@ -76,11 +86,13 @@ public class Policia {
      * @param calendario Calendario de tiempo del juego durante la misión.
      */
     public void iniciarMision(Calendario calendario) {
+        if(calendario == null)
+            throw new IllegalArgumentException("Error. El calendario pasado por parametro no es valido.");
         this.calendario = calendario;
         this.ordenDeArresto.set(new SinOrden("No se emitió nunca una orden de arresto."));
     }
 
-    public int viajar(int distancia) {
+    public int viajar(int distancia) throws PoliciaException {
         int tiempoDeViaje = rango.devolverTiempoDeViaje(distancia);
         calendario.avanzarHoras(tiempoDeViaje);
         return tiempoDeViaje;
@@ -97,7 +109,9 @@ public class Policia {
      * @param edificio Un edificio de la ciudad actual.
      * @return El testimonio recibido en el edificio.
      */
-    public String visitar(Edificio edificio) {
+    public String visitar(Edificio edificio) throws AccionException, CalendarioException, PoliciaException {
+        if(edificio == null)
+            throw new IllegalArgumentException("Error. El edificio pasado por parametro no es valido.");
         return edificio.visitar(this);
     }
 
@@ -105,11 +119,11 @@ public class Policia {
         return this.arrestos;
     }
 
-    public void avanzarHoras(int demora) {
+    public void avanzarHoras(int demora) throws PoliciaException {
         calendario.avanzarHoras(demora);
     }
 
-    public void realizarAccion(IAccion accion) {
+    public void realizarAccion(IAccion accion) throws PoliciaException {
         accion.setPolicia(this);
         calendario.aplicarAccion(accion);
     }
@@ -123,7 +137,7 @@ public class Policia {
         ordenDeArresto.get().enfrentar(this, ladron);
     }
 
-    public void avanzarHorasCuchillada(Calendario calendario) {
+    public void avanzarHorasCuchillada(Calendario calendario) throws PoliciaException {
         estadoCuchilladas.avanzarHoras(calendario);
     }
 
@@ -202,4 +216,9 @@ public class Policia {
         return rango.getNombreRango() + " " + getNombre();
     }
 
+    public boolean fuiAcuchillado() {
+        if(estadoCuchilladas.estado.getClass() == UnaChuchillada.class)
+            return true;
+        return false;
+    }
 }

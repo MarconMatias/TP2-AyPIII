@@ -11,6 +11,7 @@ import edu.fiuba.algo3.controlador.Ciudad.Mapa.MapaDestinosControlador;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
+import edu.fiuba.algo3.modelo.Policia.ExcepcionesPolicia.PoliciaException;
 import edu.fiuba.algo3.vista.Ciudad.DestinoCiudad;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.ObjectProperty;
@@ -155,8 +156,14 @@ public class MapaDestinos extends Mapamundi {
         librito.setOnKeyPressed(controlador::libritoKeyPressed);
         if(controlador instanceof MapaDestinosControlador) {
             destinoElegido.addListener(
-                    ev -> ((MapaDestinosControlador) controlador)
-                            .destinoElegido(destinoElegido.get()));
+                    ev -> {
+                        try {
+                            ((MapaDestinosControlador) controlador)
+                                    .destinoElegido(destinoElegido.get());
+                        } catch (PoliciaException e) {
+                            e.printStackTrace();
+                        }
+                    });
         }
     }
 

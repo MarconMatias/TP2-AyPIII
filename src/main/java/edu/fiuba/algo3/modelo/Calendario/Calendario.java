@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.Calendario;
 import edu.fiuba.algo3.modelo.Calendario.Acciones.AccionDormir;
 import edu.fiuba.algo3.modelo.Calendario.Acciones.IAccion;
 import edu.fiuba.algo3.modelo.Juego.IObservadorAcciones;
+import edu.fiuba.algo3.modelo.Policia.ExcepcionesPolicia.PoliciaException;
 import javafx.beans.binding.DoubleExpression;
 import javafx.beans.binding.IntegerExpression;
 import javafx.beans.property.IntegerProperty;
@@ -66,8 +67,7 @@ public class Calendario {
      * Avanza el calendario al menos `horas`, durmiendo varias horas adicionales si es necesario.
      * @param horas Cantidad de horas que dura la acción que avanza el calendario.
      */
-    public void avanzarHoras(int horas)
-    {
+    public void avanzarHoras(int horas) throws PoliciaException {
         int siguiente = horasActuales.get() + horas;
         boolean debeDormir = this.deberiaDormirSiAvanzaHasta(siguiente);
         this.avanzarSolamente(horas);
@@ -104,7 +104,7 @@ public class Calendario {
        return !esHoraDeDormir(getHoraDelDia()) && esHoraDeDormir(hsSiguiente);
     }
 
-    public void aplicarAccion(IAccion accion) {
+    public void aplicarAccion(IAccion accion) throws PoliciaException {
         notificarObservadores(accion);
         accion.avanzarCalendario(this);
         accion.realizar();

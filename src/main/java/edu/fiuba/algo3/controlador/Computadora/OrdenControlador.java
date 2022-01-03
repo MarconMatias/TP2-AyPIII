@@ -3,6 +3,7 @@ package edu.fiuba.algo3.controlador.Computadora;
 import edu.fiuba.algo3.controlador.ControlStage;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
+import edu.fiuba.algo3.modelo.Policia.ExcepcionesPolicia.PoliciaException;
 import javafx.event.ActionEvent;
 
 public class OrdenControlador extends DocumentosControlador {
@@ -18,7 +19,11 @@ public class OrdenControlador extends DocumentosControlador {
     }
 
     public void emitir(ActionEvent ev) {
-        mision.generarOrdenDeArresto();
+        try {
+            mision.generarOrdenDeArresto();
+        } catch (PoliciaException e) {
+            e.printStackTrace();
+        }
         ev.consume();
    }
 }

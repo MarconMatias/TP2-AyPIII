@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Ciudad;
 
+import edu.fiuba.algo3.modelo.Policia.ExcepcionesPolicia.PoliciaException;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 
 import java.util.*;
@@ -35,7 +36,7 @@ public class Mapa {
         return new ArrayList<>(destinos.keySet());
     }
 
-    public Ciudad viajar(Policia policia, Ciudad origen, Ciudad destino, Random random) {
+    public Ciudad viajar(Policia policia, Ciudad origen, Ciudad destino, Random random) throws PoliciaException {
         if (!origenes.containsKey(origen)) {
             throw new RuntimeException("El origen no existe en el mapa.");
         }
@@ -49,7 +50,7 @@ public class Mapa {
         return destino;
     }
 
-    public Ciudad viajar(Policia policia, Ciudad origen, Ciudad destino) {
+    public Ciudad viajar(Policia policia, Ciudad origen, Ciudad destino) throws PoliciaException {
         return viajar(policia, origen, destino, new Random());
     }
 

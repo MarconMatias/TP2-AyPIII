@@ -14,6 +14,7 @@ import edu.fiuba.algo3.modelo.Pista.Filtro.FiltroEconomia;
 import edu.fiuba.algo3.modelo.Pista.Filtro.FiltroHistoria;
 import edu.fiuba.algo3.modelo.Pista.Filtro.FiltroPais;
 import edu.fiuba.algo3.modelo.Pista.Filtro.IFiltroCiudad;
+import edu.fiuba.algo3.modelo.Policia.ExcepcionesPolicia.PoliciaException;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 import edu.fiuba.algo3.modelo.Pista.IPista;
 import edu.fiuba.algo3.modelo.Pista.NivelPista.PistaDificil;
@@ -163,6 +164,8 @@ public class Ciudad implements IDestino, Comparable<Ciudad> {
         catch (AccionException | CalendarioException e){
             e.printStackTrace();
             return "No sabría decirte...";
+        } catch (PoliciaException e) {
+            e.printStackTrace();
         }
         return testimonio;
 

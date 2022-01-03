@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Calendario.Acciones;
 
 import edu.fiuba.algo3.modelo.Calendario.Calendario;
+import edu.fiuba.algo3.modelo.Policia.ExcepcionesPolicia.PoliciaException;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 
 public class HeridaPorDisparo implements IAccion {
@@ -17,7 +18,7 @@ public class HeridaPorDisparo implements IAccion {
     }
 
     @Override
-    public void avanzarCalendario(Calendario calendario) {
+    public void avanzarCalendario(Calendario calendario) throws PoliciaException {
         calendario.avanzarHoras(4);
     }
 
