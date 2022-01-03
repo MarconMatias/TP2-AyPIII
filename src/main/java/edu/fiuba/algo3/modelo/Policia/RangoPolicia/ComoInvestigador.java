@@ -40,4 +40,9 @@ public class ComoInvestigador implements IComportamientoRango{
     public String getNombreRango() {
         return "Investigador";
     }
+
+    @Override
+    public String getInsignia() {
+        return "\uD83D\uDEA8";
+    }
 }

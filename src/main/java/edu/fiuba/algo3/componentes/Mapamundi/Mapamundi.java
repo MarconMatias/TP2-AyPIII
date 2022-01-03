@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.componentes.Mapamundi;
 
 import edu.fiuba.algo3.componentes.Imagen.Avion;
-import edu.fiuba.algo3.componentes.bindings.SimplePoint2DBinding;
+import edu.fiuba.algo3.componentes.Binding.SimplePoint2DBinding;
 import edu.fiuba.algo3.vista.Juego.Pantalla;
 import javafx.beans.property.DoubleProperty;
 import javafx.geometry.Point2D;

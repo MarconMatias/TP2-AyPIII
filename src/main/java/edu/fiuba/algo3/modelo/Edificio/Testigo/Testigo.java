@@ -10,6 +10,7 @@ public class Testigo {
     private final IFiltroCiudad filtroCiudad;
     private ISospechoso sospechoso = new SinSospechoso();
     private IDestino destino = new SinDestino();
+    private String testimonio;
 
     public Testigo(String nombre, IFiltroCiudad filtroCiudad)
     {
@@ -24,13 +25,17 @@ public class Testigo {
 
     public String getTestimonio(Policia policia)
     {
-        return sospechoso.testimonioAlAzar(policia, destino, filtroCiudad);
+        if(null == testimonio) {
+            testimonio = sospechoso.testimonioAlAzar(policia, destino, filtroCiudad);
+        }
+        return testimonio;
     }
 
     public void setTestimonio(ISospechoso sospechoso, IDestino destino)
     {
         this.sospechoso = sospechoso;
         this.destino = destino;
+        this.testimonio = null;
     }
 
 }

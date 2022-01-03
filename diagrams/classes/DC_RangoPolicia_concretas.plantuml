@@ -1,9 +1,36 @@
 @startuml RangoPolicia_concretas
+hide empty members
+
+
 class Policia {}
-abstract class RangoPolicia {}
+class RangoPolicia {
+    - arrestos
+    + RangoPolicia(cantidadDeArrestos:int)
+    + RangoPolicia()
+    + devolverTiempoDeViaje(distancia:int)
+    + filtrarPistas(pistas:Collection<IPista>):ArrayList<IPista>
+    .. getters ..
+    + getNombreRango() : String
+    + getInsignia() : String
+    .. setters ..
+    + actualizarArrestos(cantidadDeArrestos:int)
+    + agregarArresto(arrestos:int)
+}
+interface IComportamientoRango {
+    + estimarTiempoDeViajePara(distancia:int) : int
+    + filtrarPistas(pistas:Collection<IPista>) : Collection<IPista>
+    + siguienteComportamientoConArrestos(arrestos:int) : IComportamientoRango
+    .. getters ..
+    + getNombreRango() : String
+    + getInsignia() : String
+}
+
 Policia "1" *-- "1" RangoPolicia
-class RangoNovato extends RangoPolicia {}
-class RangoDetective extends RangoPolicia {}
-class RangoInvestigador extends RangoPolicia {}
-class RangoSargento extends RangoPolicia {}
+RangoPolicia "1" *-- "1" IComportamientoRango
+
+
+'class RangoNovato extends RangoPolicia {}
+'class RangoDetective extends RangoPolicia {}
+'class RangoInvestigador extends RangoPolicia {}
+'class RangoSargento extends RangoPolicia {}
 @enduml

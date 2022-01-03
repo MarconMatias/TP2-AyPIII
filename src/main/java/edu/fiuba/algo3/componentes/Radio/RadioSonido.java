@@ -1,9 +1,9 @@
 package edu.fiuba.algo3.componentes.Radio;
 
 import edu.fiuba.algo3.componentes.Imagen.Imagen;
-import edu.fiuba.algo3.modelo.Evento.RadioEvento;
-import edu.fiuba.algo3.modelo.Evento.TrackCambia;
-import edu.fiuba.algo3.modelo.Radio.Radio;
+import edu.fiuba.algo3.modelo.Calendario.Evento.RadioEvento;
+import edu.fiuba.algo3.modelo.Calendario.Evento.TrackCambia;
+import edu.fiuba.algo3.modelo.Juego.Radio.Radio;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 

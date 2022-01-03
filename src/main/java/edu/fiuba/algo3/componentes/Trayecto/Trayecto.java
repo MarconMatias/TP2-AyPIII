@@ -1,9 +1,8 @@
 package edu.fiuba.algo3.componentes.Trayecto;
 
-import edu.fiuba.algo3.componentes.bindings.Point2DBindingXY;
-import edu.fiuba.algo3.componentes.bindings.SimplePoint2DBinding;
+import edu.fiuba.algo3.componentes.Binding.Point2DBindingXY;
+import edu.fiuba.algo3.componentes.Binding.SimplePoint2DBinding;
 import javafx.beans.binding.DoubleBinding;
-import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.ReadOnlyDoubleProperty;
 import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;

@@ -6,7 +6,6 @@ import java.util.Collection;
 
 public interface IComportamientoRango {
 
-
     IComportamientoRango siguienteComportamientoConArrestos(Integer arrestos);
 
     int estimarTiempoDeViajePara(int distancia);
@@ -14,4 +13,6 @@ public interface IComportamientoRango {
     Collection<IPista> filtrarPistas(Collection<IPista> pistas);
 
     String getNombreRango();
+
+    String getInsignia();
 }

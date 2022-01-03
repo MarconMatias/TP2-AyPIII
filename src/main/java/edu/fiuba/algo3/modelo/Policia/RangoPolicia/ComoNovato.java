@@ -41,4 +41,9 @@ public class ComoNovato implements IComportamientoRango {
     public String getNombreRango() {
         return "Novato";
     }
+
+    @Override
+    public String getInsignia() {
+        return "\uD83D\uDD30";
+    }
 }

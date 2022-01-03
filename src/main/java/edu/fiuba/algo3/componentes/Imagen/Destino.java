@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.componentes.Imagen;
 
 import edu.fiuba.algo3.componentes.Trayecto.Trayecto;
-import edu.fiuba.algo3.componentes.bindings.BooleanDoubleBinding;
+import edu.fiuba.algo3.componentes.Binding.BooleanDoubleBinding;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.event.Event;
@@ -84,4 +84,7 @@ public class Destino extends ImagenSeleccionable {
         this.trayecto = trayecto;
     }
 
+    public static void precargar() {
+        /** No necesita cuerpo. La sola invocación de este método precargará los static. **/
+    }
 }

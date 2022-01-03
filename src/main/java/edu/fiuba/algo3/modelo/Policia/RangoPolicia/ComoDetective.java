@@ -41,4 +41,9 @@ public class ComoDetective implements IComportamientoRango{
     public String getNombreRango() {
         return "Detective";
     }
+
+    @Override
+    public String getInsignia() {
+        return "\uD83D\uDD75";
+    }
 }

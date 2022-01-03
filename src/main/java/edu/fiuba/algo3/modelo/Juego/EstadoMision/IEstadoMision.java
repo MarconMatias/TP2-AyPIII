@@ -10,4 +10,6 @@ public interface IEstadoMision {
     IEstadoMision convertirEnVictoria(String explicacion);
 
     String getExplicacion();
+
+    String getMensaje();
 }

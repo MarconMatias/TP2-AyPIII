@@ -1,13 +1,13 @@
 package edu.fiuba.algo3.modelo.Juego;
 
-import java.io.IOException;
 import java.util.*;
 
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
+import edu.fiuba.algo3.modelo.Ciudad.Mapa;
 import edu.fiuba.algo3.modelo.Item.Item;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Policia.Policia;
-import edu.fiuba.algo3.modelo.Radio.Radio;
+import edu.fiuba.algo3.modelo.Juego.Radio.Radio;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 

@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.Item.RangoItem;
 
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
-import edu.fiuba.algo3.modelo.Juego.Mapa;
+import edu.fiuba.algo3.modelo.Ciudad.Mapa;
 
 import java.util.List;
 import java.util.Random;

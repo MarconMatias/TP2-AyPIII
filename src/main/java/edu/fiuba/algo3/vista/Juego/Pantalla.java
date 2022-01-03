@@ -3,15 +3,16 @@ package edu.fiuba.algo3.vista.Juego;
 import edu.fiuba.algo3.componentes.Imagen.Imagen;
 import edu.fiuba.algo3.componentes.Imagen.Tarjetas;
 import edu.fiuba.algo3.componentes.RelativoAImagen.RelativoAImagen;
-import edu.fiuba.algo3.componentes.bindings.ConstructorLazyConVisible;
-import edu.fiuba.algo3.componentes.bindings.Point2DBindingXY;
-import edu.fiuba.algo3.componentes.bindings.SimplePoint2DBinding;
-import edu.fiuba.algo3.controlador.Radio.RadioControlador;
-import edu.fiuba.algo3.modelo.Juego.Calendario;
+import edu.fiuba.algo3.componentes.Binding.ConstructorLazyConVisible;
+import edu.fiuba.algo3.componentes.Binding.Point2DBindingXY;
+import edu.fiuba.algo3.componentes.Binding.SimplePoint2DBinding;
+import edu.fiuba.algo3.controlador.Juego.PantallaControlador;
+import edu.fiuba.algo3.controlador.Juego.Radio.RadioControlador;
+import edu.fiuba.algo3.modelo.Calendario.Calendario;
 import edu.fiuba.algo3.modelo.Juego.IObservadorAcciones;
-import edu.fiuba.algo3.modelo.Radio.Radio;
+import edu.fiuba.algo3.modelo.Juego.Radio.Radio;
 import edu.fiuba.algo3.vista.Calendario.Reloj;
-import edu.fiuba.algo3.vista.Radio.Walkman;
+import edu.fiuba.algo3.vista.Juego.Radio.Walkman;
 import javafx.beans.property.*;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.Point2D;
@@ -40,16 +41,20 @@ public class Pantalla extends RelativoAImagen {
         inicializar();
     }
 
+    protected void iniciarControlador(PantallaControlador controlador) {
+        controlador.agregarLiberador(this);
+    }
+
     private void inicializar() {
         tarjetas.bind(new ConstructorLazyConVisible<Tarjetas>(this::crearTarjetas, tarjetasVisible));
         reloj.bind(new ConstructorLazyConVisible<Reloj>(this::crearReloj, relojVisible));
 
         calendario.addListener(this::alCambiarCalendario);
-        observadorAcciones.addListener(this::cambiarObservador);
+        observadorAcciones.addListener(this::cambiarObservadorAcciones);
     }
 
-    private void cambiarObservador(ObservableValue<? extends IObservadorAcciones> obs,
-                                   IObservadorAcciones obsViejo, IObservadorAcciones obsNuevo) {
+    private void cambiarObservadorAcciones(ObservableValue<? extends IObservadorAcciones> obs,
+                                           IObservadorAcciones obsViejo, IObservadorAcciones obsNuevo) {
         Calendario cal = calendario.get();
         if(null != cal) {
             if(null != obsViejo) {
@@ -202,5 +207,18 @@ public class Pantalla extends RelativoAImagen {
             Alert alert = new Alert(Alert.AlertType.WARNING, "Error al crear la radio, es posible que la escuche pero no pueda controlarla.", ButtonType.OK);
             alert.showAndWait();
         }
+    }
+
+    /**
+     * Obtiene el título de la pantalla.
+     * @return Un texto válido de la pantalla, o null si no fue definido.
+     */
+    public String getTitulo() {
+        return null;
+    }
+
+
+    public static void precargar() {
+        /** No necesita cuerpo. La sola invocación de este método precargará los static. **/
     }
 }

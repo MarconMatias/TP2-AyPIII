@@ -2,12 +2,86 @@
   "ciudades": [
     {
       "nombre": "Atenas",
-      "coordenadas": [0.535, 0.314],
+      "coordenadas": [
+        0.535,
+        0.314
+      ],
+      "descripcion": "La historia de Atenas se extiende más de tres mil años, lo que la convierte en una de las ciudades habitadas más antiguas. Durante la época clásica de Grecia, fue una poderosa ciudad-estado que nació junto con el desarrollo de la navegación marítima del puerto de El Pireo y que tuvo un papel fundamental en el desarrollo de la democracia. También fue un centro cultural donde vivieron muchos de los grandes artistas, escritores y filósofos de la Antigüedad. Estas contribuciones de Atenas al pensamiento de su época tuvieron una gran influencia en el desarrollo de Grecia, de Roma y de la cultura occidental.",
       "pistas": [
+        {
+          "tipo": "Animales",
+          "pista": "Dijo querer ver un búfalo de agua del Lago Kerkini",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Animales",
+          "pista": "Dijo querer ver un chacal dorado",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Animales",
+          "pista": "Dijo querer ver una foca monje sin orejas",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Animales",
+          "pista": "Dijo querer ver un lince euroasiático",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Dijo querer visitar el Partenón",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Dijo tener fascinación por el arte helenístico",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Dijo querer comprar una estatuilla del Discóbolo",
+          "dificultad": 2
+        },
         {
           "tipo": "Bandera",
           "pista": "Tenía una bandera azul y blanca",
           "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Es famoso el país por sus exportaciones de aceitunas para la elaboracion de pizzas griegas",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "El país exporta muchas aceitunas",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "El país exporta muchos higos",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "Dijo que le interesaba navegar el Mar de Creta",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "Dijo que no pensaba igual que el primer ministro del país",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Le interesaba hablar griego con alguien",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Dijo que quería sentirse como si estuviese debatiendo con Aristoteles",
+          "dificultad": 1
         },
         {
           "tipo": "Moneda",
@@ -16,18 +90,17 @@
         },
         {
           "tipo": "Moneda",
-          "pista": "Menciono que necesitaba la moneda Dracma para poder viajar",
+          "pista": "Mencionó que necesitaba la moneda Dracma para poder viajar",
           "dificultad": 1
         },
-
         {
           "tipo": "Moneda",
           "pista": "Dijo que quería comprar Dracmas",
           "dificultad": 2
         },
         {
-          "tipo": "Geografia",
-          "pista": "",
+          "tipo": "Personajes Historicos",
+          "pista": "Me contó que abundaban los Platonicos en la ciudad a la que iba y sus vecinos eran los Espartanos",
           "dificultad": 1
         },
         {
@@ -36,81 +109,39 @@
           "dificultad": 2
         },
         {
-          "tipo": "Exportaciones",
-          "pista": "Es famoso el pais por sus exportaciones de aceitunas para la elaboracion de pizzas griegas",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Exportaciones",
-          "pista": "El pais exporta muchas aceitunas",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Exportaciones",
-          "pista": "El pais exporta muchos figs",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Animales",
-          "pista": "",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Personajes Historicos",
-          "pista": "Me conto que abundaban los Platonicos en la ciudad a la que iba y sus vecinos eran los Espartanos",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Idioma",
-          "pista": "Le interesaba hablar griego con alguien",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Arte",
-          "pista": "",
-          "dificultad": 0
-        },
-        {
           "tipo": "Religion",
-          "pista": "",
+          "pista": "Dijo que estaba interesado en los dioses olímpicos",
           "dificultad": 0
-        },
-        {
-          "tipo": "Gobernante",
-          "pista": "Dijo que no pensaba igual que el primer ministro del pais",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Miscelaneos",
-          "pista": "Dijo que queria sentirse como si estuviese debatiendo con Aristoteles",
-          "dificultad": 1
         }
       ]
     },
     {
       "nombre": "Bagdad",
-      "coordenadas": [0.59, 0.339],
+      "coordenadas": [
+        0.59,
+        0.339
+      ],
+      "descripcion": "Ubicada a orillas del río Tigris, la ciudad fue fundada en el siglo VIII y se convirtió en capital del Califato abasí. En poco tiempo se convirtió en un centro cultural, comercial e intelectual de gran relevancia del mundo islámico. Esto, y el hecho de ser sede de varias instituciones académicas relevantes, como la Casa de la sabiduría, le sirvieron a la ciudad para ganarse una reputación mundial de «Centro de Enseñanza». Bagdad fue la ciudad más grande de la Edad Media durante gran parte del Califato abasí, cuando alcanzó un pico de un millón y medio de habitantes. Sin embargo, la urbe fue en gran parte destruida por las tropas del Imperio mongol en 1258, lo que resultó en un declive que se prolongaría por muchos siglos debido a frecuentes epidemias y la sucesión de varios imperios que dominaron la ciudad. Con el reconocimiento de Irak como estado independiente en 1938 tras la desaparición del Mandato Británico para Mesopotamia, Bagdad recuperó gradualmente parte de su pasada preeminencia como centro significante de la cultura musulmana.",
       "pistas": [
-
+        {
+          "tipo": "Animales",
+          "pista": "Dijo que quería traficar gacelas arábicas del desierto cuando dejen de perseguirlo",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Quería ver la Dama de Uruk, dijo que era la 'Monalisa sumeria'",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Bandera",
+          "pista": "Tenía una bandera roja, blanco y negra, y en el centro dice Allahu Akbar",
+          "dificultad": 0
+        },
         {
           "tipo": "Bandera",
           "pista": "Tenía una bandera roja, blanco y negra",
           "dificultad": 2
-        },
-        {
-          "tipo": "Moneda",
-          "pista": "Dijo que quería comprar Denarios",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Geografia",
-          "pista": "La ciudad a la que viaja dijo que se encuentra en el desierto",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Puntos de Interes",
-          "pista": "Menciono algo sobre los rios Tigris y Eufrates",
-          "dificultad": 1
         },
         {
           "tipo": "Exportaciones",
@@ -119,17 +150,52 @@
         },
         {
           "tipo": "Exportaciones",
-          "pista": "Dijo que el pais era rico en petroleo y que queria petroleo...",
+          "pista": "Dijo que el país era rico en petroleo y que quería petroleo...",
           "dificultad": 1
         },
         {
           "tipo": "Exportaciones",
-          "pista": "Dijo que el pais tiene mucho... ¿ Oro negro ?, Si, oro negro. Y que queria robarlo en algun momento",
+          "pista": "Dijo que el país tiene mucho... ¿ Oro negro ?, Si, oro negro. Y que quería robarlo en algun momento",
           "dificultad": 2
         },
         {
-          "tipo": "Animales",
-          "pista": "Dijo que queria traficar gacelas arabicas del desierto cuando dejen de perseguirlo",
+          "tipo": "Geografia",
+          "pista": "Quería ver 'la cuna de la civilización', entre el Tigris y Éufrates",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "La ciudad a la que viaja dijo que se encuentra en el desierto",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "Dijo que Saddam Hussein gobernó el país al que iba por 24 años",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "Habló sobre la OTAN había derrocando a un presidente que gobernó por 24 años",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "Dijo que iba a un país con presidente y primer ministro",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Dijo que iba a un país donde hablaban árabe y kurdos",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Dijo que quería ir a la mesopotamia",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Dijo que quería comprar Denarios",
           "dificultad": 2
         },
         {
@@ -138,56 +204,54 @@
           "dificultad": 1
         },
         {
-          "tipo": "Idioma",
-          "pista": "",
+          "tipo": "Personajes Historicos",
+          "pista": "Le interesaba la historia de Hammurabi y su código",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Mencionó algo sobre los rios Tigris y Eufrates",
           "dificultad": 1
         },
         {
-          "tipo": "Arte",
-          "pista": "",
-          "dificultad": 0
-        },
-        {
           "tipo": "Religion",
-          "pista": "",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Gobernante",
-          "pista": "",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Miscelaneos",
-          "pista": "Dijo que queria ir a la mesopotamia",
+          "pista": "Dijo que iba un país de mayoría musulmana, pero con conflictos entre sunníes y chiítas",
           "dificultad": 0
         }
-
       ]
     },
     {
       "nombre": "Bamako",
-      "coordenadas": [0.451, 0.454],
+      "coordenadas": [
+        0.451,
+        0.454
+      ],
+      "descripcion": "Capital de Malí, se encuentra a orillas del río Níger en el sudoeste del país. Principal centro administrativo, importante puerto fluvial y un centro comercial para toda la región circundante, tiene la categoría de distrito a nivel nacional. El nombre de la ciudad.proviene de la lengua bambara bàmakɔ̌, 'remanso del cocodrilo' ya que este animal era el fetiche local al cual, según relatos de principios del siglo XX, se le sacrificaba anualmente una virgen.",
       "pistas": [
         {
-          "tipo": "Bandera",
-          "pista": "Tenía una bandera roja, verde y amarilla el pais al que se dirigia",
+          "tipo": "Animales",
+          "pista": "Dijo que quería ver una rana chillona en vivo",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Animales",
+          "pista": "Me dijo que quería ver los antílopes oribí y duiker común",
           "dificultad": 2
         },
         {
-          "tipo": "Moneda",
-          "pista": "Lo vi comprando Francos para viajar a un lugar llamado... Baa...¿ koo ?",
+          "tipo": "Arte",
+          "pista": "Me dijo que le interesaba el arte Mali",
           "dificultad": 0
         },
         {
-          "tipo": "Geografia",
-          "pista": "Me dijo que se dirigia a la parte Oeste de Africa",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Puntos de Interes",
-          "pista": "Comentaba que le gustaria hacer canotaje en el Rio Niger y luego acampar en el Sahara",
+          "tipo": "Bandera",
+          "pista": "Iba a un país con franjas verticales verde, ocre y roja",
           "dificultad": 1
+        },
+        {
+          "tipo": "Bandera",
+          "pista": "Iba a un país con bandera roja, verde y amarilla",
+          "dificultad": 2
         },
         {
           "tipo": "Exportaciones",
@@ -201,58 +265,112 @@
         },
         {
           "tipo": "Exportaciones",
-          "pista": "Menciono que el pais al que se dirige exporta mucho arroz y mijos",
+          "pista": "Mencionó que el país al que se dirige exporta mucho arroz y mijos",
           "dificultad": 2
         },
         {
-          "tipo": "Animales",
-          "pista": "Me dijo que queria ver los antílopes oribí y duiker común",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Personajes Historicos",
-          "pista": "Dijo que queria encontrarse con unos Tuaregs para comerciar",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Idioma",
-          "pista": "Me dijo que la ciudad a la que se dirigia su gente hablaba frances",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Arte",
-          "pista": "Me dijo que le interesaba el arte Mali",
+          "tipo": "Geografia",
+          "pista": "Me dijo que se dirigía a la parte Oeste de Africa",
           "dificultad": 0
         },
         {
-          "tipo": "Religion",
-          "pista": "Me comento que se dirigia a un pais donde la mayoria profesa el Islam",
-          "dificultad": 2
+          "tipo": "Gobernante",
+          "pista": "Escuche que quería luego robarle al presidente",
+          "dificultad": 1
         },
         {
-          "tipo": "Gobernante",
-          "pista": "Escuche que queria luego robarle al presidente",
+          "tipo": "Idioma",
+          "pista": "Me dijo que la ciudad a la que se dirigía su gente hablaba frances",
           "dificultad": 1
         },
         {
           "tipo": "Miscelaneos",
           "pista": "Dijo algo de ir a ... ¿ Timbuktu ?",
           "dificultad": 0
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Lo vi comprando Francos para viajar a un lugar llamado... Baa...¿ koo ?",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "Dijo que quería encontrarse con unos Tuaregs para comerciar",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Quería visitar la Gran Mezquita de Djenné, el más antiguo edificio de barro de una pieza, dijo",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Comentaba que le gustaria hacer canotaje en el Rio Niger y luego acampar en el Sahara",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Me comento que se dirigía a un país donde la mayoria profesa el Islam",
+          "dificultad": 2
         }
       ]
     },
     {
       "nombre": "Bangkok",
-      "coordenadas": [0.75, 0.448],
+      "coordenadas": [
+        0.75,
+        0.448
+      ],
+      "descripcion": "Bangkok inicialmente fue un pequeño centro comercial y comunidad portuaria llamada Bang Makok (lugar de ciruelos oliváceos), sirviendo a la ciudad de Ayutthaya, que era la capital de Siam hasta que cayera en manos de Birmania en 1767. La capital fue establecida en Thon Buri (ahora parte de Bangkok) sobre el lado oeste del río.",
       "pistas": [
+        {
+          "tipo": "Animales",
+          "pista": "Dijo que quería identificar bien a las tarántula tailandesa por su peligrosidad",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Animales",
+          "pista": "Me dijo que existen animales peligrosos como la Cobra Real en el país al que se dirige",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Me comento que el arte tradicional tailandés está principalmente vinculado a la religión budista y a las escenas de las historias épicas hindús y que le interesaria saber mas de ello",
+          "dificultad": 0
+        },
         {
           "tipo": "Bandera",
           "pista": "Tenía una bandera roja, blanca y azul",
           "dificultad": 2
         },
         {
+          "tipo": "Exportaciones",
+          "pista": "Me dijo que el país al que se dirige tiene una economia basada en la exportaciones de accesorios de maquinas y automoviles",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "Me dijo que se dirigía a una ciudad que esta situada en la desembocadura del río Chao Phraya",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "Me dijo que hay una monarquia constitucional democratica en el país al que se dirigia",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Me dijo que necesitaba aprender Tailandes para poder viajar",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Dijo que le gustaria conocer la Ciudad Vieja de Thailandia",
+          "dificultad": 2
+        },
+        {
           "tipo": "Moneda",
-          "pista": "Lo vi comprando bahts en una casa de cambio porque queria comer comida Tailandesa",
+          "pista": "Lo vi comprando bahts en una casa de cambio porque quería comer comida Tailandesa",
           "dificultad": 0
         },
         {
@@ -262,13 +380,13 @@
         },
         {
           "tipo": "Moneda",
-          "pista": "Lo vi comprando bahts en una casa de cambio porque queria comer comida tipica de la ciudad a la que se dirigia",
+          "pista": "Lo vi comprando bahts en una casa de cambio porque quería comer comida tipica de la ciudad a la que se dirigia",
           "dificultad": 2
         },
         {
-          "tipo": "Geografia",
-          "pista": "Me dijo que se dirigia a una ciudad que esta situada en la desembocadura del río Chao Phraya",
-          "dificultad": 0
+          "tipo": "Personajes Historicos",
+          "pista": "Me dijo que quería conocer a Maha Vajiralongkorn, actual rey de Tailandia",
+          "dificultad": 2
         },
         {
           "tipo": "Puntos de Interes",
@@ -276,86 +394,68 @@
           "dificultad": 1
         },
         {
-          "tipo": "Exportaciones",
-          "pista": "Me dijo que el pais al que se dirige tiene una economia basada en la exportaciones de accesorios de maquinas y automoviles",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Animales",
-          "pista": "Me dijo que existen animales peligrosos como la Cobra Real o la Tarantula Tailandesa en el pais al que se dirige",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Personajes Historicos",
-          "pista": "Me dijo que queria conocer a Maha Vajiralongkorn, actual rey de Tailandia",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Idioma",
-          "pista": "Me dijo que necesitaba aprender Tailandes para poder viajar",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Arte",
-          "pista": "Me comento que el arte tradicional tailandés está principalmente vinculado a la religión budista y a las escenas de las historias épicas hindús y que le interesaria saber mas de ello",
-          "dificultad": 0
-        },
-        {
           "tipo": "Religion",
-          "pista": "Dijo que le interesaba mucho la religion Budista del pais",
+          "pista": "Dijo que le interesaba mucho la religion Budista del país",
           "dificultad": 1
-        },
-        {
-          "tipo": "Gobernante",
-          "pista": "Me dijo que hay una monarquia constitucional democratica en el pais al que se dirigia",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Miscelaneos",
-          "pista": "Dijo que le gustaria conocer la Ciudad Vieja de Thailandia",
-          "dificultad": 2
         }
       ]
     },
     {
       "nombre": "Budapest",
-      "coordenadas": [0.525, 0.26],
+      "coordenadas": [
+        0.525,
+        0.26
+      ],
+      "descripcion": "Budapest cuenta con varios sitios que son Patrimonio de la Humanidad, entre los que se incluyen, a orillas del Danubio, el barrio del Castillo de Buda, la avenida Andrássy, la Plaza de los Héroes y el Metropolitano del Milenio, el segundo más antiguo del mundo. Otros puntos destacados incluyen un total de 80 manantiales geotérmicos, el mayor sistema de cuevas de aguas termales del mundo, la segunda sinagoga más grande y el tercer edificio del Parlamento más grande del mundo. La ciudad atrae a alrededor de 4,3 millones de turistas al año, convirtiéndola en la 25. ciudad más popular del mundo",
       "pistas": [
-
+        {
+          "tipo": "Animales",
+          "pista": "Me comentó lo siguiente: En las zonas rurales de Hungría es común que después de la lluvia búhos ululan en el nogal y a veces una manada de ciervos descansa en el frescor de un árbol solitario; muy extraño…",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Dijo que la cultura de la ciudad a la que se dirigía era rica en arte Magyar",
+          "dificultad": 0
+        },
         {
           "tipo": "Bandera",
-          "pista": "Me comento que le gustan los colores de la bandera del pais al que se dirige: roja, blanca y verde",
+          "pista": "Me comento que le gustan los colores de la bandera del país al que se dirige: roja, blanca y verde",
           "dificultad": 1
-        },
-
-        {
-          "tipo": "Moneda",
-          "pista": "Dijo que necesitaba comprar Fiorines para viajar",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Geografia",
-          "pista": "Me dijo que se dirigia a la capital y ciudad más poblada de Hungría",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Puntos de Interes",
-          "pista": "Me dijo que un Rio enorme atravesaba su pais y gran parte de Europa. Creo que era el Rio Danubio",
-          "dificultad": 2
         },
         {
           "tipo": "Exportaciones",
-          "pista": "Dijo que el pais al que se dirigia era un gran productor de uvas",
+          "pista": "Dijo que el país al que se dirigía era un gran productor de uvas",
           "dificultad": 0
         },
         {
           "tipo": "Exportaciones",
-          "pista": "Dijo que el pais al que se dirije podria comprarle materia prima para hacer vinos",
+          "pista": "Dijo que el país al que se dirige podría comprarle materia prima para hacer vinos",
           "dificultad": 2
         },
         {
-          "tipo": "Animales",
-          "pista": "Me comento lo siguiente: En las zonas rurales de Hungría es algo normal y corriente que después de la lluvia cigüeñas caminan por el jardín, búhos ululan en el nogal, pájaros protegidos anidan en el granero y a veces una familia de erizos o ciervos pasa por delante de los visitantes, o una manada descansa en el frescor del árbol solitario del pasto. Muy extraño...",
+          "tipo": "Geografia",
+          "pista": "Me dijo que se dirigía a la capital y ciudad más poblada de Hungría",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "Me dijo que quería conocer al presidente de Hungría",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Me dijo que hablaban Húngaro en la ciudad a la que se dirigía",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "La ciudad a la que se dirige esta cerca de Austria",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Dijo que necesitaba comprar Fiorines para viajar",
           "dificultad": 1
         },
         {
@@ -364,131 +464,423 @@
           "dificultad": 0
         },
         {
-          "tipo": "Idioma",
-          "pista": "Me dijo que hablaban Hungaro en la ciudad a la que se dirigia",
+          "tipo": "Puntos de Interes",
+          "pista": "Me dijo que un Rio enorme atravesaba su país y gran parte de Europa. Creo que era el Rio Danubio",
           "dificultad": 2
-        },
-        {
-          "tipo": "Arte",
-          "pista": "Dijo que la cultura de la ciudad a la que se dirijia era rica en arte Magyar",
-          "dificultad": 0
         },
         {
           "tipo": "Religion",
-          "pista": "Me dijo que la poblacion del pais al que se dirige profesa el Cristianismo",
+          "pista": "Me dijo que la poblacion del país al que se dirige profesa el Cristianismo",
           "dificultad": 1
-        },
-        {
-          "tipo": "Gobernante",
-          "pista": "Me dijo que queria conocer al presidente de Hungria",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Miscelaneos",
-          "pista": "La ciudad a la que se dirige esta cerca de Austria",
-          "dificultad": 0
         }
       ]
     },
     {
       "nombre": "Buenos Aires",
-      "coordenadas": [0.3243, 0.7228],
+      "coordenadas": [
+        0.3243,
+        0.7228
+      ],
+      "descripcion": "Buenos Aires es una de las principales metrópolis culturales de Occidente. El desarrollo cultural se aprecia en la gran cantidad de museos, teatros y bibliotecas que pueden encontrarse en la ciudad. También se destaca por su industria editorial y por tener una identidad cultural propia, reflejada en manifestaciones como el fileteado, el lunfardo, el tango, el mate y los carnavales porteños.",
       "pistas": [
         {
-          "tipo": "Bandera",
-          "pista": "Tenía una bandera celeste y blanca la ciudad a la que se dirigia",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Moneda",
-          "pista": "Dijo que la moneda se devaluaba seguido y no podía comprar más de 200 dólares por mes",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Geografia",
-          "pista": "Es un pais sudamericano con todos los tipos de climas",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Puntos de Interes",
-          "pista": "Dijo que le gustaria navegar por el Rio Parana en su proximo destino",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Puntos de Interes",
-          "pista": "Dijo que le gustaria conocer Tierra del Fuego",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Industria",
-          "pista": "Dijo que el pais al que se dirigia era un pais con cortes buenos debido a su economia agraria",
+          "tipo": "Animales",
+          "pista": "Dijo que quería ver los carpinchos del nordelta",
           "dificultad": 0
         },
         {
           "tipo": "Animales",
-          "pista": "???",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Personajes Historicos",
-          "pista": "Dijo que de chico imitaba a los gauchos y que querria conocer a uno",
+          "pista": "Dijo que quería escuchar unos chajás",
           "dificultad": 1
         },
         {
-          "tipo": "Idioma",
-          "pista": "Dijo que sabia español porque vivio un tiempo en la capital del pais al que se dirige",
+          "tipo": "Arte",
+          "pista": "Dijo que le fascinaban los escritos de Borges y Cortázar",
           "dificultad": 0
         },
         {
           "tipo": "Arte",
-          "pista": "Comento que le gustaban dibujantes como Fontana Rosa, Liniers y Nick del pais al que se dirige",
+          "pista": "Expresó encanto por la voz de Gardel y del Polaco Goyeneche",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Comento que le gustaban dibujantes como Fontana Rosa y Quino",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Dijo que hace años que oía a Mercedes Sosa",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Quería ver unas obras de Marta Minujín",
           "dificultad": 2
         },
         {
-          "tipo": "Religion",
-          "pista": "Al viajar comento que a donde se dirigia la mayoria de sus habitantes eran catolicos",
+          "tipo": "Arte",
+          "pista": "Quería ver ballet y lamentaba el retiro de Julio Boca",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Bandera",
+          "pista": "Tenía una bandera celeste y blanca la ciudad a la que se dirigía",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Bandera",
+          "pista": "Dijo que iba a un país que la bandera de guerra se distinguía por tener un Sol",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Bandera",
+          "pista": "Dijo ir a un país cuyo escudo es celeste y blanco con un gorro frigio rojo",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Dijo que iba a un país que exportaba cortes de carne y vinos de calidad",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Dijo que iba a un gran exportador de soja, sobre todo a China",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Dijo que iba a un exportador de uranio, oro y litio",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "Dijo ir a un país sudamericano con todos los tipos de climas",
           "dificultad": 1
         },
         {
           "tipo": "Gobernante",
-          "pista": "Dijo que el pais al que se dirigia lo gobernaba un presidente elegido democraticamente",
+          "pista": "Dijo que iba a un país con presidente democrático desde 1983",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Dijo que a donde iban hablaban español con voseo y lunfardo",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Dijo que sabía español porque vivió un tiempo en la capital del país al que se dirige",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Industria",
+          "pista": "Dijo que iba a un país con varios unicornios en la industria del software",
           "dificultad": 0
         },
         {
           "tipo": "Miscelaneos",
-          "pista": "Dijo que una vez hablo con un supervisor de colectivos y le dijo que era boludo y no tenia huevos",
+          "pista": "Me contó que quería volver a probar empanadas de tofu en un frasco en Palermo",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Dijo amar El señor de los anillos, y quería conocer la tierra de Viggo Mortensen",
           "dificultad": 1
         },
         {
           "tipo": "Miscelaneos",
-          "pista": "Dijo que queria conocer al comandante... RICARDO FORT",
+          "pista": "Dijo que quería vengarse de un supervisor de colectivos al que le hizo una pregunta y sólo recibió insultos",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Quería probar el helado de dulce de leche que mencionó la actriz Anya Taylor-Joy",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Dijo que quería conocer la tumba del comandante… Ricardo Fort",
           "dificultad": 2
         },
         {
           "tipo": "Miscelaneos",
-          "pista": "Me conto que una vez probo empanadas de tofu en un frasco en Palermo",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Miscelaneos",
-          "pista": "Me dijo que en su pais el estilo mariposa refiere a dos cosas: 1. El tipo de nado y 2. El chorizo... del choripan",
+          "pista": "Iba a un país donde 'estilo mariposa' refiere tanto a un tipo de nado como a una forma de cortar chorizo",
           "dificultad": 2
         },
         {
-          "tipo": "Miscelaneos",
-          "pista": "Me conto que un amigo de el lo bloquearon por boby",
+          "tipo": "Moneda",
+          "pista": "Dijo que no iba a cambiar los dólares porque a donde iba la moneda se devaluaba seguido y los ciudadanos no pueden comprar más de 200 dólares por mes",
           "dificultad": 0
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "Dijo que de chico  imitaba a los gauchos, y que querría conocer a uno",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Dijo que le gustaría conocer Tierra del Fuego",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Dijo que le gustaría navegar por el Río Paraná en su próximo destino",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Dijo querer visitar el antiguo Convento de Santo Domingo en La Rioja",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Dijo querer visitar la mezquita 'Rey Fahd', de Palermo",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Dijo ir a un país que su constitución, aunque no tiene religión oficial, curiosamente también manda a sostener económicamente a la Iglesia Católica",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Dijo ir a un país con más de la mitad de católicos, pero muy diverso religiosamente",
+          "dificultad": 2
+        }
+      ]
+    },
+    {
+      "nombre": "Ciudad de México",
+      "coordenadas": [
+        0.202,
+        0.417
+      ],
+      "descripcion": "La Ciudad de México, capital del país homónimo, localiza en el Valle de México en el centro-sur del país; colinda con Estado de México y al sur con Morelos. Es 99 % urbana y en 2020 se población se censó en 9 209 944 habitantes. No hay consenso sobre la fecha de la fundación, pero pudo ocurrir a inicios del siglo XIV.",
+      "pistas": [
+        {
+          "tipo": "Animales",
+          "pista": "Me dijo que se dirigía a un país donde hay una gran diversidad de especies",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Me dijo que quería comprar arte de Frida Khalo",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Bandera",
+          "pista": "La bandera del país al que viaja es de color verde, blanca y roja",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Me dijo que quería probar la comida picante",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Me dijo que tienen una industria manufacturera la ciudad a la que se dirige",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "Me dijo que quería conocer Cancun",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "Me comento que el pueblo eligio un presidente democraticamente",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Me dijo que hablaban español la gente de la ciudad a la que se dirige",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Me dijo que quería conocer la historia de la antigua Tenocthtitlan",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Me dijo que necesitaba comprar Pesos para viajar",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "Me dijo que habitaban los Aztecas antiguamente en la ciudad a la que se dirigía",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Dijo que quería visitar las piramides Aztecas",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Me comento que la gente de la zona es catolica",
+          "dificultad": 1
+        }
+      ]
+    },
+    {
+      "nombre": "Colombo",
+      "coordenadas": [
+        0.695,
+        0.486
+      ],
+      "descripcion": "Es la ciudad más poblada de Sri Lanka y su capital comercial. Está situada en la costa occidental de la isla en proximidades de Sri Jayawardenepura Kotte, la capital administrativa de Sri Lanka. Colombo es una ciudad vibrante plena de vida con una mezcla de arquitectura moderna, edificios coloniales y ruinas",
+      "pistas": [
+        {
+          "tipo": "Animales",
+          "pista": "Me dijo que se dirigía a una ciudad donde abundan los leopardos",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Me dijo que quería comprar arte Veddah",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Bandera",
+          "pista": "La bandera del país al que viaja tiene un leon dorado como simbolo",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Me dijo que quería comprar una citronella en la ciudad a la que se dirigía",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Me dijo que tienen una industria manufacturera la ciudad a la que se dirige",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "Me dijo que quería acampar en los bosques de la India",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "Me comento que el pueblo eligio un presidente democraticamente",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Me dijo que hablaban hindu la gente de la ciudad a la que se dirige",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Me dijo que quería conocer la historia de la antigua Taprobane",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Me dijo que necesitaba comprar Rupias para viajar",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "Me dijo que habitaban los Veddahs en la ciudad a la que se dirigía",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Dijo que quería visitar el golfo de Mannar",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Me comento que la gente de la zona es budista",
+          "dificultad": 1
         }
       ]
     },
     {
       "nombre": "El Cairo",
-      "coordenadas": [0.556, 0.356],
+      "coordenadas": [
+        0.556,
+        0.356
+      ],
+      "descripcion": "Fue fundada en el año 116 d. C., en lo que hoy en día se conoce como Viejo Cairo, cuando los romanos reconstruyeron una antigua fortaleza persa junto al río Nilo. Antes de su fundación, Menfis u otras ciudades eran la capital del imperio faraónico",
       "pistas": [
-
+        {
+          "tipo": "Animales",
+          "pista": "Me dijo que en el país abundan los dromedarios y adoran a los gatos",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Me dijo que quería ver unos jeroglíficos tallados en piedra",
+          "dificultad": 0
+        },
         {
           "tipo": "Bandera",
-          "pista": "Me dijo que la bandera del pais al que se dirigia era roja, blanca y negra",
+          "pista": "Me dijo que la bandera del país al que se dirigía es roja, blanca y negra",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Dijo que iba a un país exportador de derivados de petróleo, pero no forma parte de la OPEP",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Me dijo que el país al que se dirige es productor de piedra caliza",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "Dijo que quería visitar el delta del Río Nilo",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "Dijo que quería visitar el desierto",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "Dijo que quería estudiar cómo la hidrografía impactó en las civilizaciones antiguas más grandes",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "Dijo que iba a un país con el parlamento más longevo del mundo árabe, pero de poder limitado en comparación al presidente",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "Me dijo que un presidente gobernaba el país",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "Dijo que los partidos políticos religiosos estaban prohibidos en el país al que iba porque dividían al país",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Me dijo que muchos hablaban árabe en la ciudad a la que se dirigía",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Me habló de la importancia de la piedra Rosetta para descifrar un antiguo idioma",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Habló de buscar los restos del incendio de la antigua biblioteca más grande del mundo",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Me mostró unos billetes con dibujos de esfinges",
           "dificultad": 0
         },
         {
@@ -497,172 +889,84 @@
           "dificultad": 1
         },
         {
-          "tipo": "Geografia",
-          "pista": "Dijo que queria visitar el desierto",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Puntos de Interes",
-          "pista": "Me dijo que queria visitar las piramides",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Exportaciones",
-          "pista": "Me dijo que el pais al que se dirige es productor de piedra caliza",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Animales",
-          "pista": "Me dijo que en el pais abundan los dromedarios y adoran a los gatos",
-          "dificultad": 1
-        },
-
-        {
-          "tipo": "Personajes Historicos",
-          "pista": "Me dijo que una vez goberno un faraon en las tierras a las que viaja",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Idioma",
-          "pista": "Me dijo que muchos hablaban arabe en la ciudad a la que se dirigia",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Arte",
-          "pista": "Me dijo que le gustaban los jeroglificos tallados en piedra que tenian algunas estructuras del pais al que se dirige",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Religion",
-          "pista": "Me dijo que los habitantes de la region en gran parte eran musulmanes o catolicos",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Gobernante",
-          "pista": "Me dijo que un presidente gobernaba el pais",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Miscelaneos",
-          "pista": "Antiguamente existio una biblioteca considerada la mas grande del mundo pero fue incendiada",
-          "dificultad": 1
-        }
-      ]
-    },
-    {
-      "nombre": "Colombo",
-      "coordenadas": [0.695, 0.486],
-      "pistas": [
-        {
-          "tipo": "Bandera",
-          "pista": "La bandera del pais al que viaja tiene un leon dorado como simbolo",
-          "dificultad": 0
-        },
-        {
           "tipo": "Moneda",
-          "pista": "Me dijo que necesitaba comprar Rupias para viajar",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Geografia",
-          "pista": "Me dijo que queria acampar en los bosques de la India",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Puntos de Interes",
-          "pista": "Dijo que queria visitar el golfo de Mannar",
+          "pista": "Me dijo que quería cambio en piastrás para dar propinas",
           "dificultad": 2
-        },
-        {
-          "tipo": "Exportaciones",
-          "pista": "Me dijo que queria comprar una citronella en la ciudad a la que se dirigia",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Animales",
-          "pista": "Me dijo que se dirigia a una ciudad donde abundan los leopardos",
-          "dificultad": 1
         },
         {
           "tipo": "Personajes Historicos",
-          "pista": "Me dijo que habitaban los Veddahs en la ciudad a la que se dirigia",
+          "pista": "Me dijo antes gobernaban faraones en las tierras a las que viaja",
           "dificultad": 0
         },
         {
-          "tipo": "Exportaciones",
-          "pista": "Me dijo que tienen una industria manufacturera la ciudad a la que se dirige",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Idioma",
-          "pista": "Me dijo que hablaban hindu la gente de la ciudad a la que se dirige",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Arte",
-          "pista": "Me dijo que queria comprar arte Veddah",
+          "tipo": "Puntos de Interes",
+          "pista": "Me dijo que quería visitar las pirámides",
           "dificultad": 0
         },
         {
           "tipo": "Religion",
-          "pista": "Me comento que la gente de la zona es budista",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Gobernante",
-          "pista": "Me comento que el pueblo eligio un presidente democraticamente",
+          "pista": "Dijo que iba a un país donde antes se adoraba a Amon-Ra, Isis, Osiris y otros más",
           "dificultad": 0
         },
         {
-          "tipo": "Miscelaneos",
-          "pista": "Me dijo que queria conocer la historia de la antigua Taprobane",
+          "tipo": "Religion",
+          "pista": "Dijo que iba a ver figuras de antiguos dioses con cuerpo humano y cabeza de animal",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Habló de una antigua religión donde veneraban gatos",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Me dijo que los habitantes de la region en gran parte eran musulmanes o católicos",
           "dificultad": 2
         }
       ]
     },
     {
       "nombre": "Estambul",
-      "coordenadas": [0.547, 0.291],
+      "coordenadas": [
+        0.547,
+        0.291
+      ],
+      "descripcion": "Antiguamente conocida como Bizancio y Constantinopla, es la ciudad más poblada de Turquía y el centro histórico, cultural y económico del país. Es una ciudad transcontinental, ubicada en el estrecho del Bósforo, que separa Europa y Asia, entre el mar de Mármara y el mar Negro.",
       "pistas": [
         {
-          "tipo": "Bandera",
-          "pista": "La bandera del pais al que viaja tiene una luna y una estrella",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Moneda",
-          "pista": "Me dijo que necesitaba comprar Liras para viajar",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Geografia",
-          "pista": "Me dijo que queria conocer el mar negro",
+          "tipo": "Animales",
+          "pista": "Me dijo que se dirigía a una ciudad cuyo animal sagrado es el ganso",
           "dificultad": 1
         },
         {
-          "tipo": "Puntos de Interes",
-          "pista": "Dijo de manera ironica que queria visitar Constantinopla",
-          "dificultad": 2
+          "tipo": "Arte",
+          "pista": "Me dijo que quería contemplar el arte turco",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Bandera",
+          "pista": "La bandera del país al que viaja tiene una luna y una estrella",
+          "dificultad": 0
         },
         {
           "tipo": "Exportaciones",
-          "pista": "Me comento que el pais al que se dirige ultimamente produce muchas novelas y contenidos audiovisuales en general",
+          "pista": "Me comento que el país al que se dirige ultimamente produce muchas novelas y contenidos audiovisuales en general",
           "dificultad": 1
-        },
-        {
-          "tipo": "Animales",
-          "pista": "Me dijo que se dirigia a una ciudad cuyo animal sagrado es el ganso",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Personajes Historicos",
-          "pista": "Me comento que la ciudad que iba a visitar antiguamente recibia el nombre del emperador Constantino",
-          "dificultad": 0
         },
         {
           "tipo": "Exportaciones",
           "pista": "Me dijo que tienen una industria manufacturera la ciudad a la que se dirige",
           "dificultad": 2
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "Me dijo que quería conocer el mar negro",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "Me comento que el pueblo eligio un presidente democraticamente",
+          "dificultad": 0
         },
         {
           "tipo": "Idioma",
@@ -670,65 +974,59 @@
           "dificultad": 1
         },
         {
-          "tipo": "Arte",
-          "pista": "Me dijo que queria contemplar el arte turco",
+          "tipo": "Miscelaneos",
+          "pista": "Me dijo que quería conocer la historia de la antigua Constantinopla",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Me dijo que necesitaba comprar Liras para viajar",
           "dificultad": 0
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "Me comento que la ciudad que iba a visitar antiguamente recibia el nombre del emperador Constantino",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Dijo de manera ironica que quería visitar Constantinopla",
+          "dificultad": 2
         },
         {
           "tipo": "Religion",
           "pista": "Me comento que la gente de la zona es musulmana y catolica",
           "dificultad": 1
-        },
-        {
-          "tipo": "Gobernante",
-          "pista": "Me comento que el pueblo eligio un presidente democraticamente",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Miscelaneos",
-          "pista": "Me dijo que queria conocer la historia de la antigua Constantinopla",
-          "dificultad": 2
         }
       ]
     },
     {
       "nombre": "Katmandú",
-      "coordenadas": [0.703, 0.369],
+      "coordenadas": [
+        0.703,
+        0.369
+      ],
+      "descripcion": "Katmandú es la capital y mayor ciudad de Nepal, situada en el valle del mismo nombre en Nepal central, en las cercanías del río Vishnumati, a una altura de 1317 m s. n. m. Se caracteriza por la gran cantidad de templos y palacios budistas e hinduistas, la mayoría de ellos del siglo XVII. Muchos de ellos dañados por terremotos y contaminación. En el valle de Katmandú se encuentran siete sitios clasificados por la Unesco como Patrimonio de la Humanidad.",
       "pistas": [
         {
-          "tipo": "Bandera",
-          "pista": "La bandera del pais al que viaja tiene un doble triangulo",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Moneda",
-          "pista": "Me dijo que necesitaba comprar Rupias para viajar",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Geografia",
-          "pista": "Me dijo que queria acampar en las montañas de Nepal",
+          "tipo": "Animales",
+          "pista": "Me dijo que se dirigía a una ciudad donde abundan los zorros de bengala",
           "dificultad": 1
         },
         {
-          "tipo": "Puntos de Interes",
-          "pista": "Dijo que queria visitar el Himalaya",
-          "dificultad": 2
+          "tipo": "Arte",
+          "pista": "Me dijo que quería comprar arte nepales",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Bandera",
+          "pista": "La bandera del país al que viaja tiene un doble triangulo",
+          "dificultad": 0
         },
         {
           "tipo": "Exportaciones",
-          "pista": "Me dijo que queria comprar un abrigo de la ciudad a la que se dirigia",
+          "pista": "Me dijo que quería comprar un abrigo de la ciudad a la que se dirigía",
           "dificultad": 1
-        },
-        {
-          "tipo": "Animales",
-          "pista": "Me dijo que se dirigia a una ciudad donde abundan los zorros de bengala",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Personajes Historicos",
-          "pista": "Me dijo que habitaban los Gurkas",
-          "dificultad": 0
         },
         {
           "tipo": "Exportaciones",
@@ -736,18 +1034,8 @@
           "dificultad": 2
         },
         {
-          "tipo": "Idioma",
-          "pista": "Me dijo que hablaban nepali la gente de la ciudad a la que se dirige",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Arte",
-          "pista": "Me dijo que queria comprar arte nepales",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Religion",
-          "pista": "Me comento que la gente de la zona es hindu",
+          "tipo": "Geografia",
+          "pista": "Me dijo que quería acampar en las montañas de Nepal",
           "dificultad": 1
         },
         {
@@ -756,49 +1044,69 @@
           "dificultad": 0
         },
         {
+          "tipo": "Idioma",
+          "pista": "Me dijo que hablaban nepali la gente de la ciudad a la que se dirige",
+          "dificultad": 1
+        },
+        {
           "tipo": "Miscelaneos",
-          "pista": "Me dijo que queria escalar el Himalaya",
+          "pista": "Me dijo que quería escalar el Himalaya",
           "dificultad": 2
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Me dijo que necesitaba comprar Rupias para viajar",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "Me dijo que habitaban los Gurkas",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Dijo que quería visitar el Himalaya",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Dijo que quería conocer la cuna del budismo",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Me comento que la gente de la zona practica el hinduismo",
+          "dificultad": 1
         }
       ]
     },
     {
       "nombre": "Kigali",
-      "coordenadas": [0.556, 0.534],
-      "pistas": [{
-        "tipo": "Bandera",
-        "pista": "La bandera del pais al que viaja es roja, amarilla y verde",
-        "dificultad": 0
-      },
+      "coordenadas": [
+        0.556,
+        0.534
+      ],
+      "descripcion": "Kigali fue fundada en 1907 durante el dominio alemán en Ruanda, situada en el centro geográfico. Tras la independencia en 1962 fue declarada capital. Fue escenario de asesinato de miles hutsus y tusis en 1994. Está edificada en una zona de colinas, de altitud entre 1433 y 1645 metros, lo que le otorga un relieve bastante accidentado. Entre los edificios importantes están el edificio del aeropuerto y la embajada china. En el Mercado de Artesanos se puede admirar como elaboran los distintos utensilios típicos. Otro lugar de importancia es la Iglesia Episcopal.",
+      "pistas": [
         {
-          "tipo": "Moneda",
-          "pista": "Me dijo que necesitaba comprar Francos para viajar",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Geografia",
-          "pista": "Me dijo que queria conocer los terrenos volcanicos de la zona",
+          "tipo": "Animales",
+          "pista": "Me dijo que se dirigía a una ciudad donde abundan las mambas negras y los gorilas",
           "dificultad": 1
         },
         {
-          "tipo": "Puntos de Interes",
-          "pista": "Dijo que queria conocer las edificaciones construidas en las montañas de su siguiente destino",
-          "dificultad": 2
+          "tipo": "Arte",
+          "pista": "Me dijo que quería comprar arte africano",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Bandera",
+          "pista": "La bandera del país al que viaja es roja, amarilla y verde",
+          "dificultad": 0
         },
         {
           "tipo": "Exportaciones",
-          "pista": "Me dijo que el pais es productor de estaño",
+          "pista": "Me dijo que el país es productor de estaño",
           "dificultad": 1
-        },
-        {
-          "tipo": "Animales",
-          "pista": "Me dijo que se dirigia a una ciudad donde abundan las mambas negras y los gorilas",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Personajes Historicos",
-          "pista": "Me dijo que habitaban los Pigmeos y los Tutsis en la ciudad a la que se dirigia",
-          "dificultad": 0
         },
         {
           "tipo": "Exportaciones",
@@ -806,18 +1114,8 @@
           "dificultad": 2
         },
         {
-          "tipo": "Idioma",
-          "pista": "Me dijo que hablaban frances, ingles y kinyarwandes la gente de la ciudad a la que se dirige",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Arte",
-          "pista": "Me dijo que queria comprar arte africano",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Religion",
-          "pista": "Me comento que la gente de la zona es catolica",
+          "tipo": "Geografia",
+          "pista": "Me dijo que quería conocer los terrenos volcanicos de la zona",
           "dificultad": 1
         },
         {
@@ -826,49 +1124,64 @@
           "dificultad": 0
         },
         {
+          "tipo": "Idioma",
+          "pista": "Me dijo que hablaban frances, ingles y kinyarwandes la gente de la ciudad a la que se dirige",
+          "dificultad": 1
+        },
+        {
           "tipo": "Miscelaneos",
-          "pista": "Me dijo que queria conocer las montañas de Ruanda",
+          "pista": "Me dijo que quería conocer las montañas de Ruanda",
           "dificultad": 2
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Me dijo que necesitaba comprar Francos para viajar",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "Me dijo que habitaban los Pigmeos y los Tutsis en la ciudad a la que se dirigía",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Dijo que quería conocer las edificaciones construidas en las montañas de su siguiente destino",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Me comento que la gente de la zona es catolica",
+          "dificultad": 1
         }
       ]
     },
     {
       "nombre": "Lima",
-      "coordenadas": [0.262, 0.594],
-      "pistas": [{
-        "tipo": "Bandera",
-        "pista": "La bandera del pais al que viaja es de color roja y blanca",
-        "dificultad": 0
-      },
+      "coordenadas": [
+        0.262,
+        0.594
+      ],
+      "descripcion": "Lima se encuentra situada en la costa central del Perú, del cual es capital, a orillas del océano Pacífico. El 18 de enero de 1535, fue fundada con el nombre de Ciudad de los Reyes por el conquistador español Francisco Pizarro dentro de la región agrícola conocida por los indígenas como Lima, nombre que adquirió con el tiempo. Fue la capital del Virreinato del Perú por sus valles y su baja altitud sobre el nivel del mar en reemplazo de Jauja que se encontraba en las alturas de los Andes. El virreinato, en su momento, fungió como la entidad administrativa más relevante de la Monarquía Hispánica dentro de América del Sur, mientras que Lima a su vez fue la ciudad más grande e importante en toda América Austral durante el periodo colonial. Después el proceso de Independencia pasó a ser la capital del los Departamentos Libres y posteriormente de la República Peruana.\u200B También fue capital del Estado Nor-Peruano además de que fue inicialmente la capital de la Confederación Perú-Boliviana.",
+      "pistas": [
         {
-          "tipo": "Moneda",
-          "pista": "Me dijo que necesitaba comprar Soles para viajar",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Geografia",
-          "pista": "Me dijo que queria conocer las montañas",
+          "tipo": "Animales",
+          "pista": "Me dijo que se dirigía a una ciudad donde abundan las ardillas de nuca blanca y alpacas",
           "dificultad": 1
         },
         {
-          "tipo": "Puntos de Interes",
-          "pista": "Dijo que queria visitar las ruinas de Machupichu",
-          "dificultad": 2
+          "tipo": "Arte",
+          "pista": "Me dijo que quería comprar arte Inca",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Bandera",
+          "pista": "La bandera del país al que viaja es de color roja y blanca",
+          "dificultad": 0
         },
         {
           "tipo": "Exportaciones",
-          "pista": "Me dijo que el pais al que se dirige es muy turistico",
+          "pista": "Me dijo que el país al que se dirige es muy turistico",
           "dificultad": 1
-        },
-        {
-          "tipo": "Animales",
-          "pista": "Me dijo que se dirigia a una ciudad donde abundan las ardillas de nuca blanca y alpacas",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Personajes Historicos",
-          "pista": "Me dijo que habitaban los Incas en la ciudad a la que se dirigia",
-          "dificultad": 0
         },
         {
           "tipo": "Exportaciones",
@@ -876,18 +1189,8 @@
           "dificultad": 2
         },
         {
-          "tipo": "Idioma",
-          "pista": "Me dijo que hablaban Español la gente de la ciudad a la que se dirige",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Arte",
-          "pista": "Me dijo que queria comprar arte Inca",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Religion",
-          "pista": "Me comento que la gente de la zona es catolica",
+          "tipo": "Geografia",
+          "pista": "Me dijo que quería conocer las montañas",
           "dificultad": 1
         },
         {
@@ -896,49 +1199,64 @@
           "dificultad": 0
         },
         {
+          "tipo": "Idioma",
+          "pista": "Me dijo que hablaban Español la gente de la ciudad a la que se dirige",
+          "dificultad": 1
+        },
+        {
           "tipo": "Miscelaneos",
-          "pista": "Me dijo que queria conocer la comida Peruana",
+          "pista": "Me dijo que quería conocer la comida Peruana",
           "dificultad": 2
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Me dijo que necesitaba comprar Soles para viajar",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "Me dijo que habitaban los Incas en la ciudad a la que se dirigía",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Dijo que quería visitar las ruinas de Machupichu",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Me comento que la gente de la zona es catolica",
+          "dificultad": 1
         }
       ]
     },
     {
       "nombre": "Londres",
-      "coordenadas": [0.475, 0.234],
-      "pistas": [{
-        "tipo": "Bandera",
-        "pista": "La bandera del pais al que viaja es de color roja, blanca y azul",
-        "dificultad": 0
-      },
+      "coordenadas": [
+        0.475,
+        0.234
+      ],
+      "descripcion": "Londres es la capital y mayor ciudad de Inglaterra y del Reino Unido.4\u200B5\u200B Situada a orillas del río Támesis; es un importante asentamiento humano desde que fue fundada por los romanos con el nombre de Londinium hace casi dos milenios.\u200B El núcleo antiguo de la urbe, la City de Londres, conserva básicamente su perímetro medieval de una milla cuadrada. Cuenta con cuatro enclaves declarados Patrimonio de la Humanidad: la Torre de Londres, el Real Jardín Botánico de Kew, el sitio formado por el Palacio, la Abadía de Westminster, la Iglesia de Santa Margarita y Greenwich (donde se encuentra el Real Observatorio que marca el meridiano de Greenwich y el tiempo medio). Es el principal centro financiero del mundo junto con Nueva York. Las 43 universidades de la ciudad conforman la mayor concentración de centros de estudios superiores de toda Europa. En esta ciudad multirracial convive gente de un gran número de culturas que hablan más de trescientos idiomas distintos. Desde 1831 a 1925 Londres, como capital del Imperio británico, fue la ciudad más poblada del mundo.",
+      "pistas": [
         {
-          "tipo": "Moneda",
-          "pista": "Me dijo que necesitaba comprar Libras Esterlinas para viajar",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Geografia",
-          "pista": "Me dijo que queria visitar el canal de la mancha",
+          "tipo": "Animales",
+          "pista": "Me dijo que se dirigía a una ciudad donde abundan las ardillas",
           "dificultad": 1
         },
         {
-          "tipo": "Puntos de Interes",
-          "pista": "Dijo que queria visitar el stonehenge",
-          "dificultad": 2
+          "tipo": "Arte",
+          "pista": "Me dijo que quería comprar arte anglosajon",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Bandera",
+          "pista": "La bandera del país al que viaja es de color roja, blanca y azul",
+          "dificultad": 0
         },
         {
           "tipo": "Exportaciones",
-          "pista": "Me dijo que queria comprar té",
+          "pista": "Me dijo que quería comprar té",
           "dificultad": 1
-        },
-        {
-          "tipo": "Animales",
-          "pista": "Me dijo que se dirigia a una ciudad donde abundan las ardillas",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Personajes Historicos",
-          "pista": "Me dijo que un revolucionario llamado William Wallace combatio contra la monarquia Britanica",
-          "dificultad": 0
         },
         {
           "tipo": "Exportaciones",
@@ -946,18 +1264,8 @@
           "dificultad": 2
         },
         {
-          "tipo": "Idioma",
-          "pista": "Me dijo que hablaban ingles la gente de la ciudad a la que se dirige",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Arte",
-          "pista": "Me dijo que queria comprar arte anglosajon",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Religion",
-          "pista": "Me comento que la gente de la zona es catolica",
+          "tipo": "Geografia",
+          "pista": "Me dijo que quería visitar el canal de la mancha",
           "dificultad": 1
         },
         {
@@ -966,140 +1274,73 @@
           "dificultad": 0
         },
         {
-          "tipo": "Miscelaneos",
-          "pista": "Me dijo que queria conocer el Big Ben",
-          "dificultad": 2
-        }
-      ]
-    },
-    {
-      "nombre": "Ciudad de México",
-      "coordenadas": [0.202, 0.417],
-      "pistas": [
+          "tipo": "Idioma",
+          "pista": "Me dijo que hablaban ingles la gente de la ciudad a la que se dirige",
+          "dificultad": 1
+        },
         {
-          "tipo": "Bandera",
-          "pista": "La bandera del pais al que viaja es de color verde, blanca y roja",
-          "dificultad": 0
+          "tipo": "Miscelaneos",
+          "pista": "Me dijo que quería conocer el Big Ben",
+          "dificultad": 2
         },
         {
           "tipo": "Moneda",
-          "pista": "Me dijo que necesitaba comprar Pesos para viajar",
+          "pista": "Me dijo que necesitaba comprar Libras Esterlinas para viajar",
           "dificultad": 0
-        },
-        {
-          "tipo": "Geografia",
-          "pista": "Me dijo que queria conocer Cancun",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Puntos de Interes",
-          "pista": "Dijo que queria visitar las piramides Aztecas",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Exportaciones",
-          "pista": "Me dijo que queria probar la comida picante",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Animales",
-          "pista": "Me dijo que se dirigia a un pais donde hay una gran diversidad de especies",
-          "dificultad": 1
         },
         {
           "tipo": "Personajes Historicos",
-          "pista": "Me dijo que habitaban los Aztecas antiguamente en la ciudad a la que se dirigia",
+          "pista": "Me dijo que un revolucionario llamado William Wallace combatio contra la monarquia Britanica",
           "dificultad": 0
         },
         {
-          "tipo": "Exportaciones",
-          "pista": "Me dijo que tienen una industria manufacturera la ciudad a la que se dirige",
+          "tipo": "Puntos de Interes",
+          "pista": "Dijo que quería visitar el stonehenge",
           "dificultad": 2
-        },
-        {
-          "tipo": "Idioma",
-          "pista": "Me dijo que hablaban español la gente de la ciudad a la que se dirige",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Arte",
-          "pista": "Me dijo que queria comprar arte de Frida Khalo",
-          "dificultad": 0
         },
         {
           "tipo": "Religion",
           "pista": "Me comento que la gente de la zona es catolica",
           "dificultad": 1
-        },
-        {
-          "tipo": "Gobernante",
-          "pista": "Me comento que el pueblo eligio un presidente democraticamente",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Miscelaneos",
-          "pista": "Me dijo que queria conocer la historia de la antigua Tenocthtitlan",
-          "dificultad": 2
         }
       ]
     },
     {
       "nombre": "Montreal",
-      "coordenadas": [0.295, 0.269],
+      "coordenadas": [
+        0.295,
+        0.269
+      ],
+      "descripcion": "Montreal, fundada en 1642, es la mayor ciudad de Quebec, Canadá y la 2ª más poblada del país después de Toronto. Se sitúa en la isla del mismo nombre entre el río San Lorenzo y la Rivière des Prairies. Posee la mayor concentración de estudiantes universitarios per cápita de toda Norte América. Acoge más de setenta eventos internacionales al año, como el festival Juste pour Rire, el Festival de Jazz de Montreal, y el Grand Prix de Montréal. Es la cuarta ciudad francófona más poblada del mundo, detrás de París, Kinshasa y Abiyán; también tiene una considerable comunidad anglófona,\u200B y un creciente número de hablantes de otras lenguas. La palabra «Montreal» es la versión arcaica, en francés antiguo, de «Mont-Royal», un monte localizado en la ciudad, en el centro de la isla.",
       "pistas": [
         {
-          "tipo": "Bandera",
-          "pista": "La bandera del pais al que viaja es de color blanca y roja",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Moneda",
-          "pista": "Me dijo que necesitaba comprar dolares canadienses para viajar",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Geografia",
-          "pista": "Me dijo que queria ver algun dia los juegos olimpicos de inverno en Vancouver",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Puntos de Interes",
-          "pista": "Dijo que queria visitar las cataratas Montgomery",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Exportaciones",
-          "pista": "Me dijo que queria probar la miel de maple",
-          "dificultad": 1
-        },
-        {
           "tipo": "Animales",
-          "pista": "Me dijo que se dirigia a un pais donde hay una gran cantidad de alces",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Personajes Historicos",
-          "pista": "Me dijo que el primer ministro del pais al que se dirige es Trudeau",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Exportaciones",
-          "pista": "Me dijo que tienen una industria maderera importante en el pais",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Idioma",
-          "pista": "Me dijo que hablaban ingles y frances la gente de la ciudad a la que se dirige",
+          "pista": "Me dijo que se dirigía a un país donde hay una gran cantidad de alces",
           "dificultad": 1
         },
         {
           "tipo": "Arte",
-          "pista": "Me dijo que queria comprar arte Canadiense",
+          "pista": "Me dijo que quería comprar arte Canadiense",
           "dificultad": 0
         },
         {
-          "tipo": "Religion",
-          "pista": "Me comento que la gente de la zona es cristiana",
+          "tipo": "Bandera",
+          "pista": "La bandera del país al que viaja es de color blanca y roja",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Me dijo que quería probar la miel de maple",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Me dijo que tienen una industria maderera importante en el país",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "Me dijo que quería ver algun dia los juegos olimpicos de inverno en Vancouver",
           "dificultad": 1
         },
         {
@@ -1108,69 +1349,73 @@
           "dificultad": 0
         },
         {
+          "tipo": "Idioma",
+          "pista": "Me dijo que hablaban ingles y frances la gente de la ciudad a la que se dirige",
+          "dificultad": 1
+        },
+        {
           "tipo": "Miscelaneos",
-          "pista": "Me dijo que queria ver un partido de Hockey sobre hielo y ver las cataratas del Niagara",
+          "pista": "Me dijo que quería ver un partido de Hockey sobre hielo y ver las cataratas del Niagara",
           "dificultad": 2
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Me dijo que necesitaba comprar dólares canadienses para viajar",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "Me dijo que el primer ministro del país al que se dirige es Trudeau",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Dijo que quería visitar las cataratas Montgomery",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Me comento que la gente de la zona es cristiana",
+          "dificultad": 1
         }
       ]
     },
     {
       "nombre": "Moroni",
-      "coordenadas": [0.592, 0.589],
+      "coordenadas": [
+        0.592,
+        0.589
+      ],
+      "descripcion": "Moroni es la ciudad más grande de Comoras y desde 1962 su capital. Está localizada en la costa oeste de la isla de Gran Comora. El nombre viene de \"Oundroni\", que significa bienestar, felicidad. Los pobladores originales de las islas fueron bantúes provenientes del continente africano, a los que se unieron los árabes a partir del siglo VIII y los malgaches.",
       "pistas": [
         {
-          "tipo": "Bandera",
-          "pista": "La bandera del pais al que viaja es de color blanca y verde",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Moneda",
-          "pista": "Me dijo que necesitaba comprar Francos para viajar",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Geografia",
-          "pista": "Me dijo que queria ver los volcanes de una isla",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Puntos de Interes",
-          "pista": "Dijo que queria visitar el Monte Karthala",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Exportaciones",
-          "pista": "Me dijo que queria comprar un perfume y que el pais al que se dirige es productor de ellos",
-          "dificultad": 1
-        },
-        {
           "tipo": "Animales",
-          "pista": "Me dijo que se dirigia a un pais donde hay un ave llamada Autillo de Anjouan que es familia de los buhos",
+          "pista": "Me dijo que se dirigía a un país donde hay un ave llamada Autillo de Anjouan que es familia de los buhos",
           "dificultad": 2
-        },
-        {
-          "tipo": "Personajes Historicos",
-          "pista": "Me dijo que los pobladores originarios de la isla fueron los Bantues",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Exportaciones",
-          "pista": "Me dijo que tienen una industria de cafe, vainilla y coco importante en el pais",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Idioma",
-          "pista": "Me dijo que hablaban frances y arabe la gente de la ciudad a la que se dirige",
-          "dificultad": 1
         },
         {
           "tipo": "Arte",
-          "pista": "Me dijo que queria comprar arte de Comoros",
+          "pista": "Me dijo que quería comprar arte de Comoros",
           "dificultad": 0
         },
         {
-          "tipo": "Religion",
-          "pista": "Me comento que la gente de la zona es musulmana",
+          "tipo": "Bandera",
+          "pista": "La bandera del país al que viaja es de color blanca y verde",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Me dijo que quería comprar un perfume y que el país al que se dirige es productor de ellos",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Me dijo que tienen una industria de cafe, vainilla y coco importante en el país",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "Me dijo que quería ver los volcanes de una isla",
           "dificultad": 1
         },
         {
@@ -1179,162 +1424,234 @@
           "dificultad": 0
         },
         {
+          "tipo": "Idioma",
+          "pista": "Me dijo que hablaban frances y arabe la gente de la ciudad a la que se dirige",
+          "dificultad": 1
+        },
+        {
           "tipo": "Miscelaneos",
-          "pista": "Me dijo que queria vacacionar en una isla",
+          "pista": "Me dijo que quería vacacionar en una isla",
           "dificultad": 2
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Me dijo que necesitaba comprar Francos para viajar",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "Me dijo que los pobladores originarios de la isla fueron los Bantues",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Dijo que quería visitar el Monte Karthala",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Me comento que la gente de la zona es musulmana",
+          "dificultad": 1
         }
       ]
     },
     {
       "nombre": "Moscú",
-      "coordenadas": [0.592, 0.211],
+      "coordenadas": [
+        0.592,
+        0.211
+      ],
+      "descripcion": "Moscú es la capital y entidad federal más poblada de Rusia, siendo la megaciudad más septentrional de la Tierra y la ciudad más poblada de Europa. Está situada a orillas del río Moscova, en el Distrito Federal Central. Ha sido capital de una sucesión de estados, desde el Gran Ducado de Moscú de la Edad Media, el Zarato ruso y la Unión Soviética, exceptuando el período del Imperio ruso. En Moscú se encuentra el Kremlin de Moscú, una antigua fortaleza donde se halla hoy el lugar de trabajo del presidente de Rusia, y Patrimonio de la Humanidad.",
       "pistas": [
         {
-          "tipo": "Bandera",
-          "pista": "Tenía una bandera roja",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Moneda",
-          "pista": "Quiso comprar Rublos",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Geografia",
-          "pista": "Me dijo que queria conocer el Rio Moskva",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Puntos de Interes",
-          "pista": "Dijo que queria conocer el Lago Ladoga y las Montanias Ural",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Exportaciones",
-          "pista": "Me dijo que el pais es un gran productor de gas, petroleo y bebidas alcoholicas",
-          "dificultad": 0
-        },
-        {
           "tipo": "Animales",
-          "pista": "Me dijo que una vez queria ver un oso en los bosques de las afueras de la ciudad a la que se dirige",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Personajes Historicos",
-          "pista": "Menciono estar interesado en Ivan el Terrible",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Idioma",
-          "pista": "Menciono que se hablaba en Ruso y Uraliano",
+          "pista": "Quería ver un oso en los bosques de las afueras de la ciudad a la que se dirigía",
           "dificultad": 0
         },
         {
           "tipo": "Arte",
-          "pista": "Me dijo que queria ver cuadros pintados de la familia Romanov",
+          "pista": "Me dijo que quería ver cuadros pintados de la familia Romanov",
           "dificultad": 0
         },
         {
-          "tipo": "Religion",
-          "pista": "Me dijo que los habitantes de la ciudad a la que se dirigia eran catolicos ortodoxos",
+          "tipo": "Bandera",
+          "pista": "Iba a un país con una bandera blanca, azul y rojo",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Bandera",
+          "pista": "Dijo que añoraba la antigua bandera soviética ondeando en la ciudad a la que viajaba",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Bandera",
+          "pista": "Dijo que le gustaba más ver la antigua bandera roja ondeando en la ciudad a la que viajaba",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Me dijo que iba a un país gran productor de gas, petróleo y bebidas alcohólicas",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "Me dijo que quería conocer el Río Moskva",
           "dificultad": 0
         },
         {
           "tipo": "Gobernante",
-          "pista": "Me dijo que queria alguna vez conocer a Putin",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Miscelaneos",
-          "pista": "Dijo que queria tomar vodka",
-          "dificultad": 2
-        }
-      ]
-    },
-    {
-      "nombre": "Nueva Delhi",
-      "coordenadas": [0.682, 0.365],
-      "pistas": [
-        {
-          "tipo": "Bandera",
-          "pista": "Dijo que la bandera era Roja, Blanca y Verde",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Moneda",
-          "pista": "Quiso convertir su moneda a Rupios",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Geografia",
-          "pista": "Me dijo que queria visitar la India",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Puntos de Interes",
-          "pista": "Me dijo que queria conocer la tumba de Humayun",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Exportaciones",
-          "pista": "Me comento que la actividad economica del pais se basa en el turismo",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Animales",
-          "pista": "Queria conocer de cerca la Vibora de Escamas de Sierra",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Personajes Historicos",
-          "pista": "Me dijo que Gandhi era oriundo del pais al que se dirigia",
+          "pista": "Me dijo que quería alguna vez conocer a Putin",
           "dificultad": 0
         },
         {
           "tipo": "Idioma",
-          "pista": "Me dijo que la gente de la ciudad habla Hindu",
+          "pista": "Mencionó que estaba aprendiendo Ruso y Ucraniano",
           "dificultad": 0
         },
         {
-          "tipo": "Arte",
-          "pista": "Me dijo que queria comprar arte de la India",
+          "tipo": "Idioma",
+          "pista": "Mencionó que estaba aprendiendo a leer alfabeto cirílico",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Dijo que quería tomar el mejor vodka",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Dijo que quería conocer la plaza roja",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Dijo que quería comer unos varéniques ucranianos",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Quiso comprar rublos",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Preguntó si podía comprar unos kopeks para dar propina",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "Mencionó estar leyendo sobre Vladimir El Grande y Catalina La Grande",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "Mencionó estar interesado en Iván el Terrible",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Dijo que quería conocer el Lago Ladoga y las Montañas Ural",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Me dijo que los habitantes de la ciudad a la que se dirigía eran católicos ortodoxos",
           "dificultad": 0
         },
         {
           "tipo": "Religion",
-          "pista": "Dijo que queria investigar el Sijismo",
+          "pista": "Dijo que los antiguos paganos adoraban a Svarog e iba a conocer unos neopaganos",
           "dificultad": 2
-        },
-        {
-          "tipo": "Gobernante",
-          "pista": "Menciono ir a una ciudad cuyo gobernante es el Primer Ministro",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Miscelaneos",
-          "pista": "Me dijo que queria conocer la zona historica de la Old Delhi",
-          "dificultad": 0
         }
       ]
     },
     {
       "nombre": "New York",
-      "coordenadas": [0.2956, 0.2898],
+      "coordenadas": [
+        0.2956,
+        0.2898
+      ],
+      "descripcion": "Nueva York es la ciudad más poblada de los Estados Unidos. Desde finales del siglo XIX es uno de los centros de la economía mundial. Aquí se encuentra la sede central de la ONU, \u200Bla estatua de la Libertad, Wall Street (centro mundial de finanzas) y la Bolsa de New York. La ciudad se compone de cinco boroughs: Bronx, Brooklyn, Manhattan, Queens y Staten Island, cada uno de los cuales coincide con un condado: Bronx, Kings, Nueva York, Queens, y Richmond. Nueva York es la segunda ciudad con más densidad de población de los Estados Unidos, solo detrás de Union City, Nueva Jersey, localizada al otro lado del río Hudson.",
       "pistas": [
         {
+          "tipo": "Animales",
+          "pista": "Me dijo que la ciudad a la que se dirigía tenía un parque lleno de ardillas",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Me dijo que quería visitar el MOMA",
+          "dificultad": 0
+        },
+        {
           "tipo": "Bandera",
-          "pista": "Dijo que la bandera era Roja, Blanca y Azul",
+          "pista": "Dijo que la bandera de a donde iba era roja, blanca y azul, con barras y estrellas",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Bandera",
+          "pista": "Dijo que la bandera de a donde iba era roja, blanca y azul",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Dijo que iba a un país exportador de petróleo, automóviles y electrónica",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Mencionó la moda como la principal industria de la ciudad a la que iba",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "Me dijo que quería conocer una de las islas mas importantes de Estados Unidos",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "Me dijo que el país al que se dirige eligio un presidente recientemente por medio de colegio electoral",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "Me dijo que el país al que se dirige eligio un presidente recientemente",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Dijo ir a un país con 80% de hablantes de inglés y 12% español, pero sin lengua oficial",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Me dijo que se dirigía a una ciudad donde la mayoría habla inglés",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Dijo que le encantaban los subtes",
           "dificultad": 2
         },
         {
           "tipo": "Moneda",
-          "pista": "Quiso cambiar su moneda a Dolares",
+          "pista": "Quiso cambiar su moneda a dólares",
           "dificultad": 0
         },
         {
-          "tipo": "Geografia",
-          "pista": "Me dijo que queria conocer una de las islas mas importantes de Estados Unidos",
-          "dificultad": 0
+          "tipo": "Moneda",
+          "pista": "Dijo que siempre tenía un poco de moneda del país al que iba, porque es ampliamente aceptada",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Dijo que iba a un país que, por los acuerdos de Bretton Woods, tenía una moneda muy estable",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "Mencionó estar interesado en Henry Hudson",
+          "dificultad": 1
         },
         {
           "tipo": "Puntos de Interes",
@@ -1342,89 +1659,148 @@
           "dificultad": 0
         },
         {
-          "tipo": "Exportaciones",
-          "pista": "Menciono la Moda como su principal industria",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Animales",
-          "pista": "Me dijo que la ciudad a la que se dirigia tenia un parque lleno de ardillas",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Personajes Historicos",
-          "pista": "Menciono estar interesado en Henry Hudson",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Idioma",
-          "pista": "Me dijo que se dirigia a una ciudad donde la mayoria habla ingles",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Arte",
-          "pista": "Me dijo que queria visitar el MOMA",
+          "tipo": "Religion",
+          "pista": "Dijo que iba a un país con más del 70% de cristianos, la mayoría protestantes",
           "dificultad": 0
         },
         {
           "tipo": "Religion",
-          "pista": "Me dijo que la gente de la ciudad a la que se dirigia en su mayoria era cristiana",
+          "pista": "Dijo que iba a un país con amplia libertad religiosa, pero con cristianismo muy fundamentalista",
+          "dificultad": 1
+        }
+      ]
+    },
+    {
+      "nombre": "Nueva Delhi",
+      "coordenadas": [
+        0.682,
+        0.365
+      ],
+      "descripcion": "Nueva Delhi fue fundada el 15 de diciembre de 1911, por el emperador Jorge V, concebida como capital de la India. Sin embargo fue inaugurada el 13 de febrero de 1931 por lord Irwin, virrey del Raj británico. Su diseño estuvo a cargo de dos de los principales arquitectos británicos del siglo XX; Edwin Lutyens y Herbert Baker. Cuenta con dos sitios declarados Patrimonio de la Humanidad por la UNESCO: la tumba de Humayun y el complejo de Qutb. Es la quinta del mundo, con 18.980.000 habitantes, reconocida por sus amplias y arboladas avenidas y es el hogar de numerosas instituciones nacionales, museos y monumentos.",
+      "pistas": [
+        {
+          "tipo": "Animales",
+          "pista": "Quería ver un hipnotizador de serpientes",
           "dificultad": 0
         },
         {
+          "tipo": "Animales",
+          "pista": "Quería conocer de cerca la Víbora de Escamas de Sierra",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Me dijo que quería comprar una estatuilla de Buda",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Me dijo que quería aprender a tocar el sitar",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Me dijo que quería ver el arte rupestre de Bhimbetka",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Bandera",
+          "pista": "Dijo que la bandera era naranja, blanca y verde; con una rueda azul en el centro",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Bandera",
+          "pista": "Dijo que la bandera era naranja, blanca y verde",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Bandera",
+          "pista": "Dijo que le gustaba el símbolo de Chakra Ashoka de la bandera a la que iba",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Me comento que iba a un país donde el turismo era una principal fuente de ingresos",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Dijo que iba a un país miembro del BRICS, exportador de arroz y software.",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Dijo que era poco conocido que el país al que iba tiene grandes exportaciones de petróleo, diamantes y joyas",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "Me dijo que quería visitar montañas del sur de Asia, espacialmente el Himalaya",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "Me dijo que quería tomarse una foto en el Río Ganges",
+          "dificultad": 1
+        },
+        {
           "tipo": "Gobernante",
-          "pista": "Me dijo que el pais al que se dirige eligio un presidente recientemente",
+          "pista": "Mencionó ir a una ciudad cuyo gobernante es el Primer Ministro",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Dijo que iba a un país con 2 idiomas oficiales: hindi e inglés",
           "dificultad": 0
         },
         {
           "tipo": "Miscelaneos",
-          "pista": "Dijo que le encantaban los subtes",
+          "pista": "Me dijo que quería conocer la zona histórica de la Old Delhi",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Quiso convertir su moneda a rupios",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "Me dijo que Gandhi era oriundo del país al que se dirigía",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Me dijo que quería tomarse una foto frente al Taj Majal",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Me dijo que quería conocer la tumba de Humayun",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Dijo que iba a un país donde se practicaba el hinduismo y budismo",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Dijo que quería investigar el Sijismo y otras religiones",
           "dificultad": 2
         }
       ]
     },
     {
       "nombre": "Oslo",
-      "coordenadas": [0.503, 0.19],
+      "coordenadas": [
+        0.503,
+        0.19
+      ],
+      "descripcion": "Oslo, por momentos llamada Christiania y Kristiania, es la capital de Noruega, y sede de la entrega del Premio Nobel de la Paz. Es la tercera ciudad y área urbana escandinava más poblada, solo superada por Copenhague y Estocolmo. Fue fundada alrededor del año 1048 d. C. por el rey Harold Hardråde, en capital en 1314 por el rey Haakon V, pero luego perdió estatus en el siglo 16 durante la Unión con Dinamarca; finalmente lo recuperó en 1814 al disovlerse la unión. Fue establecida como municipio el 3 de enero de 1838, y separada de la provincia de Akershus en 1842, y en 1924 recuperó su nombre original.",
       "pistas": [
-        {
-          "tipo": "Bandera",
-          "pista": "Dijo que la bandera era Roja y tenia una cruz Azul",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Moneda",
-          "pista": "Me dijo que necesitaba comprar coronas noruegas",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Geografia",
-          "pista": "Me dijo que se dirigia a un pais nordico",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Puntos de Interes",
-          "pista": "Queria conocer el Mar de Barents",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Exportaciones",
-          "pista": "Centrales Hidroelectricas como principal actividad",
-          "dificultad": 1
-        },
         {
           "tipo": "Animales",
           "pista": "Me dijo que abundan zorros y renos en los bosques alrededor de la ciudad a la que se dirige",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Personajes Historicos",
-          "pista": "Menciono estar interesado en los Vikingos",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Idioma",
-          "pista": "Me dijo que hablan Noruego en la ciudad a la que se dirigia",
           "dificultad": 0
         },
         {
@@ -1433,30 +1809,139 @@
           "dificultad": 0
         },
         {
-          "tipo": "Religion",
-          "pista": "Me dijo que la religion de la ciudad a la que se dirigia antiguamente veneraba a Thor",
+          "tipo": "Bandera",
+          "pista": "Dijo que la bandera era Roja y tenia una cruz Azul",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Dijo ir a un lugar exportador de petróleo y pescado, principalmente",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Mencionó que donde iba su principal actividad eran las centrales hidroeléctricas",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Dijo que que a un lugar que exportaba aluminio y barcos",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "Me dijo que se dirigía a un país nórdico",
           "dificultad": 0
         },
         {
           "tipo": "Gobernante",
-          "pista": "Se queria ir a un pais en el cual reinaba la monarquia",
+          "pista": "Se quería ir a un país en el cual reinaba la monarquia",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Me dijo que hablan noruego en la ciudad a la que se dirigía",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Dijo estar estudiando una lengua nórdica con dos formas de escritura",
           "dificultad": 1
         },
         {
           "tipo": "Miscelaneos",
           "pista": "Estaba interesado en aprender esqui Nordico",
           "dificultad": 0
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Me dijo que necesitaba comprar coronas noruegas",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "Mencionó estar interesado en los Vikingos",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Queria conocer el Mar de Barents",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Me dijo que la religión de la ciudad a la que se dirigía antiguamente veneraba a Thor",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Dijo ir a una ciudad principalmente luterana, incluso fue la religión oficial",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Le sorprendió que hasta hace poco la iglesia del país al que iba era dirigida por el rey",
+          "dificultad": 2
         }
       ]
     },
     {
       "nombre": "París",
-      "coordenadas": [0.48, 0.252],
+      "coordenadas": [
+        0.48,
+        0.252
+      ],
+      "descripcion": "París, conocida también como la «Ciudad de la Luz», es la capital de Francia, y el destino turístico más popular del mundo. Entre los monumentos de la ciudad figuran la Torre Eiffel, la catedral de Notre Dame, la avenida de los Campos Elíseos, el Arco de Triunfo, la basílica del Sacré Cœur, el Palacio de Los Inválidos, el Panteón, el arco de la Defensa, la ópera Garnier y el barrio de Montmartre, entre otros. También museos como el Louvre, el Museo de Orsay y el Museo Nacional de Historia Natural de Francia, así como un extenso sistema de educación superior. Durante el siglo xix junto con la ciudad de Londres, París fue el centro de desarrollo de proyectos arquitectónicos dentro del marco de la Revolución Industrial.",
       "pistas": [
+        {
+          "tipo": "Animales",
+          "pista": "Me dijo que el gallo se ha convertido en uno de los símbolos de la nación ganadora del Mundial en 1998 del país al que se dirige",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Me dijo que quería contemplar la Gioconda en el Louvre",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Dijo que le fascinaban las similitudes, artísticas o no, entre Monet y Manet",
+          "dificultad": 2
+        },
         {
           "tipo": "Bandera",
           "pista": "Dijo que la bandera era Roja, Blanca y Azul",
           "dificultad": 1
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Dijo que a donde iba, los vinos —y sobre todo el Champagne— son una exportación de calidad",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Dijo que iba verse con modistas de empresas internacionalmente reconocidas como Dior y Coco Chanel",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "Me comento que el Rio Sena atraviesa la ciudad a la que se dirigía",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "Me dijo que quería conocer al presidente Macron",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Me dijo que se dirigía a una ciudad donde hablan frances",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Me dijo que quería ver un partido de Messi en la ciudad a la que se dirigía",
+          "dificultad": 0
         },
         {
           "tipo": "Moneda",
@@ -1464,8 +1949,8 @@
           "dificultad": 1
         },
         {
-          "tipo": "Geografia",
-          "pista": "Me comento que el Rio Sena atraviesa la ciudad a la que se dirigia",
+          "tipo": "Personajes Historicos",
+          "pista": "Me dijo que siempre le fascino la historia de Juana de Arco",
           "dificultad": 0
         },
         {
@@ -1474,131 +1959,224 @@
           "dificultad": 2
         },
         {
-          "tipo": "Exportaciones",
-          "pista": "Menciono a la moda como su principal Industria",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Animales",
-          "pista": "Me dijo que el gallo se ha convertido en uno de los símbolos de la nación ganadora del Mundial en 1998 del pais al que se dirige",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Personajes Historicos",
-          "pista": "Me dijo que siempre le fascino la historia de Juana de Arco",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Idioma",
-          "pista": "Me dijo que se dirigia a una ciudad donde hablan frances",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Arte",
-          "pista": "Me dijo que queria contemplar la Gioconda en el Louvre",
-          "dificultad": 0
-        },
-        {
           "tipo": "Religion",
-          "pista": "Me dijo que queria visitar la catedral de Notradame",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Gobernante",
-          "pista": "Me dijo que queria conocer al presidente Macron",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Miscelaneos",
-          "pista": "Me dijo que queria ver un partido de Messi en la ciudad a la que se dirigia",
+          "pista": "Me dijo que quería visitar la catedral de Notradame",
           "dificultad": 0
         }
       ]
     },
     {
       "nombre": "Pekín",
-      "coordenadas": [0.773, 0.299],
+      "coordenadas": [
+        0.773,
+        0.299
+      ],
+      "descripcion": "Pekín, Pequín o Beijing2 (literalmente «capital del Norte»), es la capital de China y una de las ciudades más pobladas del mundo. Situada en la periferia de la antigua civilización china, se convirtió en el baluarte de las potencias extranjeras que ocuparon China del Norte entre los siglos x y xii. La dinastía Liao estableció aquí su capital meridional, la más acreditada de las cinco del reino. La dinastía Jin, la siguiente dinastía \"bárbara\" emprendió un amplio proyecto urbanístico a imagen de la capital de los Song septentrionales, Kaifeng. En 1215 los mongoles arrasaron la ciudad, pero cincuenta años después Kublai Kan decidió edificar en ella la nueva capital. En la zona centro-sur del trazado hipodámico se hallaba la colosal villa imperial que contenía el complejo de palacios imperiales. El emperador Yongle, el tercer Ming, decidió trasladar la capitalidad a Pekín. Las murallas del lado septentrional fueron trasladadas más hacia el Sur para que el complejo palaciego imperial, la llamada Ciudad Prohibida, quedase exactamente en el centro del plano.ç Así la estructura del nuevo Pekín representa la cima del urbanismo tradicional chino, basado en la organización introducida por los mongoles así como en la estructura de los palacios imperiales de Kaifeng y Nankín además de tomar en consideración las normas de la geomancia china.",
       "pistas": [
         {
-          "tipo": "Bandera",
-          "pista": "Dijo que la bandera era Roja",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Moneda",
-          "pista": "Cambio su moneda actual a Yuan",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Geografia",
-          "pista": "Me dijo que se dirigia a un pais que tenia como vecino a Corea del Norte",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Puntos de Interes",
-          "pista": "Queria conocer la ciudad Prohibida y el Mar Amarillo",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Exportaciones",
-          "pista": "Me dijo que el pais al que se dirigia era conocido por su industria manufacturera",
-          "dificultad": 1
-        },
-        {
           "tipo": "Animales",
-          "pista": "Menciono cierto afecto por los Pandas",
+          "pista": "Mencionó cierto afecto por los pandas",
           "dificultad": 2
         },
         {
-          "tipo": "Personajes Historicos",
-          "pista": "Me comento que una vez acaricio un panda en un zoologico de la ciudad a la que se dirigia",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Idioma",
-          "pista": "Me dijo que hablaban chino en la ciudad a la que se dirigia ",
+          "tipo": "Arte",
+          "pista": "Dijo tener interés en los jarrones de la dinastía Ming",
           "dificultad": 0
         },
         {
           "tipo": "Arte",
-          "pista": "Me dijo que queria comprar lamparas orientales",
+          "pista": "Me dijo que quería comprar lámparas orientales",
           "dificultad": 2
         },
         {
-          "tipo": "Religion",
-          "pista": "Me dijo que la gente de la ciudad a la que se dirigia era budista",
+          "tipo": "Bandera",
+          "pista": "Dijo que la bandera era roja con estrellas amarillas",
           "dificultad": 0
         },
         {
+          "tipo": "Bandera",
+          "pista": "Dijo que la bandera era roja",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Habló sobre mano de obra barata para fabricar computadoras y electrónica en general",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Dijo que iba al país que más exportaba hacia Estados Unidos",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "Dijo que era de los países más grandes del mundo",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "Me dijo que se dirigía a un país que tenia como vecino a Corea del Norte",
+          "dificultad": 1
+        },
+        {
           "tipo": "Gobernante",
-          "pista": "Me dijo que el gobierno del pais al que se dirigia era uno comunista",
+          "pista": "Me dijo que el gobierno del país al que se dirigía se consideraba comunista",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Me preguntó si conocía un intérprete para chino mandarín",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Mencionó que era interesante que sea la lengua madre más hablada pero no por extranjeros",
           "dificultad": 1
         },
         {
           "tipo": "Miscelaneos",
-          "pista": "Menciono cierta curiosidad sobre la Dinastia Shang y el Levantamiento de Wuchang",
+          "pista": "Mencionó cierta curiosidad sobre la Dinastía Shang y el Levantamiento de Wuchang",
           "dificultad": 0
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Manifestó curiosidad por los centros oficiales contra adicción a Internet",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Le resultó gracioso que la policía, además de perros, empiece a usar gansos",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Cambio su moneda actual a yuanes",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Habló sobre una fuerte restricción a criptomonedas del país al que iba",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Dijo que el país al que iba quería implementar su propia criptomoneda",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Dijo que iba al país que compró más deuda pública de Estados Unidos",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "Se interesó sobre la historia de Mao Tse-Tung",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "Dijo que quería acariciar un panda en un zoológico de la ciudad a la que se dirigía",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Quería conocer la Gran Muralla",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Quería conocer la ciudad Prohibida y el Mar Amarillo",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Me dijo que la gente de la ciudad a la que se dirigía era budista",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Le pareció curioso que haya más cristianos que taoístas en un país oficialmente ateo",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Le sorprendió que 2 o 3 de cada 4 personas no sean religiosas",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Se interesó por la persecución oficial contra religiones no registradas",
+          "dificultad": 2
         }
       ]
     },
     {
       "nombre": "Puerto Moresby",
-      "coordenadas": [0.881, 0.578],
+      "coordenadas": [
+        0.881,
+        0.578
+      ],
+      "descripcion": "Puerto Moresby es la capital de Papúa Nueva Guinea, situada en las costas del golfo de Papúa, en la costa sureste de la isla de Nueva Guinea. El primer europeo que llegó a la zona donde se asienta Port Moresby fue el capitán británico John Moresby en 1873, año en que fue fundada, y quien le dio nombre a la ciudad en honor de su padre el almirante sir Fairfax Moresby. Esta ciudad es considerada la ciudad más peligrosa del mundo, según un informe presentado por el programa de la ONU para los Asentamientos Humanos.",
       "pistas": [
+        {
+          "tipo": "Animales",
+          "pista": "Me dijo que se dirigía a una ciudad para poder acariciar un Cuscus",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Dijo que quería comprar arte de Papua Nueva Guinea",
+          "dificultad": 0
+        },
         {
           "tipo": "Bandera",
           "pista": "Dijo que la bandera era Amarilla, Roja y Negra",
           "dificultad": 1
         },
         {
-          "tipo": "Moneda",
-          "pista": "Cambio su moneda actual a Kina",
+          "tipo": "Exportaciones",
+          "pista": "Mencionó la minería de oro es la principal industria de su destino",
           "dificultad": 1
         },
         {
+          "tipo": "Exportaciones",
+          "pista": "Dijo estar interesado en exportaciones de aceite de palma y madera",
+          "dificultad": 2
+        },
+        {
           "tipo": "Geografia",
-          "pista": "Menciono dirigirse hacia un terreno Volcanoso",
+          "pista": "Mencionó dirigirse hacia un terreno Volcanoso",
           "dificultad": 1
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "Dijo dirigirse a un país cuyo gobernante era el Primer Ministro",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Me dijo que se dirigía a una ciudad donde hablaban Ingles, Hiri Motu y Tok Pisin",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Mencionó cierta curiosidad sobre la Nueva Irlanda",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Cambio su moneda actual a Kina",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Consultó si podía conseguir cambio en toea, para dar propinas",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "Mencionó estar interesado en los Taipanes",
+          "dificultad": 2
         },
         {
           "tipo": "Puntos de Interes",
@@ -1606,55 +2184,84 @@
           "dificultad": 2
         },
         {
-          "tipo": "Exportaciones",
-          "pista": "Menciono la mineria de Oro como su principal industria",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Animales",
-          "pista": "Me dijo que se dirigia a una ciudad para poder acariciar un Cuscus",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Personajes Historicos",
-          "pista": "Menciono estar interesado en los Taipanes",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Idioma",
-          "pista": "Me dijo que se dirigia a una ciudad donde hablaban Ingles, Hiri Motu y Tok Pisin",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Arte",
-          "pista": "Dijo que queria comprar arte de Papua Nueva Guinea",
-          "dificultad": 0
-        },
-        {
           "tipo": "Religion",
-          "pista": "Me dijo que la gente de la ciudad a la que se dirigia era mayoritariamente Cristiana",
+          "pista": "Me dijo que la gente de la ciudad a la que se dirigía era mayoritariamente Cristiana",
           "dificultad": 0
-        },
-        {
-          "tipo": "Gobernante",
-          "pista": "Dijo dirigirse a un pais cuyo gobernante era el Primer Ministro",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Miscelaneos",
-          "pista": "Menciono cierta curiosidad sobre la Nueva Irlanda",
-          "dificultad": 2
         }
       ]
     },
     {
       "nombre": "Reykjavik",
-      "coordenadas": [0.431, 0.168],
+      "coordenadas": [
+        0.431,
+        0.168
+      ],
+      "descripcion": "Reikiavik (en islandés, «bahía humeante») es la capital de Islandia, situada al sur de la bahía Faxaflói, en una zona donde abundan los géiseres (lo que explica su nombre). Se estima circa 870 por liderados por Ingólfur Arnarson. Está muy cerca del círculo polar ártico, lo que la convierte en la capital más septentrional de un Estado soberano. Por esto durante el invierno solo recibe cuatro horas diarias de luz solar y durante el verano las noches son tan claras como el día. Es una de las ciudades más limpias, verdes y seguras del mundo.",
       "pistas": [
         {
-          "tipo": "Bandera",
-          "pista": "Dijo que la bandera era Roja y Azul",
+          "tipo": "Animales",
+          "pista": "Me dijo que quería ver un zorro ártico y un frailecillo.",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Animales",
+          "pista": "Me dijo que quería ver una ballena jorobada y un oso polar.",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Animales",
+          "pista": "Me dijo que quería ver una ballena jorobada y un frailecillo.",
           "dificultad": 1
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Me dijo que quería ver las sagas Vikingas",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Bandera",
+          "pista": "Dijo que la bandera del país al que se dirigía era roja y azul",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Mencionó la pesca como la principal industria del país al que iba",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Mencionó la actividad primaria como su principal exportación",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "Mencionó dirigirse hacia un terreno volcanoso y con mucha presencia de aguas termales",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "Me dijo que se dirigía a un país donde hay una república parlamentaria",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Me dijo que quería aprender islandés",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Dijo estar interesado en las lenguas germánicas",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Le parecía curioso cómo el aislamiento disminuía los cambios en los idiomas",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Mencionó cierta apego a las Naciones Insulares",
+          "dificultad": 2
         },
         {
           "tipo": "Moneda",
@@ -1662,70 +2269,84 @@
           "dificultad": 1
         },
         {
-          "tipo": "Geografia",
-          "pista": "Menciono dirigirse hacia un terreno Volcanoso y con mucha presencia de Aguas Termales",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Puntos de Interes",
-          "pista": "Uno de los puntos de interes que tenia fue el balneario geotermal de la laguna Azul, cerca de la villa de Grindavik.",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Exportaciones",
-          "pista": "Menciono la pesca como su principal industria",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Exportaciones",
-          "pista": "Menciono la actividad primaria como su principal industria",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Animales",
-          "pista": "Me dijo que queria ver un zorro artico, un frailecillo, una ballena jorobada y un oso polar.",
+          "tipo": "Personajes Historicos",
+          "pista": "Me dijo que le interesaban los vikingos",
           "dificultad": 0
         },
         {
           "tipo": "Personajes Historicos",
-          "pista": "Me dijo que le interesaban los Vikingos",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Idioma",
-          "pista": "Me dijo que queria aprender Islandes",
+          "pista": "Me dijo que le interesaba la historia de Hrafna-Flóki",
           "dificultad": 1
         },
         {
-          "tipo": "Arte",
-          "pista": "Me dijo que queria ver las sagas Vikingas",
+          "tipo": "Puntos de Interes",
+          "pista": "Quería ver el balneario geotermal de la laguna Azul, cerca de la villa de Grindavik",
           "dificultad": 0
         },
         {
           "tipo": "Religion",
-          "pista": "Me comento que se dirigia a una ciudad donde su Iglesia Nacional profesa el cristianismo de tipo luterano y es de carácter nacional",
+          "pista": "Me comentó que se dirigía a una ciudad donde su Iglesia Nacional profesa el cristianismo de tipo luterano",
           "dificultad": 0
-        },
-        {
-          "tipo": "Gobernante",
-          "pista": "Me dijo que se dirigia a un pais donde hay una republica parlamentaria",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Miscelaneos",
-          "pista": "Menciono cierta apego a las Naciones Insulares",
-          "dificultad": 2
         }
       ]
     },
     {
       "nombre": "Río de Janeiro",
-      "coordenadas": [0.356, 0.653],
+      "coordenadas": [
+        0.356,
+        0.653
+      ],
+      "descripcion": "Río de Janeiro1\u200B, a veces conocida como la «Ciudad Maravillosa», fundada como São Sebastião do Rio de Janeiro, se ubica al sureste de Brasil. Fue la capital del Imperio portugués entre 1808 y 1822 y, más tarde, la capital de Brasil desde 1822, cuando la nación declaró su independencia del país luso. Conservó ese rango hasta la inauguración de Brasilia, en 1960. Es conocida internacionalmente por sus íconos y paisajes, como el Pan de Azúcar, la estatua del Cristo Redentor, las playas de Copacabana e Ipanema, el Estadio de Maracaná, el parque nacional de Tijuca (el mayor bosque urbano del mundo), la Quinta da Boa Vista, la isla de Paquetá, las Fiestas de Fin de Año en Copacabana y la celebración del Carnaval Es sede de importantes empresas empresas de petróleo y la telefonía del país, y del mayor conglomerado de medios y comunicaciones de América Latina. En investigación científica y desarrollo del país, alcanza el 17% de la producción científica nacional.",
       "pistas": [
+        {
+          "tipo": "Animales",
+          "pista": "Mencionó estar interesado por la especie de serpiente Lachesis, el periquito dorado, guacamayo de Lear y el Puercoespín de espinas finas",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Me dijo que quería escuchar Bossa Nova",
+          "dificultad": 2
+        },
         {
           "tipo": "Bandera",
           "pista": "Dijo que la bandera era Verde, Azul y Amarilla",
           "dificultad": 1
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Dijo que iba a un país del BRICS con importaciones y exportaciones reguladas por el Mercosur",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Mencionó la producción de café, joyas y titanio como principales industrias",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Dijo que iba a un país que exportaba habas (más que nada soja) y petróleo",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "Me dijo que se dirigía a una ciudad que situada sobre el macizo de Brasilia y tiene costa de mar",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "Dijo ir a un país cuyo gobernado por un Presidente elegido democraticamente",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Mencionó querer aprender Portugues",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Me dijo que quería visitar el Cristo Redentor que esta en la ciudad a la que se dirige",
+          "dificultad": 0
         },
         {
           "tipo": "Moneda",
@@ -1733,136 +2354,194 @@
           "dificultad": 0
         },
         {
-          "tipo": "Geografia",
-          "pista": "Me dijo que se dirigia a una ciudad que situada sobre el macizo de Brasilia y tiene costa de mar",
-          "dificultad": 2
+          "tipo": "Personajes Historicos",
+          "pista": "Me dijo que se dirigía a un país donde jugaba un tal jugador de futbol Pele",
+          "dificultad": 0
         },
         {
           "tipo": "Puntos de Interes",
-          "pista": "Dijo que queria ver el Rio Amazonas",
+          "pista": "Dijo que quería ver el Rio Amazonas",
           "dificultad": 0
-        },
-        {
-          "tipo": "Exportaciones",
-          "pista": "Menciono la produccion de cafe, joyas y titanio como principales industrias",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Animales",
-          "pista": "Menciono estar interesado por la especie de serpiente Lachesis, el periquito dorado, guacamayo de Lear y el Puercoespín de espinas finas",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Personajes Historicos",
-          "pista": "Me dijo que se dirigia a un pais donde jugaba un tal jugador de futbol Pele",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Idioma",
-          "pista": "Menciono querer aprender Portugues",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Arte",
-          "pista": "Me dijo que queria escuchar Bossa Nova",
-          "dificultad": 2
         },
         {
           "tipo": "Religion",
-          "pista": "Me dijo que se dirigia a una ciudad donde gran parte de sus habitantes eran catolicos, pero tambien un alto porcentaje de umbandistas",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Gobernante",
-          "pista": "Dijo ir a un pais cuyo gobernado por un Presidente elegido democraticamente",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Miscelaneos",
-          "pista": "Me dijo que queria visitar el Cristo Redentor que esta en la ciudad a la que se dirige",
+          "pista": "Me dijo que se dirigía a una ciudad donde gran parte de sus habitantes eran catolicos, pero tambien un alto porcentaje de umbandistas",
           "dificultad": 0
         }
       ]
     },
     {
       "nombre": "Roma",
-      "coordenadas": [0.505, 0.287],
+      "coordenadas": [
+        0.505,
+        0.287
+      ],
+      "descripcion": "Roma, conocida desde la Antigüedad como la Urbe (Urbs) o \"La Ciudad Eterna\", es la capital de Italia. Durante sus tres milenios de historia, extendió sus dominios sobre toda la cuenca del Mediterráneo y gran parte de Europa, Oriente Próximo y África del Norte. Como capital de la República y del Imperio romano, llegó a ser la primera gran metrópolis de la humanidad,6 centro de una de las civilizaciones antiguas más importantes. Es la ciudad con la más alta concentración de bienes históricos y arquitectónicos del mundo;7 su centro histórico delimitado por el perímetro que marcan las murallas aurelianas, es la máxima expresión del patrimonio histórico, artístico y cultural del mundo occidental. \u200BEn 1980, junto a las propiedades extraterritoriales de la Santa Sede que se encuentran en la ciudad y la basílica de San Pablo Extramuros, fue incluida en la lista del Patrimonio de la Humanidad de la Unesco. Influyó en la sociedad, la cultura, la lengua, la literatura, la música, el arte, la arquitectura, la filosofía, la gastronomía, la religión, el derecho y la moral de los siglos sucesivos. Roma es el corazón geográfico de la religión católica, ciudad santa del catolicismo y destino de peregrinación (vías romeas).",
       "pistas": [
         {
-          "tipo": "Bandera",
-          "pista": "Dijo que la bandera era Verde, Blanca y Roja",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Moneda",
-          "pista": "Cambio su moneda actual a Euros",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Geografia",
-          "pista": "Me dijo que queria navegar por el Rio Tiber",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Puntos de Interes",
-          "pista": "Dijo que queria ver el Coliseo, El Foro, el Monte Etna y el Mar Tirreno",
+          "tipo": "Animales",
+          "pista": "Dijo que quería ver búfalas y probar su queso mozzarella di bufala",
           "dificultad": 0
-        },
-        {
-          "tipo": "Exportaciones",
-          "pista": "Menciono la industria textil como su principal actividad economica en Italia",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Exportaciones",
-          "pista": "Menciono la industria textil como su principal actividad",
-          "dificultad": 2
         },
         {
           "tipo": "Animales",
-          "pista": "Me explico que se dirigia a una ciudad donde traian animales exoticos de todas partes del mundo para los juegos en las arenas",
+          "pista": "Me explicó que se dirigía a una ciudad donde traían animales exóticos de todo el mundo para los juegos en las arenas",
           "dificultad": 1
         },
         {
-          "tipo": "Personajes Historicos",
-          "pista": "Menciono una curiosidad por los Etruscos",
+          "tipo": "Animales",
+          "pista": "Dijo que quería ver las cabras montesas escalando una represa",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Dijo que la pizza en sí misma era arte y quería conocer recetas originales",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Demostró interés por pinturas renacentistas",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Bandera",
+          "pista": "Dijo que la bandera era verde, blanca y roja",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Quería conocer la cultura que originó las marcas más prestigiosas de ropa en el mundo",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Mencionó la industria textil como una de las principal actividades económica del país",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "Me dijo que quería navegar por el Río Tíber",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "Dijo que quería tomar una foto del Presidente del Consejo de Ministros electo democráticamente",
           "dificultad": 2
         },
         {
           "tipo": "Idioma",
-          "pista": "Menciono querer aprender Italiano",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Arte",
-          "pista": "Demostro interes por pinturas renacentistas",
+          "pista": "Mencionó querer aprender italiano",
           "dificultad": 0
         },
         {
-          "tipo": "Religion",
-          "pista": "Me comento que se dirigia a una ciudad cerca de la Santa Sede",
+          "tipo": "Idioma",
+          "pista": "Quería escuchar el lenguaje más parecido al latín que se hable actualmente",
           "dificultad": 1
         },
         {
-          "tipo": "Gobernante",
-          "pista": "Dijo ir a un pais cuyo gobernado por un Presidente elegido democraticamente",
+          "tipo": "Miscelaneos",
+          "pista": "Me dijo que quería visitar la ciudad porque le gustaba la película Gladiador",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Me mostró unas monedas de 2 euros con grabados de la cara de Dante Alighieri",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Se entristeció de que los euros no sean tan lindos como la lira",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Cambió su moneda actual a Euros",
           "dificultad": 2
         },
         {
-          "tipo": "Miscelaneos",
-          "pista": "Me dijo que queria visitar la ciudad porque le gustaba la pelicula Gladiador",
+          "tipo": "Personajes Historicos",
+          "pista": "Dijo haber leído 3 veces la Divina Comedia de Dante Alighieri",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "Preguntó si era ilegal viajar con textos de Benito Mussolini",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "Mencionó una curiosidad por los etruscos",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Dijo que quería ver el Coliseo y el Monte Etna",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Dijo que quería ver el El Foro y el Mar Tirreno",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Me comento que se dirigía a una ciudad cerca de la Santa Sede",
           "dificultad": 0
         }
       ]
     },
     {
       "nombre": "San Marino",
-      "coordenadas": [0.506, 0.278],
+      "coordenadas": [
+        0.506,
+        0.278
+      ],
+      "descripcion": "San Marino\u200B es una ciudad-república parlamentaria. Es un enclave\u200B rodeado de territorio italiano, entre las regiones de Emilia-Romaña y las Marcas. La mayor parte de su territorio corresponde a las laderas del monte Titano, de 739 metros, y se encuentra a 10 kilómetros del mar Adriático, por lo que, dada su ubicación, el país no tiene salida a dicho mar. San Marino es uno de tres únicos Estados soberanos completamente rodeado por un solo país del mundo, junto a la Ciudad del Vaticano y Lesoto. Es además uno de los seis micro-Estados europeos.",
       "pistas": [
+        {
+          "tipo": "Animales",
+          "pista": "Me contó que dadas las características montanas del territorio, los pájaros y los mamíferos son los animales más difundidos de la zona a la que se dirige",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Me contó de tres torres ubicadas en el monte Titano",
+          "dificultad": 1
+        },
         {
           "tipo": "Bandera",
           "pista": "Dijo que la bandera era Azul y Blanca",
           "dificultad": 1
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Mencionó la industria ceramica y creacion de estampillas como su principal actividad economica en San Marino",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Mencionó la industria ceramica y creacion de estampillas como su principal actividad",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "Me comento que se dirige al tercer país mas pequeño de Europa despues del Vaticano y Monaco",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "Me contó que se dirigía a un país donde la forma de gobierno era una republica parlamentaria",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Mencionó querer aprender Italiano",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Demostró curiosidad por la Republica Serena y El Estado mas Antiguo de Europa",
+          "dificultad": 0
         },
         {
           "tipo": "Moneda",
@@ -1870,75 +2549,129 @@
           "dificultad": 0
         },
         {
-          "tipo": "Geografia",
-          "pista": "Me comento que se dirige al tercer pais mas pequeño de Europa despues del Vaticano y Monaco",
-          "dificultad": 0
+          "tipo": "Personajes Historicos",
+          "pista": "Me dijo que se dirigía a una ciudad reconocida como estado por Napoleon en 1797",
+          "dificultad": 2
         },
         {
           "tipo": "Puntos de Interes",
-          "pista": "Dijo que queria conocer el Monte Titano",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Exportaciones",
-          "pista": "Menciono la industria ceramica y creacion de estampillas como su principal actividad economica en San Marino",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Exportaciones",
-          "pista": "Menciono la industria ceramica y creacion de estampillas como su principal actividad",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Animales",
-          "pista": "Me conto que dadas las características montanas del territorio, los pájaros y los mamíferos son los animales más difundidos de la zona a la que se dirige",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Personajes Historicos",
-          "pista": "Me dijo que se dirigia a una ciudad reconocida como estado por Napoleon en 1797",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Idioma",
-          "pista": "Menciono querer aprender Italiano",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Arte",
-          "pista": "Me conto de tres torres ubicadas en el monte Titano",
+          "pista": "Dijo que quería conocer el Monte Titano",
           "dificultad": 1
         },
         {
           "tipo": "Religion",
-          "pista": "Me conto que se dirigia a una ciudad que si bien no es oficial su religion predomina el Cristianismo",
+          "pista": "Me contó que se dirigía a una ciudad que si bien no es oficial su religión predomina el Cristianismo",
           "dificultad": 1
-        },
+        }
+      ]
+    },
+    {
+      "nombre": "Singapur",
+      "coordenadas": [
+        0.762,
+        0.518
+      ],
+      "descripcion": "Singapur es una ciudad-Estado insular de Asia, formado por sesenta y tres islas, cuya forma de gobierno es la república parlamentaria. Está situada al sur del estado de Johor (península de Malasia) y al norte de las islas Riau (Indonesia), separado de estas por el estrecho de Singapur. Desde el siglo ii d. C., cuando se establecieron allí los primeros humanos, la isla de Singapur ha formado parte de varios imperios regionales. Tiene amplia diversidad que se refleja en sus 4idiomas oficiales: inglés, chino, malayo y tamil, así como en las políticas gubernamentales que promueven el multiculturalismo.\u200B El Reino Unido obtuvo la soberanía sobre la isla en 1824 y esta pasó a ser una de las Colonias del Estrecho británicas en 1826. Ocupada por los japoneses, Singapur declaró su independencia del Reino Unido en 1963 como un estado más de Malasia mediante un referéndum, de la que se separó dos años después.",
+      "pistas": [
         {
-          "tipo": "Gobernante",
-          "pista": "Me conto que se dirigia a un pais donde la forma de gobierno era una republica parlamentaria",
+          "tipo": "Animales",
+          "pista": "Dijo que le interesaban los Peces Piedra",
           "dificultad": 2
         },
         {
+          "tipo": "Arte",
+          "pista": "Mencionó interés en el arte malayo",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Bandera",
+          "pista": "Dijo que la bandera era Roja y Blanca",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Mencionó la produccion de caucho como principal industria",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Mencionó que la ciudad a la que se dirigía era una gran sede de comercio",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Geografia",
+          "pista": "Me dijo que se dirigía a una ciudad que se encontraba entre Malasya e Indonesia",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "Me dijo que el país al que se dirige tiene un presidente elegido democraticamente",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Me dijo que hablaban Ingles, Chino Mandarin, Malayo y Tamil en la ciudad a la que se dirigía",
+          "dificultad": 1
+        },
+        {
           "tipo": "Miscelaneos",
-          "pista": "Demostro curiosidad por la Republica Serena y El Estado mas Antiguo de Europa",
+          "pista": "Dijo que quería ver restos de una antigua Colonia Britanica",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Me dijo que necesitaba comprar dólares para viajar, aunque se dirigía a Asia",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "Me contó que el primer fundador de la ciudad a la que se dirige se llamaba Lee Kuan Yew",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Dijo que quería conocer el Hotel Raffles, Mar de la China Meridional y el Estrecho de Malaca",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Religion",
+          "pista": "Me dijo que las personas de la ciudad a la que se dirige profesan diferentes religiones y algunos son cristianos y otros son musulmanes, otros hindues y otros budistas",
           "dificultad": 0
         }
       ]
     },
     {
       "nombre": "Sydney",
-      "coordenadas": [0.869, 0.718],
+      "coordenadas": [
+        0.869,
+        0.718
+      ],
+      "descripcion": "Sydney es la ciudad más grande y poblada de Australia (de la que es capital) y Oceanía. Fundada en 1788 por el almirante británico Arthur Phillip, fue la primera colonia en dicho país. Está situada al sureste, a orillas de la amplia bahía de Sydney. Destaca la Casa de la Ópera, el puente de la bahía de Sydney, o Harbour Bridge, y sus playas. Está rodeada de parques nacionales que contienen bahías y ríos. Otras atracciones son el jardín botánico, el puerto, y el parque nacional Real.",
       "pistas": [
+        {
+          "tipo": "Animales",
+          "pista": "Dijo que le interesaban los Koalas, las Serpientes Tigre, Wallaby y Wombats",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Arte",
+          "pista": "Dijo que quería ir a la opera de Sydney",
+          "dificultad": 2
+        },
         {
           "tipo": "Bandera",
           "pista": "Dijo que la bandera era Roja, Blanca y Azul",
           "dificultad": 1
         },
         {
-          "tipo": "Moneda",
-          "pista": "Me dijo que necesitaba dolares... pero para viajar a oceania",
-          "dificultad": 0
+          "tipo": "Exportaciones",
+          "pista": "Mencionó la produccion de lana como principal industria de Australia",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Mencionó la produccion de lana como principal industria",
+          "dificultad": 2
         },
         {
           "tipo": "Geografia",
@@ -1946,175 +2679,53 @@
           "dificultad": 0
         },
         {
-          "tipo": "Puntos de Interes",
-          "pista": "Dijo que queria conocer el Gran Desierto Arenoso y la Casa de Opera",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Exportaciones",
-          "pista": "Menciono la produccion de lana como principal industria de Australia",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Exportaciones",
-          "pista": "Menciono la produccion de lana como principal industria",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Animales",
-          "pista": "Dijo que le interesaban los Koalas, las Serpientes Tigre, Wallaby y Wombats",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Personajes Historicos",
-          "pista": "Demostro interes en los aborigenes y James Cook",
+          "tipo": "Gobernante",
+          "pista": "Me comento que se dirigía a un país con una forma de gobierno parlamentaria",
           "dificultad": 1
         },
         {
           "tipo": "Idioma",
-          "pista": "Me dijo que hablaban Ingles en la ciudad a la que se dirigia",
+          "pista": "Me dijo que hablaban Ingles en la ciudad a la que se dirigía",
           "dificultad": 0
         },
         {
-          "tipo": "Arte",
-          "pista": "Dijo que queria ir a la opera de Sydney",
-          "dificultad": 2
+          "tipo": "Miscelaneos",
+          "pista": "Me comento que podías encontrar arañas grandes como la cara de alguien dentro de las casas de los habitantes de la ciudad a la que se dirigía",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Me dijo que necesitaba dolares... pero para viajar a oceania",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista":"Demostró interés en los aborígenes y James Cook",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Dijo que quería conocer el Gran Desierto Arenoso y la Casa de Opera",
+          "dificultad": 0
         },
         {
           "tipo": "Religion",
           "pista": "Me dijo que la ciudad a la que se dirige gran parte de la poblacion es Cristiana",
           "dificultad": 0
-        },
-        {
-          "tipo": "Gobernante",
-          "pista": "Me comento que se dirigia a un pais con una forma de gobierno parlamentaria",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Miscelaneos",
-          "pista": "Me comento que podias encontrar arañas grandes como la cara de alguien dentro de las casas de los habitantes de la ciudad a la que se dirigia",
-          "dificultad": 0
-        }
-      ]
-    },
-    {
-      "nombre": "Singapur",
-      "coordenadas": [0.762, 0.518],
-      "pistas": [
-        {
-          "tipo": "Bandera",
-          "pista": "Dijo que la bandera era Roja y Blanca",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Moneda",
-          "pista": "Me dijo que necesitaba comprar dolares para viajar, aunque se dirigia a Asia",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Geografia",
-          "pista": "Me dijo que se dirigia a una ciudad que se encontraba entre Malasya e Indonesia",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Puntos de Interes",
-          "pista": "Dijo que queria conocer el Hotel Raffles, Mar de la China Meridional y el Estrcho de Malaca",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Exportaciones",
-          "pista": "Menciono la produccion de caucho como principal industria",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Exportaciones",
-          "pista": "Menciono que la ciudad a la que se dirigia era una gran sede de comercio",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Animales",
-          "pista": "Dijo que le interesaban los Peces Piedra",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Personajes Historicos",
-          "pista": "Me conto que el primer fundador de la ciudad a la que se dirige se llamaba Lee Kuan Yew",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Idioma",
-          "pista": "Me dijo que hablaban Ingles, Chino Mandarin, Malayo y Tamil en la ciudad a la que se dirigia",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Arte",
-          "pista": "Menciono interes en el arte malayo",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Religion",
-          "pista": "Me dijo que las personas de la ciudad a la que se dirige profesan diferentes religiones y algunos son cristianos y otros son musulmanes, otros hindues y otros budistas",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Gobernante",
-          "pista": "Me dijo que el pais al que se dirige tiene un presidente elegido democraticamente",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Miscelaneos",
-          "pista": "Dijo que queria ver restos de una antigua Colonia Britanica",
-          "dificultad": 2
         }
       ]
     },
     {
       "nombre": "Tokyo",
-      "coordenadas": [0.839, 0.324],
+      "coordenadas": [
+        0.839,
+        0.324
+      ],
+      "descripcion": "Tokio es la capital \"de facto\" de Japón, ubicada en el centro este de la isla de Honshu. Es la segunda mayor aglomeración urbana del mundo detrás de Guangzhou, China. En el pasado, la ciudad se denominaba como Tokei, Edo o Yedo. Aunque desde tiempos antiguos existían pequeñas poblaciones y templos en las colinas cercanas, la fundación formal fue en 1457, cuando un vasallo del clan Uesugi, Ōta Dōkan, construyó el castillo Edo. A fines de 1868, con el inicio de la Restauración Meiji, el emperador se mudó al Castillo Edo, convirtiéndolo en el gran Palacio Imperial de Japón y estableció allí mismo el cambio de nombre de Edo a Tokio, “la capital del este”.",
       "pistas": [
-        {
-          "tipo": "Bandera",
-          "pista": "Dijo que la bandera era Roja y Blanca",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Moneda",
-          "pista": "Convirtio su moneda a Yen",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Geografia",
-          "pista": "El pais al que se dirige me comento que es un conjunto de varias islas y algunas montañosas",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Puntos de Interes",
-          "pista": "Dijo que queria conocer el Monte Fuji",
-          "dificultad": 2
-        },
-        {
-          "tipo": "Exportaciones",
-          "pista": "Menciono la industria Automotor como principal actividad",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Exportaciones",
-          "pista": "Menciono que se dirigia a una capital con una gran actividad financiera",
-          "dificultad": 2
-        },
         {
           "tipo": "Animales",
           "pista": "Me dijo que le gustaria ver en su siguiente ciudad algunos peces koi",
-          "dificultad": 1
-        },
-        {
-          "tipo": "Personajes Historicos",
-          "pista": "Menciono cierta curiosidad en los Shoguns",
-          "dificultad": 0
-        },
-        {
-          "tipo": "Idioma",
-          "pista": "Me dijo que queria aprender Japones",
           "dificultad": 1
         },
         {
@@ -2123,19 +2734,59 @@
           "dificultad": 0
         },
         {
-          "tipo": "Religion",
-          "pista": "Demostro interes en la religion Shinto",
+          "tipo": "Bandera",
+          "pista": "Dijo que la bandera era Roja y Blanca",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Exportaciones",
+          "pista": "Mencionó la industria Automotor como principal actividad",
           "dificultad": 1
         },
         {
-          "tipo": "Gobernante",
-          "pista": "Me dijo que el pais elegio un presidente democraticamente",
+          "tipo": "Exportaciones",
+          "pista": "Mencionó que se dirigía a una capital con una gran actividad financiera",
           "dificultad": 2
         },
         {
-          "tipo": "Miscelaneos",
-          "pista": "Me dijo que elegio viajar a ese pais porque le gusto la pelicula El Ultimo Samurai",
+          "tipo": "Geografia",
+          "pista": "El país al que se dirige me comento que es un conjunto de varias islas y algunas montañosas",
           "dificultad": 0
+        },
+        {
+          "tipo": "Gobernante",
+          "pista": "Me dijo que el país elegio un presidente democraticamente",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Idioma",
+          "pista": "Me dijo que quería aprender Japones",
+          "dificultad": 1
+        },
+        {
+          "tipo": "Miscelaneos",
+          "pista": "Me dijo que elegio viajar a ese país porque le gusto la pelicula El Ultimo Samurai",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Moneda",
+          "pista": "Convirtió su moneda a Yen",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Personajes Historicos",
+          "pista": "Mencionó cierta curiosidad en los Shoguns",
+          "dificultad": 0
+        },
+        {
+          "tipo": "Puntos de Interes",
+          "pista": "Dijo que quería conocer el Monte Fuji",
+          "dificultad": 2
+        },
+        {
+          "tipo": "Religion",
+          "pista":"Demostró interés en la religión Shinto",
+          "dificultad": 1
         }
       ]
     }
