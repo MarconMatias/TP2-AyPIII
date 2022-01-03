@@ -13,7 +13,7 @@ public class RangoPolicia {
     public RangoPolicia(int cantidadDeArrestos) {
         arrestos = cantidadDeArrestos;
         this.comportamientoRango = new ComoNovato();
-        this.actualizarArrestos(cantidadDeArrestos);
+        actualizarArrestos(cantidadDeArrestos);
     }
 
     public RangoPolicia() {
@@ -24,7 +24,7 @@ public class RangoPolicia {
         return new ArrayList<IPista>(comportamientoRango.filtrarPistas(pistas));
     }
 
-    public void actualizarArrestos(int cantidadDeArrestos) {
+    private void actualizarArrestos(int cantidadDeArrestos) {
         this.arrestos = cantidadDeArrestos;
         this.comportamientoRango = this.comportamientoRango.siguienteComportamientoConArrestos(this.arrestos);
     }
@@ -35,7 +35,7 @@ public class RangoPolicia {
     }
 
     public void agregarArresto(int arrestos) {
-        this.arrestos = arrestos;
+        this.arrestos += arrestos;
         actualizarArrestos(arrestos);
     }
 
