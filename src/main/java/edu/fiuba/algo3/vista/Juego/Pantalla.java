@@ -36,11 +36,6 @@ public class Pantalla extends RelativoAImagen {
         inicializar();
     }
 
-    public Pantalla(String path) {
-        super(path);
-        inicializar();
-    }
-
     protected void iniciarControlador(PantallaControlador controlador) {
         controlador.agregarLiberador(this);
     }

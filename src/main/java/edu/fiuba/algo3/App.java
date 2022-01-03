@@ -27,7 +27,12 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
         this.stage = stage;
-        this.radio = new RadioSonido(juego.getRadio());
+        try {
+            this.radio = new RadioSonido(juego.getRadio());
+        } catch(Exception ex) {
+            Alert alerta = new Alert(Alert.AlertType.ERROR, "No pudo reproducirse el sonido: "+ex, ButtonType.OK);
+            alerta.showAndWait();
+        }
         startSplash(stage);
     }
 

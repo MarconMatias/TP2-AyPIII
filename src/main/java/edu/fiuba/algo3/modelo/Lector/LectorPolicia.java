@@ -1,41 +1,22 @@
 package edu.fiuba.algo3.modelo.Lector;
 
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.Reader;
+import edu.fiuba.algo3.modelo.Policia.Policia;
+import org.json.simple.JSONArray;
+
 import java.util.ArrayList;
 import java.util.Map;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-
-import edu.fiuba.algo3.modelo.Policia.Policia;
 
 public class LectorPolicia {
 
   LectorJson lector = new LectorJson();
 
   public ArrayList<Policia> leerPolicias() {
-
-    JSONParser parser = new JSONParser();
-
-    try (Reader reader = new FileReader("src/main/java/edu/fiuba/algo3/recursos/agentes.json")) {
-
-      JSONObject json = (JSONObject) parser.parse(reader);
-      return leerPolicias(json);
-    } catch (IOException ex) {
-      ex.printStackTrace();
-      throw new RuntimeException("No pudo leerse el archivo de agentes: " + ex.getMessage());
-    } catch (org.json.simple.parser.ParseException ex) {
-      ex.printStackTrace();
-      throw new RuntimeException("No pudo parsearse el archivo de agentes: " + ex.getMessage());
-    }
+    return leerPolicias(lector.leerJsonMap("/edu/fiuba/algo3/agentes.json"));
   }
 
-  public ArrayList<Policia> leerPolicias(JSONObject entrada) {
+  public ArrayList<Policia> leerPolicias(Map entrada) {
     ArrayList jsonAgentes = lector.leerPropiedadComo(JSONArray.class, entrada, "agentes");
-    return lector.interpetarArray(jsonAgentes, obj -> interpretarItem(obj));
+    return lector.interpetarArray(jsonAgentes, this::interpretarItem);
   }
 
   public Policia interpretarItem(Map jsonAgente) {

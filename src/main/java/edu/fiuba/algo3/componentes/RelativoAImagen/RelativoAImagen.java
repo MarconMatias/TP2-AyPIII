@@ -37,10 +37,6 @@ public class RelativoAImagen extends Group {
         setClip(clip);
     }
 
-    public RelativoAImagen(String path) {
-        this(new Image(Imagen.urlDesdePath(path)));
-    }
-
     public Point2DBindingXY nuevoRelativoConAbsoluto(Point2DBindingXY absoluto) {
         DoubleBinding x = absoluto.xProperty().divide(fondo.getWidth());
         DoubleBinding y = absoluto.yProperty().divide(fondo.getHeight());

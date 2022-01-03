@@ -7,8 +7,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Scale;
 
-import java.io.File;
-import java.net.MalformedURLException;
+import java.net.URL;
 
 public class Imagen extends ImageView {
     private final DoubleProperty angulo = new SimpleDoubleProperty(0.0);
@@ -51,16 +50,8 @@ public class Imagen extends ImageView {
         anguloProperty().set(nuevoAngulo);
     }
 
-    public static String urlDesdePath(String absoluta) {
-        try {
-            return (new File(absoluta)).toURI().toURL().toString();
-        } catch (MalformedURLException ex) {
-            ex.printStackTrace();
-            throw new RuntimeException("Imposible crear ruta de archivo desde: "+absoluta);
-        }
-    }
-
     public static String urlDesdeRecursos(String recurso) {
-        return urlDesdePath("src/main/java/edu/fiuba/algo3/recursos/"+recurso);
+        URL res = Imagen.class.getResource("/edu/fiuba/algo3/" + recurso);
+        return (null == res)? null : res.toExternalForm();
     }
 }
