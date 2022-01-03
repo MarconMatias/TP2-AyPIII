@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.Calendario;
 
 import edu.fiuba.algo3.modelo.Calendario.Acciones.AccionDormir;
 import edu.fiuba.algo3.modelo.Calendario.Acciones.IAccion;
+import edu.fiuba.algo3.modelo.Juego.ExcepcionesCalendario.CalendarioException;
 import edu.fiuba.algo3.modelo.Juego.IObservadorAcciones;
 import edu.fiuba.algo3.modelo.Policia.ExcepcionesPolicia.PoliciaException;
 import javafx.beans.binding.DoubleExpression;
@@ -67,7 +68,10 @@ public class Calendario {
      * Avanza el calendario al menos `horas`, durmiendo varias horas adicionales si es necesario.
      * @param horas Cantidad de horas que dura la acción que avanza el calendario.
      */
-    public void avanzarHoras(int horas) throws PoliciaException {
+    public void avanzarHoras(int horas) throws PoliciaException, CalendarioException {
+
+        if(horas < 0)
+            throw new CalendarioException("Error. Las horas pasadas por parametro no son validas porque son negativas.");
         int siguiente = horasActuales.get() + horas;
         boolean debeDormir = this.deberiaDormirSiAvanzaHasta(siguiente);
         this.avanzarSolamente(horas);

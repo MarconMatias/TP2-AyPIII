@@ -92,7 +92,7 @@ public class Policia {
         this.ordenDeArresto.set(new SinOrden("No se emitió nunca una orden de arresto."));
     }
 
-    public int viajar(int distancia) throws PoliciaException {
+    public int viajar(int distancia) throws PoliciaException, CalendarioException {
         int tiempoDeViaje = rango.devolverTiempoDeViaje(distancia);
         calendario.avanzarHoras(tiempoDeViaje);
         return tiempoDeViaje;
@@ -119,7 +119,7 @@ public class Policia {
         return this.arrestos;
     }
 
-    public void avanzarHoras(int demora) throws PoliciaException {
+    public void avanzarHoras(int demora) throws PoliciaException, CalendarioException {
         calendario.avanzarHoras(demora);
     }
 

@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Calendario.Calendario;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Ciudad.Mapa;
 import edu.fiuba.algo3.modelo.Computadora.Computadora;
+import edu.fiuba.algo3.modelo.Computadora.OrdenException;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Calendario.Evento.PoliciaFinaliza;
 import edu.fiuba.algo3.modelo.Calendario.Evento.PoliciaFinalizaListener;
@@ -237,13 +238,18 @@ public class Mision implements DetallableSospechoso {
      * @param edificio Un edificio de la ciudad actual.
      * @return El testimonio obtenido en el edificio de la ciudad actual.
      */
-    public String visitarEdificio(Edificio edificio) throws AccionException, CalendarioException {
+    public String visitarEdificio(Edificio edificio){
         return ciudadActual.visitar(edificio);
     }
 
-    public void generarOrdenDeArresto() throws PoliciaException {
-        IOrden orden = computadora.generarOrdenDeArresto();
-        calendario.aplicarAccion(new EmitirOrden(orden, policia));
+    public void generarOrdenDeArresto() throws PoliciaException, OrdenException {
+        try{
+            IOrden orden = computadora.generarOrdenDeArresto();
+            calendario.aplicarAccion(new EmitirOrden(orden, policia));
+        }
+        catch(OrdenException e){
+            e.printStackTrace();
+        }
     }
 
     public boolean fueFinalizada() {

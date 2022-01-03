@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Calendario.Acciones.HeridaPorCuchillo;
 import edu.fiuba.algo3.modelo.Calendario.Acciones.IAccion;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Computadora.Computadora;
+import edu.fiuba.algo3.modelo.Computadora.OrdenException;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Item.Item;
 import edu.fiuba.algo3.modelo.Calendario.Calendario;
@@ -34,7 +35,7 @@ public class TestsCasosDeUsoEntrega2 {
      * Detective duerme.
      */
     @Test
-    public void casoDeUso01() throws PoliciaException {
+    public void casoDeUso01() throws PoliciaException, CalendarioException {
         // Poner calendario en 21 hs para que al recibir herida deba dormir:
         Calendario calendario = new Calendario();
         int horaInicial = 7;
@@ -171,7 +172,7 @@ public class TestsCasosDeUsoEntrega2 {
      * Atrapa al sospechoso
      */
     @Test
-    public void casoDeUso05() throws AccionException, CalendarioException, PoliciaException {
+    public void casoDeUso05() throws AccionException, PoliciaException, OrdenException {
         // Carga de mapa
         LectorCiudad lectorCiudad = new LectorCiudad();
         Map<String, Ciudad> ciudades = lectorCiudad.leerCiudades();

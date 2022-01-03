@@ -11,6 +11,8 @@ public class Orden implements IOrden {
     private IEstrategiaOrden estrategia;
 
     public Orden(Ladron sospechoso) {
+        if(sospechoso == null)
+            throw new IllegalArgumentException("Error. El sospechoso pasado por parametro en el constructor de Orden no es valido.");
         this.sospechoso = sospechoso;
     }
 

@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.Calendario.Calendario;
 import edu.fiuba.algo3.modelo.Juego.ExcepcionesCalendario.CalendarioException;
 import edu.fiuba.algo3.modelo.Policia.ExcepcionesPolicia.PoliciaException;
 import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
@@ -109,6 +110,6 @@ public class TestPolicia {
         Calendario calendario = new Calendario();
         Policia policia = new Policia("Agus", 0, calendario);
         policia.recibirCuchillada();
-        Assert.assertTrue(policia.fuiAcuchillado() == true );
+        Assertions.assertTrue(policia.fuiAcuchillado());
     }
 }

@@ -132,7 +132,7 @@ public class TestsCasosDeUsos {
      * Detective duerme.
      */
     @Test
-    public void test05CasoDeUso5() throws PoliciaException {
+    public void test05CasoDeUso5() throws PoliciaException, CalendarioException {
         // Poner calendario en 21 hs para que al recibir herida deba dormir:
         Calendario calendario = new Calendario();
         int horaInicial = 7;

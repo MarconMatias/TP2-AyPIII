@@ -22,6 +22,10 @@ public class Ladron implements ISospechoso, DetallableSospechoso {
   private final List<IPista> pistas = new ArrayList<>();
 
   public Ladron(String nombre, Map<String,String> detalles) {
+
+    if(nombre == null || detalles == null)
+      throw new IllegalArgumentException("Error. Alguno de los parametros pasados por el constructor de ladron no es valido.");
+
     this.nombre = nombre;
     this.detalles = detalles;
   }

@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Ciudad;
 
 import edu.fiuba.algo3.modelo.Calendario.Calendario;
+import edu.fiuba.algo3.modelo.Juego.ExcepcionesCalendario.CalendarioException;
 import edu.fiuba.algo3.modelo.Policia.ExcepcionesPolicia.PoliciaException;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 import org.junit.Assert;
@@ -68,7 +69,7 @@ public class MapaTest {
     }
 
     @Test
-    public void viajarDeBamakoAMoroniEntre3DestinosLleva6270Km() throws PoliciaException {
+    public void viajarDeBamakoAMoroniEntre3DestinosLleva6270Km() throws PoliciaException, CalendarioException {
         Ciudad bamako = new Ciudad("Bamako", Collections.emptyList());
         Ciudad montreal = new Ciudad("Montreal", Collections.emptyList());
         Ciudad moroni = new Ciudad("Moroni", Collections.emptyList());

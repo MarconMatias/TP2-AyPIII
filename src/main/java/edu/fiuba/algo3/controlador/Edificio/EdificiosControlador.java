@@ -21,7 +21,7 @@ public class EdificiosControlador extends PantallaControlador {
         this.controlStage = controlStage;
     }
 
-    public void destinoElegido(DestinoEdificio destino) throws AccionException, CalendarioException {
+    public void destinoElegido(DestinoEdificio destino){
         Edificio edificio = destino.getEdificio();
         //System.out.println("Visitando edificio "+edificio.getNombre());
         String testimonio = mision.visitarEdificio(edificio);

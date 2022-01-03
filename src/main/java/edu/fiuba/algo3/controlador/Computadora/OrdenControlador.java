@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.controlador.Computadora;
 
 import edu.fiuba.algo3.controlador.ControlStage;
+import edu.fiuba.algo3.modelo.Computadora.OrdenException;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.modelo.Policia.ExcepcionesPolicia.PoliciaException;
@@ -21,7 +22,7 @@ public class OrdenControlador extends DocumentosControlador {
     public void emitir(ActionEvent ev) {
         try {
             mision.generarOrdenDeArresto();
-        } catch (PoliciaException e) {
+        } catch (PoliciaException | OrdenException e) {
             e.printStackTrace();
         }
         ev.consume();

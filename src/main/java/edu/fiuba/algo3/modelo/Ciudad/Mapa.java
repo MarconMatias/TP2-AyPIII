@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Ciudad;
 
+import edu.fiuba.algo3.modelo.Juego.ExcepcionesCalendario.CalendarioException;
 import edu.fiuba.algo3.modelo.Policia.ExcepcionesPolicia.PoliciaException;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 
@@ -45,7 +46,12 @@ public class Mapa {
             throw new RuntimeException("El destino no existe en el mapa con ese origen.");
         }
         Integer distancia = destinos.get(destino);
-        policia.viajar(distancia);
+        try {
+            policia.viajar(distancia);
+        } catch (CalendarioException e) {
+            System.err.println(e.getMessage());
+            return origen;
+        }
         destino.visitadaPorPolicia(policia, random);
         return destino;
     }

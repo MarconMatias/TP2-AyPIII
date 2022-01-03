@@ -106,16 +106,9 @@ public class Edificios extends Pantalla {
         if(controlador instanceof EdificiosControlador) {
             destinoElegido.addListener(
                     ev -> {
-                        try {
                             ((EdificiosControlador) controlador)
                                     .destinoElegido(destinoElegido.get());
-                        } catch (AccionException e) {
-                            e.printStackTrace();
-                            System.err.println(e.getMessage());
-                        } catch (CalendarioException e) {
-                            e.printStackTrace();
-                            System.err.println(e.getMessage());
-                        }
+
                     });
         }
     }
