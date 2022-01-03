@@ -155,10 +155,14 @@ public class Ciudad implements IDestino, Comparable<Ciudad> {
      * @param edificio Un edificio de la ciudad actual.
      * @return El testimonio obtenido en el edificio de la ciudad actual.
      */
-    public String visitar(Edificio edificio) throws AccionException, CalendarioException, PoliciaException {
+    public String visitar(Edificio edificio){
 
         String testimonio = null;
-        testimonio = visitada.visitar(edificio);
+        try {
+            testimonio = visitada.visitar(edificio);
+        } catch (CalendarioException | PoliciaException e) {
+            throw new AccionException("Error. No pudo visitarse correctamente el edificio." + e.getMessage());
+        }
         return testimonio;
 
     }
