@@ -1,0 +1,47 @@
+@startuml
+title Diagrama de paquetes de acoplamiento Controlador-Modelo
+
+package "Controlador" {
+    package Calendario as CCalendario {} 
+    package Ciudad as CCiudad {}
+    package Computadora as CComputadora {}
+    package Edificio as CEdificio {}
+    package Juego as CJuego {}
+    package Policia as CPolicia {}
+    class ControlStage
+} 
+
+package Modelo {
+    package Ciudad {}
+    package Computadora {}
+    package Edificio {}
+    together {
+        package Calendario {}
+        package Juego {}
+    }
+    together {
+        package Item {}
+        package Ladron {}
+        package Lector {}
+        package Pista {}
+        package Policia {}
+    }
+} 
+
+CCalendario .down.> Calendario
+
+CCalendario .[#blue]down.> Juego
+CCiudad .[#blue]down.> Juego
+CCiudad .down.> Ciudad
+CComputadora .[#blue]down.> Juego
+CComputadora .down.> Computadora
+CEdificio .[#blue]down.> Juego
+CEdificio .down.> Edificio
+CJuego .[#blue]down.> Juego
+CJuego .down.> Calendario
+CPolicia .[#blue]down.> Juego
+ControlStage .[#blue]down.> Juego
+ControlStage .down.> Calendario
+
+Calendario .[hidden]down. Item
+@enduml

@@ -1,0 +1,40 @@
+@startuml
+title Diagrama de paquetes acoplamiento vista-modelo
+
+package vista {
+    package Calendario as VCalendario {}
+    package Ciudad as VCiudad {}
+    package Edificio as VEdificio {}
+    package Computadora as VComputadora {}
+    package Juego as VJuego {}
+    package Policia as VPolicia {}
+}
+
+package modelo {
+    package Calendario {}
+    together {
+        package Ciudad {}
+        package Edificio {}
+        package Pista {}
+    }
+    package Computadora {}
+    package Item {}
+    package Juego {}
+    package Ladron {}
+    package Policia {}
+}
+
+VCalendario .[#blue].> Juego
+VCiudad .[#blue].> Juego
+VEdificio .[#blue].> Juego
+VComputadora .[#blue].> Juego
+VJuego .[#blue].> Juego
+VPolicia .[#blue].> Juego
+
+VCalendario ..> Calendario
+VCiudad ..> Ciudad
+VComputadora ..> Computadora
+VEdificio ..> Edificio
+VPolicia ..> Policia
+
+@enduml

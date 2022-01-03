@@ -1,0 +1,42 @@
+@startuml Policia_general
+hide empty members
+
+class Policia
+{
+    - nombre : String
+    - arrestos : int
+    - getNombre() : String
+    - notificarListeners(List<PoliciaFinalizaListener> listeners, PoliciaFinaliza evento)
+    + Policia(String nombre, int cantidadDeArrestos, Calendario calendario)
+    + Policia(String nombre, int cantidadDeArrestos)
+    + Policia(String nombre)
+    + iniciarMision(Calendario calendario)
+    + viajar(int distancia) : int
+    + agregarArresto()
+    + avanzarHoras(int demora)
+    + avanzarHorasCuchillada(Calendario calendario)
+    + desescucharAlGanar(PoliciaFinalizaListener oyenteGanar)
+    + desescucharAlPerder(PoliciaFinalizaListener oyentePerder)
+    + enfrentar(Ladron ladron)
+    + escucharAlGanar(PoliciaFinalizaListener listener)
+    + escucharAlPerder(PoliciaFinalizaListener listener)
+    + filtrarPistas(Collection<IPista> pistas) : ArrayList<IPista>
+    + visitar(Edificio edificio)
+    + ganar(String explicacion)
+    + perder(String explicacion)
+    + realizarAccion(IAccion accion)
+    + recibirCuchillada()
+    .. getters ..
+    + toString() : String
+    + getOrdenDeArresto() : ObjectProperty<IOrden>
+    + getRangoYNombre() : String
+    + getArrestos() : Integer
+    .. setters ..
+    + setOrdenDeArresto(IOrden ordenDeArresto)
+}
+
+Policia "1" *-u- "1" IOrden
+Policia "1" *-- "9" PoliciaFinalizaListener
+Policia "1" *-- "1" RangoPolicia
+Policia "1" *-- "1" Calendario
+Policia "1" *-u- "1" EstadoCuchillada
