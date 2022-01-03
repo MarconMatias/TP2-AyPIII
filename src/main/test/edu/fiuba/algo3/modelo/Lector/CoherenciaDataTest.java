@@ -24,7 +24,7 @@ import static org.mockito.Mockito.*;
 
 public class CoherenciaDataTest {
     @Test
-    public void laCiudadDeCadaItemEstaEnCiudades() {
+    public void laCiudadDeCadaItemEstaEnCiudades() throws LectorException {
         LectorItem lectorItems = new LectorItem();
         LectorCiudad lectorCiudad = new LectorCiudad();
         List<Item> items = lectorItems.leerItems();
@@ -41,7 +41,7 @@ public class CoherenciaDataTest {
     }
 
     @Test
-    public void todasLasCiudadesEstanEnMapa() {
+    public void todasLasCiudadesEstanEnMapa() throws LectorException {
         LectorCiudad lectorCiudad = new LectorCiudad();
         LectorMapa lectorMapa = new LectorMapa();
         Map<String, Ciudad> ciudades = lectorCiudad.leerCiudades();
@@ -67,7 +67,7 @@ public class CoherenciaDataTest {
     }
 
     @Test
-    public void todasLasCiudadesTienenEntre3y4Salientes() {
+    public void todasLasCiudadesTienenEntre3y4Salientes() throws LectorException {
         LectorCiudad lectorCiudad = new LectorCiudad();
         LectorMapa lectorMapa = new LectorMapa();
         Map<String, Ciudad> ciudades = lectorCiudad.leerCiudades();
@@ -90,7 +90,7 @@ public class CoherenciaDataTest {
     }
 
     @Test
-    public void cadaCiudadTieneUnaPistaDeCadaDificultad() {
+    public void cadaCiudadTieneUnaPistaDeCadaDificultad() throws LectorException {
         final NivelPista facil = new PistaFacil();
         final NivelPista media = new PistaMedia();
         final NivelPista dificil = new PistaDificil();
@@ -120,7 +120,7 @@ public class CoherenciaDataTest {
     }
 
     @Test
-    public void cadaCiudadConCadaFiltroTieneUnaPistaDeCadaDificultad() {
+    public void cadaCiudadConCadaFiltroTieneUnaPistaDeCadaDificultad() throws LectorException {
         final List<IFiltroCiudad> filtros = List.of(
                 new FiltroEconomia(), new FiltroPais(), new FiltroHistoria());
         final NivelPista facil = new PistaFacil();
@@ -156,7 +156,7 @@ public class CoherenciaDataTest {
     }
 
     @Test
-    public void alLeerCiudadesNingunaPistaEstaVacia() {
+    public void alLeerCiudadesNingunaPistaEstaVacia() throws LectorException {
         BiFunction<String,Collection<PistaCiudad>,Ciudad> constructor = Mockito.mock(BiFunction.class);
         Map<String, Collection<PistaCiudad>> llamadas = new HashMap<>();
 
@@ -176,7 +176,7 @@ public class CoherenciaDataTest {
     }
 
     @Test
-    public void alFiltrarPorNivelYFiltroNoQuedaPistaSinUsar() {
+    public void alFiltrarPorNivelYFiltroNoQuedaPistaSinUsar() throws LectorException {
         final List<IFiltroCiudad> filtros = List.of(
                 new FiltroEconomia(), new FiltroPais(), new FiltroHistoria());
         final NivelPista facil = new PistaFacil();
@@ -220,7 +220,7 @@ public class CoherenciaDataTest {
     }
 
     @Test
-    public void cadaCiudadTieneDetalles() {
+    public void cadaCiudadTieneDetalles() throws LectorException {
         LectorCiudad lectorCiudad = new LectorCiudad();
         Map<String,Ciudad> ciudades = lectorCiudad.leerCiudades();
         for(Ciudad ciudad : ciudades.values()) {

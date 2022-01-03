@@ -25,34 +25,32 @@ public class LectorCiudad {
     this(Ciudad::new);
   }
 
-  public Map<String,Ciudad> leerCiudades() {
+  public Map<String,Ciudad> leerCiudades() throws LectorException {
     return leerCiudadesMap("/edu/fiuba/algo3/ciudades.json");
   }
 
-  public List<Ciudad> leerCiudades(String ruta)
-  {
+  public List<Ciudad> leerCiudades(String ruta) throws LectorException {
     return leerCiudades(lector.leerJsonMap(ruta));
   }
 
-  public Map<String,Ciudad> leerCiudadesMap(String ruta) {
+  public Map<String,Ciudad> leerCiudadesMap(String ruta) throws LectorException {
     return lector.mapear(leerCiudades(ruta), Ciudad::getNombre);
   }
 
-  public ArrayList<Ciudad> leerCiudades(java.io.Reader lectorDatos)
-  {
+  public ArrayList<Ciudad> leerCiudades(java.io.Reader lectorDatos) throws LectorException {
     return leerCiudades(lector.leerJsonMap(lectorDatos));
   }
 
-  public Map<String,Ciudad> leerCiudadesMap(java.io.Reader lectorDatos) {
+  public Map<String,Ciudad> leerCiudadesMap(java.io.Reader lectorDatos) throws LectorException {
     return lector.mapear(leerCiudades(lectorDatos), Ciudad::getNombre);
   }
 
-  public ArrayList<Ciudad> leerCiudades(Map parseado) {
+  public ArrayList<Ciudad> leerCiudades(Map parseado) throws LectorException {
     ArrayList jsonCiudades = lector.leerPropiedadComo(ArrayList.class,parseado,"ciudades");
     return lector.interpetarArray(jsonCiudades, this::interpretarCiudad);
   }
 
-  public Map<String,Ciudad> leerCiudadesMap(Map parseado) {
+  public Map<String,Ciudad> leerCiudadesMap(Map parseado) throws LectorException {
     return lector.mapear(leerCiudades(parseado), Ciudad::getNombre);
   }
 

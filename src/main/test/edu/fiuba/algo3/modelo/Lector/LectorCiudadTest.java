@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo.Lector;
 
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -9,13 +8,13 @@ import org.junit.Test;
 
 import java.util.Map;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class LectorCiudadTest {
 
     @Test
-    public void leerCiudadesVacioDaMapaVacio()
-    {
+    public void leerCiudadesVacioDaMapaVacio() throws LectorException {
         final String fuente = "{\"ciudades\":[]}";
         LectorCiudad lector = new LectorCiudad();
 
@@ -32,8 +31,7 @@ public class LectorCiudadTest {
     }
 
     @Test
-    public void leer2CiudadesDaMapa2Ciudades()
-    {
+    public void leer2CiudadesDaMapa2Ciudades() throws LectorException {
         final String fuente = "{\"ciudades\":[{\"nombre\":\"Ciudad1\",\"pistas\":[]},{\"nombre\":\"Ciudad2\",\"pistas\":[]}]}";
         LectorCiudad lector = new LectorCiudad();
 
@@ -50,8 +48,7 @@ public class LectorCiudadTest {
     }
 
     @Test
-    public void leer2CiudadesDaMapa2CiudadesConNombreCorrecto()
-    {
+    public void leer2CiudadesDaMapa2CiudadesConNombreCorrecto() throws LectorException {
         final String fuente = "{\"ciudades\":[{\"nombre\":\"Ciudad1\",\"pistas\":[]},{\"nombre\":\"Ciudad2\",\"pistas\":[]}]}";
         LectorCiudad lector = new LectorCiudad();
 

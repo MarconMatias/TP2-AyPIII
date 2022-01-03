@@ -12,18 +12,18 @@ public class LectorLadron {
   LectorJson lector = new LectorJson();
   ArrayList<Ladron> ladrones = new ArrayList<Ladron>();
 
-  public ArrayList<Ladron> leerLadrones() {
+  public ArrayList<Ladron> leerLadrones() throws LectorException {
     return leerLadrones(lector.leerJsonMap("/edu/fiuba/algo3/expediente.json"));
   }
 
 
-  public ArrayList<Ladron> leerLadrones(Map entrada) {
+  public ArrayList<Ladron> leerLadrones(Map entrada) throws LectorException {
     JSONArray jsonLadrones = lector.leerPropiedadComo(JSONArray.class, entrada, "ladrones");
     ArrayList<Ladron> ladrones = lector.interpetarArray(jsonLadrones, this::interpretarLadron);
     return ladrones;
   }
 
-  public Ladron interpretarLadron(Map jsonLadron) {
+  public Ladron interpretarLadron(Map jsonLadron) throws LectorException {
     String nombre = lector.leerPropiedadComo(String.class,jsonLadron,"nombre");
     Map<String,String> detalles = new HashMap<String,String>();
     for(String tipo : List.of("sexo", "deporte", "cabello", "distincion", "vehiculo"))

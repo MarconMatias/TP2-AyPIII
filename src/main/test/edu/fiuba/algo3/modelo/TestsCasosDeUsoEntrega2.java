@@ -16,6 +16,7 @@ import edu.fiuba.algo3.modelo.Ciudad.Mapa;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Lector.LectorCiudad;
+import edu.fiuba.algo3.modelo.Lector.LectorException;
 import edu.fiuba.algo3.modelo.Lector.LectorMapa;
 import edu.fiuba.algo3.modelo.Policia.ExcepcionesPolicia.PoliciaException;
 import edu.fiuba.algo3.modelo.Policia.Policia;
@@ -172,7 +173,7 @@ public class TestsCasosDeUsoEntrega2 {
      * Atrapa al sospechoso
      */
     @Test
-    public void casoDeUso05() throws AccionException, PoliciaException, OrdenException, CalendarioException {
+    public void casoDeUso05() throws AccionException, PoliciaException, OrdenException, CalendarioException, LectorException {
         // Carga de mapa
         LectorCiudad lectorCiudad = new LectorCiudad();
         Map<String, Ciudad> ciudades = lectorCiudad.leerCiudades();

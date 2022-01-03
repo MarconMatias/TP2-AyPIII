@@ -1,5 +1,5 @@
 package edu.fiuba.algo3.modelo.Lector;
-import edu.fiuba.algo3.modelo.Item.Item;
+
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -12,8 +12,7 @@ import static org.junit.Assert.assertEquals;
 
 public class LectorLadronTest {
     @Test
-    public void leerLadronesVacioDaListaVacia()
-    {
+    public void leerLadronesVacioDaListaVacia() throws LectorException {
         final String fuente = "{\"ladrones\":[]}";
         LectorLadron lector = new LectorLadron();
 
@@ -30,8 +29,7 @@ public class LectorLadronTest {
     }
 
     @Test
-    public void leer2ElementosDaListaCon2Ladrones()
-    {
+    public void leer2ElementosDaListaCon2Ladrones() throws LectorException {
         String fuente = "{\"ladrones\":["+
                 "{\"nombre\":\"Ladron1\",\"sexo\":\"\",\"deporte\":\"\",\"cabello\":\"\",\"distincion\":\"\",\"vehiculo\":\"\",},"+
                 "{\"nombre\":\"Ladron2\",\"sexo\":\"\",\"deporte\":\"\",\"cabello\":\"\",\"distincion\":\"\",\"vehiculo\":\"\",},"+
@@ -51,8 +49,7 @@ public class LectorLadronTest {
     }
 
     @Test
-    public void leer2ElementosDaListaCon2LadronesConNombreCorrecto()
-    {
+    public void leer2ElementosDaListaCon2LadronesConNombreCorrecto() throws LectorException {
         String fuente = "{\"ladrones\":["+
                 "{\"nombre\":\"Ladron1\",\"sexo\":\"\",\"deporte\":\"\",\"cabello\":\"\",\"distincion\":\"\",\"vehiculo\":\"\",},"+
                 "{\"nombre\":\"Ladron2\",\"sexo\":\"\",\"deporte\":\"\",\"cabello\":\"\",\"distincion\":\"\",\"vehiculo\":\"\",},"+
@@ -73,8 +70,7 @@ public class LectorLadronTest {
     }
 
     @Test
-    public void leer2ElementosDaListaCon2LadronesConSexoCorrecto()
-    {
+    public void leer2ElementosDaListaCon2LadronesConSexoCorrecto() throws LectorException {
         String fuente = "{\"ladrones\":["+
                 "{\"nombre\":\"Ladron1\",\"sexo\":\"sexo1\",\"deporte\":\"\",\"cabello\":\"\",\"distincion\":\"\",\"vehiculo\":\"\",},"+
                 "{\"nombre\":\"Ladron2\",\"sexo\":\"sexo2\",\"deporte\":\"\",\"cabello\":\"\",\"distincion\":\"\",\"vehiculo\":\"\",},"+
@@ -95,8 +91,7 @@ public class LectorLadronTest {
     }
 
     @Test
-    public void leer2ElementosDaListaCon2LadronesConDetallesCorrectos()
-    {
+    public void leer2ElementosDaListaCon2LadronesConDetallesCorrectos() throws LectorException {
         String fuente = "{\"ladrones\":["+
                 "{\"nombre\":\"Ladron1\",\"sexo\":\"sexo1\",\"deporte\":\"basket\",\"cabello\":\"rojo\",\"distincion\":\"anillo\",\"vehiculo\":\"Ferrari\",},"+
                 "{\"nombre\":\"Ladron2\",\"sexo\":\"sexo2\",\"deporte\":\"handball\",\"cabello\":\"azul\",\"distincion\":\"piercing\",\"vehiculo\":\"Unicornio\",},"+

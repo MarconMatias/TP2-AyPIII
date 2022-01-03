@@ -13,7 +13,7 @@ import static org.mockito.Mockito.*;
 
 public class LectorMapaTest {
     @Test
-    public void leerJsonVacioDaOrigenesVacio() {
+    public void leerJsonVacioDaOrigenesVacio() throws LectorException {
         final String fuente = "{\"mapa\":{}}";
         LectorMapa lector = new LectorMapa();
         JSONObject entrada;
@@ -29,7 +29,7 @@ public class LectorMapaTest {
     }
 
     @Test
-    public void leerJsonCon1OrigenTiene1Origen() {
+    public void leerJsonCon1OrigenTiene1Origen() throws LectorException {
         final String fuente = "{\"mapa\":{\"Atenas\":{\"Bangkok\":7917}}}";
         LectorMapa lector = new LectorMapa();
         JSONObject entrada;
@@ -45,8 +45,7 @@ public class LectorMapaTest {
     }
 
     @Test
-    public void leerJsonConVariosOrigenDestinoDevuelveMapaConDistanciasCorrectas()
-    {
+    public void leerJsonConVariosOrigenDestinoDevuelveMapaConDistanciasCorrectas() throws LectorException {
         final String fuente = "{\"mapa\": {"+
                 "  \"Atenas\": { \"Bangkok\": 7917, \"New York\": 7920, \"Reykjavik\": 4160, \"Oslo\": 2606},"+
                 "  \"Bamako\": { \"Montreal\": 7113, \"Moroni\": 6270, \"Tokyo\": 13657},"+

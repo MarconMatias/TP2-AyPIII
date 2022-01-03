@@ -9,7 +9,7 @@ public class LectorMapa {
 
     public LectorMapa() {
     }
-    public Mapa leerMapa(Map entrada, Mapa mapa) {
+    public Mapa leerMapa(Map entrada, Mapa mapa) throws LectorException {
         Map mapaJson = lectorJson.leerPropiedadComo(Map.class,entrada,"mapa");
         for (Object clave:mapaJson.keySet()) {
             if(!(clave instanceof String))
@@ -23,7 +23,7 @@ public class LectorMapa {
         return mapa;
     }
 
-    private void interpretarOrigen(String origen, Map destinosJson, Mapa mapa) {
+    private void interpretarOrigen(String origen, Map destinosJson, Mapa mapa) throws LectorException {
         for (Object clave:destinosJson.keySet()) {
             if (!(clave instanceof String)) {
                 throw new RuntimeException("En " + origen + " hay un destino que no es String, es " + clave.getClass().getName() + ": " + clave.toString());
@@ -34,11 +34,11 @@ public class LectorMapa {
         }
     }
 
-    public Mapa leerMapa(Mapa mapa) {
+    public Mapa leerMapa(Mapa mapa) throws LectorException {
         return leerMapa("/edu/fiuba/algo3/mapa.json", mapa);
     }
 
-    private Mapa leerMapa(String ruta, Mapa mapa) {
+    private Mapa leerMapa(String ruta, Mapa mapa) throws LectorException {
         return leerMapa(lectorJson.leerJsonMap(ruta), mapa);
     }
 }

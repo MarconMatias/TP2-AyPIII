@@ -2,13 +2,15 @@ package edu.fiuba.algo3.modelo.Lector;
 
 import org.json.simple.parser.JSONParser;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
 
 public class LectorJson {
     /**
@@ -20,13 +22,13 @@ public class LectorJson {
      * @param <T>       La clase a la que se castea.
      * @return La propiedad `propiedad` de `objeto`.
      */
-    public <T> T leerPropiedadComo(Class<T> clase, Map objeto, String propiedad) {
+    public <T> T leerPropiedadComo(Class<T> clase, Map objeto, String propiedad) throws LectorException {
         if (!objeto.containsKey(propiedad)) {
-            throw new RuntimeException("No contiene propiedad " + propiedad + ".");
+            throw new LectorException("No contiene propiedad " + propiedad + ".");
         }
         Object valor = objeto.get(propiedad);
         if (!clase.isInstance(valor)) {
-            throw new RuntimeException("La propiedad " + propiedad + " no es " + clase.getName() + ".");
+            throw new LectorException("La propiedad " + propiedad + " no es " + clase.getName() + ".");
         }
         return clase.cast(valor);
     }
@@ -56,31 +58,40 @@ public class LectorJson {
         }
     }
 
-    public Map comoDiccionario(Object elemento)
-    {
+    public Map comoDiccionario(Object elemento) throws LectorException {
         if(!(elemento instanceof Map)) {
-            throw new RuntimeException("No es un diccionario.");
+            throw new LectorException("No es un diccionario.");
         }
         return (Map) elemento;
     }
 
-    public <T> ArrayList<T> interpetarArray(ArrayList array, Function<Map,T> iterpretar)
-    {
+    public <T> ArrayList<T> interpetarArray(ArrayList array, JsonMapper<Map,T> iterpretar) throws LectorException {
         ArrayList<T> lista = new ArrayList<T>();
+        List<Exception> internas = new ArrayList<>();
         int i = 0;
         for(Object elemento:array)
             try {
                 lista.add(iterpretar.apply(comoDiccionario(elemento)));
                 i++;
             } catch (RuntimeException ex) {
-                ex.printStackTrace();
-                throw new RuntimeException("Error al leer elemento "+i+": "+ex.getMessage());
+                internas.add(
+                        new LectorException(
+                                "Error al leer elemento "+i+": "+ex.getMessage(),
+                                List.of(ex)));
             }
+        if(1 == internas.size()) {
+            try {
+                throw internas.get(0);
+            } catch (Exception e) {
+                throw new LectorException(e.getMessage(),List.of(e));
+            }
+        } else if(internas.size()>1) {
+            throw new LectorException("Varios errores al leer un diccionario.",internas);
+        }
         return lista;
     }
 
-    public Map leerJsonMap(java.io.Reader lectorDatos)
-    {
+    public Map leerJsonMap(java.io.Reader lectorDatos) throws LectorException {
         JSONParser parser = new JSONParser();
         try {
             return comoDiccionario(parser.parse(lectorDatos));
@@ -93,25 +104,45 @@ public class LectorJson {
         }
     }
 
-    public Map leerJsonMap(String ruta)
-    {
+    public Map leerJsonMap(String ruta) throws LectorException {
       try {
         InputStream stream = getClass().getResourceAsStream(ruta);
         Reader reader = new InputStreamReader(stream, StandardCharsets.UTF_8);
         return leerJsonMap(reader);
       } catch(NullPointerException ex) {
-        throw new RuntimeException("Error al leer el archivo "+ruta+": no se encuentra");
+        throw new LectorException("Error al leer el archivo "+ruta+": no se encuentra", ex);
       } catch(Exception ex) {
-        throw new RuntimeException("Error al leer el archivo "+ruta+": "+ex);
+        throw new LectorException("Error al leer el archivo "+ruta+": "+ex, ex);
       }
     }
 
-    public <T,S> Map<S,T> mapear(List<T> lista, Function<T,S> conversorALlave)
-    {
+    @FunctionalInterface
+    public interface JsonMapper<T, S> {
+        S apply(T t) throws LectorException;
+    }
+
+    public <T,S> Map<S,T> mapear(List<T> lista, JsonMapper<T,S> conversorALlave) throws LectorException {
+        List<Exception> internas = new ArrayList<>();
+        int i=0;
         Map<S,T> map = new HashMap<S,T>();
         for(T elemento : lista)
-        {
+        try {
             map.put(conversorALlave.apply(elemento), elemento);
+            i++;
+        } catch (RuntimeException ex) {
+            internas.add(
+                    new LectorException(
+                            "Error al mapear elemento "+i+": "+ex.getMessage(),
+                            List.of(ex)));
+        }
+        if(1 == internas.size()) {
+            try {
+                throw internas.get(0);
+            } catch (Exception e) {
+                throw new LectorException(e.getMessage(),e);
+            }
+        } else if(internas.size()>1) {
+            throw new LectorException("Varios errores al mapear array.",internas);
         }
         return map;
     }

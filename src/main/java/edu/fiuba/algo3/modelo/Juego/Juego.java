@@ -1,15 +1,17 @@
 package edu.fiuba.algo3.modelo.Juego;
 
-import java.util.*;
-
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Ciudad.Mapa;
 import edu.fiuba.algo3.modelo.Item.Item;
+import edu.fiuba.algo3.modelo.Juego.Radio.Radio;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Policia.Policia;
-import edu.fiuba.algo3.modelo.Juego.Radio.Radio;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Juego {
 
@@ -24,12 +26,16 @@ public class Juego {
   private ObservableList<Policia> agentesObservable;
 
   public Juego() {
-    ladrones = datos.leerLadrones();
-    items = datos.leerItems();
-    ciudades = datos.leerCiudades();
-    agentes = datos.leerPolicias();
-    agentesObservable = FXCollections.observableList(agentes);
-    mapa = datos.leerMapa(ciudades);
+    try {
+      ladrones = datos.leerLadrones();
+      items = datos.leerItems();
+      ciudades = datos.leerCiudades();
+      agentes = datos.leerPolicias();
+      agentesObservable = FXCollections.observableList(agentes);
+      mapa = datos.leerMapa(ciudades);
+    } catch(Exception ex) {
+      throw new RuntimeException("No pudo iniciarse el juego:\n"+ex);
+    }
   }
 
   public ObservableList<Policia> getPolicias() {

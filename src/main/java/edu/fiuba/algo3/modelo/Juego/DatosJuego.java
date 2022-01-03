@@ -1,14 +1,14 @@
 package edu.fiuba.algo3.modelo.Juego;
 
-import java.util.ArrayList;
-import java.util.Map;
-
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Ciudad.Mapa;
 import edu.fiuba.algo3.modelo.Item.Item;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Lector.*;
 import edu.fiuba.algo3.modelo.Policia.Policia;
+
+import java.util.ArrayList;
+import java.util.Map;
 
 public class DatosJuego {
 
@@ -23,25 +23,25 @@ public class DatosJuego {
 
   }
 
-  public ArrayList<Ladron> leerLadrones() {
+  public ArrayList<Ladron> leerLadrones() throws LectorException {
     return lectorLadron.leerLadrones();
   }
 
-  public ArrayList<Item> leerItems() {
+  public ArrayList<Item> leerItems() throws LectorException {
     return lectorItem.leerItems();
   }
 
-  public Map<String, Ciudad> leerCiudades() {
+  public Map<String, Ciudad> leerCiudades() throws LectorException {
     if(null != ciudades) {
       return ciudades;
     }
     return ciudades = lectorCiudad.leerCiudades();
   }
 
-  public Mapa leerMapa(Map<String, Ciudad> ciudades) {
+  public Mapa leerMapa(Map<String, Ciudad> ciudades) throws LectorException {
     return lectorMapa.leerMapa(new Mapa(leerCiudades()));
   }
-  public ArrayList<Policia> leerPolicias() {
+  public ArrayList<Policia> leerPolicias() throws LectorException {
     return lectorPolicia.leerPolicias();
   }
 }

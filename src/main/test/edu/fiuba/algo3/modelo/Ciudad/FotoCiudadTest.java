@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Ciudad;
 
 import edu.fiuba.algo3.modelo.Lector.LectorCiudad;
+import edu.fiuba.algo3.modelo.Lector.LectorException;
 import edu.fiuba.algo3.vista.Ciudad.FotoCiudad;
 import org.junit.Test;
 
@@ -10,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class FotoCiudadTest {
     @Test
-    public void cadaCiudadTieneUnaFoto() {
+    public void cadaCiudadTieneUnaFoto() throws LectorException {
         final String fuente = "src/main/java/edu/fiuba/algo3/recursos/ciudades.json";
         LectorCiudad lectorCiudad = new LectorCiudad();
         List<Ciudad> ciudades = lectorCiudad.leerCiudades(fuente);

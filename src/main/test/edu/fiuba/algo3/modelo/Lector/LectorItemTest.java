@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo.Lector;
 
-import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Item.Item;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -8,15 +7,12 @@ import org.json.simple.parser.ParseException;
 import org.junit.Test;
 
 import java.util.List;
-import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class LectorItemTest {
     @Test
-    public void leerItemsVacioDaListaVacia()
-    {
+    public void leerItemsVacioDaListaVacia() throws LectorException {
         final String fuente = "{\"items\":[]}";
         LectorItem lector = new LectorItem();
 
@@ -26,7 +22,7 @@ public class LectorItemTest {
             entrada = (JSONObject) (new JSONParser()).parse(fuente);
         }
         catch(ParseException ex) {
-            throw new RuntimeException("Error al parsear test: "+ex.toString());
+            throw new RuntimeException("Error al parsear test: "+ex);
         }
 
         List<Item> items = lector.leerItems(entrada);
@@ -34,8 +30,7 @@ public class LectorItemTest {
     }
 
     @Test
-    public void leer2ElementosDaListaCon2Items()
-    {
+    public void leer2ElementosDaListaCon2Items() throws LectorException {
         String fuente = "{\"items\":[{\"nombre\":\"Nombre1\",\"ciudad\":\"Ciudad1\"},";
         fuente+= "{\"nombre\":\"Item2\",\"ciudad\":\"Otro lugar\"}]}";
         LectorItem lector = new LectorItem();
@@ -46,7 +41,7 @@ public class LectorItemTest {
             entrada = (JSONObject) (new JSONParser()).parse(fuente);
         }
         catch(ParseException ex) {
-            throw new RuntimeException("Error al parsear test: "+ex.toString());
+            throw new RuntimeException("Error al parsear test: "+ex);
         }
 
         List<Item> items = lector.leerItems(entrada);
@@ -54,8 +49,7 @@ public class LectorItemTest {
     }
 
     @Test
-    public void leer2ElementosDaListaCon2ItemsConNombreCorrecto()
-    {
+    public void leer2ElementosDaListaCon2ItemsConNombreCorrecto() throws LectorException {
         String fuente = "{\"items\":[{\"nombre\":\"Nombre1\",\"ciudad\":\"Ciudad1\"},";
         fuente+= "{\"nombre\":\"Item2\",\"ciudad\":\"Otro lugar\"}]}";
         LectorItem lector = new LectorItem();
@@ -66,7 +60,7 @@ public class LectorItemTest {
             entrada = (JSONObject) (new JSONParser()).parse(fuente);
         }
         catch(ParseException ex) {
-            throw new RuntimeException("Error al parsear test: "+ex.toString());
+            throw new RuntimeException("Error al parsear test: "+ex);
         }
 
         List<Item> items = lector.leerItems(entrada);
@@ -76,8 +70,7 @@ public class LectorItemTest {
 
 
     @Test
-    public void leer2ElementosDaListaCon2ItemsConCiudadCorrecto()
-    {
+    public void leer2ElementosDaListaCon2ItemsConCiudadCorrecto() throws LectorException {
         String fuente = "{\"items\":[{\"nombre\":\"Nombre1\",\"ciudad\":\"Ciudad1\"},";
         fuente+= "{\"nombre\":\"Item2\",\"ciudad\":\"Otro lugar\"}]}";
         LectorItem lector = new LectorItem();
@@ -88,7 +81,7 @@ public class LectorItemTest {
             entrada = (JSONObject) (new JSONParser()).parse(fuente);
         }
         catch(ParseException ex) {
-            throw new RuntimeException("Error al parsear test: "+ex.toString());
+            throw new RuntimeException("Error al parsear test: "+ex);
         }
 
         List<Item> items = lector.leerItems(entrada);
