@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.Calendario;
 
 import edu.fiuba.algo3.modelo.Calendario.Acciones.AccionDormir;
 import edu.fiuba.algo3.modelo.Calendario.Acciones.IAccion;
+import edu.fiuba.algo3.modelo.Juego.ExcepcionesCalendario.CalendarioException;
 import edu.fiuba.algo3.modelo.Juego.IObservadorAcciones;
 import javafx.beans.binding.DoubleExpression;
 import javafx.beans.binding.IntegerExpression;
@@ -66,8 +67,10 @@ public class Calendario {
      * Avanza el calendario al menos `horas`, durmiendo varias horas adicionales si es necesario.
      * @param horas Cantidad de horas que dura la acción que avanza el calendario.
      */
-    public void avanzarHoras(int horas)
-    {
+    public void avanzarHoras(int horas) throws CalendarioException {
+        if(horas < 0)
+            throw new IllegalArgumentException("El calendario no pudo avanzar "+horas+", no es un número válido.");
+
         int siguiente = horasActuales.get() + horas;
         boolean debeDormir = this.deberiaDormirSiAvanzaHasta(siguiente);
         this.avanzarSolamente(horas);
@@ -104,13 +107,23 @@ public class Calendario {
        return !esHoraDeDormir(getHoraDelDia()) && esHoraDeDormir(hsSiguiente);
     }
 
-    public void aplicarAccion(IAccion accion) {
-        notificarObservadores(accion);
-        accion.avanzarCalendario(this);
-        accion.realizar();
+    public void aplicarAccion(IAccion accion) throws CalendarioException {
+        if(null == accion)
+            throw new IllegalArgumentException("La acción a aplicar al calendario no es válida.");
+
+        try {
+            notificarObservadores(accion);
+            accion.avanzarCalendario(this);
+            accion.realizar();
+        } catch(CalendarioException ex) {
+            throw ex;
+        } catch (Exception ex) {
+            throw new CalendarioException("El calendario no pudo aplicar la acción "
+                    +accion.getNombreAccion()+"\n"+ex);
+        }
     }
 
-    private void notificarObservadores(IAccion accion) {
+    private void notificarObservadores(IAccion accion) throws CalendarioException {
         ArrayList<RuntimeException> excepciones = new ArrayList<>();
         for(IObservadorAcciones observador : observadoresAcciones)
         try {
@@ -119,7 +132,7 @@ public class Calendario {
             excepciones.add(ex);
         }
         if(excepciones.size()>0) {
-            throw new RuntimeException("Hubo "+excepciones.size()+" errores al notificar observadores de acción.");
+            throw new CalendarioException("Hubo "+excepciones.size()+" errores al notificar observadores de acción.");
         }
     }
 

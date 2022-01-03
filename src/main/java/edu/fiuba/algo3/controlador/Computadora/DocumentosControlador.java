@@ -34,9 +34,13 @@ public class DocumentosControlador extends PantallaControlador {
         if(ev.isConsumed()) {
             return;
         }
-        if(controlStage.abrirOrden()) {
-            ev.consume();
-            liberar();
+        try {
+            if (controlStage.abrirOrden()) {
+                ev.consume();
+                liberar();
+            }
+        } catch (Exception ex) {
+            alertaError(ex);
         }
     }
 
@@ -44,16 +48,23 @@ public class DocumentosControlador extends PantallaControlador {
         if(ev.isConsumed() || (KeyCode.ENTER != ev.getCode())) {
             return;
         }
-        if(controlStage.abrirOrden()) {
-            ev.consume();
-            liberar();
+        try {
+            if (controlStage.abrirOrden()) {
+                ev.consume();
+                liberar();
+            }
+        } catch (Exception ex) {
+            alertaError(ex);
         }
     }
 
     public void sospechosoElegido(Ladron elegido) {
-        if((null!=elegido) && controlStage.abrirExpediente(elegido))
-        {
-            liberar();
+        try {
+            if ((null != elegido) && controlStage.abrirExpediente(elegido)) {
+                liberar();
+            }
+        } catch (Exception ex) {
+            alertaError(ex);
         }
     }
 

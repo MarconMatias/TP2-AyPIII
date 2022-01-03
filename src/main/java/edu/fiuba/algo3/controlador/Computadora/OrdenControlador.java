@@ -18,7 +18,11 @@ public class OrdenControlador extends DocumentosControlador {
     }
 
     public void emitir(ActionEvent ev) {
-        mision.generarOrdenDeArresto();
-        ev.consume();
+        try {
+            mision.generarOrdenDeArresto();
+            ev.consume();
+        } catch (Exception ex) {
+            alertaError(ex);
+        }
    }
 }

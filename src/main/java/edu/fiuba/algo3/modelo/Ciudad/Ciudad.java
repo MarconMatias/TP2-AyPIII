@@ -2,17 +2,17 @@ package edu.fiuba.algo3.modelo.Ciudad;
 
 import edu.fiuba.algo3.modelo.Ciudad.EstrategiaAcciones.IEstrategiaAcciones;
 import edu.fiuba.algo3.modelo.Ciudad.EstrategiaAcciones.SinEstrategiaAcciones;
+import edu.fiuba.algo3.modelo.Ciudad.Ruta.Ruta;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Edificio.TipoEdificio.*;
 import edu.fiuba.algo3.modelo.Ladron.ISospechoso;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Ladron.SinSospechoso;
 import edu.fiuba.algo3.modelo.Pista.Filtro.IFiltroCiudad;
-import edu.fiuba.algo3.modelo.Policia.Policia;
 import edu.fiuba.algo3.modelo.Pista.IPista;
 import edu.fiuba.algo3.modelo.Pista.PistaCiudad;
 import edu.fiuba.algo3.modelo.Pista.SinPistaCiudad;
-import edu.fiuba.algo3.modelo.Ciudad.Ruta.Ruta;
+import edu.fiuba.algo3.modelo.Policia.Policia;
 
 import java.util.*;
 import java.util.function.Function;
@@ -135,9 +135,6 @@ public class Ciudad implements IDestino, Comparable<Ciudad> {
                 destinoSospechoso, estrategiaAcciones, random);
     }
 
-    public void visitadaPorPolicia(Policia policia) {
-        visitadaPorPolicia(policia, new Random());
-    }
     /**
      * El policía que está visitando esta ciudad, vista al edificio dado.
      * * Avanza el calendario por la visita misma.
@@ -145,8 +142,8 @@ public class Ciudad implements IDestino, Comparable<Ciudad> {
      * @param edificio Un edificio de la ciudad actual.
      * @return El testimonio obtenido en el edificio de la ciudad actual.
      */
-    public String visitar(Edificio edificio) {
-        return visitada.visitar(edificio);
+    public String visitar(Edificio edificio){
+        String testimonio = visitada.visitar(edificio);
+        return testimonio;
     }
-
 }

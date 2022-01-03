@@ -20,10 +20,13 @@ public class MapaDestinosControlador extends PantallaControlador {
 
     public void destinoElegido(DestinoCiudad destino) {
         //System.out.println("Viajando a "+destino.getNombre());
-        mision.viajarACiudad(destino.getCiudad());
-        if(controlStage.abrirLibroCiudad()) {
-            liberar();
+        try {
+            mision.viajarACiudad(destino.getCiudad());
+            if(controlStage.abrirLibroCiudad()) {
+                liberar();
+            }
+        } catch (Exception ex) {
+            alertaError(ex);
         }
     }
-
 }

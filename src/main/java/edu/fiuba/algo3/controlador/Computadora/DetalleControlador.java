@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.controlador.Computadora;
 
 import edu.fiuba.algo3.modelo.Juego.Mision;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
@@ -55,17 +57,22 @@ public class DetalleControlador {
     }
 
     private void elegir(int posicion) {
-        // +1 para el null:
-        final int rango = (posiblesValores.size()+1);
-        final int ultimo = rango-1;
-        // +rango por si es -1 hacerlo positivo:
-        posicion = (posicion+rango) % rango;
-        String nuevoValor = null;
-        if(posicion< ultimo) {
-            nuevoValor = posiblesValores.get(posicion);
+        try {
+            // +1 para el null:
+            final int rango = (posiblesValores.size() + 1);
+            final int ultimo = rango - 1;
+            // +rango por si es -1 hacerlo positivo:
+            posicion = (posicion + rango) % rango;
+            String nuevoValor = null;
+            if (posicion < ultimo) {
+                nuevoValor = posiblesValores.get(posicion);
+            }
+            //System.out.println("ahora: "+posicion+"="+nuevoValor);
+            mision.agregarDetalleLadron(tipo, nuevoValor);
+        } catch (Exception ex) {
+            Alert alerta = new Alert(Alert.AlertType.ERROR, ex.getMessage(), ButtonType.OK);
+            alerta.showAndWait();
         }
-        //System.out.println("ahora: "+posicion+"="+nuevoValor);
-        mision.agregarDetalleLadron(tipo, nuevoValor);
     }
 
     private void elegirAnterior() {

@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.modelo.Ciudad;
 
 import edu.fiuba.algo3.modelo.Calendario.Calendario;
+import edu.fiuba.algo3.modelo.Juego.ExcepcionesCalendario.CalendarioException;
+import edu.fiuba.algo3.modelo.Policia.ExcepcionesPolicia.PoliciaException;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 import org.junit.Assert;
 import org.junit.Test;
@@ -28,12 +30,13 @@ public class MapaTest {
             mapa.viajar(policia, eregion, rivendel);
             Assert.fail("Debe lanzar una excepción.");
         } catch (RuntimeException ex) {
+        } catch (PoliciaException e) {
+            e.printStackTrace();
         }
     }
 
     @Test
-    public void irDeCiudadExistenteADestinoExistentePasa()
-    {
+    public void irDeCiudadExistenteADestinoExistentePasa() throws PoliciaException {
         Ciudad atenas = new Ciudad("Atenas", Collections.emptyList());
         Ciudad bangkok = new Ciudad("Bangkok", Collections.emptyList());
         Mapa mapa = new Mapa(List.of(atenas,bangkok));
@@ -60,12 +63,13 @@ public class MapaTest {
             mapa.viajar(policia, atenas, colombo);
             Assert.fail("Debe lanzar una excepción.");
         } catch (RuntimeException ex) {
+        } catch (PoliciaException e) {
+            e.printStackTrace();
         }
     }
 
     @Test
-    public void viajarDeBamakoAMoroniEntre3DestinosLleva6270Km()
-    {
+    public void viajarDeBamakoAMoroniEntre3DestinosLleva6270Km() throws PoliciaException, CalendarioException {
         Ciudad bamako = new Ciudad("Bamako", Collections.emptyList());
         Ciudad montreal = new Ciudad("Montreal", Collections.emptyList());
         Ciudad moroni = new Ciudad("Moroni", Collections.emptyList());

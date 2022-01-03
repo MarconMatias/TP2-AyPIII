@@ -17,6 +17,8 @@ public class Item {
 
     public Item(String nombreDelItem, String nombreCiudadDelRobo, RangoItem rango){
 
+        if(nombreDelItem == null || nombreCiudadDelRobo == null || rango == null)
+            throw new IllegalArgumentException("Alguno de los valores del ítem no es válido.");
         this.nombreDelItem = nombreDelItem;
         this.nombreCiudadDelRobo = nombreCiudadDelRobo;
         this.rango = rango;

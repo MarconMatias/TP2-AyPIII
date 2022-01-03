@@ -2,6 +2,8 @@ package edu.fiuba.algo3.modelo.Calendario.Acciones;
 
 import edu.fiuba.algo3.modelo.Calendario.Calendario;
 import edu.fiuba.algo3.modelo.Computadora.OrdenDeArresto.IOrden;
+import edu.fiuba.algo3.modelo.Juego.ExcepcionesCalendario.CalendarioException;
+import edu.fiuba.algo3.modelo.Policia.ExcepcionesPolicia.PoliciaException;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 
 public class EmitirOrden implements IAccion {
@@ -26,7 +28,11 @@ public class EmitirOrden implements IAccion {
 
     @Override
     public void avanzarCalendario(Calendario calendario) {
-        calendario.avanzarHoras(orden.getHorasDemora());
+        try {
+            calendario.avanzarHoras(orden.getHorasDemora());
+        } catch (CalendarioException ex) {
+            throw new AccionException("No pudo avanzarse el calendario para emitir orden.\n" + ex);
+        }
     }
 
     @Override
@@ -35,9 +41,13 @@ public class EmitirOrden implements IAccion {
     }
 
     @Override
-    public void realizar() {
+    public void realizar() throws AccionException {
         if(null != policia) {
-            policia.setOrdenDeArresto(orden);
+            try {
+                policia.setOrdenDeArresto(orden);
+            } catch (PoliciaException ex) {
+                throw new AccionException("No pudo realizarse la acción de emitir orden.\n"+ex);
+            }
         }
     }
 }

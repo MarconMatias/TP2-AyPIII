@@ -1,19 +1,23 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.Calendario.Acciones.AccionException;
 import edu.fiuba.algo3.modelo.Calendario.Acciones.AccionDormir;
 import edu.fiuba.algo3.modelo.Calendario.Acciones.HeridaPorCuchillo;
 import edu.fiuba.algo3.modelo.Calendario.Acciones.IAccion;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Computadora.Computadora;
+import edu.fiuba.algo3.modelo.Computadora.OrdenException;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 import edu.fiuba.algo3.modelo.Item.Item;
 import edu.fiuba.algo3.modelo.Calendario.Calendario;
+import edu.fiuba.algo3.modelo.Juego.ExcepcionesCalendario.CalendarioException;
 import edu.fiuba.algo3.modelo.Juego.IObservadorAcciones;
 import edu.fiuba.algo3.modelo.Ciudad.Mapa;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
 import edu.fiuba.algo3.modelo.Lector.LectorCiudad;
 import edu.fiuba.algo3.modelo.Lector.LectorMapa;
+import edu.fiuba.algo3.modelo.Policia.ExcepcionesPolicia.PoliciaException;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
@@ -31,7 +35,7 @@ public class TestsCasosDeUsoEntrega2 {
      * Detective duerme.
      */
     @Test
-    public void casoDeUso01() {
+    public void casoDeUso01() throws PoliciaException, CalendarioException {
         // Poner calendario en 21 hs para que al recibir herida deba dormir:
         Calendario calendario = new Calendario();
         int horaInicial = 7;
@@ -55,7 +59,7 @@ public class TestsCasosDeUsoEntrega2 {
      * Detective con rango Investigador toma caso de un robo viaja de Montreal a México.
      */
     @Test
-    public void casoDeUso02() {
+    public void casoDeUso02() throws PoliciaException {
         // Dependencias (reales y mocks)
         Calendario calendario = new Calendario();
         Item item = mock(Item.class);
@@ -117,7 +121,7 @@ public class TestsCasosDeUsoEntrega2 {
      * Intentas atrapar al sospechoso sin la orden de arresto emitida.
      */
     @Test
-    public void casoDeUso04() {
+    public void casoDeUso04() throws AccionException, CalendarioException, PoliciaException {
         // Dependencias (reales y mocks)
         Calendario calendario = new Calendario();
         Item item = mock(Item.class);
@@ -168,8 +172,7 @@ public class TestsCasosDeUsoEntrega2 {
      * Atrapa al sospechoso
      */
     @Test
-    public void casoDeUso05()
-    {
+    public void casoDeUso05() throws AccionException, PoliciaException, OrdenException, CalendarioException {
         // Carga de mapa
         LectorCiudad lectorCiudad = new LectorCiudad();
         Map<String, Ciudad> ciudades = lectorCiudad.leerCiudades();

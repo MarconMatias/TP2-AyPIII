@@ -64,7 +64,6 @@ public class App extends Application {
             Throwable ex = lector.getException();
             Alert alerta = new Alert(Alert.AlertType.ERROR, "Se produjo un error al iniciar: "+ex, ButtonType.OK);
             alerta.showAndWait();
-            /** \todo Mejorar: reintentar (vuelve a llamar a startSplash). **/
         });
     }
 

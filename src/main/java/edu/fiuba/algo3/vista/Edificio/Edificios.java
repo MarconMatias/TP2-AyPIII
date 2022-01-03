@@ -106,8 +106,11 @@ public class Edificios extends Pantalla {
         librito.setOnKeyPressed(controlador::libritoKeyPressed);
         if(controlador instanceof EdificiosControlador) {
             destinoElegido.addListener(
-                    ev -> ((EdificiosControlador) controlador)
-                            .destinoElegido(destinoElegido.get()));
+                    ev -> {
+                            ((EdificiosControlador) controlador)
+                                    .destinoElegido(destinoElegido.get());
+
+                    });
         }
     }
 

@@ -84,7 +84,7 @@ public class Computadora {
      * 
      * @return Un objeto Orden o un objeto SinOrden, según si pudo o no generarla.
      */
-    public IOrden generarOrdenDeArresto() {
+    public IOrden generarOrdenDeArresto() throws OrdenException {
         final String textoDemasiados = "Hay demasiados sospechosos, ingrese más detalles.";
         final String textoNinguno = "No hay ningún sospechoso con los detalles ingresados.";
 
@@ -95,7 +95,12 @@ public class Computadora {
             return new SinOrden(textoNinguno);
         }
         Ladron sospechoso = sospechosos.get(0);
-        return new Orden(sospechoso);
+        try{
+            return new Orden(sospechoso);
+        }
+        catch(IllegalArgumentException e){
+            throw new OrdenException("Error. No se pudo generar la orden.");
+        }
     }
 
     /**

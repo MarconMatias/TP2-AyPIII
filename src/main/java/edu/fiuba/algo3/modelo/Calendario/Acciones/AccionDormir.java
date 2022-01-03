@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Calendario.Acciones;
 
 import edu.fiuba.algo3.modelo.Calendario.Calendario;
+import edu.fiuba.algo3.modelo.Juego.ExcepcionesCalendario.CalendarioException;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 
 public class AccionDormir implements IAccion {
@@ -16,8 +17,12 @@ public class AccionDormir implements IAccion {
     }
 
     @Override
-    public void avanzarCalendario(Calendario calendario) {
-        calendario.avanzarHoras(8);
+    public void avanzarCalendario(Calendario calendario) throws AccionException {
+        try {
+            calendario.avanzarHoras(8);
+        } catch (CalendarioException ex) {
+            throw new AccionException("No pudo avanzarse el calendario para dormir.\n" + ex.getMessage());
+        }
     }
 
     @Override

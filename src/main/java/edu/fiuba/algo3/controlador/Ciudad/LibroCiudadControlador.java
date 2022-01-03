@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.input.InputEvent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -26,19 +27,24 @@ public class LibroCiudadControlador extends PantallaControlador {
         if(ev.isConsumed()) {
             return;
         }
-        if(cancelarMisionConfirmando()) {
-            ev.consume();
-            liberar();
-        }
+        volver(ev);
     }
 
     public void volverKeyPressed(KeyEvent ev) {
-        if(ev.isConsumed() || (KeyCode.ENTER != ev.getCode())) {
+        if (ev.isConsumed() || (KeyCode.ENTER != ev.getCode())) {
             return;
         }
-        if(cancelarMisionConfirmando()) {
-            ev.consume();
-            liberar();
+        volver(ev);
+    }
+
+    private void volver(InputEvent ev) {
+        try {
+            if (cancelarMisionConfirmando()) {
+                ev.consume();
+                liberar();
+            }
+        } catch (Exception ex) {
+            alertaError(ex);
         }
     }
 

@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Ciudad;
 
+import edu.fiuba.algo3.modelo.Calendario.Acciones.AccionException;
 import edu.fiuba.algo3.modelo.Edificio.Edificio;
 
 import java.util.List;
@@ -13,5 +14,5 @@ public interface ICiudadVisitada {
      * @param edificio Un edificio de la ciudad actual.
      * @return El testimonio obtenido en el edificio de la ciudad actual.
      */
-    String visitar(Edificio edificio);
+    String visitar(Edificio edificio) throws AccionException;
 }

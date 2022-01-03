@@ -1,13 +1,13 @@
 package edu.fiuba.algo3.vista.Ciudad.Mapa;
 
+import edu.fiuba.algo3.componentes.Binding.AnguloDeDestinoBinding;
 import edu.fiuba.algo3.componentes.Imagen.Destino;
 import edu.fiuba.algo3.componentes.Imagen.Imagen;
 import edu.fiuba.algo3.componentes.Libro.Librito;
 import edu.fiuba.algo3.componentes.Mapamundi.Mapamundi;
 import edu.fiuba.algo3.componentes.Trayecto.Trayecto;
-import edu.fiuba.algo3.componentes.Binding.AnguloDeDestinoBinding;
-import edu.fiuba.algo3.controlador.Juego.PantallaControlador;
 import edu.fiuba.algo3.controlador.Ciudad.Mapa.MapaDestinosControlador;
+import edu.fiuba.algo3.controlador.Juego.PantallaControlador;
 import edu.fiuba.algo3.modelo.Ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
@@ -155,8 +155,10 @@ public class MapaDestinos extends Mapamundi {
         librito.setOnKeyPressed(controlador::libritoKeyPressed);
         if(controlador instanceof MapaDestinosControlador) {
             destinoElegido.addListener(
-                    ev -> ((MapaDestinosControlador) controlador)
-                            .destinoElegido(destinoElegido.get()));
+                    ev -> {
+                            ((MapaDestinosControlador) controlador)
+                                    .destinoElegido(destinoElegido.get());
+                    });
         }
     }
 

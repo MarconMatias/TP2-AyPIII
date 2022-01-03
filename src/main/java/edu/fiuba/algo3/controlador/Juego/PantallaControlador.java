@@ -139,9 +139,13 @@ public abstract class PantallaControlador {
         if(ev.isConsumed()) {
             return;
         }
-        if(controlStage.abrirLibroCiudad()) {
-            ev.consume();
-            liberar();
+        try {
+            if(controlStage.abrirLibroCiudad()) {
+                ev.consume();
+                liberar();
+            }
+        } catch(Exception ex) {
+            alertaError(ex);
         }
     }
 
@@ -154,9 +158,13 @@ public abstract class PantallaControlador {
         if(ev.isConsumed() || (KeyCode.ENTER != ev.getCode())) {
             return;
         }
-        if(controlStage.abrirLibroCiudad()) {
-            ev.consume();
-            liberar();
+        try {
+            if(controlStage.abrirLibroCiudad()) {
+                ev.consume();
+                liberar();
+            }
+        } catch(Exception ex) {
+            alertaError(ex);
         }
     }
 
@@ -169,9 +177,13 @@ public abstract class PantallaControlador {
         if (ev.isConsumed()) {
             return;
         }
-        if(controlStage.abrirMapaCiudades()) {
-            ev.consume();
-            liberar();
+        try {
+            if(controlStage.abrirMapaCiudades()) {
+                ev.consume();
+                liberar();
+            }
+        } catch(Exception ex) {
+            alertaError(ex);
         }
     }
 
@@ -184,9 +196,13 @@ public abstract class PantallaControlador {
         if (ev.isConsumed() || (KeyCode.ENTER != ev.getCode())) {
             return;
         }
-        if(controlStage.abrirMapaCiudades()) {
-            ev.consume();
-            liberar();
+        try {
+            if(controlStage.abrirMapaCiudades()) {
+                ev.consume();
+                liberar();
+            }
+        } catch(Exception ex) {
+            alertaError(ex);
         }
     }
 
@@ -199,9 +215,13 @@ public abstract class PantallaControlador {
         if(ev.isConsumed()) {
             return;
         }
-        if(controlStage.abrirOrden()) {
-            ev.consume();
-            liberar();
+        try {
+            if(controlStage.abrirOrden()) {
+                ev.consume();
+                liberar();
+            }
+        } catch(Exception ex) {
+            alertaError(ex);
         }
     }
 
@@ -214,9 +234,13 @@ public abstract class PantallaControlador {
         if(ev.isConsumed() || (KeyCode.ENTER != ev.getCode())) {
             return;
         }
-        if(controlStage.abrirOrden()) {
-            ev.consume();
-            liberar();
+        try {
+            if(controlStage.abrirOrden()) {
+                ev.consume();
+                liberar();
+            }
+        } catch(Exception ex) {
+            alertaError(ex);
         }
     }
 
@@ -230,9 +254,13 @@ public abstract class PantallaControlador {
         if(ev.isConsumed()) {
             return;
         }
-        if(abrirAcercaDe(ev)) {
-            ev.consume();
-            liberar();
+        try {
+            if (abrirAcercaDe(ev)) {
+                ev.consume();
+                liberar();
+            }
+        } catch(Exception ex) {
+            alertaError(ex);
         }
     }
 
@@ -246,9 +274,13 @@ public abstract class PantallaControlador {
         if(ev.isConsumed() || (KeyCode.ENTER != ev.getCode())) {
             return;
         }
-        if(abrirAcercaDe(ev)) {
-            ev.consume();
-            liberar();
+        try {
+            if (abrirAcercaDe(ev)) {
+                ev.consume();
+                liberar();
+            }
+        } catch(Exception ex) {
+            alertaError(ex);
         }
     }
 
@@ -266,5 +298,11 @@ public abstract class PantallaControlador {
 
     public void volverKeyPressed(KeyEvent event) {
         /** No hacer nada, sobrecargable. */
+    }
+
+    protected boolean alertaError(Exception ex) {
+        Alert alerta = new Alert(Alert.AlertType.ERROR, ex.toString(), ButtonType.OK);
+        alerta.showAndWait();
+        return false;
     }
 }

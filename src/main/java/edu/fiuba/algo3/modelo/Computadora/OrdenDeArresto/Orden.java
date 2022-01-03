@@ -11,6 +11,8 @@ public class Orden implements IOrden {
     private IEstrategiaOrden estrategia;
 
     public Orden(Ladron sospechoso) {
+        if(sospechoso == null)
+            throw new IllegalArgumentException("Error. El sospechoso pasado por parametro en el constructor de Orden no es valido.");
         this.sospechoso = sospechoso;
     }
 
@@ -21,6 +23,10 @@ public class Orden implements IOrden {
 
     @Override
     public void enfrentar(Policia policia, Ladron ladron) {
+
+        if(ladron == null)
+            throw new IllegalArgumentException("Error. El Ladron pasado por parametro no es valido");
+
         if(esElLadron(ladron)) {
             estrategia = new Ganar();
         } else {

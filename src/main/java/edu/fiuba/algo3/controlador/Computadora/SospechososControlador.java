@@ -3,6 +3,9 @@ package edu.fiuba.algo3.controlador.Computadora;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.modelo.Juego.Mision;
 import edu.fiuba.algo3.modelo.Ladron.Ladron;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.input.InputEvent;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
@@ -27,8 +30,7 @@ public class SospechososControlador {
         if(ev.isConsumed()) {
             return;
         }
-        onElegido.accept(seleccionado);
-        ev.consume();
+        seleccionar(ev,seleccionado);
     }
 
     public void keyPressed(KeyEvent ev, Ladron seleccionado) {
@@ -37,8 +39,18 @@ public class SospechososControlador {
         }
         switch(ev.getCode()) {
             case ENTER: case SPACE:
-                onElegido.accept(seleccionado);
-                ev.consume();
+                seleccionar(ev,seleccionado);
         }
     }
+
+    private void seleccionar(InputEvent ev, Ladron seleccionado) {
+        try {
+            onElegido.accept(seleccionado);
+            ev.consume();
+        } catch(Exception ex) {
+            Alert alerta = new Alert(Alert.AlertType.ERROR, ex.getMessage(), ButtonType.OK);
+            alerta.showAndWait();
+        }
+    }
+
 }
