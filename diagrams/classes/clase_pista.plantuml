@@ -1,4 +1,5 @@
-@startuml
+@startuml DC_pista
+hide empty members
 
 title Classes - Pistas
 

@@ -1,5 +1,5 @@
 @startuml
-
+hide empty members
 title Classes - Ciudad
 
 
@@ -28,15 +28,15 @@ IEstrategiaAcciones <|-- AccionesPenultima
 IEstrategiaAcciones <|-- AccionesUltima
 IEstrategiaAcciones <|-- SinEstrategiaAcciones
 
-ICiudadVisitada <-- CiudadVisitada
-ICiudadVisitada <-- CiudadNoVisitada
+ICiudadVisitada <|-- CiudadVisitada
+ICiudadVisitada <|-- CiudadNoVisitada
 
-Ciudad -- IDestino
-Ciudad -- IEstrategiaAcciones
-Ciudad -- ICiudadVisitada
+Ciudad *---- IEstrategiaAcciones
+Ciudad *-- ICiudadVisitada
 
-IDestino  <-- DestinoFinal
-IDestino <-- SinDestino
+IDestino <|-- Ciudad
+IDestino  <|-- DestinoFinal
+IDestino <|-- SinDestino
 
 
 

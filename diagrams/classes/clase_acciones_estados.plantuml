@@ -29,19 +29,18 @@ interface IEstado {
   + IEstado siguiente()
 }
 
-class EstadoVisitasCiudad
+class EstadoVisitasCiudad {
+  + siguiente()
+  + demoraEdificio(): int
+}
 class SinVisitas
 class Visito1Edificio
 class VisitoMuchosEdificios
-class CuchilloUnica
-class CuchilloRepetida
 
-IEstado <|-- CuchilloUnica 
-IEstado <|-- CuchilloRepetida
-IEstado <|-- EstadoVisitasCiudad 
 IEstado <|-- SinVisitas
 IEstado <|-- Visito1Edificio 
 IEstado <|-- VisitoMuchosEdificios
-
+EstadoVisitasCiudad *-- IEstado
 
 @enduml
+

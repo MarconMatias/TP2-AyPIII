@@ -12,54 +12,48 @@
 \definecolor{plantucolor0006}{RGB}{173,209,178}
 \begin{tikzpicture}[yscale=-1
 ,pstyle0/.style={color=plantucolor0001,fill=plantucolor0000,line width=1.5pt}
+,pstyle2/.style={color=plantucolor0001,line width=1.5pt}
 ,pstyle3/.style={color=plantucolor0005,fill=plantucolor0004,line width=1.0pt}
 ,pstyle4/.style={color=plantucolor0001,fill=plantucolor0006,line width=1.0pt}
 ,pstyle5/.style={color=plantucolor0001,line width=1.0pt}
 ]
-\draw[pstyle0] (390pt,7pt) rectangle (519.2681pt,74.8867pt);
-\draw[color=plantucolor0001,fill=plantucolor0002,line width=1.0pt] (429.0825pt,23pt) ellipse (11pt and 11pt);
-\node at (429.0825pt,23pt)[]{\textbf{\Large I}};
-\node at (448.4342pt,15.3945pt)[below right,color=black]{\textit{IEstado}};
-\draw[color=plantucolor0001,line width=1.5pt] (391pt,39pt) -- (518.2681pt,39pt);
-\draw[pstyle3] (401pt,50pt) ellipse (3pt and 3pt);
-\node at (410pt,43pt)[below right,color=black]{int demoraEdificio()};
-\draw[pstyle3] (401pt,63.9434pt) ellipse (3pt and 3pt);
-\node at (410pt,56.9434pt)[below right,color=black]{IEstado siguiente()};
-\draw[pstyle0] (7pt,135pt) rectangle (151.8pt,167pt);
-\draw[pstyle4] (22pt,151pt) ellipse (11pt and 11pt);
-\node at (22pt,151pt)[]{\textbf{\Large C}};
-\node at (36pt,143.3945pt)[below right,color=black]{EstadoVisitasCiudad};
-\draw[pstyle0] (187pt,135pt) rectangle (273.6pt,167pt);
-\draw[pstyle4] (202pt,151pt) ellipse (11pt and 11pt);
-\node at (202pt,151pt)[]{\textbf{\Large C}};
-\node at (216pt,143.3945pt)[below right,color=black]{SinVisitas};
-\draw[pstyle0] (309pt,135pt) rectangle (426.0667pt,167pt);
-\draw[pstyle4] (324pt,151pt) ellipse (11pt and 11pt);
-\node at (324pt,151pt)[]{\textbf{\Large C}};
-\node at (338pt,143.3945pt)[below right,color=black]{Visito1Edificio};
-\draw[pstyle0] (461.5pt,135pt) rectangle (621.2225pt,167pt);
-\draw[pstyle4] (476.5pt,151pt) ellipse (11pt and 11pt);
-\node at (476.5pt,151pt)[]{\textbf{\Large C}};
-\node at (490.5pt,143.3945pt)[below right,color=black]{VisitoMuchosEdificios};
-\draw[pstyle0] (656.5pt,135pt) rectangle (768.3353pt,167pt);
-\draw[pstyle4] (671.5pt,151pt) ellipse (11pt and 11pt);
-\node at (671.5pt,151pt)[]{\textbf{\Large C}};
-\node at (685.5pt,143.3945pt)[below right,color=black]{CuchilloUnica};
-\draw[pstyle0] (803.5pt,135pt) rectangle (931.9675pt,167pt);
-\draw[pstyle4] (818.5pt,151pt) ellipse (11pt and 11pt);
-\node at (818.5pt,151pt)[]{\textbf{\Large C}};
-\node at (832.5pt,143.3945pt)[below right,color=black]{CuchilloRepetida};
-\draw[pstyle5] (538pt,76.95pt) ..controls (584.77pt,96.53pt) and (640.68pt,119.94pt) .. (676.39pt,134.88pt);
-\draw[pstyle5] (535.02pt,83.29pt) -- (519.27pt,69.11pt) -- (540.42pt,70.38pt) -- (535.02pt,83.29pt) -- cycle;
-\draw[pstyle5] (538.44pt,63.95pt) ..controls (619.33pt,85.1pt) and (739.54pt,116.54pt) .. (810.07pt,134.98pt);
-\draw[pstyle5] (536.61pt,70.71pt) -- (519.03pt,58.88pt) -- (540.15pt,57.16pt) -- (536.61pt,70.71pt) -- cycle;
-\draw[pstyle5] (370.32pt,66.24pt) ..controls (297.21pt,87.3pt) and (193.61pt,117.14pt) .. (131.82pt,134.93pt);
-\draw[pstyle5] (368.45pt,59.5pt) -- (389.61pt,60.69pt) -- (372.33pt,72.95pt) -- (368.45pt,59.5pt) -- cycle;
-\draw[pstyle5] (371.44pt,82.05pt) ..controls (333.25pt,100.46pt) and (290.25pt,121.19pt) .. (261.9pt,134.86pt);
-\draw[pstyle5] (368.65pt,75.62pt) -- (389.71pt,73.24pt) -- (374.73pt,88.23pt) -- (368.65pt,75.62pt) -- cycle;
-\draw[pstyle5] (414.81pt,91.27pt) ..controls (402.12pt,107.02pt) and (389pt,123.31pt) .. (379.8pt,134.73pt);
-\draw[pstyle5] (409.69pt,86.47pt) -- (427.69pt,75.28pt) -- (420.59pt,95.25pt) -- (409.69pt,86.47pt) -- cycle;
-\draw[pstyle5] (494.19pt,91.27pt) ..controls (506.88pt,107.02pt) and (520pt,123.31pt) .. (529.2pt,134.73pt);
-\draw[pstyle5] (488.41pt,95.25pt) -- (481.31pt,75.28pt) -- (499.31pt,86.47pt) -- (488.41pt,95.25pt) -- cycle;
+\draw[pstyle0] (123pt,135pt) rectangle (252.2681pt,202.8867pt);
+\draw[color=plantucolor0001,fill=plantucolor0002,line width=1.0pt] (162.0825pt,151pt) ellipse (11pt and 11pt);
+\node at (162.0825pt,151pt)[]{\textbf{\Large I}};
+\node at (181.4342pt,143.3945pt)[below right,color=black]{\textit{IEstado}};
+\draw[pstyle2] (124pt,167pt) -- (251.2681pt,167pt);
+\draw[pstyle3] (134pt,178pt) ellipse (3pt and 3pt);
+\node at (143pt,171pt)[below right,color=black]{int demoraEdificio()};
+\draw[pstyle3] (134pt,191.9434pt) ellipse (3pt and 3pt);
+\node at (143pt,184.9434pt)[below right,color=black]{IEstado siguiente()};
+\draw[pstyle0] (115pt,7pt) rectangle (259.8pt,74.8867pt);
+\draw[pstyle4] (130pt,23pt) ellipse (11pt and 11pt);
+\node at (130pt,23pt)[]{\textbf{\Large C}};
+\node at (144pt,15.3945pt)[below right,color=black]{EstadoVisitasCiudad};
+\draw[pstyle2] (116pt,39pt) -- (258.8pt,39pt);
+\draw[pstyle3] (126pt,50pt) ellipse (3pt and 3pt);
+\node at (135pt,43pt)[below right,color=black]{siguiente()};
+\draw[pstyle3] (126pt,63.9434pt) ellipse (3pt and 3pt);
+\node at (135pt,56.9434pt)[below right,color=black]{demoraEdificio(): int};
+\draw[pstyle0] (7pt,263pt) rectangle (93.6pt,295pt);
+\draw[pstyle4] (22pt,279pt) ellipse (11pt and 11pt);
+\node at (22pt,279pt)[]{\textbf{\Large C}};
+\node at (36pt,271.3945pt)[below right,color=black]{SinVisitas};
+\draw[pstyle0] (129pt,263pt) rectangle (246.0667pt,295pt);
+\draw[pstyle4] (144pt,279pt) ellipse (11pt and 11pt);
+\node at (144pt,279pt)[]{\textbf{\Large C}};
+\node at (158pt,271.3945pt)[below right,color=black]{Visito1Edificio};
+\draw[pstyle0] (281.5pt,263pt) rectangle (441.2225pt,295pt);
+\draw[pstyle4] (296.5pt,279pt) ellipse (11pt and 11pt);
+\node at (296.5pt,279pt)[]{\textbf{\Large C}};
+\node at (310.5pt,271.3945pt)[below right,color=black]{VisitoMuchosEdificios};
+\draw[pstyle5] (129.4pt,215.8pt) ..controls (108.1pt,232.6pt) and (85.42pt,250.47pt) .. (69.87pt,262.73pt);
+\draw[pstyle5] (125.24pt,210.17pt) -- (145.28pt,203.28pt) -- (133.9pt,221.16pt) -- (125.24pt,210.17pt) -- cycle;
+\draw[pstyle5] (187.5pt,223.76pt) ..controls (187.5pt,238.06pt) and (187.5pt,252.39pt) .. (187.5pt,262.73pt);
+\draw[pstyle5] (180.5pt,223.28pt) -- (187.5pt,203.28pt) -- (194.5pt,223.28pt) -- (180.5pt,223.28pt) -- cycle;
+\draw[pstyle5] (258.12pt,213.83pt) ..controls (286.08pt,231.18pt) and (316.37pt,249.99pt) .. (336.89pt,262.73pt);
+\draw[pstyle5] (254.43pt,219.78pt) -- (241.13pt,203.28pt) -- (261.81pt,207.88pt) -- (254.43pt,219.78pt) -- cycle;
+\draw[pstyle5] (187.5pt,88.17pt) ..controls (187.5pt,103.58pt) and (187.5pt,120.44pt) .. (187.5pt,134.68pt);
+\draw[color=plantucolor0001,fill=plantucolor0001,line width=1.0pt] (187.5pt,75.11pt) -- (183.5066pt,81.1144pt) -- (187.5132pt,87.11pt) -- (191.5066pt,81.1056pt) -- (187.5pt,75.11pt) -- cycle;
 \end{tikzpicture}
 \end{document}

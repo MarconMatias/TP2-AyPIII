@@ -1,5 +1,5 @@
-@startuml
-
+@startuml DC_Edificio
+hide empty members
 title Clases - Edificio 
 
 class Edificio
