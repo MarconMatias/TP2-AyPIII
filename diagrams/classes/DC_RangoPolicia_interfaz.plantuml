@@ -1,8 +1,6 @@
-@startuml RangoPolicia_concretas
+@startuml RangoPolicia_interfaz
 hide empty members
 
-
-class Policia {}
 class RangoPolicia {
     - arrestos
     + RangoPolicia(cantidadDeArrestos:int)
@@ -27,10 +25,4 @@ interface IComportamientoRango {
 
 Policia "1" *-- "1" RangoPolicia
 RangoPolicia "1" *-- "1" IComportamientoRango
-
-
-'class RangoNovato extends RangoPolicia {}
-'class RangoDetective extends RangoPolicia {}
-'class RangoInvestigador extends RangoPolicia {}
-'class RangoSargento extends RangoPolicia {}
 @enduml

@@ -20,7 +20,7 @@ public class ControladorAcciones implements IObservadorAcciones {
     @Override
     public void accionRealizada(IAccion accion) {
         String nombre = accion.getNombreAccion();
-        System.out.println("Acción: "+nombre);
+        //System.out.println("Acción: "+nombre);
         if(mision.fueFinalizada()) {
             return;
         }

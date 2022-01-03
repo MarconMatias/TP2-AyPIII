@@ -76,7 +76,7 @@ public class LectorCiudad {
         ex.printStackTrace();
       }
     } else {
-      System.err.println("Advertencia: La ciudad "+ciudad.getNombre()+" no tiene coordenadas.");
+      //System.err.println("Advertencia: La ciudad "+ciudad.getNombre()+" no tiene coordenadas.");
     }
   }
 
@@ -85,7 +85,7 @@ public class LectorCiudad {
     if((null==desc) || ("".equals(desc.trim()))) {
       String ciudadURL = ciudad.getNombre().replace(" ","_");
       String wiki = "https://es.wikipedia.org/wiki/"+URLEncoder.encode(ciudadURL, StandardCharsets.UTF_8);
-      System.err.println("Advertencia: La ciudad "+ciudad.getNombre()+" no tiene descripcion. Véase "+wiki);
+      //System.err.println("Advertencia: La ciudad "+ciudad.getNombre()+" no tiene descripcion. Véase "+wiki);
     } else {
       ciudad.setDescripcion(desc);
     }

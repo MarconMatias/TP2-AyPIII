@@ -45,7 +45,7 @@ import javafx.stage.Stage;
 import java.util.List;
 
 public class ControlStage {
-    private final static String tituloApp = "AlgoThief";
+    private final static String tituloApp = "AlgoThieft";
     private final Stage stage;
     private final GrupoInterno raiz;
     private final Scene scene;

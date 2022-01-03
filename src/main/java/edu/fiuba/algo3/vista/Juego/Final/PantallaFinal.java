@@ -31,6 +31,13 @@ public class PantallaFinal extends Pantalla {
         etiquetaMensaje.getStyleClass().add("etiquetaMensajeFinal");
         agregar(etiquetaMensaje, 0.3, 0.5);
 
+        Label textoContinuar = new Label("Hacé click o presioná una tecla para continuar…");
+        textoContinuar.prefWidthProperty().bind(nuevoXRelativo(0.9));
+        textoContinuar.setAlignment(Pos.CENTER);
+        textoContinuar.setStyle("-fx-font: 100 Arial");
+        textoContinuar.getStyleClass().add("textoContinuarFinal");
+        agregar(textoContinuar, 0.5, 0.9);
+
         this.setFocusTraversable(true);
         iniciarControlador(controlador);
     }

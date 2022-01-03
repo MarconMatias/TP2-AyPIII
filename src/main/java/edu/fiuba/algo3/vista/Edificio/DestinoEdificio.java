@@ -31,7 +31,7 @@ public class DestinoEdificio extends Destino {
             case "Puerto":
                 return new Puerto(edificio);
         }
-        System.out.println("Advertencia: "+edificio.getNombre()+" no puede construirse.");
+        //System.out.println("Advertencia: "+edificio.getNombre()+" no puede construirse.");
         return new DestinoEdificio(edificio);
     }
 

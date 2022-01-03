@@ -18,7 +18,7 @@ public class DetalleControlador {
     }
 
     public void onKeyPressed(KeyEvent event) {
-        System.out.println(tipo + ":" + event);
+        //System.out.println(tipo + ":" + event);
         switch(event.getCode()) {
             case ENTER: case SPACE: case RIGHT:
                 elegirSiguiente();
@@ -31,7 +31,7 @@ public class DetalleControlador {
     }
 
     public void onMouseClicked(MouseEvent event) {
-        System.out.println(tipo + ":" + event);
+        //System.out.println(tipo + ":" + event);
         switch(event.getButton().ordinal()) {
             case 1:
                 elegirSiguiente();
@@ -50,7 +50,7 @@ public class DetalleControlador {
         } else {
             actual = posiblesValores.indexOf(actualValor);
         }
-        System.out.println("actual: "+actual+"="+actualValor);
+        //System.out.println("actual: "+actual+"="+actualValor);
         return actual;
     }
 
@@ -64,7 +64,7 @@ public class DetalleControlador {
         if(posicion< ultimo) {
             nuevoValor = posiblesValores.get(posicion);
         }
-        System.out.println("ahora: "+posicion+"="+nuevoValor);
+        //System.out.println("ahora: "+posicion+"="+nuevoValor);
         mision.agregarDetalleLadron(tipo, nuevoValor);
     }
 

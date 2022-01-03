@@ -17,4 +17,9 @@ public class ExpedienteControlador extends DocumentosControlador {
     this.controlStage = controlStage;
   }
 
+  @Override
+  public DetallesControlador crearControladorDetalles() {
+    // No debe hacer nada.
+    return null;
+  }
 }

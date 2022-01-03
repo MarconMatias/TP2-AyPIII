@@ -42,7 +42,7 @@ public class Ladron implements ISospechoso, DetallableSospechoso {
 
   private void generarPistas() {
     if(0 == detalles.size()) {
-      System.err.println(this + " no tiene detalles.");
+      //System.err.println(this + " no tiene detalles.");
       return;
     }
     PistaFacil facil = new PistaFacil();

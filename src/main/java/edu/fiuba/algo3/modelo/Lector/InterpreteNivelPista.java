@@ -16,7 +16,7 @@ public class InterpreteNivelPista {
 
     public static NivelPista crearConDificultad(int dificultad) {
         if(dificultad>=factories.size()) {
-            System.err.println("Advertencia: No existe dificultad "+dificultad+", asumiendo máxima.");
+            //System.err.println("Advertencia: No existe dificultad "+dificultad+", asumiendo máxima.");
             dificultad = factories.size()-1;
         }
         Supplier<NivelPista> factory = factories.get(dificultad);

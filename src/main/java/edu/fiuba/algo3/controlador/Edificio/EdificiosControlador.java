@@ -21,10 +21,10 @@ public class EdificiosControlador extends PantallaControlador {
 
     public void destinoElegido(DestinoEdificio destino) {
         Edificio edificio = destino.getEdificio();
-        System.out.println("Visitando edificio "+edificio.getNombre());
+        //System.out.println("Visitando edificio "+edificio.getNombre());
         String testimonio = mision.visitarEdificio(edificio);
         String testigo = mision.getTestigo(edificio);
-        System.out.println(testigo + " dice: "+testimonio);
+        //System.out.println(testigo + " dice: "+testimonio);
         if(mision.fueFinalizada() || controlStage.abrirTestigo(testigo,testimonio))
         {
             liberar();

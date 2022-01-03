@@ -70,10 +70,14 @@ public class CalendarioTest {
     }
 
     @Test
+<<<<<<< HEAD
     public void test() throws AccionException, CalendarioException {
+=======
+    public void alAvanzar62horasEsMiercoles() {
+>>>>>>> 365b5fa3a3e0a4979651d3eb358fddbe3c492721
         Calendario cal = new Calendario();
         cal.avanzarHoras(62);
-        System.out.println(cal.getDiaDeLaSemana());
+        assertEquals(3, cal.getDiaDeLaSemana());
     }
 
 }

@@ -19,7 +19,7 @@ public class MapaDestinosControlador extends PantallaControlador {
     }
 
     public void destinoElegido(DestinoCiudad destino) {
-        System.out.println("Viajando a "+destino.getNombre());
+        //System.out.println("Viajando a "+destino.getNombre());
         mision.viajarACiudad(destino.getCiudad());
         if(controlStage.abrirLibroCiudad()) {
             liberar();
