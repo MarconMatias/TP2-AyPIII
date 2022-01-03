@@ -26,7 +26,7 @@ public class LectorCiudad {
   }
 
   public Map<String,Ciudad> leerCiudades() {
-    return leerCiudadesMap("src/main/java/edu/fiuba/algo3/recursos/ciudades.json");
+    return leerCiudadesMap("/edu/fiuba/algo3/ciudades.json");
   }
 
   public List<Ciudad> leerCiudades(String ruta)

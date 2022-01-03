@@ -35,7 +35,7 @@ public class LectorMapa {
     }
 
     public Mapa leerMapa(Mapa mapa) {
-        return leerMapa("src/main/java/edu/fiuba/algo3/recursos/mapa.json", mapa);
+        return leerMapa("/edu/fiuba/algo3/mapa.json", mapa);
     }
 
     private Mapa leerMapa(String ruta, Mapa mapa) {

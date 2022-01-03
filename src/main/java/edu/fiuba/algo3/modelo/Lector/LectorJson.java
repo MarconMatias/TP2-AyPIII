@@ -2,8 +2,7 @@ package edu.fiuba.algo3.modelo.Lector;
 
 import org.json.simple.parser.JSONParser;
 
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -96,13 +95,15 @@ public class LectorJson {
 
     public Map leerJsonMap(String ruta)
     {
-        try
-        {
-            return leerJsonMap(new FileReader(ruta, StandardCharsets.UTF_8));
-        } catch(IOException ex){
-            ex.printStackTrace();
-            throw new RuntimeException("Error al leer el archivo:" + ex.getMessage());
-        }
+      try {
+        InputStream stream = getClass().getResourceAsStream(ruta);
+        Reader reader = new InputStreamReader(stream, StandardCharsets.UTF_8);
+        return leerJsonMap(reader);
+      } catch(NullPointerException ex) {
+        throw new RuntimeException("Error al leer el archivo "+ruta+": no se encuentra");
+      } catch(Exception ex) {
+        throw new RuntimeException("Error al leer el archivo "+ruta+": "+ex);
+      }
     }
 
     public <T,S> Map<S,T> mapear(List<T> lista, Function<T,S> conversorALlave)

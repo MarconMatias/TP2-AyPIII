@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.vista.Edificio;
 
 import edu.fiuba.algo3.componentes.Imagen.Destino;
+import edu.fiuba.algo3.componentes.Imagen.Imagen;
 import edu.fiuba.algo3.componentes.Libro.Librito;
 import edu.fiuba.algo3.componentes.Trayecto.Trayecto;
 import edu.fiuba.algo3.controlador.Edificio.EdificiosControlador;
@@ -16,6 +17,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.geometry.Point2D;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +25,7 @@ import java.util.List;
 import static javafx.beans.binding.Bindings.createStringBinding;
 
 public class Edificios extends Pantalla {
+    private final static Image fondo = new Image(Imagen.urlDesdeRecursos("Edificio/PlanoEdificios.jpeg"));
     private final Librito librito;
     private final List<DestinoEdificio> destinos = new ArrayList<>();
     private final static Point2D origen = new Point2D(0.5, 0.5);
@@ -31,7 +34,7 @@ public class Edificios extends Pantalla {
     private final DoubleProperty progreso = new SimpleDoubleProperty(0d);
 
     public Edificios(Juego juego, Mision mision, EdificiosControlador controlador) {
-        super("src/main/java/edu/fiuba/algo3/recursos/Edificio/PlanoEdificios.jpeg");
+        super(fondo);
 
         librito = new Librito(640);
         agregar(librito, 0.08, 0.4);

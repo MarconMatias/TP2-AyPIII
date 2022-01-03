@@ -59,8 +59,7 @@ public class ControlStage {
         this.juego = juego;
         this.raiz = new GrupoInterno(interno);
         this.scene = new Scene(raiz);
-        final String pathEstilo = "src/main/java/edu/fiuba/algo3/recursos/estilos.css";
-        final String url = Imagen.urlDesdePath(pathEstilo);
+        final String url = Imagen.urlDesdeRecursos("estilos.css");
         scene.getStylesheets().addAll(url);
         escalado.setPivotX(0d);
         escalado.setPivotY(0d);
