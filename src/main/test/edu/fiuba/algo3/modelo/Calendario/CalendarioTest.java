@@ -71,7 +71,7 @@ public class CalendarioTest {
     }
 
     @Test
-    public void alAvanzar62horasEsMiercoles() throws PoliciaException {
+    public void alAvanzar62horasEsMiercoles() throws PoliciaException, CalendarioException {
         Calendario cal = new Calendario();
         cal.avanzarHoras(62);
         assertEquals(3, cal.getDiaDeLaSemana());
