@@ -3,16 +3,13 @@ package edu.fiuba.algo3.controlador.Juego.Splash;
 import edu.fiuba.algo3.controlador.Juego.Radio.RadioControlador;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import edu.fiuba.algo3.vista.Juego.Splash;
-import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.scene.input.InputEvent;
 
 public class SplashControlador {
     private final Juego juego;
     private Splash splash;
-    public EventHandler handler = new EventHandler() {
-        @Override
-        public void handle(Event event) { /* No hacer nada. */  }
-    };
+    public EventHandler<InputEvent> handler = inputEvent -> { /* No hacer nada. */ };
 
     public SplashControlador(Juego juego) {
         this.juego = juego;
@@ -24,13 +21,13 @@ public class SplashControlador {
         splash.setOnKeyPressed(radioControlador::handleKeyPressed);
     }
 
-    public void enlazarIniciar(EventHandler nuevoHandler) {
+    public void enlazarIniciar(EventHandler<InputEvent> nuevoHandler) {
         splash.setOnMouseClicked(this::iniciar);
         splash.setOnKeyPressed(this::iniciar);
         handler = nuevoHandler;
     }
 
-    public void iniciar(Event event) {
+    public void iniciar(InputEvent event) {
         handler.handle(event);
     }
 }
