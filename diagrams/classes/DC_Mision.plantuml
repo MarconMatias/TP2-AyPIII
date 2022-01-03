@@ -1,0 +1,54 @@
+@startuml Mision_general
+hide empty members
+
+class Mision
+{
+    - alGanarPolicia(PoliciaFinaliza evento)
+    - alPerderPolicia(PoliciaFinaliza evento)
+    - alExpirarMision()
+    - itemAlAzar(List<Item> items, Random random): Item
+    - ladronAlAzar(List<Ladron> ladrones, Random random): Ladron
+    - calcularRuta(Item unItem, Mapa unMapa, Random random): List<Ciudad>
+    + Mision(Policia policia, Item itemRobado, Ladron ladron, List<Ciudad> rutaLadron, String ciudadInicial,
+            Computadora computadora, Mapa mapa,
+            Calendario calendario, Random random)
+    + Mision(Policia policia, List<Item> items,
+            List<Ladron> ladrones, Mapa mapa)
+    + desobservarMision(IObservadorMision observadorMision)
+    + generarOrdenDeArresto()
+    + notificarObservadores()
+    + observarMision(IObservadorMision observadorMision)
+    + viajarACiudad(Ciudad destino) : Ciudad
+    .. getters ..
+    + getCalendario() : Calendario
+    + getCiudadActual() : Ciudad
+    + getCiudadesVecinas() : List<Ciudad>
+    + getDetalle(String tipo) : String
+    + getDetallesDeSospechoso() : ObservableMap<String, String>
+    + getMensajeMision() : String
+    + getNombreCiudadActual() : String
+    + getOrden() : ObjectProperty<IOrden>
+    + getRangoYNombrePolicia() : String
+    + getSospechososObservables() : ObservableList<Ladron>
+    + getTestigo(Edificio edificio) : String
+    + getValoresDeDetalleTipo(String tipo) : Set<String>
+    + fueFinalizada() : boolean
+    + fueVictoria() : boolean
+    + obtenerEdificios(): List<Edificio>
+    + obtenerTiposDeDetalles() : Set<String>
+    .. setters ..
+    + agregarDetalleLadron(String tipo, String valor)
+}
+
+Mision "1" *-u- "1" Calendario
+Mision "1" *-u- "1" Computadora
+Mision "1" *-u- "1" Ciudad
+Mision "1" *-u- "1" EstadoMision
+Mision "1" *-u- "1" Item
+Mision "1" *-- "1" Ladron
+Mision "1" *-- "1" Mapa
+Mision "1" *-- "1" Policia
+Mision "1" *-d- "1" Ruta
+Mision "1" *-d- "1" Random
+Mision "1" *-d- "*" IObservadorMision
+@enduml

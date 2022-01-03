@@ -1,0 +1,43 @@
+@startuml
+hide empty members
+title Classes - Ciudad
+
+
+class Ciudad
+
+class CiudadVisitada
+class CiudadNoVisitada
+class DestinoFinal 
+class SinDestino
+
+interface ICiudadVisitada
+interface IDestino 
+
+interface IEstrategiaAcciones {
+  + List<IAccionador> getAccionadores(int cantidad, Random random);
+}
+class AccionesAntePenultima
+class AccionesComun
+class AccionesPenultima
+class AccionesUltima
+class SinEstrategiaAcciones
+
+IEstrategiaAcciones <|-- AccionesAntePenultima
+IEstrategiaAcciones <|-- AccionesComun
+IEstrategiaAcciones <|-- AccionesPenultima
+IEstrategiaAcciones <|-- AccionesUltima
+IEstrategiaAcciones <|-- SinEstrategiaAcciones
+
+ICiudadVisitada <|-- CiudadVisitada
+ICiudadVisitada <|-- CiudadNoVisitada
+
+Ciudad *---- IEstrategiaAcciones
+Ciudad *-- ICiudadVisitada
+
+IDestino <|-- Ciudad
+IDestino  <|-- DestinoFinal
+IDestino <|-- SinDestino
+
+
+
+@enduml

@@ -1,0 +1,56 @@
+@startuml ds
+hide footbox
+!pragma teoz true
+skinparam maxMessageSize 200
+title DS_Ed01 Banco visitado sin accion adicional en ciudad sin visitas\n<size:16>Iniciado por la Misión delegado a Policía (usualmente UI lo delega a Mision).</size>
+
+actor "mision\n:Mision" as M
+participant "ciudad\n:Ciudad" as C
+participant "visitada\n:CiudadVisitada" as V
+participant "visitas\n:EstadoVisitasCiudad" as N
+participant "estado\n:SinVisitas" as i0
+participant "siguiente\n:Visito1Edificio" as i1
+participant "policia\n:Policia" as P
+participant "banco\n:Edificio" as E
+participant "accionador\n:SinAccionador" as A
+participant "testigo\n:Testigo" as T
+
+M->C++:visitar\n(edificio)
+    C->V++:visitar(edificio)
+        V->N++:demoraEdificio()
+            note right
+                Delega en estado
+            end note
+            N->i0++:demoraEdificio()
+            return 1
+        return 1
+
+        V->N++:siguiente()
+            note right
+                Siguiente estado
+            end note
+            N->i0++:siguiente()
+                i0->i1**
+            return siguienteEstado
+            N->N: estado=siguienteEstado
+        return
+
+        V->P++:avanzaHoras\n(1)
+            ref over P
+                DS_Pol_02
+            end ref
+        return
+        V->P++:visitar(policia)
+            P->E++:visitar(edificio)
+                E->A++:visitar(edificio,policia)
+                    ref over A
+                        DS_EA01
+                    end ref
+                return
+                E->T++:getTestimonio(policia)
+                return testimonio
+            return testimonio
+        return testimonio
+    return testimonio
+return testimonio
+@enduml

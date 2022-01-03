@@ -1,0 +1,43 @@
+@startuml ST_Policia_Rango
+title Estados de comportamientoRango de RangoPolicia
+[*] --> ComoNovato
+ComoNovato : PistaFacil
+ComoNovato --> ComoNovato
+ComoNovato -r-> ComoDetective
+ComoDetective : PistaFacil
+ComoDetective --> ComoDetective
+ComoDetective --> ComoInvestigador
+ComoInvestigador : PistaMedia
+ComoInvestigador --> ComoInvestigador
+ComoInvestigador -l-> ComoSargento
+ComoSargento : PistaDificil
+ComoSargento --> ComoSargento
+
+@enduml
+
+@startuml ST_EstadoAcuchillado
+title Estados de EstadoAcuchillado (usado por Policia).
+[*] --> SinCuchilladas
+SinCuchilladas -r-> UnaCuchillada
+UnaCuchillada --> UnaCuchillada
+@enduml
+
+@startuml ST_Policia_Orden
+title Estados de IOrden orden de Policia.
+[*] --> SinOrden1
+SinOrden1 : "No se emitió nunca una orden de arresto."
+SinOrden1 -d-> SinOrden2
+SinOrden2 : "Hay demasiados sospechosos, ingrese más detalles."
+SinOrden1 -d-> SinOrden3
+SinOrden3 : "No hay ningún sospechoso con los detalles ingresados."
+SinOrden1 ---> Orden
+SinOrden2 --> SinOrden3
+SinOrden2 -d-> Orden
+SinOrden3 --> SinOrden2
+SinOrden3 -d-> Orden
+Orden : Sospechoso
+Orden -> SinOrden2
+Orden -> SinOrden3
+
+@enduml
+

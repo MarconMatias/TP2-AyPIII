@@ -1,0 +1,46 @@
+@startuml DC_IAccion
+hide empty members
+
+interface IAccion {
+  + void avanzarCalendario();
+  + String getNombreAccion();
+  + String getTextoAccion();
+  + void realizar();
+  + void setPolicia(Policia policia);
+}
+class HeridaPorDisparo
+class HeridaPorCuchillo
+class Enfrentamiento
+class EmitirOrden
+class Dormir
+
+IAccion <|-- HeridaPorDisparo 
+IAccion <|-- HeridaPorCuchillo
+IAccion <|-- Enfrentamiento 
+IAccion <|-- EmitirOrden 
+IAccion <|-- Dormir 
+
+@enduml
+@startuml DC_IEstado
+hide empty members
+
+interface IEstado {
+  + int demoraEdificio()
+  + IEstado siguiente()
+}
+
+class EstadoVisitasCiudad {
+  + siguiente()
+  + demoraEdificio(): int
+}
+class SinVisitas
+class Visito1Edificio
+class VisitoMuchosEdificios
+
+IEstado <|-- SinVisitas
+IEstado <|-- Visito1Edificio 
+IEstado <|-- VisitoMuchosEdificios
+EstadoVisitasCiudad *-- IEstado
+
+@enduml
+

@@ -1,0 +1,84 @@
+{
+  "ladrones": [
+    {
+      "nombre": "Nick Brunch",
+      "sexo": "Masculino",
+      "deporte": "Escalada de montaña",
+      "cabello": "Negro",
+      "distincion": "Anillo",
+      "vehiculo": "Moto"
+    },
+    {
+      "nombre": "Len Bulk",
+      "sexo": "Masculino",
+      "deporte": "Escalada de montaña",
+      "cabello": "Rojo",
+      "distincion": "Tatuaje",
+      "vehiculo": "Convertible"
+    },
+    {
+      "nombre": "Ihor Ihorovitch",
+      "sexo": "Masculino",
+      "deporte": "Croquet",
+      "cabello": "Rubio",
+      "distincion": "Tatuaje",
+      "vehiculo": "Limusina"
+    },
+    {
+      "nombre": "Fast Eddie B.",
+      "sexo": "Masculino",
+      "deporte": "Croquet",
+      "cabello": "Negro",
+      "distincion": "Joyas",
+      "vehiculo": "Convertible"
+    },
+    {
+      "nombre": "Scar Graynolt",
+      "sexo": "Masculino",
+      "deporte": "Croquet",
+      "cabello": "Castaño",
+      "distincion": "Anillo",
+      "vehiculo": "Limusina"
+    },
+    {
+      "nombre": "Merey Laroc",
+      "sexo": "Femenino",
+      "deporte": "Escalada de montaña",
+      "cabello": "Castaño",
+      "distincion": "Joyas",
+      "vehiculo": "Limusina"
+    },
+    {
+      "nombre": "Lady Agatha",
+      "sexo": "Femenino",
+      "deporte": "Tenis",
+      "cabello": "Rojo",
+      "distincion": "Anillo",
+      "vehiculo": "Convertible"
+    },
+    {
+      "nombre": "Katherine Drib",
+      "sexo": "Femenino",
+      "deporte": "Escalada de montaña",
+      "cabello": "Castaño",
+      "distincion": "Tatuaje",
+      "vehiculo": "Moto"
+    },
+    {
+      "nombre": "Dazzle Annie",
+      "sexo": "Femenino",
+      "deporte": "Tenis",
+      "cabello": "Rubio",
+      "distincion": "Tatuaje",
+      "vehiculo": "Limusina"
+    },
+    {
+      "nombre": "Carmen Sandiego",
+      "sexo": "Femenino",
+      "deporte": "Tenis",
+      "cabello": "Castaño",
+      "distincion": "Joyas",
+      "vehiculo": "Convertible"
+    }
+  ]
+}

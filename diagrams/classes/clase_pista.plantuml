@@ -1,0 +1,35 @@
+@startuml DC_pista
+hide empty members
+
+title Classes - Pistas
+
+interface IPista {
+  + void agregarAListaSiEsNivel(ArrayList<IPista> pistas, NivelPista nivel)
+}
+
+class PistaCiudad
+class PistaLadron
+class PistaLadronNoFacil 
+class SinPistaCiudad
+
+abstract class NivelPista
+
+class NivelPista
+class PistaFacil
+class PistaMedia
+class PistaDificil
+class PistaTodoNivel
+
+IPista <|--PistaCiudad
+IPista <|--SinPistaCiudad
+IPista <|--PistaLadron
+PistaLadron <|-- PistaLadronNoFacil
+PistaCiudad -- NivelPista
+
+NivelPista <|-- PistaFacil
+NivelPista <|-- PistaMedia
+NivelPista <|-- PistaDificil
+NivelPista <|-- PistaTodoNivel
+
+
+@enduml

@@ -1,0 +1,37 @@
+@startuml Juego_DatosJuego
+title
+Clase Juego 
+end title
+hide empty members
+
+class Juego
+{
+    + Juego() : Juego
+    + getPolicias() : ObservableList<Policia>
+    + nuevaMision(Policia policia) : Mision
+    + nuevoPolicia(String nombre) : Policia
+    + getRadio : Radio
+}
+
+class DatosJuego {
+    - lectorCiudad : LectorCiudad
+    - lectorItems : LectorItems
+    - lectorLadron : LectorLadron
+    - lectorMapa : LectorMapa
+    - lectorPolicia : LectorPolicia
+    + leerCiudades(): Map<String,Ciudad>
+    + leerItems(): ArrayList<Item>
+    + leerLadrones(): ArrayList<Ladron>
+    + leerMapa(Map<String,Ciudad> ciudades): Mapa
+    + leerPolicias(): ArrayList<Policia>
+}
+Juego "1" *-l- "*" Ladron
+Juego "1" *-- "*" Item
+Juego "1" *-- "*" Ciudad
+Juego "1" *-u- "1" DatosJuego
+Juego "1" *-- "*" Policia
+Juego "1" *-- "0..1" Mapa
+Juego "1" *-r- "1" Radio
+
+Juego ..> Mision
+@enduml

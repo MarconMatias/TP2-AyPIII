@@ -1,0 +1,21 @@
+@startuml
+hide empty members
+title Classes - Item
+
+class Item
+abstract class RangoItem{
+  +void ampliarRuta(List<Ciudad> ruta, Mapa mapa, Random random)
+  +abstract boolean debeAmpliar(List<? extends Object> ruta);
+}
+
+Item -- RangoItem 
+
+class ItemComun
+class ItemValioso
+class ItemMuyValioso
+
+RangoItem <|-- ItemComun 
+RangoItem <|-- ItemValioso
+RangoItem <|-- ItemMuyValioso 
+
+@enduml

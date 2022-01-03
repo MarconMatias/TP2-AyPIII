@@ -1,0 +1,8 @@
+@startuml ST_Visitada
+title Estados de visitada de Ciudad
+
+[*] -r-> CiudadNoVisitada
+CiudadNoVisitada -r-> CiudadVisitada
+CiudadVisitada -> CiudadNoVisitada
+
+@enduml

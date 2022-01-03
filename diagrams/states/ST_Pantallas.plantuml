@@ -1,0 +1,88 @@
+@startuml ST_Pantallas_simplificado
+hide empty description
+
+title Diagrama de estados de pantallas por navegación del usuario\n<size:16>No incluye estados intermedios de transición, ni cambios emergentes por eventos emitidos por el modelo.</size>
+
+[*] -> Splash
+Splash -> Policias: abrirMenu()
+Policias -> AcercaDe0
+AcercaDe0: AcercaDe(juego, null,…)
+AcercaDe0 -[#gray]> Policias
+
+Policias ---> LibroCiudad: nuevaMision()
+LibroCiudad -[#gray]--> Policias
+
+LibroCiudad -> Mapa
+Mapa -[#gray]> LibroCiudad
+Mapa -[#green]-> LibroCiudad: viajar
+
+LibroCiudad --> Edificios
+Edificios -[#gray]-> LibroCiudad
+
+LibroCiudad --> Orden
+Orden -[#gray]> LibroCiudad
+AcercaDe1: AcercaDe(juego, mision, …)
+AcercaDe1 -[#gray]-> Mapa
+AcercaDe1 -[#gray]-> Edificios
+AcercaDe1 -[#gray]-> Expediente
+
+LibroCiudad --> AcercaDe1
+Edificios --> Testigo
+Edificios --> AcercaDe1
+Testigo -[#gray]> LibroCiudad
+Testigo -> Edificios
+Testigo -> Orden
+Orden --> Expediente
+Expediente -[#gray]-> LibroCiudad
+Expediente --> AcercaDe1
+
+@enduml
+
+@startuml ST_Pantallas_transicion_simple
+hide empty description
+
+title Ejemplo de transición simple entre 2 pantallas
+
+[*] --> Splash
+Splash -r-> SplashAPolicia: abrirMenu()
+SplashAPolicia: Splash\nPolicia
+SplashAPolicia -r-> Policia: liberar()
+Policia -d-> PoliciaALibroCiudad: nuevaMision()
+PoliciaALibroCiudad: Policia\nLibroCiudad
+PoliciaALibroCiudad -l-> LibroCiudad: liberar()
+LibroCiudad -l-> [*]
+@enduml
+
+@startuml ST_Pantalla_VisitarEdificioDormir
+hide empty description
+title Detalle de transición al visitar un edificio y dormir
+
+[*] -> Edificios
+Edificios -> Transicion1: visitarEdificio(…)\nmonstrarAccion(…)\nponerArriba(…)
+Transicion1: Dormir\nEdificios
+Transicion1 -> Transicion2: abrirTestigo(…)\nponerSiguiente(…)
+Transicion2: Dormir\nEdificios\nTestigo
+Transicion2 -d-> Dormir: liberar()\nsacar(…)
+Dormir: Dormir\nTestigo
+Dormir -l> Testigo: sacarPantallaActual()\nliberar()
+Testigo -l-> [*]
+@enduml
+
+@startuml ST_Pantalla_VisitarEdificioDormirDisparo
+hide empty description
+title Detalle de transición al visitar un edificio y dormir
+
+[*] -> Edificios
+Edificios -> Transicion1: visitarEdificio(…)\nmonstrarAccion(…)\nponerArriba(…)
+Transicion1: Dormir\nEdificios
+Transicion1 -> Transicion2: monstrarAccion(…)\nponerArriba(…)
+Transicion2: Disparo\nDormir\nEdificios
+Transicion2 -> Transicion3: abrirTestigo(…)\nponerSiguiente(…)
+Transicion3: Disparo\nDormir\nEdificios\nTestigo
+Transicion3 -d-> Disparo: liberar()\nsacar(…)
+Disparo: Disparo\nDormir\nTestigo
+Disparo -l> Dormir: sacarPantallaActual()\nliberar()
+Dormir: Dormir\nTestigo
+Dormir -l> Testigo: sacarPantallaActual()\nliberar()
+Testigo -l-> [*]
+@enduml

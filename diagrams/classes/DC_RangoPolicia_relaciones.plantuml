@@ -1,0 +1,25 @@
+@startuml RangoPolicia_relaciones
+hide empty members
+
+class Policia {}
+class RangoPolicia {}
+interface IComportamientoRango {}
+class ComoNovato implements IComportamientoRango {}
+class ComoDetective implements IComportamientoRango {}
+class ComoInvestigador implements IComportamientoRango {}
+class ComoSargento implements IComportamientoRango {}
+
+Policia "1" *-- "1" RangoPolicia
+RangoPolicia "1" *-- "1" IComportamientoRango
+IComportamientoRango ..> Pista
+Pista ..> NivelPista
+
+ComoNovato "0..1" *-- "1" PistaFacil
+ComoDetective "0..1" *-- "1" PistaFacil
+ComoInvestigador "0..1" *-- "1" PistaMedia
+ComoSargento "0..1" *-- "1" PistaDificil
+
+class PistaFacil extends NivelPista
+class PistaMedia extends NivelPista
+class PistaDificil extends NivelPista
+@enduml

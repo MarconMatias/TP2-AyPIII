@@ -1,4 +1,6 @@
 .idea/
+.settings/
+.vscode/
 target/
 pom.xml.tag
 pom.xml.releaseBackup
@@ -10,3 +12,4 @@ buildNumber.properties
 .mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
 *.iml
+ignore_temp_files

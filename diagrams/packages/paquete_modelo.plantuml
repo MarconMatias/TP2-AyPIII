@@ -1,0 +1,53 @@
+@startuml
+title Diagrama general de paquetes modelo\n<size:13>Excepto relaciones adicionales de Lector y paquetes internos</size>
+      
+package Computadora {
+  package OrdenDeArresto
+}
+
+together {
+  package Ciudad
+  package Edificio
+  package Pista
+}
+
+package Item
+package Calendario
+package Juego
+package Ladron
+package Policia
+
+Ciudad ..> Calendario
+Ciudad .. Edificio
+Ciudad .. Ladron
+Ciudad ..> Pista
+Ciudad .. Policia
+
+Computadora ..> Ladron
+
+Edificio ..> Calendario
+Edificio ..> Ladron
+Edificio ..> Pista
+Edificio .. Policia
+
+Item ..> Ciudad
+
+Ladron ..> Pista
+Ladron ..> Policia
+
+' En Misión se instancian clases de estos paquetes
+Juego ..> Calendario
+Juego ..> Ciudad
+Juego ..> Computadora
+Juego ..> Item
+Juego ..> Policia
+Juego ..> Ladron
+
+Policia ..> Calendario
+Policia ..> OrdenDeArresto
+
+
+Calendario -[hidden]right- Pista
+Pista -[hidden]right- Policia
+
+@enduml

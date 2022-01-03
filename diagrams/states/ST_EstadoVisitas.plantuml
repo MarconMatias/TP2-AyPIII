@@ -1,0 +1,27 @@
+@startuml ST_EstadoVisitas
+title Estados de EstadoVisitasCiudad
+
+[*] -r-> SinVisitas
+SinVisitas -r-> Visito1Edificio
+Visito1Edificio -r-> VisitoMuchosEdificios
+VisitoMuchosEdificios -r-> VisitoMuchosEdificios
+@enduml
+
+@startuml ST_EstadoVisitas_Combinado
+hide empty description
+title Estados de Ciudad y EstadoVisitasCiudad
+
+[*] --> CiudadNoVisitada
+CiudadNoVisitada: visitada=CiudadNoVisitada
+CiudadNoVisitada --> SinVisitas
+SinVisitas: visitada=CiudadVisitada\nvisitada.estado=SinVisitas
+SinVisitas -[#gray]-> CiudadNoVisitada
+SinVisitas --> Visito1Edificio
+Visito1Edificio: visitada=CiudadVisitada\nvisitada.estado=Visito1Edificio
+Visito1Edificio -[#gray]-> CiudadNoVisitada
+Visito1Edificio --> VisitoMuchosEdificios
+VisitoMuchosEdificios: visitada=CiudadVisitada\nvisitada.estado=VisitoMuchosEdificios
+VisitoMuchosEdificios -[#gray]-> CiudadNoVisitada
+VisitoMuchosEdificios --> VisitoMuchosEdificios
+
+@enduml

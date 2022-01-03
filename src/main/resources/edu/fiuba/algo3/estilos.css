@@ -1,0 +1,121 @@
+.burbujaTestimonio {
+    -fx-padding: 48;
+}
+
+.burbujaTestimonio .text {
+}
+
+.cargandoMapamundi .text {
+    -fx-effect: dropshadow(gaussian, #000, 10, 0.5, 8,8);
+    -fx-fill: #fff;
+    -fx-stroke: #40202060;
+    -fx-stroke-width: 16;
+    -fx-font: 120 Arial;
+    -fx-wrap-text: true;
+}
+
+.etiquetaMensajeFinal {
+    -fx-background-color: #ffffff7f;
+    -fx-padding: 24;
+}
+
+.etiquetaMensajeFinal .text {
+    -fx-fill: #ffffffff;
+    -fx-stroke: #40202000;
+    -fx-stroke-width: 16;
+    -fx-font: 100 Arial;
+    -fx-wrap-text: true;
+}
+.etiquetaNombreAccion .text {
+    -fx-effect: dropshadow(gaussian, #000, 10, 0.5, 8,8);
+    -fx-fill: #fff;
+    -fx-stroke: #40202060;
+    -fx-stroke-width: 16;
+    -fx-font: 120 Arial;
+    -fx-wrap-text: true;
+}
+
+.etiquetaNombreTestigo .text {
+    -fx-effect: dropshadow(gaussian, #000, 10, 0.5, 8,8);
+    -fx-fill: #fff;
+    -fx-stroke: #40202060;
+    -fx-stroke-width: 16;
+    -fx-font: 120 Arial;
+    -fx-wrap-text: true;
+}
+
+.etiquetaTituloFinal .text {
+    -fx-effect: dropshadow(gaussian, #000, 10, 0.5, 8,8);
+    -fx-fill: #fff;
+    -fx-stroke: #40202060;
+    -fx-stroke-width: 16;
+    -fx-font: 120 Arial;
+    -fx-wrap-text: true;
+}
+.etiquetaTextoReloj {
+    -fx-background-color: #800000;
+    -fx-text-fill: white;
+    -fx-border-color: black;
+    -fx-border-insets: 2;
+    -fx-border-width: 5;
+}
+
+.listaSospechosos {
+    -fx-background-color:transparent;
+    -fx-border-color: transparent;
+    -fx-border-insets: 0;
+    -fx-border-width: 5;
+    -fx-padding: 0;
+}
+
+.listaSospechosos .list-cell {
+    -fx-background-color: transparent;
+}
+
+.listaSospechosos:focused {
+    -fx-border-color: blue;
+    -fx-text-fill: blue;
+}
+
+.textoContinuarAccion .text {
+    -fx-effect: dropshadow(gaussian, #000, 10, 0.5, 8,8);
+    -fx-fill: #fff;
+    -fx-stroke: #40202060;
+    -fx-stroke-width: 16;
+    -fx-font: 100 Arial;
+    -fx-wrap-text: true;
+}
+
+.textoContinuarFinal .text {
+    -fx-effect: dropshadow(gaussian, #000, 10, 0.5, 8,8);
+    -fx-fill: #fff;
+    -fx-stroke: #40202060;
+    -fx-stroke-width: 16;
+    -fx-font: 100 Arial;
+    -fx-wrap-text: true;
+}
+
+.vistaDetallesOrden {
+    -fx-background-color:transparent;
+    -fx-border-color: black;
+    -fx-border-insets: 0;
+    -fx-border-width: 5;
+    -fx-padding: 25;
+}
+
+.vistaDetallesOrden:focused {
+    -fx-border-color: blue;
+    -fx-text-fill: blue;
+}
+
+.vistaDetallesOrden:focused .etiquetaTituloDetalles {
+    -fx-text-fill: blue;
+}
+
+.vistaDetalle:focused .tipoDetalle, .vistaDetalle:focused .valorDetalle {
+    -fx-text-fill: blue;
+}
+
+.vistaDetallesOrden .viewport {
+       -fx-background-color: transparent;
+}
