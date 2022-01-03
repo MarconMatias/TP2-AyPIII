@@ -4,6 +4,7 @@ import org.json.simple.parser.JSONParser;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -97,7 +98,7 @@ public class LectorJson {
     {
         try
         {
-            return leerJsonMap(new FileReader(ruta));
+            return leerJsonMap(new FileReader(ruta, StandardCharsets.UTF_8));
         } catch(IOException ex){
             ex.printStackTrace();
             throw new RuntimeException("Error al leer el archivo:" + ex.getMessage());
