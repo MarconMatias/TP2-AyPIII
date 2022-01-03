@@ -1,6 +1,5 @@
-@startuml
-
-title Classes - Acciones y estados
+@startuml DC_IAccion
+hide empty members
 
 interface IAccion {
   + void avanzarCalendario();
@@ -20,6 +19,10 @@ IAccion <|-- HeridaPorCuchillo
 IAccion <|-- Enfrentamiento 
 IAccion <|-- EmitirOrden 
 IAccion <|-- Dormir 
+
+@enduml
+@startuml DC_IEstado
+hide empty members
 
 interface IEstado {
   + int demoraEdificio()
