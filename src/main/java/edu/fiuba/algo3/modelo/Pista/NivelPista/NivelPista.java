@@ -6,13 +6,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public abstract class NivelPista {
-
     protected NivelPista() {}
 
-    public Collection<IPista> filtrarPistas(Collection<IPista> pistas){
+    public Collection<IPista> filtrarPistas(Collection<IPista> pistas) {
         ArrayList<IPista> pistasFiltradas = new ArrayList<IPista>();
-        for (IPista pista : pistas){
-
+        for (IPista pista : pistas) {
             pista.agregarAListaSiEsNivel(pistasFiltradas,this);
         }
         return pistasFiltradas;

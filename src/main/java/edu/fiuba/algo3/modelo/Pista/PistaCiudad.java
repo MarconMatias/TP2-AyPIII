@@ -19,11 +19,9 @@ public class PistaCiudad implements IPista {
 
     @Override
     public void agregarAListaSiEsNivel(ArrayList<IPista> pistas, NivelPista nivel) {
-        if(this.nivel.esEquivalente(nivel))
-        {
+        if(this.nivel.esEquivalente(nivel)) {
             pistas.add(this);
         }
-
     }
 
     public boolean esDeUnTipoDe(Collection<String> tipos) {
